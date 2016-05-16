@@ -54,7 +54,6 @@
   },
   "devDependencies": {
     "ava": "^0.14.0",
-    "publish-please": "^2.0.0",
     "typescript": "^1.8.10",
     "typings": "^0.8.1",
     "xo": "^0.15.1"
@@ -62,8 +61,6 @@
   "readme": "ERROR: No README data found!",
   "_id": "connectwise-rest-api@0.0.4",
   "scripts": {
-    "publish-please": "publish-please",
-    "prepublish": "publish-please guard",
     "test": "xo && ava"
   }
 }
