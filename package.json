@@ -1,15 +1,28 @@
 {
   "name": "connectwise-rest-api",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "main": "./release/index.js",
   "description": "Nodejs Module to interact with Connectwise's REST API",
-  "author": "Cameron Sowder <cameron@sowder.io>",
+  "author": {
+    "name": "Cameron Sowder",
+    "email": "cameron@sowder.io"
+  },
   "private": false,
   "dependencies": {
     "isomorphic-fetch": "^2.2.1"
   },
   "devDependencies": {
+    "ava": "^0.14.0",
+    "publish-please": "^2.0.0",
     "typescript": "^1.8.10",
-    "typings": "^0.8.1"
+    "typings": "^0.8.1",
+    "xo": "^0.15.1"
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "connectwise-rest-api@0.0.4",
+  "scripts": {
+    "publish-please": "publish-please",
+    "prepublish": "publish-please guard",
+    "test": "xo && ava"
   }
 }
