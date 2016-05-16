@@ -1,6 +1,6 @@
 {
   "name": "connectwise-rest-api",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "./release/index.js",
   "description": "Nodejs Module to interact with Connectwise's REST API",
   "author": "Cameron Sowder <cameron@sowder.io>",
