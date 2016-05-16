@@ -1,4 +1,3 @@
-/// <reference path="../../typings/main.d.ts" />
 export interface AgreementReference {
     "id"?: number;
     "name"?: string;

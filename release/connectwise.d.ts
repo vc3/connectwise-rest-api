@@ -1,4 +1,3 @@
-/// <reference path="../typings/main.d.ts" />
 import * as comp from './api/companyAPI';
 import * as exp from './api/expenseAPI';
 import * as fin from './api/financeAPI';
