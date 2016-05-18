@@ -1,4 +1,4 @@
-release/*.d.ts
+release/**/*.d.ts
 src
 typings
 tsconfig.json
