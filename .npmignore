@@ -1,0 +1,6 @@
+release/*.d.ts
+src
+typings
+tsconfig.json
+tslint.json
+typings.json
