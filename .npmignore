@@ -4,4 +4,4 @@ typings
 tsconfig.json
 tslint.json
 typings.json
-connectwise.d.ts
+gulpfile.js
