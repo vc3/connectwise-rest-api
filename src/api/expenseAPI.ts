@@ -1,4 +1,8 @@
-///<reference path="../../typings/main.d.ts"/>
+///<reference path="../../typings/index.d.ts"/>
+/* tslint:disable */
+
+'use strict';
+
 import * as querystring from 'querystring';
 import * as fetch from 'isomorphic-fetch';
 import {assign} from './assign';
@@ -71,14 +75,14 @@ export interface ExpenseEntry {
 }
 
 
-export enum ChargeToTypeEnum { 
+export enum ChargeToTypeEnum {
     ServiceTicket = <any> 'ServiceTicket',
     ProjectTicket = <any> 'ProjectTicket',
     ChargeCode = <any> 'ChargeCode',
     Activity = <any> 'Activity'
 }
 
-export enum BillableOptionEnum { 
+export enum BillableOptionEnum {
     Billable = <any> 'Billable',
     DoNotBill = <any> 'DoNotBill',
     NoCharge = <any> 'NoCharge',
@@ -121,13 +125,13 @@ export interface ExpenseType {
 }
 
 
-export enum BillExpensesEnum { 
+export enum BillExpensesEnum {
     Billable = <any> 'Billable',
     DoNotBill = <any> 'DoNotBill',
     NoCharge = <any> 'NoCharge'
 }
 
-export enum InvoiceMarkupOptionEnum { 
+export enum InvoiceMarkupOptionEnum {
     Percent = <any> 'Percent',
     Amount = <any> 'Amount',
     Mile = <any> 'Mile'
@@ -197,9 +201,9 @@ export interface ValidationError {
         }
 
         /**
-         * 
+         *
          * Get Expense Entries Count
-         * @param conditions 
+         * @param conditions
          */
         public expenseEntriesCountGet (params: {  conditions?: string; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Count> {
             const localVarPath = this.basePath + '/expense/entries/count';
@@ -213,7 +217,7 @@ export interface ValidationError {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -233,12 +237,12 @@ export interface ValidationError {
             });
         }
         /**
-         * 
+         *
          * Get Expense Entries
-         * @param conditions 
-         * @param orderBy 
-         * @param page 
-         * @param pageSize 
+         * @param conditions
+         * @param orderBy
+         * @param page
+         * @param pageSize
          */
         public expenseEntriesGet (params: {  conditions?: string; orderBy?: string; page?: number; pageSize?: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Array<ExpenseEntry>> {
             const localVarPath = this.basePath + '/expense/entries';
@@ -264,7 +268,7 @@ export interface ValidationError {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -284,9 +288,9 @@ export interface ValidationError {
             });
         }
         /**
-         * 
+         *
          * Delete Expense Entry By Id
-         * @param id 
+         * @param id
          */
         public expenseEntriesIdDelete (params: {  id: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<{}> {
             const localVarPath = this.basePath + '/expense/entries/{id}'
@@ -301,7 +305,7 @@ export interface ValidationError {
             let fetchParams = {
                 method: 'DELETE',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -321,9 +325,9 @@ export interface ValidationError {
             });
         }
         /**
-         * 
+         *
          * Get Expense Entry By Id
-         * @param id 
+         * @param id
          */
         public expenseEntriesIdGet (params: {  id: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<ExpenseEntry> {
             const localVarPath = this.basePath + '/expense/entries/{id}'
@@ -338,7 +342,7 @@ export interface ValidationError {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -358,10 +362,10 @@ export interface ValidationError {
             });
         }
         /**
-         * 
+         *
          * Update Expense Entry
-         * @param id 
-         * @param operations 
+         * @param id
+         * @param operations
          */
         public expenseEntriesIdPatch (params: {  id: number; operations: Array<PatchOperation>; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<ExpenseEntry> {
             const localVarPath = this.basePath + '/expense/entries/{id}'
@@ -383,7 +387,7 @@ export interface ValidationError {
                 method: 'PATCH',
                 headers: headerParams,
                 body: JSON.stringify(params.operations),
-                
+
             };
 
             if (extraFetchParams) {
@@ -403,10 +407,10 @@ export interface ValidationError {
             });
         }
         /**
-         * 
+         *
          * Replace Expense Entry
-         * @param id 
-         * @param expenseEntry 
+         * @param id
+         * @param expenseEntry
          */
         public expenseEntriesIdPut (params: {  id: number; expenseEntry: ExpenseEntry; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<ExpenseEntry> {
             const localVarPath = this.basePath + '/expense/entries/{id}'
@@ -428,7 +432,7 @@ export interface ValidationError {
                 method: 'PUT',
                 headers: headerParams,
                 body: JSON.stringify(params.expenseEntry),
-                
+
             };
 
             if (extraFetchParams) {
@@ -448,9 +452,9 @@ export interface ValidationError {
             });
         }
         /**
-         * 
+         *
          * Create Expense Entry
-         * @param expenseEntry 
+         * @param expenseEntry
          */
         public expenseEntriesPost (params: {  expenseEntry: ExpenseEntry; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<ExpenseEntry> {
             const localVarPath = this.basePath + '/expense/entries';
@@ -467,7 +471,7 @@ export interface ValidationError {
                 method: 'POST',
                 headers: headerParams,
                 body: JSON.stringify(params.expenseEntry),
-                
+
             };
 
             if (extraFetchParams) {
@@ -502,9 +506,9 @@ export interface ValidationError {
         }
 
         /**
-         * 
+         *
          * Get Expense Types Count
-         * @param conditions 
+         * @param conditions
          */
         public expenseTypesCountGet (params: {  conditions?: string; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Count> {
             const localVarPath = this.basePath + '/expense/types/count';
@@ -518,7 +522,7 @@ export interface ValidationError {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -538,12 +542,12 @@ export interface ValidationError {
             });
         }
         /**
-         * 
+         *
          * Get Expense Types
-         * @param conditions 
-         * @param orderBy 
-         * @param page 
-         * @param pageSize 
+         * @param conditions
+         * @param orderBy
+         * @param page
+         * @param pageSize
          */
         public expenseTypesGet (params: {  conditions?: string; orderBy?: string; page?: number; pageSize?: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Array<ExpenseType>> {
             const localVarPath = this.basePath + '/expense/types';
@@ -569,7 +573,7 @@ export interface ValidationError {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -589,9 +593,9 @@ export interface ValidationError {
             });
         }
         /**
-         * 
+         *
          * Delete Expense Type By Id
-         * @param id 
+         * @param id
          */
         public expenseTypesIdDelete (params: {  id: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<{}> {
             const localVarPath = this.basePath + '/expense/types/{id}'
@@ -606,7 +610,7 @@ export interface ValidationError {
             let fetchParams = {
                 method: 'DELETE',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -626,9 +630,9 @@ export interface ValidationError {
             });
         }
         /**
-         * 
+         *
          * Get Expense Type By Id
-         * @param id 
+         * @param id
          */
         public expenseTypesIdGet (params: {  id: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<ExpenseType> {
             const localVarPath = this.basePath + '/expense/types/{id}'
@@ -643,7 +647,7 @@ export interface ValidationError {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -663,10 +667,10 @@ export interface ValidationError {
             });
         }
         /**
-         * 
+         *
          * Update Expense Type
-         * @param id 
-         * @param operations 
+         * @param id
+         * @param operations
          */
         public expenseTypesIdPatch (params: {  id: number; operations: Array<PatchOperation>; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<ExpenseType> {
             const localVarPath = this.basePath + '/expense/types/{id}'
@@ -688,7 +692,7 @@ export interface ValidationError {
                 method: 'PATCH',
                 headers: headerParams,
                 body: JSON.stringify(params.operations),
-                
+
             };
 
             if (extraFetchParams) {
@@ -708,10 +712,10 @@ export interface ValidationError {
             });
         }
         /**
-         * 
+         *
          * Replace Expense Type
-         * @param id 
-         * @param expenseType 
+         * @param id
+         * @param expenseType
          */
         public expenseTypesIdPut (params: {  id: number; expenseType: ExpenseType; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<ExpenseType> {
             const localVarPath = this.basePath + '/expense/types/{id}'
@@ -733,7 +737,7 @@ export interface ValidationError {
                 method: 'PUT',
                 headers: headerParams,
                 body: JSON.stringify(params.expenseType),
-                
+
             };
 
             if (extraFetchParams) {
@@ -753,9 +757,9 @@ export interface ValidationError {
             });
         }
         /**
-         * 
+         *
          * Create Expense Type
-         * @param expenseType 
+         * @param expenseType
          */
         public expenseTypesPost (params: {  expenseType: ExpenseType; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<ExpenseType> {
             const localVarPath = this.basePath + '/expense/types';
@@ -772,7 +776,7 @@ export interface ValidationError {
                 method: 'POST',
                 headers: headerParams,
                 body: JSON.stringify(params.expenseType),
-                
+
             };
 
             if (extraFetchParams) {

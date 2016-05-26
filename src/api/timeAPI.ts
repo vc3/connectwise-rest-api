@@ -1,3 +1,9 @@
+///<reference path="../../typings/index.d.ts"/>
+/* tslint:disable */
+
+'use strict';
+
+
 import * as querystring from 'querystring';
 import * as fetch from 'isomorphic-fetch';
 import {assign} from './assign';
@@ -38,7 +44,7 @@ export interface CustomFieldValue {
 }
 
 
-export enum TypeEnum { 
+export enum TypeEnum {
     Text = <any> 'Text',
     Button = <any> 'Button',
     Currency = <any> 'Currency',
@@ -52,7 +58,7 @@ export enum TypeEnum {
     Password = <any> 'Password'
 }
 
-export enum EntryMethodEnum { 
+export enum EntryMethodEnum {
     EntryField = <any> 'EntryField',
     List = <any> 'List',
     Option = <any> 'Option'
@@ -123,14 +129,14 @@ export interface TimeEntry {
 }
 
 
-export enum ChargeToTypeEnum { 
+export enum ChargeToTypeEnum {
     ServiceTicket = <any> 'ServiceTicket',
     ProjectTicket = <any> 'ProjectTicket',
     ChargeCode = <any> 'ChargeCode',
     Activity = <any> 'Activity'
 }
 
-export enum BillableOptionEnum { 
+export enum BillableOptionEnum {
     Billable = <any> 'Billable',
     DoNotBill = <any> 'DoNotBill',
     NoCharge = <any> 'NoCharge',
@@ -178,9 +184,9 @@ export interface WorkTypeReference {
         }
 
         /**
-         * 
+         *
          * Get Time Entries Count
-         * @param conditions 
+         * @param conditions
          */
         public timeEntriesCountGet (params: {  conditions?: string; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Count> {
             const localVarPath = this.basePath + '/time/entries/count';
@@ -194,7 +200,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -214,12 +220,12 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Get Time Entries
-         * @param conditions 
-         * @param orderBy 
-         * @param page 
-         * @param pageSize 
+         * @param conditions
+         * @param orderBy
+         * @param page
+         * @param pageSize
          */
         public timeEntriesGet (params: {  conditions?: string; orderBy?: string; page?: number; pageSize?: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Array<TimeEntry>> {
             const localVarPath = this.basePath + '/time/entries';
@@ -245,7 +251,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -265,9 +271,9 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Delete Time Entry By Id
-         * @param id 
+         * @param id
          */
         public timeEntriesIdDelete (params: {  id: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<{}> {
             const localVarPath = this.basePath + '/time/entries/{id}'
@@ -282,7 +288,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'DELETE',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -302,9 +308,9 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Get Time Entry By Id
-         * @param id 
+         * @param id
          */
         public timeEntriesIdGet (params: {  id: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<TimeEntry> {
             const localVarPath = this.basePath + '/time/entries/{id}'
@@ -319,7 +325,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -339,10 +345,10 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Update Time Entry
-         * @param id 
-         * @param operations 
+         * @param id
+         * @param operations
          */
         public timeEntriesIdPatch (params: {  id: number; operations: Array<PatchOperation>; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<TimeEntry> {
             const localVarPath = this.basePath + '/time/entries/{id}'
@@ -364,7 +370,7 @@ export interface WorkTypeReference {
                 method: 'PATCH',
                 headers: headerParams,
                 body: JSON.stringify(params.operations),
-                
+
             };
 
             if (extraFetchParams) {
@@ -384,10 +390,10 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Replace Time Entry
-         * @param id 
-         * @param timeEntry 
+         * @param id
+         * @param timeEntry
          */
         public timeEntriesIdPut (params: {  id: number; timeEntry: TimeEntry; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<TimeEntry> {
             const localVarPath = this.basePath + '/time/entries/{id}'
@@ -409,7 +415,7 @@ export interface WorkTypeReference {
                 method: 'PUT',
                 headers: headerParams,
                 body: JSON.stringify(params.timeEntry),
-                
+
             };
 
             if (extraFetchParams) {
@@ -429,9 +435,9 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Create Time Entry
-         * @param timeEntry 
+         * @param timeEntry
          */
         public timeEntriesPost (params: {  timeEntry: TimeEntry; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<TimeEntry> {
             const localVarPath = this.basePath + '/time/entries';
@@ -448,7 +454,7 @@ export interface WorkTypeReference {
                 method: 'POST',
                 headers: headerParams,
                 body: JSON.stringify(params.timeEntry),
-                
+
             };
 
             if (extraFetchParams) {

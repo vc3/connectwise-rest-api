@@ -1,3 +1,8 @@
+///<reference path="../../typings/index.d.ts"/>
+/* tslint:disable */
+
+'use strict';
+
 import * as querystring from 'querystring';
 
 import * as fetch from 'isomorphic-fetch';
@@ -77,7 +82,7 @@ export interface CatalogItem {
 }
 
 
-export enum ProductClassEnum { 
+export enum ProductClassEnum {
     Agreement = <any> 'Agreement',
     Bundle = <any> 'Bundle',
     Inventory = <any> 'Inventory',
@@ -85,7 +90,7 @@ export enum ProductClassEnum {
     Service = <any> 'Service'
 }
 
-export enum PriceAttributeEnum { 
+export enum PriceAttributeEnum {
     FixedFee = <any> 'FixedFee',
     NotToExceed = <any> 'NotToExceed',
     TimeAndMaterials = <any> 'TimeAndMaterials',
@@ -225,13 +230,6 @@ export interface PricingBreak {
     "info"?: Metadata;
 }
 
-
-export enum PriceMethodEnum { 
-    FlatRateForRange = <any> 'FlatRateForRange',
-    PercentMarkupFromCost = <any> 'PercentMarkupFromCost',
-    PercentMarkdownFromPrice = <any> 'PercentMarkdownFromPrice',
-    PricePerUnit = <any> 'PricePerUnit'
-}
 export interface PricingDetail {
     "id"?: number;
     "product"?: CatalogItemReference;
@@ -341,7 +339,7 @@ export interface ProductItem {
 }
 
 
-export enum ChargeToTypeEnum { 
+export enum ChargeToTypeEnum {
     Ticket = <any> 'Ticket',
     Project = <any> 'Project',
     Invoice = <any> 'Invoice',
@@ -349,14 +347,14 @@ export enum ChargeToTypeEnum {
     SalesOrder = <any> 'SalesOrder'
 }
 
-export enum PriceMethodEnum { 
+export enum PriceMethodEnum {
     FlatRateForRange = <any> 'FlatRateForRange',
     PercentMarkupFromCost = <any> 'PercentMarkupFromCost',
     PercentMarkdownFromPrice = <any> 'PercentMarkdownFromPrice',
     PricePerUnit = <any> 'PricePerUnit'
 }
 
-export enum BillableOptionEnum { 
+export enum BillableOptionEnum {
     Billable = <any> 'Billable',
     DoNotBill = <any> 'DoNotBill',
     NoCharge = <any> 'NoCharge'
@@ -402,7 +400,7 @@ export interface ProductRecurring {
 }
 
 
-export enum CycleTypeEnum { 
+export enum CycleTypeEnum {
     CalendarYear = <any> 'CalendarYear',
     ContractYear = <any> 'ContractYear'
 }
@@ -429,7 +427,7 @@ export interface ProductType {
 }
 
 
-export enum TypeXrefEnum { 
+export enum TypeXrefEnum {
     InventoryPart = <any> 'InventoryPart',
     NonInventoryPart = <any> 'NonInventoryPart',
     OtherCharge = <any> 'OtherCharge',
@@ -578,7 +576,7 @@ export interface ShipmentMethod {
 }
 
 
-export enum ShippingTypeEnum { 
+export enum ShippingTypeEnum {
     None = <any> 'None',
     FedExTwoDay = <any> 'FedExTwoDay',
     FedExPriority = <any> 'FedExPriority',
@@ -683,10 +681,10 @@ export interface WarehouseReference {
         }
 
         /**
-         * 
+         *
          * Delete Catalog Component By Id
-         * @param id 
-         * @param componentId 
+         * @param id
+         * @param componentId
          */
         public procurementCatalogIdComponentsComponentIdDelete (params: {  id: number; componentId: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<{}> {
             const localVarPath = this.basePath + '/procurement/catalog/{id}/components/{componentId}'
@@ -706,7 +704,7 @@ export interface WarehouseReference {
             let fetchParams = {
                 method: 'DELETE',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -726,10 +724,10 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Get Catalog Component By Id
-         * @param id 
-         * @param componentId 
+         * @param id
+         * @param componentId
          */
         public procurementCatalogIdComponentsComponentIdGet (params: {  id: number; componentId: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<CatalogComponent> {
             const localVarPath = this.basePath + '/procurement/catalog/{id}/components/{componentId}'
@@ -749,7 +747,7 @@ export interface WarehouseReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -769,11 +767,11 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Update Catalog Component
-         * @param id 
-         * @param componentId 
-         * @param operations 
+         * @param id
+         * @param componentId
+         * @param operations
          */
         public procurementCatalogIdComponentsComponentIdPatch (params: {  id: number; componentId: number; operations: Array<PatchOperation>; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<CatalogComponent> {
             const localVarPath = this.basePath + '/procurement/catalog/{id}/components/{componentId}'
@@ -800,7 +798,7 @@ export interface WarehouseReference {
                 method: 'PATCH',
                 headers: headerParams,
                 body: JSON.stringify(params.operations),
-                
+
             };
 
             if (extraFetchParams) {
@@ -820,11 +818,11 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Replace Catalog Component
-         * @param id 
-         * @param componentId 
-         * @param catalogComponent 
+         * @param id
+         * @param componentId
+         * @param catalogComponent
          */
         public procurementCatalogIdComponentsComponentIdPut (params: {  id: number; componentId: number; catalogComponent: CatalogComponent; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<CatalogComponent> {
             const localVarPath = this.basePath + '/procurement/catalog/{id}/components/{componentId}'
@@ -851,7 +849,7 @@ export interface WarehouseReference {
                 method: 'PUT',
                 headers: headerParams,
                 body: JSON.stringify(params.catalogComponent),
-                
+
             };
 
             if (extraFetchParams) {
@@ -871,10 +869,10 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Get Catalog Components Count
-         * @param id 
-         * @param conditions 
+         * @param id
+         * @param conditions
          */
         public procurementCatalogIdComponentsCountGet (params: {  id: number; conditions?: string; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Count> {
             const localVarPath = this.basePath + '/procurement/catalog/{id}/components/count'
@@ -893,7 +891,7 @@ export interface WarehouseReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -913,13 +911,13 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Get Catalog Components
-         * @param id 
-         * @param conditions 
-         * @param orderBy 
-         * @param page 
-         * @param pageSize 
+         * @param id
+         * @param conditions
+         * @param orderBy
+         * @param page
+         * @param pageSize
          */
         public procurementCatalogIdComponentsGet (params: {  id: number; conditions?: string; orderBy?: string; page?: number; pageSize?: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Array<CatalogComponent>> {
             const localVarPath = this.basePath + '/procurement/catalog/{id}/components'
@@ -950,7 +948,7 @@ export interface WarehouseReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -970,10 +968,10 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Create Catalog Component
-         * @param id 
-         * @param catalogComponent 
+         * @param id
+         * @param catalogComponent
          */
         public procurementCatalogIdComponentsPost (params: {  id: number; catalogComponent: CatalogComponent; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<CatalogComponent> {
             const localVarPath = this.basePath + '/procurement/catalog/{id}/components'
@@ -995,7 +993,7 @@ export interface WarehouseReference {
                 method: 'POST',
                 headers: headerParams,
                 body: JSON.stringify(params.catalogComponent),
-                
+
             };
 
             if (extraFetchParams) {
@@ -1030,10 +1028,10 @@ export interface WarehouseReference {
         }
 
         /**
-         * 
+         *
          * Get Inventory Quantity On Hand
-         * @param catalogItemIdentifier 
-         * @param warehouseBinId 
+         * @param catalogItemIdentifier
+         * @param warehouseBinId
          */
         public procurementCatalogCatalogItemIdentifierQuantityOnHandGet (params: {  catalogItemIdentifier: string; warehouseBinId?: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Count> {
             const localVarPath = this.basePath + '/procurement/catalog/{catalogItemIdentifier}/quantityOnHand'
@@ -1052,7 +1050,7 @@ export interface WarehouseReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -1072,9 +1070,9 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Get Catalogs Count
-         * @param conditions 
+         * @param conditions
          */
         public procurementCatalogCountGet (params: {  conditions?: string; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Count> {
             const localVarPath = this.basePath + '/procurement/catalog/count';
@@ -1088,7 +1086,7 @@ export interface WarehouseReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -1108,12 +1106,12 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Get Catalogs
-         * @param conditions 
-         * @param orderBy 
-         * @param page 
-         * @param pageSize 
+         * @param conditions
+         * @param orderBy
+         * @param page
+         * @param pageSize
          */
         public procurementCatalogGet (params: {  conditions?: string; orderBy?: string; page?: number; pageSize?: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Array<CatalogItem>> {
             const localVarPath = this.basePath + '/procurement/catalog';
@@ -1139,7 +1137,7 @@ export interface WarehouseReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -1159,9 +1157,9 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Delete Catalog By Id
-         * @param id 
+         * @param id
          */
         public procurementCatalogIdDelete (params: {  id: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<{}> {
             const localVarPath = this.basePath + '/procurement/catalog/{id}'
@@ -1176,7 +1174,7 @@ export interface WarehouseReference {
             let fetchParams = {
                 method: 'DELETE',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -1196,9 +1194,9 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Get Catalog By Id
-         * @param id 
+         * @param id
          */
         public procurementCatalogIdGet (params: {  id: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<CatalogItem> {
             const localVarPath = this.basePath + '/procurement/catalog/{id}'
@@ -1213,7 +1211,7 @@ export interface WarehouseReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -1233,10 +1231,10 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Update Catalog
-         * @param id 
-         * @param operations 
+         * @param id
+         * @param operations
          */
         public procurementCatalogIdPatch (params: {  id: number; operations: Array<PatchOperation>; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<CatalogItem> {
             const localVarPath = this.basePath + '/procurement/catalog/{id}'
@@ -1258,7 +1256,7 @@ export interface WarehouseReference {
                 method: 'PATCH',
                 headers: headerParams,
                 body: JSON.stringify(params.operations),
-                
+
             };
 
             if (extraFetchParams) {
@@ -1278,10 +1276,10 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Replace Catalog
-         * @param id 
-         * @param catalogItem 
+         * @param id
+         * @param catalogItem
          */
         public procurementCatalogIdPut (params: {  id: number; catalogItem: CatalogItem; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<CatalogItem> {
             const localVarPath = this.basePath + '/procurement/catalog/{id}'
@@ -1303,7 +1301,7 @@ export interface WarehouseReference {
                 method: 'PUT',
                 headers: headerParams,
                 body: JSON.stringify(params.catalogItem),
-                
+
             };
 
             if (extraFetchParams) {
@@ -1323,9 +1321,9 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Create Catalog
-         * @param catalogItem 
+         * @param catalogItem
          */
         public procurementCatalogPost (params: {  catalogItem: CatalogItem; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<CatalogItem> {
             const localVarPath = this.basePath + '/procurement/catalog';
@@ -1342,7 +1340,7 @@ export interface WarehouseReference {
                 method: 'POST',
                 headers: headerParams,
                 body: JSON.stringify(params.catalogItem),
-                
+
             };
 
             if (extraFetchParams) {
@@ -1377,9 +1375,9 @@ export interface WarehouseReference {
         }
 
         /**
-         * 
+         *
          * Get Categories Count
-         * @param conditions 
+         * @param conditions
          */
         public procurementCategoriesCountGet (params: {  conditions?: string; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Count> {
             const localVarPath = this.basePath + '/procurement/categories/count';
@@ -1393,7 +1391,7 @@ export interface WarehouseReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -1413,12 +1411,12 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Get Categories
-         * @param conditions 
-         * @param orderBy 
-         * @param page 
-         * @param pageSize 
+         * @param conditions
+         * @param orderBy
+         * @param page
+         * @param pageSize
          */
         public procurementCategoriesGet (params: {  conditions?: string; orderBy?: string; page?: number; pageSize?: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Array<Category>> {
             const localVarPath = this.basePath + '/procurement/categories';
@@ -1444,7 +1442,7 @@ export interface WarehouseReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -1464,9 +1462,9 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Delete Category By Id
-         * @param id 
+         * @param id
          */
         public procurementCategoriesIdDelete (params: {  id: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<{}> {
             const localVarPath = this.basePath + '/procurement/categories/{id}'
@@ -1481,7 +1479,7 @@ export interface WarehouseReference {
             let fetchParams = {
                 method: 'DELETE',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -1501,9 +1499,9 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Get Category By Id
-         * @param id 
+         * @param id
          */
         public procurementCategoriesIdGet (params: {  id: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Category> {
             const localVarPath = this.basePath + '/procurement/categories/{id}'
@@ -1518,7 +1516,7 @@ export interface WarehouseReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -1538,10 +1536,10 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Update Category
-         * @param id 
-         * @param operations 
+         * @param id
+         * @param operations
          */
         public procurementCategoriesIdPatch (params: {  id: number; operations: Array<PatchOperation>; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Category> {
             const localVarPath = this.basePath + '/procurement/categories/{id}'
@@ -1563,7 +1561,7 @@ export interface WarehouseReference {
                 method: 'PATCH',
                 headers: headerParams,
                 body: JSON.stringify(params.operations),
-                
+
             };
 
             if (extraFetchParams) {
@@ -1583,10 +1581,10 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Replace Category
-         * @param id 
-         * @param category 
+         * @param id
+         * @param category
          */
         public procurementCategoriesIdPut (params: {  id: number; category: Category; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Category> {
             const localVarPath = this.basePath + '/procurement/categories/{id}'
@@ -1608,7 +1606,7 @@ export interface WarehouseReference {
                 method: 'PUT',
                 headers: headerParams,
                 body: JSON.stringify(params.category),
-                
+
             };
 
             if (extraFetchParams) {
@@ -1628,9 +1626,9 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Create Category
-         * @param category 
+         * @param category
          */
         public procurementCategoriesPost (params: {  category: Category; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Category> {
             const localVarPath = this.basePath + '/procurement/categories';
@@ -1647,7 +1645,7 @@ export interface WarehouseReference {
                 method: 'POST',
                 headers: headerParams,
                 body: JSON.stringify(params.category),
-                
+
             };
 
             if (extraFetchParams) {
@@ -1682,9 +1680,9 @@ export interface WarehouseReference {
         }
 
         /**
-         * 
+         *
          * Get Manufacturers Count
-         * @param conditions 
+         * @param conditions
          */
         public procurementManufacturersCountGet (params: {  conditions?: string; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Count> {
             const localVarPath = this.basePath + '/procurement/manufacturers/count';
@@ -1698,7 +1696,7 @@ export interface WarehouseReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -1718,12 +1716,12 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Get Manufacturers
-         * @param conditions 
-         * @param orderBy 
-         * @param page 
-         * @param pageSize 
+         * @param conditions
+         * @param orderBy
+         * @param page
+         * @param pageSize
          */
         public procurementManufacturersGet (params: {  conditions?: string; orderBy?: string; page?: number; pageSize?: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Array<Manufacturer>> {
             const localVarPath = this.basePath + '/procurement/manufacturers';
@@ -1749,7 +1747,7 @@ export interface WarehouseReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -1769,9 +1767,9 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Delete Manufacturer By Id
-         * @param id 
+         * @param id
          */
         public procurementManufacturersIdDelete (params: {  id: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<{}> {
             const localVarPath = this.basePath + '/procurement/manufacturers/{id}'
@@ -1786,7 +1784,7 @@ export interface WarehouseReference {
             let fetchParams = {
                 method: 'DELETE',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -1806,9 +1804,9 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Get Manufacturer By Id
-         * @param id 
+         * @param id
          */
         public procurementManufacturersIdGet (params: {  id: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Manufacturer> {
             const localVarPath = this.basePath + '/procurement/manufacturers/{id}'
@@ -1823,7 +1821,7 @@ export interface WarehouseReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -1843,10 +1841,10 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Update Manufacturer
-         * @param id 
-         * @param operations 
+         * @param id
+         * @param operations
          */
         public procurementManufacturersIdPatch (params: {  id: number; operations: Array<PatchOperation>; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Manufacturer> {
             const localVarPath = this.basePath + '/procurement/manufacturers/{id}'
@@ -1868,7 +1866,7 @@ export interface WarehouseReference {
                 method: 'PATCH',
                 headers: headerParams,
                 body: JSON.stringify(params.operations),
-                
+
             };
 
             if (extraFetchParams) {
@@ -1888,10 +1886,10 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Replace Manufacturer
-         * @param id 
-         * @param manufacturer 
+         * @param id
+         * @param manufacturer
          */
         public procurementManufacturersIdPut (params: {  id: number; manufacturer: Manufacturer; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Manufacturer> {
             const localVarPath = this.basePath + '/procurement/manufacturers/{id}'
@@ -1913,7 +1911,7 @@ export interface WarehouseReference {
                 method: 'PUT',
                 headers: headerParams,
                 body: JSON.stringify(params.manufacturer),
-                
+
             };
 
             if (extraFetchParams) {
@@ -1933,9 +1931,9 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Create Manufacturer
-         * @param manufacturer 
+         * @param manufacturer
          */
         public procurementManufacturersPost (params: {  manufacturer: Manufacturer; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Manufacturer> {
             const localVarPath = this.basePath + '/procurement/manufacturers';
@@ -1952,7 +1950,7 @@ export interface WarehouseReference {
                 method: 'POST',
                 headers: headerParams,
                 body: JSON.stringify(params.manufacturer),
-                
+
             };
 
             if (extraFetchParams) {
@@ -1987,11 +1985,11 @@ export interface WarehouseReference {
         }
 
         /**
-         * 
+         *
          * Delete Pricing Break By Id
-         * @param schedId 
-         * @param detailId 
-         * @param breakId 
+         * @param schedId
+         * @param detailId
+         * @param breakId
          */
         public procurementPricingschedulesSchedIdDetailsDetailIdBreaksBreakIdDelete (params: {  schedId: number; detailId: number; breakId: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<{}> {
             const localVarPath = this.basePath + '/procurement/pricingschedules/{schedId}/details/{detailId}/breaks/{breakId}'
@@ -2016,7 +2014,7 @@ export interface WarehouseReference {
             let fetchParams = {
                 method: 'DELETE',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -2036,11 +2034,11 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Get Pricing Break By Id
-         * @param schedId 
-         * @param detailId 
-         * @param breakId 
+         * @param schedId
+         * @param detailId
+         * @param breakId
          */
         public procurementPricingschedulesSchedIdDetailsDetailIdBreaksBreakIdGet (params: {  schedId: number; detailId: number; breakId: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<PricingBreak> {
             const localVarPath = this.basePath + '/procurement/pricingschedules/{schedId}/details/{detailId}/breaks/{breakId}'
@@ -2065,7 +2063,7 @@ export interface WarehouseReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -2085,12 +2083,12 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Update Pricing Break
-         * @param schedId 
-         * @param detailId 
-         * @param breakId 
-         * @param operations 
+         * @param schedId
+         * @param detailId
+         * @param breakId
+         * @param operations
          */
         public procurementPricingschedulesSchedIdDetailsDetailIdBreaksBreakIdPatch (params: {  schedId: number; detailId: number; breakId: number; operations: Array<PatchOperation>; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<PricingBreak> {
             const localVarPath = this.basePath + '/procurement/pricingschedules/{schedId}/details/{detailId}/breaks/{breakId}'
@@ -2122,7 +2120,7 @@ export interface WarehouseReference {
                 method: 'PATCH',
                 headers: headerParams,
                 body: JSON.stringify(params.operations),
-                
+
             };
 
             if (extraFetchParams) {
@@ -2142,12 +2140,12 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Replace Pricing Break
-         * @param schedId 
-         * @param detailId 
-         * @param breakId 
-         * @param pricingBreak 
+         * @param schedId
+         * @param detailId
+         * @param breakId
+         * @param pricingBreak
          */
         public procurementPricingschedulesSchedIdDetailsDetailIdBreaksBreakIdPut (params: {  schedId: number; detailId: number; breakId: number; pricingBreak: PricingBreak; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<PricingBreak> {
             const localVarPath = this.basePath + '/procurement/pricingschedules/{schedId}/details/{detailId}/breaks/{breakId}'
@@ -2179,7 +2177,7 @@ export interface WarehouseReference {
                 method: 'PUT',
                 headers: headerParams,
                 body: JSON.stringify(params.pricingBreak),
-                
+
             };
 
             if (extraFetchParams) {
@@ -2199,11 +2197,11 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Get Pricing Break Count
-         * @param schedId 
-         * @param detailId 
-         * @param conditions 
+         * @param schedId
+         * @param detailId
+         * @param conditions
          */
         public procurementPricingschedulesSchedIdDetailsDetailIdBreaksCountGet (params: {  schedId: number; detailId: number; conditions?: string; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Count> {
             const localVarPath = this.basePath + '/procurement/pricingschedules/{schedId}/details/{detailId}/breaks/count'
@@ -2227,7 +2225,7 @@ export interface WarehouseReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -2247,14 +2245,14 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Get Pricing Break
-         * @param schedId 
-         * @param detailId 
-         * @param conditions 
-         * @param orderBy 
-         * @param page 
-         * @param pageSize 
+         * @param schedId
+         * @param detailId
+         * @param conditions
+         * @param orderBy
+         * @param page
+         * @param pageSize
          */
         public procurementPricingschedulesSchedIdDetailsDetailIdBreaksGet (params: {  schedId: number; detailId: number; conditions?: string; orderBy?: string; page?: number; pageSize?: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Array<PricingBreak>> {
             const localVarPath = this.basePath + '/procurement/pricingschedules/{schedId}/details/{detailId}/breaks'
@@ -2290,7 +2288,7 @@ export interface WarehouseReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -2310,11 +2308,11 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Create Pricing Break
-         * @param schedId 
-         * @param detailId 
-         * @param pricingBreak 
+         * @param schedId
+         * @param detailId
+         * @param pricingBreak
          */
         public procurementPricingschedulesSchedIdDetailsDetailIdBreaksPost (params: {  schedId: number; detailId: number; pricingBreak: PricingBreak; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<PricingBreak> {
             const localVarPath = this.basePath + '/procurement/pricingschedules/{schedId}/details/{detailId}/breaks'
@@ -2341,7 +2339,7 @@ export interface WarehouseReference {
                 method: 'POST',
                 headers: headerParams,
                 body: JSON.stringify(params.pricingBreak),
-                
+
             };
 
             if (extraFetchParams) {
@@ -2376,10 +2374,10 @@ export interface WarehouseReference {
         }
 
         /**
-         * 
+         *
          * Get Pricing Detail Count
-         * @param id 
-         * @param conditions 
+         * @param id
+         * @param conditions
          */
         public procurementPricingschedulesIdDetailsCountGet (params: {  id: number; conditions?: string; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Count> {
             const localVarPath = this.basePath + '/procurement/pricingschedules/{id}/details/count'
@@ -2398,7 +2396,7 @@ export interface WarehouseReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -2418,10 +2416,10 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Delete Pricing Detail By Id
-         * @param id 
-         * @param detailID 
+         * @param id
+         * @param detailID
          */
         public procurementPricingschedulesIdDetailsDetailIDDelete (params: {  id: number; detailID: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<{}> {
             const localVarPath = this.basePath + '/procurement/pricingschedules/{id}/details/{detailID}'
@@ -2441,7 +2439,7 @@ export interface WarehouseReference {
             let fetchParams = {
                 method: 'DELETE',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -2461,10 +2459,10 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Get Pricing Detail By Id
-         * @param id 
-         * @param detailID 
+         * @param id
+         * @param detailID
          */
         public procurementPricingschedulesIdDetailsDetailIDGet (params: {  id: number; detailID: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<PricingDetail> {
             const localVarPath = this.basePath + '/procurement/pricingschedules/{id}/details/{detailID}'
@@ -2484,7 +2482,7 @@ export interface WarehouseReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -2504,11 +2502,11 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Update Pricing Detail
-         * @param id 
-         * @param detailID 
-         * @param operations 
+         * @param id
+         * @param detailID
+         * @param operations
          */
         public procurementPricingschedulesIdDetailsDetailIDPatch (params: {  id: number; detailID: number; operations: Array<PatchOperation>; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<PricingDetail> {
             const localVarPath = this.basePath + '/procurement/pricingschedules/{id}/details/{detailID}'
@@ -2535,7 +2533,7 @@ export interface WarehouseReference {
                 method: 'PATCH',
                 headers: headerParams,
                 body: JSON.stringify(params.operations),
-                
+
             };
 
             if (extraFetchParams) {
@@ -2555,11 +2553,11 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Replace Pricing Detail
-         * @param id 
-         * @param detailID 
-         * @param pricingDetail 
+         * @param id
+         * @param detailID
+         * @param pricingDetail
          */
         public procurementPricingschedulesIdDetailsDetailIDPut (params: {  id: number; detailID: number; pricingDetail: PricingDetail; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<PricingDetail> {
             const localVarPath = this.basePath + '/procurement/pricingschedules/{id}/details/{detailID}'
@@ -2586,7 +2584,7 @@ export interface WarehouseReference {
                 method: 'PUT',
                 headers: headerParams,
                 body: JSON.stringify(params.pricingDetail),
-                
+
             };
 
             if (extraFetchParams) {
@@ -2606,13 +2604,13 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Get Pricing Detail
-         * @param id 
-         * @param conditions 
-         * @param orderBy 
-         * @param page 
-         * @param pageSize 
+         * @param id
+         * @param conditions
+         * @param orderBy
+         * @param page
+         * @param pageSize
          */
         public procurementPricingschedulesIdDetailsGet (params: {  id: number; conditions?: string; orderBy?: string; page?: number; pageSize?: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Array<PricingDetail>> {
             const localVarPath = this.basePath + '/procurement/pricingschedules/{id}/details'
@@ -2643,7 +2641,7 @@ export interface WarehouseReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -2663,10 +2661,10 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Create Pricing Detail
-         * @param id 
-         * @param pricingDetail 
+         * @param id
+         * @param pricingDetail
          */
         public procurementPricingschedulesIdDetailsPost (params: {  id: number; pricingDetail: PricingDetail; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<PricingDetail> {
             const localVarPath = this.basePath + '/procurement/pricingschedules/{id}/details'
@@ -2688,7 +2686,7 @@ export interface WarehouseReference {
                 method: 'POST',
                 headers: headerParams,
                 body: JSON.stringify(params.pricingDetail),
-                
+
             };
 
             if (extraFetchParams) {
@@ -2723,9 +2721,9 @@ export interface WarehouseReference {
         }
 
         /**
-         * 
+         *
          * Get Pricing Schedules Count
-         * @param conditions 
+         * @param conditions
          */
         public procurementPricingschedulesCountGet (params: {  conditions?: string; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Count> {
             const localVarPath = this.basePath + '/procurement/pricingschedules/count';
@@ -2739,7 +2737,7 @@ export interface WarehouseReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -2759,12 +2757,12 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Get Pricing Schedules
-         * @param conditions 
-         * @param orderBy 
-         * @param page 
-         * @param pageSize 
+         * @param conditions
+         * @param orderBy
+         * @param page
+         * @param pageSize
          */
         public procurementPricingschedulesGet (params: {  conditions?: string; orderBy?: string; page?: number; pageSize?: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Array<PricingSchedule>> {
             const localVarPath = this.basePath + '/procurement/pricingschedules';
@@ -2790,7 +2788,7 @@ export interface WarehouseReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -2810,9 +2808,9 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Delete Pricing Schedule By Id
-         * @param id 
+         * @param id
          */
         public procurementPricingschedulesIdDelete (params: {  id: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<{}> {
             const localVarPath = this.basePath + '/procurement/pricingschedules/{id}'
@@ -2827,7 +2825,7 @@ export interface WarehouseReference {
             let fetchParams = {
                 method: 'DELETE',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -2847,9 +2845,9 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Get Pricing Schedule By Id
-         * @param id 
+         * @param id
          */
         public procurementPricingschedulesIdGet (params: {  id: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<PricingSchedule> {
             const localVarPath = this.basePath + '/procurement/pricingschedules/{id}'
@@ -2864,7 +2862,7 @@ export interface WarehouseReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -2884,10 +2882,10 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Update Pricing Schedule
-         * @param id 
-         * @param operations 
+         * @param id
+         * @param operations
          */
         public procurementPricingschedulesIdPatch (params: {  id: number; operations: Array<PatchOperation>; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<PricingSchedule> {
             const localVarPath = this.basePath + '/procurement/pricingschedules/{id}'
@@ -2909,7 +2907,7 @@ export interface WarehouseReference {
                 method: 'PATCH',
                 headers: headerParams,
                 body: JSON.stringify(params.operations),
-                
+
             };
 
             if (extraFetchParams) {
@@ -2929,10 +2927,10 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Replace Pricing Schedule
-         * @param id 
-         * @param pricingSchedule 
+         * @param id
+         * @param pricingSchedule
          */
         public procurementPricingschedulesIdPut (params: {  id: number; pricingSchedule: PricingSchedule; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<PricingSchedule> {
             const localVarPath = this.basePath + '/procurement/pricingschedules/{id}'
@@ -2954,7 +2952,7 @@ export interface WarehouseReference {
                 method: 'PUT',
                 headers: headerParams,
                 body: JSON.stringify(params.pricingSchedule),
-                
+
             };
 
             if (extraFetchParams) {
@@ -2974,9 +2972,9 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Create Pricing Schedule
-         * @param pricingSchedule 
+         * @param pricingSchedule
          */
         public procurementPricingschedulesPost (params: {  pricingSchedule: PricingSchedule; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<PricingSchedule> {
             const localVarPath = this.basePath + '/procurement/pricingschedules';
@@ -2993,7 +2991,7 @@ export interface WarehouseReference {
                 method: 'POST',
                 headers: headerParams,
                 body: JSON.stringify(params.pricingSchedule),
-                
+
             };
 
             if (extraFetchParams) {
@@ -3028,10 +3026,10 @@ export interface WarehouseReference {
         }
 
         /**
-         * 
+         *
          * Delete Product Component By Id
-         * @param id 
-         * @param componentId 
+         * @param id
+         * @param componentId
          */
         public procurementProductsIdComponentsComponentIdDelete (params: {  id: number; componentId: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<{}> {
             const localVarPath = this.basePath + '/procurement/products/{id}/components/{componentId}'
@@ -3051,7 +3049,7 @@ export interface WarehouseReference {
             let fetchParams = {
                 method: 'DELETE',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -3071,10 +3069,10 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Get Product Component By Id
-         * @param id 
-         * @param componentId 
+         * @param id
+         * @param componentId
          */
         public procurementProductsIdComponentsComponentIdGet (params: {  id: number; componentId: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Array<ProductComponent>> {
             const localVarPath = this.basePath + '/procurement/products/{id}/components/{componentId}'
@@ -3094,7 +3092,7 @@ export interface WarehouseReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -3114,11 +3112,11 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Update Product Component
-         * @param id 
-         * @param componentId 
-         * @param operations 
+         * @param id
+         * @param componentId
+         * @param operations
          */
         public procurementProductsIdComponentsComponentIdPatch (params: {  id: number; componentId: number; operations: Array<PatchOperation>; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Array<ProductComponent>> {
             const localVarPath = this.basePath + '/procurement/products/{id}/components/{componentId}'
@@ -3145,7 +3143,7 @@ export interface WarehouseReference {
                 method: 'PATCH',
                 headers: headerParams,
                 body: JSON.stringify(params.operations),
-                
+
             };
 
             if (extraFetchParams) {
@@ -3165,11 +3163,11 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Replace Product Component
-         * @param id 
-         * @param componentId 
-         * @param productComponent 
+         * @param id
+         * @param componentId
+         * @param productComponent
          */
         public procurementProductsIdComponentsComponentIdPut (params: {  id: number; componentId: number; productComponent: ProductComponent; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Array<ProductComponent>> {
             const localVarPath = this.basePath + '/procurement/products/{id}/components/{componentId}'
@@ -3196,7 +3194,7 @@ export interface WarehouseReference {
                 method: 'PUT',
                 headers: headerParams,
                 body: JSON.stringify(params.productComponent),
-                
+
             };
 
             if (extraFetchParams) {
@@ -3216,10 +3214,10 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Get Product Components Count
-         * @param id 
-         * @param conditions 
+         * @param id
+         * @param conditions
          */
         public procurementProductsIdComponentsCountGet (params: {  id: number; conditions?: string; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Count> {
             const localVarPath = this.basePath + '/procurement/products/{id}/components/count'
@@ -3238,7 +3236,7 @@ export interface WarehouseReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -3258,13 +3256,13 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Get Product Components
-         * @param id 
-         * @param conditions 
-         * @param orderBy 
-         * @param page 
-         * @param pageSize 
+         * @param id
+         * @param conditions
+         * @param orderBy
+         * @param page
+         * @param pageSize
          */
         public procurementProductsIdComponentsGet (params: {  id: number; conditions?: string; orderBy?: string; page?: number; pageSize?: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Array<ProductComponent>> {
             const localVarPath = this.basePath + '/procurement/products/{id}/components'
@@ -3295,7 +3293,7 @@ export interface WarehouseReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -3315,10 +3313,10 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Create Product Component
-         * @param id 
-         * @param productComponent 
+         * @param id
+         * @param productComponent
          */
         public procurementProductsIdComponentsPost (params: {  id: number; productComponent: ProductComponent; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Array<ProductComponent>> {
             const localVarPath = this.basePath + '/procurement/products/{id}/components'
@@ -3340,7 +3338,7 @@ export interface WarehouseReference {
                 method: 'POST',
                 headers: headerParams,
                 body: JSON.stringify(params.productComponent),
-                
+
             };
 
             if (extraFetchParams) {
@@ -3375,10 +3373,10 @@ export interface WarehouseReference {
         }
 
         /**
-         * 
+         *
          * Get Product Picking Shipping Details Count
-         * @param id 
-         * @param conditions 
+         * @param id
+         * @param conditions
          */
         public procurementProductsIdPickingShippingDetailsCountGet (params: {  id: number; conditions?: string; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Count> {
             const localVarPath = this.basePath + '/procurement/products/{id}/pickingShippingDetails/count'
@@ -3397,7 +3395,7 @@ export interface WarehouseReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -3417,13 +3415,13 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Get Product Picking Shipping Details
-         * @param id 
-         * @param conditions 
-         * @param orderBy 
-         * @param page 
-         * @param pageSize 
+         * @param id
+         * @param conditions
+         * @param orderBy
+         * @param page
+         * @param pageSize
          */
         public procurementProductsIdPickingShippingDetailsGet (params: {  id: number; conditions?: string; orderBy?: string; page?: number; pageSize?: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Array<ProductPickingShippingDetail>> {
             const localVarPath = this.basePath + '/procurement/products/{id}/pickingShippingDetails'
@@ -3454,7 +3452,7 @@ export interface WarehouseReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -3474,10 +3472,10 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Delete Products By Id
-         * @param id 
-         * @param pickingShippingDetailId 
+         * @param id
+         * @param pickingShippingDetailId
          */
         public procurementProductsIdPickingShippingDetailsPickingShippingDetailIdDelete (params: {  id: number; pickingShippingDetailId: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<{}> {
             const localVarPath = this.basePath + '/procurement/products/{id}/pickingShippingDetails/{pickingShippingDetailId}'
@@ -3497,7 +3495,7 @@ export interface WarehouseReference {
             let fetchParams = {
                 method: 'DELETE',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -3517,10 +3515,10 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Get Products By Id
-         * @param id 
-         * @param pickingShippingDetailId 
+         * @param id
+         * @param pickingShippingDetailId
          */
         public procurementProductsIdPickingShippingDetailsPickingShippingDetailIdGet (params: {  id: number; pickingShippingDetailId: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Array<ProductPickingShippingDetail>> {
             const localVarPath = this.basePath + '/procurement/products/{id}/pickingShippingDetails/{pickingShippingDetailId}'
@@ -3540,7 +3538,7 @@ export interface WarehouseReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -3560,11 +3558,11 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Update Products
-         * @param id 
-         * @param pickingShippingDetailId 
-         * @param operations 
+         * @param id
+         * @param pickingShippingDetailId
+         * @param operations
          */
         public procurementProductsIdPickingShippingDetailsPickingShippingDetailIdPatch (params: {  id: number; pickingShippingDetailId: number; operations: Array<PatchOperation>; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Array<ProductPickingShippingDetail>> {
             const localVarPath = this.basePath + '/procurement/products/{id}/pickingShippingDetails/{pickingShippingDetailId}'
@@ -3591,7 +3589,7 @@ export interface WarehouseReference {
                 method: 'PATCH',
                 headers: headerParams,
                 body: JSON.stringify(params.operations),
-                
+
             };
 
             if (extraFetchParams) {
@@ -3611,11 +3609,11 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Replace Products
-         * @param id 
-         * @param pickingShippingDetailId 
-         * @param productPickingShippingDetails 
+         * @param id
+         * @param pickingShippingDetailId
+         * @param productPickingShippingDetails
          */
         public procurementProductsIdPickingShippingDetailsPickingShippingDetailIdPut (params: {  id: number; pickingShippingDetailId: number; productPickingShippingDetails: ProductPickingShippingDetail; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Array<ProductPickingShippingDetail>> {
             const localVarPath = this.basePath + '/procurement/products/{id}/pickingShippingDetails/{pickingShippingDetailId}'
@@ -3642,7 +3640,7 @@ export interface WarehouseReference {
                 method: 'PUT',
                 headers: headerParams,
                 body: JSON.stringify(params.productPickingShippingDetails),
-                
+
             };
 
             if (extraFetchParams) {
@@ -3662,10 +3660,10 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Create Product Picking Shipping Detail
-         * @param id 
-         * @param productPickingShippingDetails 
+         * @param id
+         * @param productPickingShippingDetails
          */
         public procurementProductsIdPickingShippingDetailsPost (params: {  id: number; productPickingShippingDetails: ProductPickingShippingDetail; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Array<ProductPickingShippingDetail>> {
             const localVarPath = this.basePath + '/procurement/products/{id}/pickingShippingDetails'
@@ -3687,7 +3685,7 @@ export interface WarehouseReference {
                 method: 'POST',
                 headers: headerParams,
                 body: JSON.stringify(params.productPickingShippingDetails),
-                
+
             };
 
             if (extraFetchParams) {
@@ -3722,9 +3720,9 @@ export interface WarehouseReference {
         }
 
         /**
-         * 
+         *
          * Get Product Typess Count
-         * @param conditions 
+         * @param conditions
          */
         public procurementTypesCountGet (params: {  conditions?: string; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Count> {
             const localVarPath = this.basePath + '/procurement/types/count';
@@ -3738,7 +3736,7 @@ export interface WarehouseReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -3758,12 +3756,12 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Get Product Typess
-         * @param conditions 
-         * @param orderBy 
-         * @param page 
-         * @param pageSize 
+         * @param conditions
+         * @param orderBy
+         * @param page
+         * @param pageSize
          */
         public procurementTypesGet (params: {  conditions?: string; orderBy?: string; page?: number; pageSize?: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Array<ProductType>> {
             const localVarPath = this.basePath + '/procurement/types';
@@ -3789,7 +3787,7 @@ export interface WarehouseReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -3809,9 +3807,9 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Delete Product Types By Id
-         * @param id 
+         * @param id
          */
         public procurementTypesIdDelete (params: {  id: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<{}> {
             const localVarPath = this.basePath + '/procurement/types/{id}'
@@ -3826,7 +3824,7 @@ export interface WarehouseReference {
             let fetchParams = {
                 method: 'DELETE',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -3846,9 +3844,9 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Get Product Types By Id
-         * @param id 
+         * @param id
          */
         public procurementTypesIdGet (params: {  id: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<ProductType> {
             const localVarPath = this.basePath + '/procurement/types/{id}'
@@ -3863,7 +3861,7 @@ export interface WarehouseReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -3883,10 +3881,10 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Update Product Types
-         * @param id 
-         * @param operations 
+         * @param id
+         * @param operations
          */
         public procurementTypesIdPatch (params: {  id: number; operations: Array<PatchOperation>; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<ProductType> {
             const localVarPath = this.basePath + '/procurement/types/{id}'
@@ -3908,7 +3906,7 @@ export interface WarehouseReference {
                 method: 'PATCH',
                 headers: headerParams,
                 body: JSON.stringify(params.operations),
-                
+
             };
 
             if (extraFetchParams) {
@@ -3928,10 +3926,10 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Replace Product Types
-         * @param id 
-         * @param productTypes 
+         * @param id
+         * @param productTypes
          */
         public procurementTypesIdPut (params: {  id: number; productTypes: ProductType; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<ProductType> {
             const localVarPath = this.basePath + '/procurement/types/{id}'
@@ -3953,7 +3951,7 @@ export interface WarehouseReference {
                 method: 'PUT',
                 headers: headerParams,
                 body: JSON.stringify(params.productTypes),
-                
+
             };
 
             if (extraFetchParams) {
@@ -3973,9 +3971,9 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Create Product Types
-         * @param productTypes 
+         * @param productTypes
          */
         public procurementTypesPost (params: {  productTypes: ProductType; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<ProductType> {
             const localVarPath = this.basePath + '/procurement/types';
@@ -3992,7 +3990,7 @@ export interface WarehouseReference {
                 method: 'POST',
                 headers: headerParams,
                 body: JSON.stringify(params.productTypes),
-                
+
             };
 
             if (extraFetchParams) {
@@ -4027,9 +4025,9 @@ export interface WarehouseReference {
         }
 
         /**
-         * 
+         *
          * Get Products Count
-         * @param conditions 
+         * @param conditions
          */
         public procurementProductsCountGet (params: {  conditions?: string; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Count> {
             const localVarPath = this.basePath + '/procurement/products/count';
@@ -4043,7 +4041,7 @@ export interface WarehouseReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -4063,12 +4061,12 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Get Products
-         * @param conditions 
-         * @param orderBy 
-         * @param page 
-         * @param pageSize 
+         * @param conditions
+         * @param orderBy
+         * @param page
+         * @param pageSize
          */
         public procurementProductsGet (params: {  conditions?: string; orderBy?: string; page?: number; pageSize?: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Array<ProductItem>> {
             const localVarPath = this.basePath + '/procurement/products';
@@ -4094,7 +4092,7 @@ export interface WarehouseReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -4114,9 +4112,9 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Delete Product By Id
-         * @param id 
+         * @param id
          */
         public procurementProductsIdDelete (params: {  id: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<{}> {
             const localVarPath = this.basePath + '/procurement/products/{id}'
@@ -4131,7 +4129,7 @@ export interface WarehouseReference {
             let fetchParams = {
                 method: 'DELETE',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -4151,9 +4149,9 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Get Product By Id
-         * @param id 
+         * @param id
          */
         public procurementProductsIdGet (params: {  id: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<ProductItem> {
             const localVarPath = this.basePath + '/procurement/products/{id}'
@@ -4168,7 +4166,7 @@ export interface WarehouseReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -4188,10 +4186,10 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Update Product
-         * @param id 
-         * @param operations 
+         * @param id
+         * @param operations
          */
         public procurementProductsIdPatch (params: {  id: number; operations: Array<PatchOperation>; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<ProductItem> {
             const localVarPath = this.basePath + '/procurement/products/{id}'
@@ -4213,7 +4211,7 @@ export interface WarehouseReference {
                 method: 'PATCH',
                 headers: headerParams,
                 body: JSON.stringify(params.operations),
-                
+
             };
 
             if (extraFetchParams) {
@@ -4233,10 +4231,10 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Replace Product
-         * @param id 
-         * @param productItem 
+         * @param id
+         * @param productItem
          */
         public procurementProductsIdPut (params: {  id: number; productItem: ProductItem; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<ProductItem> {
             const localVarPath = this.basePath + '/procurement/products/{id}'
@@ -4258,7 +4256,7 @@ export interface WarehouseReference {
                 method: 'PUT',
                 headers: headerParams,
                 body: JSON.stringify(params.productItem),
-                
+
             };
 
             if (extraFetchParams) {
@@ -4278,9 +4276,9 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Create Product
-         * @param productItem 
+         * @param productItem
          */
         public procurementProductsPost (params: {  productItem: ProductItem; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<ProductItem> {
             const localVarPath = this.basePath + '/procurement/products';
@@ -4297,7 +4295,7 @@ export interface WarehouseReference {
                 method: 'POST',
                 headers: headerParams,
                 body: JSON.stringify(params.productItem),
-                
+
             };
 
             if (extraFetchParams) {
@@ -4332,10 +4330,10 @@ export interface WarehouseReference {
         }
 
         /**
-         * 
+         *
          * Get Purchase Order Line Items Count
-         * @param id 
-         * @param conditions 
+         * @param id
+         * @param conditions
          */
         public procurementPurchaseordersIdPurchaseorderlineitemsCountGet (params: {  id: number; conditions?: string; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Count> {
             const localVarPath = this.basePath + '/procurement/purchaseorders/{id}/purchaseorderlineitems/count'
@@ -4354,7 +4352,7 @@ export interface WarehouseReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -4374,13 +4372,13 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Get Purchase Order Line Items
-         * @param id 
-         * @param conditions 
-         * @param orderBy 
-         * @param page 
-         * @param pageSize 
+         * @param id
+         * @param conditions
+         * @param orderBy
+         * @param page
+         * @param pageSize
          */
         public procurementPurchaseordersIdPurchaseorderlineitemsGet (params: {  id: number; conditions?: string; orderBy?: string; page?: number; pageSize?: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Array<PurchaseOrderLineItem>> {
             const localVarPath = this.basePath + '/procurement/purchaseorders/{id}/purchaseorderlineitems'
@@ -4411,7 +4409,7 @@ export interface WarehouseReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -4431,10 +4429,10 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Delete Purchase Order Line Item By Id
-         * @param id 
-         * @param lineItemId 
+         * @param id
+         * @param lineItemId
          */
         public procurementPurchaseordersIdPurchaseorderlineitemsLineItemIdDelete (params: {  id: number; lineItemId: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<{}> {
             const localVarPath = this.basePath + '/procurement/purchaseorders/{id}/purchaseorderlineitems/{lineItemId}'
@@ -4454,7 +4452,7 @@ export interface WarehouseReference {
             let fetchParams = {
                 method: 'DELETE',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -4474,10 +4472,10 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Get Purchase Order Line Item By Id
-         * @param id 
-         * @param lineItemId 
+         * @param id
+         * @param lineItemId
          */
         public procurementPurchaseordersIdPurchaseorderlineitemsLineItemIdGet (params: {  id: number; lineItemId: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<PurchaseOrderLineItem> {
             const localVarPath = this.basePath + '/procurement/purchaseorders/{id}/purchaseorderlineitems/{lineItemId}'
@@ -4497,7 +4495,7 @@ export interface WarehouseReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -4517,11 +4515,11 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Update Purchase Order Line Item
-         * @param id 
-         * @param lineItemId 
-         * @param operations 
+         * @param id
+         * @param lineItemId
+         * @param operations
          */
         public procurementPurchaseordersIdPurchaseorderlineitemsLineItemIdPatch (params: {  id: number; lineItemId: number; operations: Array<PatchOperation>; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<PurchaseOrderLineItem> {
             const localVarPath = this.basePath + '/procurement/purchaseorders/{id}/purchaseorderlineitems/{lineItemId}'
@@ -4548,7 +4546,7 @@ export interface WarehouseReference {
                 method: 'PATCH',
                 headers: headerParams,
                 body: JSON.stringify(params.operations),
-                
+
             };
 
             if (extraFetchParams) {
@@ -4568,11 +4566,11 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Replace Purchase Order Line Item
-         * @param id 
-         * @param lineItemId 
-         * @param purchaseOrderLineItem 
+         * @param id
+         * @param lineItemId
+         * @param purchaseOrderLineItem
          */
         public procurementPurchaseordersIdPurchaseorderlineitemsLineItemIdPut (params: {  id: number; lineItemId: number; purchaseOrderLineItem: PurchaseOrderLineItem; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<PurchaseOrderLineItem> {
             const localVarPath = this.basePath + '/procurement/purchaseorders/{id}/purchaseorderlineitems/{lineItemId}'
@@ -4599,7 +4597,7 @@ export interface WarehouseReference {
                 method: 'PUT',
                 headers: headerParams,
                 body: JSON.stringify(params.purchaseOrderLineItem),
-                
+
             };
 
             if (extraFetchParams) {
@@ -4619,10 +4617,10 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Create Purchase Order Line Item
-         * @param id 
-         * @param purchaseOrderLineItem 
+         * @param id
+         * @param purchaseOrderLineItem
          */
         public procurementPurchaseordersIdPurchaseorderlineitemsPost (params: {  id: number; purchaseOrderLineItem: PurchaseOrderLineItem; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<PurchaseOrderLineItem> {
             const localVarPath = this.basePath + '/procurement/purchaseorders/{id}/purchaseorderlineitems'
@@ -4644,7 +4642,7 @@ export interface WarehouseReference {
                 method: 'POST',
                 headers: headerParams,
                 body: JSON.stringify(params.purchaseOrderLineItem),
-                
+
             };
 
             if (extraFetchParams) {
@@ -4679,9 +4677,9 @@ export interface WarehouseReference {
         }
 
         /**
-         * 
+         *
          * Get Purchase Orders Count
-         * @param conditions 
+         * @param conditions
          */
         public procurementPurchaseordersCountGet (params: {  conditions?: string; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Count> {
             const localVarPath = this.basePath + '/procurement/purchaseorders/count';
@@ -4695,7 +4693,7 @@ export interface WarehouseReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -4715,12 +4713,12 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Get Purchase Orders
-         * @param conditions 
-         * @param orderBy 
-         * @param page 
-         * @param pageSize 
+         * @param conditions
+         * @param orderBy
+         * @param page
+         * @param pageSize
          */
         public procurementPurchaseordersGet (params: {  conditions?: string; orderBy?: string; page?: number; pageSize?: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Array<PurchaseOrder>> {
             const localVarPath = this.basePath + '/procurement/purchaseorders';
@@ -4746,7 +4744,7 @@ export interface WarehouseReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -4766,9 +4764,9 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Delete Purchase Order By Id
-         * @param id 
+         * @param id
          */
         public procurementPurchaseordersIdDelete (params: {  id: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<{}> {
             const localVarPath = this.basePath + '/procurement/purchaseorders/{id}'
@@ -4783,7 +4781,7 @@ export interface WarehouseReference {
             let fetchParams = {
                 method: 'DELETE',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -4803,9 +4801,9 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Get Purchase Order By Id
-         * @param id 
+         * @param id
          */
         public procurementPurchaseordersIdGet (params: {  id: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<PurchaseOrder> {
             const localVarPath = this.basePath + '/procurement/purchaseorders/{id}'
@@ -4820,7 +4818,7 @@ export interface WarehouseReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -4840,10 +4838,10 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Update Purchase Order
-         * @param id 
-         * @param operations 
+         * @param id
+         * @param operations
          */
         public procurementPurchaseordersIdPatch (params: {  id: number; operations: Array<PatchOperation>; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<PurchaseOrder> {
             const localVarPath = this.basePath + '/procurement/purchaseorders/{id}'
@@ -4865,7 +4863,7 @@ export interface WarehouseReference {
                 method: 'PATCH',
                 headers: headerParams,
                 body: JSON.stringify(params.operations),
-                
+
             };
 
             if (extraFetchParams) {
@@ -4885,10 +4883,10 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Replace Purchase Order
-         * @param id 
-         * @param purchaseOrder 
+         * @param id
+         * @param purchaseOrder
          */
         public procurementPurchaseordersIdPut (params: {  id: number; purchaseOrder: PurchaseOrder; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<PurchaseOrder> {
             const localVarPath = this.basePath + '/procurement/purchaseorders/{id}'
@@ -4910,7 +4908,7 @@ export interface WarehouseReference {
                 method: 'PUT',
                 headers: headerParams,
                 body: JSON.stringify(params.purchaseOrder),
-                
+
             };
 
             if (extraFetchParams) {
@@ -4930,9 +4928,9 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Create Purchase Order
-         * @param purchaseOrder 
+         * @param purchaseOrder
          */
         public procurementPurchaseordersPost (params: {  purchaseOrder: PurchaseOrder; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<PurchaseOrder> {
             const localVarPath = this.basePath + '/procurement/purchaseorders';
@@ -4949,7 +4947,7 @@ export interface WarehouseReference {
                 method: 'POST',
                 headers: headerParams,
                 body: JSON.stringify(params.purchaseOrder),
-                
+
             };
 
             if (extraFetchParams) {
@@ -4984,9 +4982,9 @@ export interface WarehouseReference {
         }
 
         /**
-         * 
+         *
          * Get Shipment Methods Count
-         * @param conditions 
+         * @param conditions
          */
         public procurementShipmentmethodsCountGet (params: {  conditions?: string; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Count> {
             const localVarPath = this.basePath + '/procurement/shipmentmethods/count';
@@ -5000,7 +4998,7 @@ export interface WarehouseReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -5020,12 +5018,12 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Get Shipment Methods
-         * @param conditions 
-         * @param orderBy 
-         * @param page 
-         * @param pageSize 
+         * @param conditions
+         * @param orderBy
+         * @param page
+         * @param pageSize
          */
         public procurementShipmentmethodsGet (params: {  conditions?: string; orderBy?: string; page?: number; pageSize?: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Array<ShipmentMethod>> {
             const localVarPath = this.basePath + '/procurement/shipmentmethods';
@@ -5051,7 +5049,7 @@ export interface WarehouseReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -5071,9 +5069,9 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Delete Shipment Method By Id
-         * @param id 
+         * @param id
          */
         public procurementShipmentmethodsIdDelete (params: {  id: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<{}> {
             const localVarPath = this.basePath + '/procurement/shipmentmethods/{id}'
@@ -5088,7 +5086,7 @@ export interface WarehouseReference {
             let fetchParams = {
                 method: 'DELETE',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -5108,9 +5106,9 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Get Shipment Method By Id
-         * @param id 
+         * @param id
          */
         public procurementShipmentmethodsIdGet (params: {  id: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<ShipmentMethod> {
             const localVarPath = this.basePath + '/procurement/shipmentmethods/{id}'
@@ -5125,7 +5123,7 @@ export interface WarehouseReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -5145,10 +5143,10 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Update Shipment Method
-         * @param id 
-         * @param operations 
+         * @param id
+         * @param operations
          */
         public procurementShipmentmethodsIdPatch (params: {  id: number; operations: Array<PatchOperation>; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<ShipmentMethod> {
             const localVarPath = this.basePath + '/procurement/shipmentmethods/{id}'
@@ -5170,7 +5168,7 @@ export interface WarehouseReference {
                 method: 'PATCH',
                 headers: headerParams,
                 body: JSON.stringify(params.operations),
-                
+
             };
 
             if (extraFetchParams) {
@@ -5190,10 +5188,10 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Replace Shipment Method
-         * @param id 
-         * @param shipmentMethod 
+         * @param id
+         * @param shipmentMethod
          */
         public procurementShipmentmethodsIdPut (params: {  id: number; shipmentMethod: ShipmentMethod; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<ShipmentMethod> {
             const localVarPath = this.basePath + '/procurement/shipmentmethods/{id}'
@@ -5215,7 +5213,7 @@ export interface WarehouseReference {
                 method: 'PUT',
                 headers: headerParams,
                 body: JSON.stringify(params.shipmentMethod),
-                
+
             };
 
             if (extraFetchParams) {
@@ -5235,9 +5233,9 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Create Shipment Method
-         * @param shipmentMethod 
+         * @param shipmentMethod
          */
         public procurementShipmentmethodsPost (params: {  shipmentMethod: ShipmentMethod; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<ShipmentMethod> {
             const localVarPath = this.basePath + '/procurement/shipmentmethods';
@@ -5254,7 +5252,7 @@ export interface WarehouseReference {
                 method: 'POST',
                 headers: headerParams,
                 body: JSON.stringify(params.shipmentMethod),
-                
+
             };
 
             if (extraFetchParams) {
@@ -5289,10 +5287,10 @@ export interface WarehouseReference {
         }
 
         /**
-         * 
+         *
          * Get Sub Categories Count
-         * @param id 
-         * @param conditions 
+         * @param id
+         * @param conditions
          */
         public procurementCategoriesIdSubcategoriesCountGet (params: {  id: number; conditions?: string; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Count> {
             const localVarPath = this.basePath + '/procurement/categories/{id}/subcategories/count'
@@ -5311,7 +5309,7 @@ export interface WarehouseReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -5331,13 +5329,13 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Get Sub Categories
-         * @param id 
-         * @param conditions 
-         * @param orderBy 
-         * @param page 
-         * @param pageSize 
+         * @param id
+         * @param conditions
+         * @param orderBy
+         * @param page
+         * @param pageSize
          */
         public procurementCategoriesIdSubcategoriesGet (params: {  id: number; conditions?: string; orderBy?: string; page?: number; pageSize?: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Array<SubCategory>> {
             const localVarPath = this.basePath + '/procurement/categories/{id}/subcategories'
@@ -5368,7 +5366,7 @@ export interface WarehouseReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -5388,10 +5386,10 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Create Sub Category
-         * @param id 
-         * @param subCategory 
+         * @param id
+         * @param subCategory
          */
         public procurementCategoriesIdSubcategoriesPost (params: {  id: number; subCategory: SubCategory; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<SubCategory> {
             const localVarPath = this.basePath + '/procurement/categories/{id}/subcategories'
@@ -5413,7 +5411,7 @@ export interface WarehouseReference {
                 method: 'POST',
                 headers: headerParams,
                 body: JSON.stringify(params.subCategory),
-                
+
             };
 
             if (extraFetchParams) {
@@ -5433,10 +5431,10 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Delete Sub Category By Id
-         * @param id 
-         * @param subcategoryID 
+         * @param id
+         * @param subcategoryID
          */
         public procurementCategoriesIdSubcategoriesSubcategoryIDDelete (params: {  id: number; subcategoryID: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<{}> {
             const localVarPath = this.basePath + '/procurement/categories/{id}/subcategories/{subcategoryID}'
@@ -5456,7 +5454,7 @@ export interface WarehouseReference {
             let fetchParams = {
                 method: 'DELETE',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -5476,10 +5474,10 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Get Sub Category By Id
-         * @param id 
-         * @param subcategoryID 
+         * @param id
+         * @param subcategoryID
          */
         public procurementCategoriesIdSubcategoriesSubcategoryIDGet (params: {  id: number; subcategoryID: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<SubCategory> {
             const localVarPath = this.basePath + '/procurement/categories/{id}/subcategories/{subcategoryID}'
@@ -5499,7 +5497,7 @@ export interface WarehouseReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -5519,11 +5517,11 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Update Sub Category
-         * @param id 
-         * @param subcategoryID 
-         * @param operations 
+         * @param id
+         * @param subcategoryID
+         * @param operations
          */
         public procurementCategoriesIdSubcategoriesSubcategoryIDPatch (params: {  id: number; subcategoryID: number; operations: Array<PatchOperation>; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<SubCategory> {
             const localVarPath = this.basePath + '/procurement/categories/{id}/subcategories/{subcategoryID}'
@@ -5550,7 +5548,7 @@ export interface WarehouseReference {
                 method: 'PATCH',
                 headers: headerParams,
                 body: JSON.stringify(params.operations),
-                
+
             };
 
             if (extraFetchParams) {
@@ -5570,11 +5568,11 @@ export interface WarehouseReference {
             });
         }
         /**
-         * 
+         *
          * Replace Sub Category
-         * @param id 
-         * @param subcategoryID 
-         * @param subCategory 
+         * @param id
+         * @param subcategoryID
+         * @param subCategory
          */
         public procurementCategoriesIdSubcategoriesSubcategoryIDPut (params: {  id: number; subcategoryID: number; subCategory: SubCategory; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<SubCategory> {
             const localVarPath = this.basePath + '/procurement/categories/{id}/subcategories/{subcategoryID}'
@@ -5601,7 +5599,7 @@ export interface WarehouseReference {
                 method: 'PUT',
                 headers: headerParams,
                 body: JSON.stringify(params.subCategory),
-                
+
             };
 
             if (extraFetchParams) {

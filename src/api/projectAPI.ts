@@ -1,3 +1,9 @@
+///<reference path="../../typings/index.d.ts"/>
+/* tslint:disable */
+
+'use strict';
+
+
 import * as querystring from 'querystring';
 import * as fetch from 'isomorphic-fetch';
 import {assign} from './assign';
@@ -156,43 +162,16 @@ export interface Project {
 }
 
 
-export enum BillingMethodEnum { 
-    ActualRates = <any> 'ActualRates',
-    FixedFee = <any> 'FixedFee',
-    NotToExceed = <any> 'NotToExceed',
-    OverrideRate = <any> 'OverrideRate'
-}
-
-export enum BudgetAnalysisEnum { 
+export enum BudgetAnalysisEnum {
     ActualHours = <any> 'ActualHours',
     BillableHours = <any> 'BillableHours'
 }
 
-export enum BillingRateTypeEnum { 
+export enum BillingRateTypeEnum {
     WorkRole = <any> 'WorkRole',
     StaffMember = <any> 'StaffMember'
 }
 
-export enum BillTimeEnum { 
-    Billable = <any> 'Billable',
-    DoNotBill = <any> 'DoNotBill',
-    NoCharge = <any> 'NoCharge',
-    NoDefault = <any> 'NoDefault'
-}
-
-export enum BillExpensesEnum { 
-    Billable = <any> 'Billable',
-    DoNotBill = <any> 'DoNotBill',
-    NoCharge = <any> 'NoCharge',
-    NoDefault = <any> 'NoDefault'
-}
-
-export enum BillProductsEnum { 
-    Billable = <any> 'Billable',
-    DoNotBill = <any> 'DoNotBill',
-    NoCharge = <any> 'NoCharge',
-    NoDefault = <any> 'NoDefault'
-}
 export interface ProjectBoardReference {
     "id"?: number;
     "name"?: string;
@@ -262,28 +241,28 @@ export interface ProjectPhase {
 }
 
 
-export enum BillTimeEnum { 
+export enum BillTimeEnum {
     Billable = <any> 'Billable',
     DoNotBill = <any> 'DoNotBill',
     NoCharge = <any> 'NoCharge',
     NoDefault = <any> 'NoDefault'
 }
 
-export enum BillExpensesEnum { 
+export enum BillExpensesEnum {
     Billable = <any> 'Billable',
     DoNotBill = <any> 'DoNotBill',
     NoCharge = <any> 'NoCharge',
     NoDefault = <any> 'NoDefault'
 }
 
-export enum BillProductsEnum { 
+export enum BillProductsEnum {
     Billable = <any> 'Billable',
     DoNotBill = <any> 'DoNotBill',
     NoCharge = <any> 'NoCharge',
     NoDefault = <any> 'NoDefault'
 }
 
-export enum BillingMethodEnum { 
+export enum BillingMethodEnum {
     ActualRates = <any> 'ActualRates',
     FixedFee = <any> 'FixedFee',
     NotToExceed = <any> 'NotToExceed',
@@ -387,10 +366,10 @@ export interface WorkRoleReference {
         }
 
         /**
-         * 
+         *
          * Delete Project Contact By Id
-         * @param id 
-         * @param contactId 
+         * @param id
+         * @param contactId
          */
         public projectProjectsIdContactsContactIdDelete (params: {  id: number; contactId: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<{}> {
             const localVarPath = this.basePath + '/project/projects/{id}/contacts/{contactId}'
@@ -410,7 +389,7 @@ export interface WorkRoleReference {
             let fetchParams = {
                 method: 'DELETE',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -430,10 +409,10 @@ export interface WorkRoleReference {
             });
         }
         /**
-         * 
+         *
          * Get Project Contact By Id
-         * @param id 
-         * @param contactId 
+         * @param id
+         * @param contactId
          */
         public projectProjectsIdContactsContactIdGet (params: {  id: number; contactId: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<ProjectContact> {
             const localVarPath = this.basePath + '/project/projects/{id}/contacts/{contactId}'
@@ -453,7 +432,7 @@ export interface WorkRoleReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -473,13 +452,13 @@ export interface WorkRoleReference {
             });
         }
         /**
-         * 
+         *
          * Get Project Contacts
-         * @param id 
-         * @param conditions 
-         * @param orderBy 
-         * @param page 
-         * @param pageSize 
+         * @param id
+         * @param conditions
+         * @param orderBy
+         * @param page
+         * @param pageSize
          */
         public projectProjectsIdContactsGet (params: {  id: number; conditions?: string; orderBy?: string; page?: number; pageSize?: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Array<ProjectContact>> {
             const localVarPath = this.basePath + '/project/projects/{id}/contacts'
@@ -510,7 +489,7 @@ export interface WorkRoleReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -530,10 +509,10 @@ export interface WorkRoleReference {
             });
         }
         /**
-         * 
+         *
          * Create Project Contact
-         * @param id 
-         * @param contact 
+         * @param id
+         * @param contact
          */
         public projectProjectsIdContactsPost (params: {  id: number; contact: ProjectContact; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<ProjectContact> {
             const localVarPath = this.basePath + '/project/projects/{id}/contacts'
@@ -555,7 +534,7 @@ export interface WorkRoleReference {
                 method: 'POST',
                 headers: headerParams,
                 body: JSON.stringify(params.contact),
-                
+
             };
 
             if (extraFetchParams) {
@@ -590,10 +569,10 @@ export interface WorkRoleReference {
         }
 
         /**
-         * 
+         *
          * Get Project Notes Count
-         * @param id 
-         * @param conditions 
+         * @param id
+         * @param conditions
          */
         public projectProjectsIdNotesCountGet (params: {  id: number; conditions?: string; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Count> {
             const localVarPath = this.basePath + '/project/projects/{id}/notes/count'
@@ -612,7 +591,7 @@ export interface WorkRoleReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -632,13 +611,13 @@ export interface WorkRoleReference {
             });
         }
         /**
-         * 
+         *
          * Get Project Notes
-         * @param id 
-         * @param conditions 
-         * @param orderBy 
-         * @param page 
-         * @param pageSize 
+         * @param id
+         * @param conditions
+         * @param orderBy
+         * @param page
+         * @param pageSize
          */
         public projectProjectsIdNotesGet (params: {  id: number; conditions?: string; orderBy?: string; page?: number; pageSize?: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Array<ProjectNote>> {
             const localVarPath = this.basePath + '/project/projects/{id}/notes'
@@ -669,7 +648,7 @@ export interface WorkRoleReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -689,10 +668,10 @@ export interface WorkRoleReference {
             });
         }
         /**
-         * 
+         *
          * Delete Project Note By Id
-         * @param id 
-         * @param noteId 
+         * @param id
+         * @param noteId
          */
         public projectProjectsIdNotesNoteIdDelete (params: {  id: number; noteId: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<{}> {
             const localVarPath = this.basePath + '/project/projects/{id}/notes/{noteId}'
@@ -712,7 +691,7 @@ export interface WorkRoleReference {
             let fetchParams = {
                 method: 'DELETE',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -732,10 +711,10 @@ export interface WorkRoleReference {
             });
         }
         /**
-         * 
+         *
          * Get Project Note By Id
-         * @param id 
-         * @param noteId 
+         * @param id
+         * @param noteId
          */
         public projectProjectsIdNotesNoteIdGet (params: {  id: number; noteId: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<ProjectNote> {
             const localVarPath = this.basePath + '/project/projects/{id}/notes/{noteId}'
@@ -755,7 +734,7 @@ export interface WorkRoleReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -775,11 +754,11 @@ export interface WorkRoleReference {
             });
         }
         /**
-         * 
+         *
          * Update Project Note
-         * @param id 
-         * @param noteId 
-         * @param operations 
+         * @param id
+         * @param noteId
+         * @param operations
          */
         public projectProjectsIdNotesNoteIdPatch (params: {  id: number; noteId: number; operations: Array<PatchOperation>; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<ProjectNote> {
             const localVarPath = this.basePath + '/project/projects/{id}/notes/{noteId}'
@@ -806,7 +785,7 @@ export interface WorkRoleReference {
                 method: 'PATCH',
                 headers: headerParams,
                 body: JSON.stringify(params.operations),
-                
+
             };
 
             if (extraFetchParams) {
@@ -826,11 +805,11 @@ export interface WorkRoleReference {
             });
         }
         /**
-         * 
+         *
          * Replace Project Note
-         * @param id 
-         * @param noteId 
-         * @param note 
+         * @param id
+         * @param noteId
+         * @param note
          */
         public projectProjectsIdNotesNoteIdPut (params: {  id: number; noteId: number; note: ProjectNote; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<ProjectNote> {
             const localVarPath = this.basePath + '/project/projects/{id}/notes/{noteId}'
@@ -857,7 +836,7 @@ export interface WorkRoleReference {
                 method: 'PUT',
                 headers: headerParams,
                 body: JSON.stringify(params.note),
-                
+
             };
 
             if (extraFetchParams) {
@@ -877,10 +856,10 @@ export interface WorkRoleReference {
             });
         }
         /**
-         * 
+         *
          * Create Project Note
-         * @param id 
-         * @param note 
+         * @param id
+         * @param note
          */
         public projectProjectsIdNotesPost (params: {  id: number; note: ProjectNote; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<ProjectNote> {
             const localVarPath = this.basePath + '/project/projects/{id}/notes'
@@ -902,7 +881,7 @@ export interface WorkRoleReference {
                 method: 'POST',
                 headers: headerParams,
                 body: JSON.stringify(params.note),
-                
+
             };
 
             if (extraFetchParams) {
@@ -937,10 +916,10 @@ export interface WorkRoleReference {
         }
 
         /**
-         * 
+         *
          * Get Project Phases Count
-         * @param id 
-         * @param conditions 
+         * @param id
+         * @param conditions
          */
         public projectProjectsIdPhasesCountGet (params: {  id: number; conditions?: string; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Count> {
             const localVarPath = this.basePath + '/project/projects/{id}/phases/count'
@@ -959,7 +938,7 @@ export interface WorkRoleReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -979,13 +958,13 @@ export interface WorkRoleReference {
             });
         }
         /**
-         * 
+         *
          * Get Project Phases
-         * @param id 
-         * @param conditions 
-         * @param orderBy 
-         * @param page 
-         * @param pageSize 
+         * @param id
+         * @param conditions
+         * @param orderBy
+         * @param page
+         * @param pageSize
          */
         public projectProjectsIdPhasesGet (params: {  id: number; conditions?: string; orderBy?: string; page?: number; pageSize?: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Array<ProjectPhase>> {
             const localVarPath = this.basePath + '/project/projects/{id}/phases'
@@ -1016,7 +995,7 @@ export interface WorkRoleReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -1036,10 +1015,10 @@ export interface WorkRoleReference {
             });
         }
         /**
-         * 
+         *
          * Delete Project Phase By Id
-         * @param id 
-         * @param phaseId 
+         * @param id
+         * @param phaseId
          */
         public projectProjectsIdPhasesPhaseIdDelete (params: {  id: number; phaseId: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<{}> {
             const localVarPath = this.basePath + '/project/projects/{id}/phases/{phaseId}'
@@ -1059,7 +1038,7 @@ export interface WorkRoleReference {
             let fetchParams = {
                 method: 'DELETE',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -1079,10 +1058,10 @@ export interface WorkRoleReference {
             });
         }
         /**
-         * 
+         *
          * Get Project Phase By Id
-         * @param id 
-         * @param phaseId 
+         * @param id
+         * @param phaseId
          */
         public projectProjectsIdPhasesPhaseIdGet (params: {  id: number; phaseId: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<ProjectPhase> {
             const localVarPath = this.basePath + '/project/projects/{id}/phases/{phaseId}'
@@ -1102,7 +1081,7 @@ export interface WorkRoleReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -1122,11 +1101,11 @@ export interface WorkRoleReference {
             });
         }
         /**
-         * 
+         *
          * Update Project Phase
-         * @param id 
-         * @param phaseId 
-         * @param operations 
+         * @param id
+         * @param phaseId
+         * @param operations
          */
         public projectProjectsIdPhasesPhaseIdPatch (params: {  id: number; phaseId: number; operations: Array<PatchOperation>; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<ProjectPhase> {
             const localVarPath = this.basePath + '/project/projects/{id}/phases/{phaseId}'
@@ -1153,7 +1132,7 @@ export interface WorkRoleReference {
                 method: 'PATCH',
                 headers: headerParams,
                 body: JSON.stringify(params.operations),
-                
+
             };
 
             if (extraFetchParams) {
@@ -1173,11 +1152,11 @@ export interface WorkRoleReference {
             });
         }
         /**
-         * 
+         *
          * Replace Project Phase
-         * @param id 
-         * @param phaseId 
-         * @param projectPhase 
+         * @param id
+         * @param phaseId
+         * @param projectPhase
          */
         public projectProjectsIdPhasesPhaseIdPut (params: {  id: number; phaseId: number; projectPhase: ProjectPhase; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<ProjectPhase> {
             const localVarPath = this.basePath + '/project/projects/{id}/phases/{phaseId}'
@@ -1204,7 +1183,7 @@ export interface WorkRoleReference {
                 method: 'PUT',
                 headers: headerParams,
                 body: JSON.stringify(params.projectPhase),
-                
+
             };
 
             if (extraFetchParams) {
@@ -1224,10 +1203,10 @@ export interface WorkRoleReference {
             });
         }
         /**
-         * 
+         *
          * Create Project Phase
-         * @param id 
-         * @param projectPhase 
+         * @param id
+         * @param projectPhase
          */
         public projectProjectsIdPhasesPost (params: {  id: number; projectPhase: ProjectPhase; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<ProjectPhase> {
             const localVarPath = this.basePath + '/project/projects/{id}/phases'
@@ -1249,7 +1228,7 @@ export interface WorkRoleReference {
                 method: 'POST',
                 headers: headerParams,
                 body: JSON.stringify(params.projectPhase),
-                
+
             };
 
             if (extraFetchParams) {
@@ -1284,9 +1263,9 @@ export interface WorkRoleReference {
         }
 
         /**
-         * 
+         *
          * Get Projects Count
-         * @param conditions 
+         * @param conditions
          */
         public projectProjectsCountGet (params: {  conditions?: string; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Count> {
             const localVarPath = this.basePath + '/project/projects/count';
@@ -1300,7 +1279,7 @@ export interface WorkRoleReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -1320,12 +1299,12 @@ export interface WorkRoleReference {
             });
         }
         /**
-         * 
+         *
          * Get Projects
-         * @param conditions 
-         * @param orderBy 
-         * @param page 
-         * @param pageSize 
+         * @param conditions
+         * @param orderBy
+         * @param page
+         * @param pageSize
          */
         public projectProjectsGet (params: {  conditions?: string; orderBy?: string; page?: number; pageSize?: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Array<Project>> {
             const localVarPath = this.basePath + '/project/projects';
@@ -1351,7 +1330,7 @@ export interface WorkRoleReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -1371,9 +1350,9 @@ export interface WorkRoleReference {
             });
         }
         /**
-         * 
+         *
          * Delete Project By Id
-         * @param id 
+         * @param id
          */
         public projectProjectsIdDelete (params: {  id: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<{}> {
             const localVarPath = this.basePath + '/project/projects/{id}'
@@ -1388,7 +1367,7 @@ export interface WorkRoleReference {
             let fetchParams = {
                 method: 'DELETE',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -1408,9 +1387,9 @@ export interface WorkRoleReference {
             });
         }
         /**
-         * 
+         *
          * Get Project By Id
-         * @param id 
+         * @param id
          */
         public projectProjectsIdGet (params: {  id: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Project> {
             const localVarPath = this.basePath + '/project/projects/{id}'
@@ -1425,7 +1404,7 @@ export interface WorkRoleReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -1445,10 +1424,10 @@ export interface WorkRoleReference {
             });
         }
         /**
-         * 
+         *
          * Update Project
-         * @param id 
-         * @param operations 
+         * @param id
+         * @param operations
          */
         public projectProjectsIdPatch (params: {  id: number; operations: Array<PatchOperation>; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Project> {
             const localVarPath = this.basePath + '/project/projects/{id}'
@@ -1470,7 +1449,7 @@ export interface WorkRoleReference {
                 method: 'PATCH',
                 headers: headerParams,
                 body: JSON.stringify(params.operations),
-                
+
             };
 
             if (extraFetchParams) {
@@ -1490,10 +1469,10 @@ export interface WorkRoleReference {
             });
         }
         /**
-         * 
+         *
          * Replace Project
-         * @param id 
-         * @param project 
+         * @param id
+         * @param project
          */
         public projectProjectsIdPut (params: {  id: number; project: Project; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Project> {
             const localVarPath = this.basePath + '/project/projects/{id}'
@@ -1515,7 +1494,7 @@ export interface WorkRoleReference {
                 method: 'PUT',
                 headers: headerParams,
                 body: JSON.stringify(params.project),
-                
+
             };
 
             if (extraFetchParams) {
@@ -1535,9 +1514,9 @@ export interface WorkRoleReference {
             });
         }
         /**
-         * 
+         *
          * Create Project
-         * @param project 
+         * @param project
          */
         public projectProjectsPost (params: {  project: Project; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Project> {
             const localVarPath = this.basePath + '/project/projects';
@@ -1554,7 +1533,7 @@ export interface WorkRoleReference {
                 method: 'POST',
                 headers: headerParams,
                 body: JSON.stringify(params.project),
-                
+
             };
 
             if (extraFetchParams) {
@@ -1589,10 +1568,10 @@ export interface WorkRoleReference {
         }
 
         /**
-         * 
+         *
          * Get Team Members Count
-         * @param id 
-         * @param conditions 
+         * @param id
+         * @param conditions
          */
         public projectProjectsIdTeamMembersCountGet (params: {  id: number; conditions?: string; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Count> {
             const localVarPath = this.basePath + '/project/projects/{id}/teamMembers/count'
@@ -1611,7 +1590,7 @@ export interface WorkRoleReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -1631,13 +1610,13 @@ export interface WorkRoleReference {
             });
         }
         /**
-         * 
+         *
          * Get Team Members
-         * @param id 
-         * @param conditions 
-         * @param orderBy 
-         * @param page 
-         * @param pageSize 
+         * @param id
+         * @param conditions
+         * @param orderBy
+         * @param page
+         * @param pageSize
          */
         public projectProjectsIdTeamMembersGet (params: {  id: number; conditions?: string; orderBy?: string; page?: number; pageSize?: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Array<ProjectTeamMember>> {
             const localVarPath = this.basePath + '/project/projects/{id}/teamMembers'
@@ -1668,7 +1647,7 @@ export interface WorkRoleReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -1688,10 +1667,10 @@ export interface WorkRoleReference {
             });
         }
         /**
-         * 
+         *
          * Create Team Member
-         * @param id 
-         * @param teamMember 
+         * @param id
+         * @param teamMember
          */
         public projectProjectsIdTeamMembersPost (params: {  id: number; teamMember: ProjectTeamMember; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<ProjectTeamMember> {
             const localVarPath = this.basePath + '/project/projects/{id}/teamMembers'
@@ -1713,7 +1692,7 @@ export interface WorkRoleReference {
                 method: 'POST',
                 headers: headerParams,
                 body: JSON.stringify(params.teamMember),
-                
+
             };
 
             if (extraFetchParams) {
@@ -1733,10 +1712,10 @@ export interface WorkRoleReference {
             });
         }
         /**
-         * 
+         *
          * Delete Team Member By Id
-         * @param id 
-         * @param teamMemberId 
+         * @param id
+         * @param teamMemberId
          */
         public projectProjectsIdTeamMembersTeamMemberIdDelete (params: {  id: number; teamMemberId: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<{}> {
             const localVarPath = this.basePath + '/project/projects/{id}/teamMembers/{teamMemberId}'
@@ -1756,7 +1735,7 @@ export interface WorkRoleReference {
             let fetchParams = {
                 method: 'DELETE',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -1776,10 +1755,10 @@ export interface WorkRoleReference {
             });
         }
         /**
-         * 
+         *
          * Get Team Member By Id
-         * @param id 
-         * @param teamMemberId 
+         * @param id
+         * @param teamMemberId
          */
         public projectProjectsIdTeamMembersTeamMemberIdGet (params: {  id: number; teamMemberId: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<ProjectTeamMember> {
             const localVarPath = this.basePath + '/project/projects/{id}/teamMembers/{teamMemberId}'
@@ -1799,7 +1778,7 @@ export interface WorkRoleReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -1819,11 +1798,11 @@ export interface WorkRoleReference {
             });
         }
         /**
-         * 
+         *
          * Update Team Member
-         * @param id 
-         * @param teamMemberId 
-         * @param operations 
+         * @param id
+         * @param teamMemberId
+         * @param operations
          */
         public projectProjectsIdTeamMembersTeamMemberIdPatch (params: {  id: number; teamMemberId: number; operations: Array<PatchOperation>; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<ProjectTeamMember> {
             const localVarPath = this.basePath + '/project/projects/{id}/teamMembers/{teamMemberId}'
@@ -1850,7 +1829,7 @@ export interface WorkRoleReference {
                 method: 'PATCH',
                 headers: headerParams,
                 body: JSON.stringify(params.operations),
-                
+
             };
 
             if (extraFetchParams) {
@@ -1870,11 +1849,11 @@ export interface WorkRoleReference {
             });
         }
         /**
-         * 
+         *
          * Replace Team Member
-         * @param id 
-         * @param teamMemberId 
-         * @param teamMember 
+         * @param id
+         * @param teamMemberId
+         * @param teamMember
          */
         public projectProjectsIdTeamMembersTeamMemberIdPut (params: {  id: number; teamMemberId: number; teamMember: ProjectTeamMember; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<ProjectTeamMember> {
             const localVarPath = this.basePath + '/project/projects/{id}/teamMembers/{teamMemberId}'
@@ -1901,7 +1880,7 @@ export interface WorkRoleReference {
                 method: 'PUT',
                 headers: headerParams,
                 body: JSON.stringify(params.teamMember),
-                
+
             };
 
             if (extraFetchParams) {

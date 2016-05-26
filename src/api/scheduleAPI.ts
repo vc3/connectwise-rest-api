@@ -1,3 +1,9 @@
+///<reference path="../../typings/index.d.ts"/>
+/* tslint:disable */
+
+'use strict';
+
+
 import * as querystring from 'querystring';
 import * as fetch from 'isomorphic-fetch';
 import {assign} from './assign';

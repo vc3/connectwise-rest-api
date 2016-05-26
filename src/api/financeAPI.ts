@@ -1,4 +1,8 @@
-///<reference path="../../typings/main.d.ts"/>
+///<reference path="../../typings/index.d.ts"/>
+/* tslint:disable */
+
+'use strict';
+
 import * as querystring from 'querystring';
 import * as fetch from 'isomorphic-fetch';
 import {assign} from './assign';
@@ -44,7 +48,7 @@ export interface Addition {
 }
 
 
-export enum BillCustomerEnum { 
+export enum BillCustomerEnum {
     Billable = <any> 'Billable',
     DoNotBill = <any> 'DoNotBill',
     NoCharge = <any> 'NoCharge'
@@ -138,62 +142,7 @@ export interface Agreement {
     "periodType"?: PeriodTypeEnum;
 }
 
-
-export enum ApplicationUnitsEnum { 
-    Amount = <any> 'Amount',
-    Hours = <any> 'Hours',
-    Incidents = <any> 'Incidents'
-}
-
-export enum ApplicationCycleEnum { 
-    Contract2Weeks = <any> 'Contract2Weeks',
-    Contract4Weeks = <any> 'Contract4Weeks',
-    ContractYear = <any> 'ContractYear',
-    CalendarMonth = <any> 'CalendarMonth',
-    CalendarQuarter = <any> 'CalendarQuarter',
-    CalendarWeek = <any> 'CalendarWeek',
-    ContractQuarter = <any> 'ContractQuarter',
-    CalendarYear = <any> 'CalendarYear'
-}
-
-export enum EmployeeCompRateEnum { 
-    Actual = <any> 'Actual',
-    Hourly = <any> 'Hourly'
-}
-
-export enum EmployeeCompNotExceedEnum { 
-    Billing = <any> 'Billing',
-    Percent = <any> 'Percent',
-    Amount = <any> 'Amount'
-}
-
-export enum InvoicingCycleEnum { 
-    CalendarYear = <any> 'CalendarYear',
-    ContractYear = <any> 'ContractYear'
-}
-
-export enum BillTimeEnum { 
-    Billable = <any> 'Billable',
-    DoNotBill = <any> 'DoNotBill',
-    NoCharge = <any> 'NoCharge',
-    NoDefault = <any> 'NoDefault'
-}
-
-export enum BillExpensesEnum { 
-    Billable = <any> 'Billable',
-    DoNotBill = <any> 'DoNotBill',
-    NoCharge = <any> 'NoCharge',
-    NoDefault = <any> 'NoDefault'
-}
-
-export enum BillProductsEnum { 
-    Billable = <any> 'Billable',
-    DoNotBill = <any> 'DoNotBill',
-    NoCharge = <any> 'NoCharge',
-    NoDefault = <any> 'NoDefault'
-}
-
-export enum PeriodTypeEnum { 
+export enum PeriodTypeEnum {
     Current = <any> 'Current',
     Future = <any> 'Future',
     Both = <any> 'Both',
@@ -283,18 +232,18 @@ export interface AgreementType {
 }
 
 
-export enum PrefixSuffixOptionEnum { 
+export enum PrefixSuffixOptionEnum {
     Prefix = <any> 'Prefix',
     Suffix = <any> 'Suffix'
 }
 
-export enum ApplicationUnitsEnum { 
+export enum ApplicationUnitsEnum {
     Amount = <any> 'Amount',
     Hours = <any> 'Hours',
     Incidents = <any> 'Incidents'
 }
 
-export enum ApplicationCycleEnum { 
+export enum ApplicationCycleEnum {
     Contract2Weeks = <any> 'Contract2Weeks',
     Contract4Weeks = <any> 'Contract4Weeks',
     ContractYear = <any> 'ContractYear',
@@ -305,37 +254,30 @@ export enum ApplicationCycleEnum {
     CalendarYear = <any> 'CalendarYear'
 }
 
-export enum EmployeeCompRateEnum { 
+export enum EmployeeCompRateEnum {
     Actual = <any> 'Actual',
     Hourly = <any> 'Hourly'
 }
 
-export enum EmployeeCompNotExceedEnum { 
+export enum EmployeeCompNotExceedEnum {
     Billing = <any> 'Billing',
     Percent = <any> 'Percent',
     Amount = <any> 'Amount'
 }
 
-export enum InvoicingCycleEnum { 
+export enum InvoicingCycleEnum {
     CalendarYear = <any> 'CalendarYear',
     ContractYear = <any> 'ContractYear'
 }
 
-export enum BillTimeEnum { 
+export enum BillExpensesEnum {
     Billable = <any> 'Billable',
     DoNotBill = <any> 'DoNotBill',
     NoCharge = <any> 'NoCharge',
     NoDefault = <any> 'NoDefault'
 }
 
-export enum BillExpensesEnum { 
-    Billable = <any> 'Billable',
-    DoNotBill = <any> 'DoNotBill',
-    NoCharge = <any> 'NoCharge',
-    NoDefault = <any> 'NoDefault'
-}
-
-export enum BillProductsEnum { 
+export enum BillProductsEnum {
     Billable = <any> 'Billable',
     DoNotBill = <any> 'DoNotBill',
     NoCharge = <any> 'NoCharge',
@@ -368,12 +310,6 @@ export interface AgreementWorkRole {
     "info"?: Metadata;
 }
 
-
-export enum RateTypeEnum { 
-    AdjAmount = <any> 'AdjAmount',
-    Custom = <any> 'Custom',
-    Multiplier = <any> 'Multiplier'
-}
 export interface AgreementWorkRoleExclusion {
     "id"?: number;
     "workRole": WorkRoleReference;
@@ -411,20 +347,20 @@ export interface AgreementWorkType {
 }
 
 
-export enum RateTypeEnum { 
+export enum RateTypeEnum {
     AdjAmount = <any> 'AdjAmount',
     Custom = <any> 'Custom',
     Multiplier = <any> 'Multiplier'
 }
 
-export enum BillTimeEnum { 
+export enum BillTimeEnum {
     Billable = <any> 'Billable',
     DoNotBill = <any> 'DoNotBill',
     NoCharge = <any> 'NoCharge',
     NoDefault = <any> 'NoDefault'
 }
 
-export enum OverageRateTypeEnum { 
+export enum OverageRateTypeEnum {
     AdjAmount = <any> 'AdjAmount',
     Custom = <any> 'Custom',
     Multiplier = <any> 'Multiplier'
@@ -658,7 +594,7 @@ export interface Invoice {
 }
 
 
-export enum TypeEnum { 
+export enum TypeEnum {
     Agreement = <any> 'Agreement',
     CreditMemo = <any> 'CreditMemo',
     DownPayment = <any> 'DownPayment',
@@ -667,7 +603,7 @@ export enum TypeEnum {
     Standard = <any> 'Standard'
 }
 
-export enum ApplyToTypeEnum { 
+export enum ApplyToTypeEnum {
     All = <any> 'All',
     Agreement = <any> 'Agreement',
     Project = <any> 'Project',
@@ -907,7 +843,7 @@ export interface Transaction {
 }
 
 
-export enum TypeEnum { 
+export enum TypeEnum {
     AP = <any> 'AP',
     AR = <any> 'AR',
     EE = <any> 'EE',
@@ -930,7 +866,7 @@ export enum TypeEnum {
     PT = <any> 'PT'
 }
 
-export enum ExpenseClassEnum { 
+export enum ExpenseClassEnum {
     NonReimbursable = <any> 'NonReimbursable',
     Reimbursable = <any> 'Reimbursable',
     Personal = <any> 'Personal'
@@ -987,13 +923,13 @@ export interface UnpostedExpense {
 }
 
 
-export enum ClassificationEnum { 
+export enum ClassificationEnum {
     NonReimbursable = <any> 'NonReimbursable',
     Reimbursable = <any> 'Reimbursable',
     Personal = <any> 'Personal'
 }
 
-export enum GlTypeEnum { 
+export enum GlTypeEnum {
     AP = <any> 'AP',
     AR = <any> 'AR',
     EE = <any> 'EE',
@@ -1054,7 +990,7 @@ export interface UnpostedInvoice {
 }
 
 
-export enum InvoiceTypeEnum { 
+export enum InvoiceTypeEnum {
     Agreement = <any> 'Agreement',
     CreditMemo = <any> 'CreditMemo',
     DownPayment = <any> 'DownPayment',
@@ -1097,7 +1033,7 @@ export interface UnpostedProcurement {
 }
 
 
-export enum ProcurementTypeEnum { 
+export enum ProcurementTypeEnum {
     Purchase = <any> 'Purchase',
     Adjustment = <any> 'Adjustment',
     Transfer = <any> 'Transfer'
@@ -1144,10 +1080,10 @@ export interface WorkTypeReference {
         }
 
         /**
-         * 
+         *
          * Get Transactions Count
-         * @param id 
-         * @param conditions 
+         * @param id
+         * @param conditions
          */
         public financeAccountingBatchesIdTransactionsCountGet (params: {  id: number; conditions?: string; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Count> {
             const localVarPath = this.basePath + '/finance/accounting/batches/{id}/transactions/count'
@@ -1166,7 +1102,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -1186,13 +1122,13 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Get Transactions
-         * @param id 
-         * @param conditions 
-         * @param orderBy 
-         * @param page 
-         * @param pageSize 
+         * @param id
+         * @param conditions
+         * @param orderBy
+         * @param page
+         * @param pageSize
          */
         public financeAccountingBatchesIdTransactionsGet (params: {  id: number; conditions?: string; orderBy?: string; page?: number; pageSize?: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Array<Transaction>> {
             const localVarPath = this.basePath + '/finance/accounting/batches/{id}/transactions'
@@ -1223,7 +1159,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -1243,10 +1179,10 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Get Transaction By Id
-         * @param id 
-         * @param transactionId 
+         * @param id
+         * @param transactionId
          */
         public financeAccountingBatchesIdTransactionsTransactionIdGet (params: {  id: number; transactionId: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Transaction> {
             const localVarPath = this.basePath + '/finance/accounting/batches/{id}/transactions/{transactionId}'
@@ -1266,7 +1202,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -1301,9 +1237,9 @@ export interface WorkTypeReference {
         }
 
         /**
-         * 
+         *
          * Get Batches Count
-         * @param conditions 
+         * @param conditions
          */
         public financeAccountingBatchesCountGet (params: {  conditions?: string; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Count> {
             const localVarPath = this.basePath + '/finance/accounting/batches/count';
@@ -1317,7 +1253,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -1337,12 +1273,12 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Get Batches
-         * @param conditions 
-         * @param orderBy 
-         * @param page 
-         * @param pageSize 
+         * @param conditions
+         * @param orderBy
+         * @param page
+         * @param pageSize
          */
         public financeAccountingBatchesGet (params: {  conditions?: string; orderBy?: string; page?: number; pageSize?: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Array<Batch>> {
             const localVarPath = this.basePath + '/finance/accounting/batches';
@@ -1368,7 +1304,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -1388,9 +1324,9 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Delete Batch By Id
-         * @param id 
+         * @param id
          */
         public financeAccountingBatchesIdDelete (params: {  id: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<{}> {
             const localVarPath = this.basePath + '/finance/accounting/batches/{id}'
@@ -1405,7 +1341,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'DELETE',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -1425,9 +1361,9 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Get Batch By Id
-         * @param id 
+         * @param id
          */
         public financeAccountingBatchesIdGet (params: {  id: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Batch> {
             const localVarPath = this.basePath + '/finance/accounting/batches/{id}'
@@ -1442,7 +1378,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -1462,9 +1398,9 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Create Batch
-         * @param batch 
+         * @param batch
          */
         public financeAccountingBatchesPost (params: {  batch: Batch; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Batch> {
             const localVarPath = this.basePath + '/finance/accounting/batches';
@@ -1481,7 +1417,7 @@ export interface WorkTypeReference {
                 method: 'POST',
                 headers: headerParams,
                 body: JSON.stringify(params.batch),
-                
+
             };
 
             if (extraFetchParams) {
@@ -1516,9 +1452,9 @@ export interface WorkTypeReference {
         }
 
         /**
-         * 
+         *
          * Get Unposted Expenses Count
-         * @param conditions 
+         * @param conditions
          */
         public financeAccountingUnpostedexpensesCountGet (params: {  conditions?: string; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Count> {
             const localVarPath = this.basePath + '/finance/accounting/unpostedexpenses/count';
@@ -1532,7 +1468,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -1552,12 +1488,12 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Get Unposted Expenses
-         * @param conditions 
-         * @param orderBy 
-         * @param page 
-         * @param pageSize 
+         * @param conditions
+         * @param orderBy
+         * @param page
+         * @param pageSize
          */
         public financeAccountingUnpostedexpensesGet (params: {  conditions?: string; orderBy?: string; page?: number; pageSize?: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Array<UnpostedExpense>> {
             const localVarPath = this.basePath + '/finance/accounting/unpostedexpenses';
@@ -1583,7 +1519,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -1603,9 +1539,9 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Get Unposted Expense By Id
-         * @param id 
+         * @param id
          */
         public financeAccountingUnpostedexpensesIdGet (params: {  id: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<UnpostedExpense> {
             const localVarPath = this.basePath + '/finance/accounting/unpostedexpenses/{id}'
@@ -1620,7 +1556,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -1655,9 +1591,9 @@ export interface WorkTypeReference {
         }
 
         /**
-         * 
+         *
          * Get Unposted Procurements Count
-         * @param conditions 
+         * @param conditions
          */
         public financeAccountingUnpostedprocurementCountGet (params: {  conditions?: string; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Count> {
             const localVarPath = this.basePath + '/finance/accounting/unpostedprocurement/count';
@@ -1671,7 +1607,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -1691,12 +1627,12 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Get Unposted Procurements
-         * @param conditions 
-         * @param orderBy 
-         * @param page 
-         * @param pageSize 
+         * @param conditions
+         * @param orderBy
+         * @param page
+         * @param pageSize
          */
         public financeAccountingUnpostedprocurementGet (params: {  conditions?: string; orderBy?: string; page?: number; pageSize?: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Array<UnpostedProcurement>> {
             const localVarPath = this.basePath + '/finance/accounting/unpostedprocurement';
@@ -1722,7 +1658,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -1742,9 +1678,9 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Get Unposted Procurement By Id
-         * @param id 
+         * @param id
          */
         public financeAccountingUnpostedprocurementIdGet (params: {  id: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<UnpostedProcurement> {
             const localVarPath = this.basePath + '/finance/accounting/unpostedprocurement/{id}'
@@ -1759,7 +1695,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -1794,9 +1730,9 @@ export interface WorkTypeReference {
         }
 
         /**
-         * 
+         *
          * Get Unposted Invoices Count
-         * @param conditions 
+         * @param conditions
          */
         public financeAccountingUnpostedinvoicesCountGet (params: {  conditions?: string; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Count> {
             const localVarPath = this.basePath + '/finance/accounting/unpostedinvoices/count';
@@ -1810,7 +1746,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -1830,12 +1766,12 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Get Unposted Invoices
-         * @param conditions 
-         * @param orderBy 
-         * @param page 
-         * @param pageSize 
+         * @param conditions
+         * @param orderBy
+         * @param page
+         * @param pageSize
          */
         public financeAccountingUnpostedinvoicesGet (params: {  conditions?: string; orderBy?: string; page?: number; pageSize?: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Array<UnpostedInvoice>> {
             const localVarPath = this.basePath + '/finance/accounting/unpostedinvoices';
@@ -1861,7 +1797,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -1881,9 +1817,9 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Get Unposted Invoice By Id
-         * @param id 
+         * @param id
          */
         public financeAccountingUnpostedinvoicesIdGet (params: {  id: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<UnpostedInvoice> {
             const localVarPath = this.basePath + '/finance/accounting/unpostedinvoices/{id}'
@@ -1898,7 +1834,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -1933,10 +1869,10 @@ export interface WorkTypeReference {
         }
 
         /**
-         * 
+         *
          * Delete Addition By Id
-         * @param id 
-         * @param additionId 
+         * @param id
+         * @param additionId
          */
         public financeAgreementsIdAdditionsAdditionIdDelete (params: {  id: number; additionId: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<{}> {
             const localVarPath = this.basePath + '/finance/agreements/{id}/additions/{additionId}'
@@ -1956,7 +1892,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'DELETE',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -1976,10 +1912,10 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Get Addition By Id
-         * @param id 
-         * @param additionId 
+         * @param id
+         * @param additionId
          */
         public financeAgreementsIdAdditionsAdditionIdGet (params: {  id: number; additionId: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Addition> {
             const localVarPath = this.basePath + '/finance/agreements/{id}/additions/{additionId}'
@@ -1999,7 +1935,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -2019,11 +1955,11 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Update Addition
-         * @param id 
-         * @param additionId 
-         * @param operations 
+         * @param id
+         * @param additionId
+         * @param operations
          */
         public financeAgreementsIdAdditionsAdditionIdPatch (params: {  id: number; additionId: number; operations: Array<PatchOperation>; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Addition> {
             const localVarPath = this.basePath + '/finance/agreements/{id}/additions/{additionId}'
@@ -2050,7 +1986,7 @@ export interface WorkTypeReference {
                 method: 'PATCH',
                 headers: headerParams,
                 body: JSON.stringify(params.operations),
-                
+
             };
 
             if (extraFetchParams) {
@@ -2070,11 +2006,11 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Replace Addition
-         * @param id 
-         * @param additionId 
-         * @param addition 
+         * @param id
+         * @param additionId
+         * @param addition
          */
         public financeAgreementsIdAdditionsAdditionIdPut (params: {  id: number; additionId: number; addition: Addition; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Addition> {
             const localVarPath = this.basePath + '/finance/agreements/{id}/additions/{additionId}'
@@ -2101,7 +2037,7 @@ export interface WorkTypeReference {
                 method: 'PUT',
                 headers: headerParams,
                 body: JSON.stringify(params.addition),
-                
+
             };
 
             if (extraFetchParams) {
@@ -2121,10 +2057,10 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Get Additions Count
-         * @param id 
-         * @param conditions 
+         * @param id
+         * @param conditions
          */
         public financeAgreementsIdAdditionsCountGet (params: {  id: number; conditions?: string; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Count> {
             const localVarPath = this.basePath + '/finance/agreements/{id}/additions/count'
@@ -2143,7 +2079,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -2163,13 +2099,13 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Get Additions
-         * @param id 
-         * @param conditions 
-         * @param orderBy 
-         * @param page 
-         * @param pageSize 
+         * @param id
+         * @param conditions
+         * @param orderBy
+         * @param page
+         * @param pageSize
          */
         public financeAgreementsIdAdditionsGet (params: {  id: number; conditions?: string; orderBy?: string; page?: number; pageSize?: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Array<Addition>> {
             const localVarPath = this.basePath + '/finance/agreements/{id}/additions'
@@ -2200,7 +2136,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -2220,10 +2156,10 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Create Addition
-         * @param id 
-         * @param addition 
+         * @param id
+         * @param addition
          */
         public financeAgreementsIdAdditionsPost (params: {  id: number; addition: Addition; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Addition> {
             const localVarPath = this.basePath + '/finance/agreements/{id}/additions'
@@ -2245,7 +2181,7 @@ export interface WorkTypeReference {
                 method: 'POST',
                 headers: headerParams,
                 body: JSON.stringify(params.addition),
-                
+
             };
 
             if (extraFetchParams) {
@@ -2280,10 +2216,10 @@ export interface WorkTypeReference {
         }
 
         /**
-         * 
+         *
          * Delete Adjustment By Id
-         * @param id 
-         * @param adjustmentId 
+         * @param id
+         * @param adjustmentId
          */
         public financeAgreementsIdAdjustmentsAdjustmentIdDelete (params: {  id: number; adjustmentId: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<{}> {
             const localVarPath = this.basePath + '/finance/agreements/{id}/adjustments/{adjustmentId}'
@@ -2303,7 +2239,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'DELETE',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -2323,10 +2259,10 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Get Adjustment By Id
-         * @param id 
-         * @param adjustmentId 
+         * @param id
+         * @param adjustmentId
          */
         public financeAgreementsIdAdjustmentsAdjustmentIdGet (params: {  id: number; adjustmentId: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Adjustment> {
             const localVarPath = this.basePath + '/finance/agreements/{id}/adjustments/{adjustmentId}'
@@ -2346,7 +2282,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -2366,11 +2302,11 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Update Adjustment
-         * @param id 
-         * @param adjustmentId 
-         * @param operations 
+         * @param id
+         * @param adjustmentId
+         * @param operations
          */
         public financeAgreementsIdAdjustmentsAdjustmentIdPatch (params: {  id: number; adjustmentId: number; operations: Array<PatchOperation>; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Adjustment> {
             const localVarPath = this.basePath + '/finance/agreements/{id}/adjustments/{adjustmentId}'
@@ -2397,7 +2333,7 @@ export interface WorkTypeReference {
                 method: 'PATCH',
                 headers: headerParams,
                 body: JSON.stringify(params.operations),
-                
+
             };
 
             if (extraFetchParams) {
@@ -2417,11 +2353,11 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Replace Adjustment
-         * @param id 
-         * @param adjustmentId 
-         * @param adjustment 
+         * @param id
+         * @param adjustmentId
+         * @param adjustment
          */
         public financeAgreementsIdAdjustmentsAdjustmentIdPut (params: {  id: number; adjustmentId: number; adjustment: Adjustment; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Adjustment> {
             const localVarPath = this.basePath + '/finance/agreements/{id}/adjustments/{adjustmentId}'
@@ -2448,7 +2384,7 @@ export interface WorkTypeReference {
                 method: 'PUT',
                 headers: headerParams,
                 body: JSON.stringify(params.adjustment),
-                
+
             };
 
             if (extraFetchParams) {
@@ -2468,10 +2404,10 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Get Adjustments Count
-         * @param id 
-         * @param conditions 
+         * @param id
+         * @param conditions
          */
         public financeAgreementsIdAdjustmentsCountGet (params: {  id: number; conditions?: string; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Count> {
             const localVarPath = this.basePath + '/finance/agreements/{id}/adjustments/count'
@@ -2490,7 +2426,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -2510,13 +2446,13 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Get Adjustments
-         * @param id 
-         * @param conditions 
-         * @param orderBy 
-         * @param page 
-         * @param pageSize 
+         * @param id
+         * @param conditions
+         * @param orderBy
+         * @param page
+         * @param pageSize
          */
         public financeAgreementsIdAdjustmentsGet (params: {  id: number; conditions?: string; orderBy?: string; page?: number; pageSize?: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Array<Adjustment>> {
             const localVarPath = this.basePath + '/finance/agreements/{id}/adjustments'
@@ -2547,7 +2483,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -2567,10 +2503,10 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Create Adjustment
-         * @param id 
-         * @param adjustment 
+         * @param id
+         * @param adjustment
          */
         public financeAgreementsIdAdjustmentsPost (params: {  id: number; adjustment: Adjustment; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Adjustment> {
             const localVarPath = this.basePath + '/finance/agreements/{id}/adjustments'
@@ -2592,7 +2528,7 @@ export interface WorkTypeReference {
                 method: 'POST',
                 headers: headerParams,
                 body: JSON.stringify(params.adjustment),
-                
+
             };
 
             if (extraFetchParams) {
@@ -2627,10 +2563,10 @@ export interface WorkTypeReference {
         }
 
         /**
-         * 
+         *
          * Delete Board Default By Id
-         * @param id 
-         * @param boardDefaultId 
+         * @param id
+         * @param boardDefaultId
          */
         public financeAgreementsIdBoardDefaultsBoardDefaultIdDelete (params: {  id: number; boardDefaultId: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<{}> {
             const localVarPath = this.basePath + '/finance/agreements/{id}/boardDefaults/{boardDefaultId}'
@@ -2650,7 +2586,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'DELETE',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -2670,10 +2606,10 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Get Board Default By Id
-         * @param id 
-         * @param boardDefaultId 
+         * @param id
+         * @param boardDefaultId
          */
         public financeAgreementsIdBoardDefaultsBoardDefaultIdGet (params: {  id: number; boardDefaultId: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<BoardDefault> {
             const localVarPath = this.basePath + '/finance/agreements/{id}/boardDefaults/{boardDefaultId}'
@@ -2693,7 +2629,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -2713,11 +2649,11 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Update Board Default
-         * @param id 
-         * @param boardDefaultId 
-         * @param operations 
+         * @param id
+         * @param boardDefaultId
+         * @param operations
          */
         public financeAgreementsIdBoardDefaultsBoardDefaultIdPatch (params: {  id: number; boardDefaultId: number; operations: Array<PatchOperation>; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<BoardDefault> {
             const localVarPath = this.basePath + '/finance/agreements/{id}/boardDefaults/{boardDefaultId}'
@@ -2744,7 +2680,7 @@ export interface WorkTypeReference {
                 method: 'PATCH',
                 headers: headerParams,
                 body: JSON.stringify(params.operations),
-                
+
             };
 
             if (extraFetchParams) {
@@ -2764,11 +2700,11 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Replace Board Default
-         * @param id 
-         * @param boardDefaultId 
-         * @param boardDefault 
+         * @param id
+         * @param boardDefaultId
+         * @param boardDefault
          */
         public financeAgreementsIdBoardDefaultsBoardDefaultIdPut (params: {  id: number; boardDefaultId: number; boardDefault: BoardDefault; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<BoardDefault> {
             const localVarPath = this.basePath + '/finance/agreements/{id}/boardDefaults/{boardDefaultId}'
@@ -2795,7 +2731,7 @@ export interface WorkTypeReference {
                 method: 'PUT',
                 headers: headerParams,
                 body: JSON.stringify(params.boardDefault),
-                
+
             };
 
             if (extraFetchParams) {
@@ -2815,10 +2751,10 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Get Board Defaults Count
-         * @param id 
-         * @param conditions 
+         * @param id
+         * @param conditions
          */
         public financeAgreementsIdBoardDefaultsCountGet (params: {  id: number; conditions?: string; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Count> {
             const localVarPath = this.basePath + '/finance/agreements/{id}/boardDefaults/count'
@@ -2837,7 +2773,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -2857,13 +2793,13 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Get Board Defaults
-         * @param id 
-         * @param conditions 
-         * @param orderBy 
-         * @param page 
-         * @param pageSize 
+         * @param id
+         * @param conditions
+         * @param orderBy
+         * @param page
+         * @param pageSize
          */
         public financeAgreementsIdBoardDefaultsGet (params: {  id: number; conditions?: string; orderBy?: string; page?: number; pageSize?: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Array<BoardDefault>> {
             const localVarPath = this.basePath + '/finance/agreements/{id}/boardDefaults'
@@ -2894,7 +2830,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -2914,10 +2850,10 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Create Board Default
-         * @param id 
-         * @param boardDefault 
+         * @param id
+         * @param boardDefault
          */
         public financeAgreementsIdBoardDefaultsPost (params: {  id: number; boardDefault: BoardDefault; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<BoardDefault> {
             const localVarPath = this.basePath + '/finance/agreements/{id}/boardDefaults'
@@ -2939,7 +2875,7 @@ export interface WorkTypeReference {
                 method: 'POST',
                 headers: headerParams,
                 body: JSON.stringify(params.boardDefault),
-                
+
             };
 
             if (extraFetchParams) {
@@ -2974,10 +2910,10 @@ export interface WorkTypeReference {
         }
 
         /**
-         * 
+         *
          * Get Sites Count
-         * @param id 
-         * @param conditions 
+         * @param id
+         * @param conditions
          */
         public financeAgreementsIdSitesCountGet (params: {  id: number; conditions?: string; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Count> {
             const localVarPath = this.basePath + '/finance/agreements/{id}/sites/count'
@@ -2996,7 +2932,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -3016,13 +2952,13 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Get Sites
-         * @param id 
-         * @param conditions 
-         * @param orderBy 
-         * @param page 
-         * @param pageSize 
+         * @param id
+         * @param conditions
+         * @param orderBy
+         * @param page
+         * @param pageSize
          */
         public financeAgreementsIdSitesGet (params: {  id: number; conditions?: string; orderBy?: string; page?: number; pageSize?: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Array<AgreementSite>> {
             const localVarPath = this.basePath + '/finance/agreements/{id}/sites'
@@ -3053,7 +2989,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -3073,10 +3009,10 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Create Site
-         * @param id 
-         * @param site 
+         * @param id
+         * @param site
          */
         public financeAgreementsIdSitesPost (params: {  id: number; site: AgreementSite; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<AgreementSite> {
             const localVarPath = this.basePath + '/finance/agreements/{id}/sites'
@@ -3098,7 +3034,7 @@ export interface WorkTypeReference {
                 method: 'POST',
                 headers: headerParams,
                 body: JSON.stringify(params.site),
-                
+
             };
 
             if (extraFetchParams) {
@@ -3118,10 +3054,10 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Delete Site By Id
-         * @param id 
-         * @param siteId 
+         * @param id
+         * @param siteId
          */
         public financeAgreementsIdSitesSiteIdDelete (params: {  id: number; siteId: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<{}> {
             const localVarPath = this.basePath + '/finance/agreements/{id}/sites/{siteId}'
@@ -3141,7 +3077,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'DELETE',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -3161,10 +3097,10 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Get Site By Id
-         * @param id 
-         * @param siteId 
+         * @param id
+         * @param siteId
          */
         public financeAgreementsIdSitesSiteIdGet (params: {  id: number; siteId: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<AgreementSite> {
             const localVarPath = this.basePath + '/finance/agreements/{id}/sites/{siteId}'
@@ -3184,7 +3120,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -3204,11 +3140,11 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Update Site
-         * @param id 
-         * @param siteId 
-         * @param operations 
+         * @param id
+         * @param siteId
+         * @param operations
          */
         public financeAgreementsIdSitesSiteIdPatch (params: {  id: number; siteId: number; operations: Array<PatchOperation>; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<AgreementSite> {
             const localVarPath = this.basePath + '/finance/agreements/{id}/sites/{siteId}'
@@ -3235,7 +3171,7 @@ export interface WorkTypeReference {
                 method: 'PATCH',
                 headers: headerParams,
                 body: JSON.stringify(params.operations),
-                
+
             };
 
             if (extraFetchParams) {
@@ -3255,11 +3191,11 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Replace Site
-         * @param id 
-         * @param siteId 
-         * @param site 
+         * @param id
+         * @param siteId
+         * @param site
          */
         public financeAgreementsIdSitesSiteIdPut (params: {  id: number; siteId: number; site: AgreementSite; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<AgreementSite> {
             const localVarPath = this.basePath + '/finance/agreements/{id}/sites/{siteId}'
@@ -3286,7 +3222,7 @@ export interface WorkTypeReference {
                 method: 'PUT',
                 headers: headerParams,
                 body: JSON.stringify(params.site),
-                
+
             };
 
             if (extraFetchParams) {
@@ -3321,9 +3257,9 @@ export interface WorkTypeReference {
         }
 
         /**
-         * 
+         *
          * Get Agreement Types Count
-         * @param conditions 
+         * @param conditions
          */
         public financeAgreementsTypesCountGet (params: {  conditions?: string; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Count> {
             const localVarPath = this.basePath + '/finance/agreements/types/count';
@@ -3337,7 +3273,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -3357,12 +3293,12 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Get Agreement Types
-         * @param conditions 
-         * @param orderBy 
-         * @param page 
-         * @param pageSize 
+         * @param conditions
+         * @param orderBy
+         * @param page
+         * @param pageSize
          */
         public financeAgreementsTypesGet (params: {  conditions?: string; orderBy?: string; page?: number; pageSize?: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Array<AgreementType>> {
             const localVarPath = this.basePath + '/finance/agreements/types';
@@ -3388,7 +3324,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -3408,9 +3344,9 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Delete Agreement Type By Id
-         * @param id 
+         * @param id
          */
         public financeAgreementsTypesIdDelete (params: {  id: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<{}> {
             const localVarPath = this.basePath + '/finance/agreements/types/{id}'
@@ -3425,7 +3361,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'DELETE',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -3445,9 +3381,9 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Get Agreement Type By Id
-         * @param id 
+         * @param id
          */
         public financeAgreementsTypesIdGet (params: {  id: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<AgreementType> {
             const localVarPath = this.basePath + '/finance/agreements/types/{id}'
@@ -3462,7 +3398,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -3482,10 +3418,10 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Update Agreement Type
-         * @param id 
-         * @param operations 
+         * @param id
+         * @param operations
          */
         public financeAgreementsTypesIdPatch (params: {  id: number; operations: Array<PatchOperation>; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<AgreementType> {
             const localVarPath = this.basePath + '/finance/agreements/types/{id}'
@@ -3507,7 +3443,7 @@ export interface WorkTypeReference {
                 method: 'PATCH',
                 headers: headerParams,
                 body: JSON.stringify(params.operations),
-                
+
             };
 
             if (extraFetchParams) {
@@ -3527,10 +3463,10 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Replace Agreement Type
-         * @param id 
-         * @param agreementType 
+         * @param id
+         * @param agreementType
          */
         public financeAgreementsTypesIdPut (params: {  id: number; agreementType: AgreementType; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<AgreementType> {
             const localVarPath = this.basePath + '/finance/agreements/types/{id}'
@@ -3552,7 +3488,7 @@ export interface WorkTypeReference {
                 method: 'PUT',
                 headers: headerParams,
                 body: JSON.stringify(params.agreementType),
-                
+
             };
 
             if (extraFetchParams) {
@@ -3572,9 +3508,9 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Create Agreement Type
-         * @param agreementType 
+         * @param agreementType
          */
         public financeAgreementsTypesPost (params: {  agreementType: AgreementType; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<AgreementType> {
             const localVarPath = this.basePath + '/finance/agreements/types';
@@ -3591,7 +3527,7 @@ export interface WorkTypeReference {
                 method: 'POST',
                 headers: headerParams,
                 body: JSON.stringify(params.agreementType),
-                
+
             };
 
             if (extraFetchParams) {
@@ -3626,10 +3562,10 @@ export interface WorkTypeReference {
         }
 
         /**
-         * 
+         *
          * Get Work Role Exclusions Count
-         * @param id 
-         * @param conditions 
+         * @param id
+         * @param conditions
          */
         public financeAgreementsIdWorkRoleExclusionsCountGet (params: {  id: number; conditions?: string; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Count> {
             const localVarPath = this.basePath + '/finance/agreements/{id}/workRoleExclusions/count'
@@ -3648,7 +3584,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -3668,13 +3604,13 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Get Work Role Exclusions
-         * @param id 
-         * @param conditions 
-         * @param orderBy 
-         * @param page 
-         * @param pageSize 
+         * @param id
+         * @param conditions
+         * @param orderBy
+         * @param page
+         * @param pageSize
          */
         public financeAgreementsIdWorkRoleExclusionsGet (params: {  id: number; conditions?: string; orderBy?: string; page?: number; pageSize?: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Array<AgreementWorkRoleExclusion>> {
             const localVarPath = this.basePath + '/finance/agreements/{id}/workRoleExclusions'
@@ -3705,7 +3641,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -3725,10 +3661,10 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Create Work Role Exclusion
-         * @param id 
-         * @param workRoleExclusion 
+         * @param id
+         * @param workRoleExclusion
          */
         public financeAgreementsIdWorkRoleExclusionsPost (params: {  id: number; workRoleExclusion: AgreementWorkRoleExclusion; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<AgreementWorkRoleExclusion> {
             const localVarPath = this.basePath + '/finance/agreements/{id}/workRoleExclusions'
@@ -3750,7 +3686,7 @@ export interface WorkTypeReference {
                 method: 'POST',
                 headers: headerParams,
                 body: JSON.stringify(params.workRoleExclusion),
-                
+
             };
 
             if (extraFetchParams) {
@@ -3770,10 +3706,10 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Delete Work Role Exclusion By Id
-         * @param id 
-         * @param workRoleExclusionId 
+         * @param id
+         * @param workRoleExclusionId
          */
         public financeAgreementsIdWorkRoleExclusionsWorkRoleExclusionIdDelete (params: {  id: number; workRoleExclusionId: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<{}> {
             const localVarPath = this.basePath + '/finance/agreements/{id}/workRoleExclusions/{workRoleExclusionId}'
@@ -3793,7 +3729,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'DELETE',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -3828,10 +3764,10 @@ export interface WorkTypeReference {
         }
 
         /**
-         * 
+         *
          * Get Work Roles Count
-         * @param id 
-         * @param conditions 
+         * @param id
+         * @param conditions
          */
         public financeAgreementsIdWorkrolesCountGet (params: {  id: number; conditions?: string; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Count> {
             const localVarPath = this.basePath + '/finance/agreements/{id}/workroles/count'
@@ -3850,7 +3786,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -3870,13 +3806,13 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Get Work Roles
-         * @param id 
-         * @param conditions 
-         * @param orderBy 
-         * @param page 
-         * @param pageSize 
+         * @param id
+         * @param conditions
+         * @param orderBy
+         * @param page
+         * @param pageSize
          */
         public financeAgreementsIdWorkrolesGet (params: {  id: number; conditions?: string; orderBy?: string; page?: number; pageSize?: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Array<AgreementWorkRole>> {
             const localVarPath = this.basePath + '/finance/agreements/{id}/workroles'
@@ -3907,7 +3843,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -3927,10 +3863,10 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Create Work Role
-         * @param id 
-         * @param workRole 
+         * @param id
+         * @param workRole
          */
         public financeAgreementsIdWorkrolesPost (params: {  id: number; workRole: AgreementWorkRole; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<AgreementWorkRole> {
             const localVarPath = this.basePath + '/finance/agreements/{id}/workroles'
@@ -3952,7 +3888,7 @@ export interface WorkTypeReference {
                 method: 'POST',
                 headers: headerParams,
                 body: JSON.stringify(params.workRole),
-                
+
             };
 
             if (extraFetchParams) {
@@ -3972,10 +3908,10 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Delete Work Role By Id
-         * @param id 
-         * @param workRoleId 
+         * @param id
+         * @param workRoleId
          */
         public financeAgreementsIdWorkrolesWorkRoleIdDelete (params: {  id: number; workRoleId: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<{}> {
             const localVarPath = this.basePath + '/finance/agreements/{id}/workroles/{workRoleId}'
@@ -3995,7 +3931,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'DELETE',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -4015,10 +3951,10 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Get Work Role By Id
-         * @param id 
-         * @param workRoleId 
+         * @param id
+         * @param workRoleId
          */
         public financeAgreementsIdWorkrolesWorkRoleIdGet (params: {  id: number; workRoleId: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<AgreementWorkRole> {
             const localVarPath = this.basePath + '/finance/agreements/{id}/workroles/{workRoleId}'
@@ -4038,7 +3974,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -4058,11 +3994,11 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Update Work Role
-         * @param id 
-         * @param workRoleId 
-         * @param operations 
+         * @param id
+         * @param workRoleId
+         * @param operations
          */
         public financeAgreementsIdWorkrolesWorkRoleIdPatch (params: {  id: number; workRoleId: number; operations: Array<PatchOperation>; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<AgreementWorkRole> {
             const localVarPath = this.basePath + '/finance/agreements/{id}/workroles/{workRoleId}'
@@ -4089,7 +4025,7 @@ export interface WorkTypeReference {
                 method: 'PATCH',
                 headers: headerParams,
                 body: JSON.stringify(params.operations),
-                
+
             };
 
             if (extraFetchParams) {
@@ -4109,11 +4045,11 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Replace Work Role
-         * @param id 
-         * @param workRoleId 
-         * @param workRole 
+         * @param id
+         * @param workRoleId
+         * @param workRole
          */
         public financeAgreementsIdWorkrolesWorkRoleIdPut (params: {  id: number; workRoleId: number; workRole: AgreementWorkRole; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<AgreementWorkRole> {
             const localVarPath = this.basePath + '/finance/agreements/{id}/workroles/{workRoleId}'
@@ -4140,7 +4076,7 @@ export interface WorkTypeReference {
                 method: 'PUT',
                 headers: headerParams,
                 body: JSON.stringify(params.workRole),
-                
+
             };
 
             if (extraFetchParams) {
@@ -4175,10 +4111,10 @@ export interface WorkTypeReference {
         }
 
         /**
-         * 
+         *
          * Get Work Type Exclusions Count
-         * @param id 
-         * @param conditions 
+         * @param id
+         * @param conditions
          */
         public financeAgreementsIdWorkTypeExclusionsCountGet (params: {  id: number; conditions?: string; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Count> {
             const localVarPath = this.basePath + '/finance/agreements/{id}/workTypeExclusions/count'
@@ -4197,7 +4133,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -4217,13 +4153,13 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Get Work Type Exclusions
-         * @param id 
-         * @param conditions 
-         * @param orderBy 
-         * @param page 
-         * @param pageSize 
+         * @param id
+         * @param conditions
+         * @param orderBy
+         * @param page
+         * @param pageSize
          */
         public financeAgreementsIdWorkTypeExclusionsGet (params: {  id: number; conditions?: string; orderBy?: string; page?: number; pageSize?: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Array<AgreementWorkTypeExclusion>> {
             const localVarPath = this.basePath + '/finance/agreements/{id}/workTypeExclusions'
@@ -4254,7 +4190,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -4274,10 +4210,10 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Create Work Type Exclusion
-         * @param id 
-         * @param workTypeExclusion 
+         * @param id
+         * @param workTypeExclusion
          */
         public financeAgreementsIdWorkTypeExclusionsPost (params: {  id: number; workTypeExclusion: AgreementWorkTypeExclusion; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<AgreementWorkTypeExclusion> {
             const localVarPath = this.basePath + '/finance/agreements/{id}/workTypeExclusions'
@@ -4299,7 +4235,7 @@ export interface WorkTypeReference {
                 method: 'POST',
                 headers: headerParams,
                 body: JSON.stringify(params.workTypeExclusion),
-                
+
             };
 
             if (extraFetchParams) {
@@ -4319,10 +4255,10 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Delete Work Type Exclusion By Id
-         * @param id 
-         * @param workTypeExclusionId 
+         * @param id
+         * @param workTypeExclusionId
          */
         public financeAgreementsIdWorkTypeExclusionsWorkTypeExclusionIdDelete (params: {  id: number; workTypeExclusionId: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<{}> {
             const localVarPath = this.basePath + '/finance/agreements/{id}/workTypeExclusions/{workTypeExclusionId}'
@@ -4342,7 +4278,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'DELETE',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -4377,10 +4313,10 @@ export interface WorkTypeReference {
         }
 
         /**
-         * 
+         *
          * Get Work Types Count
-         * @param id 
-         * @param conditions 
+         * @param id
+         * @param conditions
          */
         public financeAgreementsIdWorktypesCountGet (params: {  id: number; conditions?: string; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Count> {
             const localVarPath = this.basePath + '/finance/agreements/{id}/worktypes/count'
@@ -4399,7 +4335,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -4419,13 +4355,13 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Get Work Types
-         * @param id 
-         * @param conditions 
-         * @param orderBy 
-         * @param page 
-         * @param pageSize 
+         * @param id
+         * @param conditions
+         * @param orderBy
+         * @param page
+         * @param pageSize
          */
         public financeAgreementsIdWorktypesGet (params: {  id: number; conditions?: string; orderBy?: string; page?: number; pageSize?: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Array<AgreementWorkType>> {
             const localVarPath = this.basePath + '/finance/agreements/{id}/worktypes'
@@ -4456,7 +4392,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -4476,10 +4412,10 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Create Work Type
-         * @param id 
-         * @param workType 
+         * @param id
+         * @param workType
          */
         public financeAgreementsIdWorktypesPost (params: {  id: number; workType: AgreementWorkType; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<AgreementWorkType> {
             const localVarPath = this.basePath + '/finance/agreements/{id}/worktypes'
@@ -4501,7 +4437,7 @@ export interface WorkTypeReference {
                 method: 'POST',
                 headers: headerParams,
                 body: JSON.stringify(params.workType),
-                
+
             };
 
             if (extraFetchParams) {
@@ -4521,10 +4457,10 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Delete Work Type By Id
-         * @param id 
-         * @param worktypeId 
+         * @param id
+         * @param worktypeId
          */
         public financeAgreementsIdWorktypesWorktypeIdDelete (params: {  id: number; worktypeId: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<{}> {
             const localVarPath = this.basePath + '/finance/agreements/{id}/worktypes/{worktypeId}'
@@ -4544,7 +4480,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'DELETE',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -4564,10 +4500,10 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Get Work Type By Id
-         * @param id 
-         * @param worktypeId 
+         * @param id
+         * @param worktypeId
          */
         public financeAgreementsIdWorktypesWorktypeIdGet (params: {  id: number; worktypeId: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<AgreementWorkType> {
             const localVarPath = this.basePath + '/finance/agreements/{id}/worktypes/{worktypeId}'
@@ -4587,7 +4523,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -4607,11 +4543,11 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Update Work Type
-         * @param id 
-         * @param worktypeId 
-         * @param operations 
+         * @param id
+         * @param worktypeId
+         * @param operations
          */
         public financeAgreementsIdWorktypesWorktypeIdPatch (params: {  id: number; worktypeId: number; operations: Array<PatchOperation>; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<AgreementWorkType> {
             const localVarPath = this.basePath + '/finance/agreements/{id}/worktypes/{worktypeId}'
@@ -4638,7 +4574,7 @@ export interface WorkTypeReference {
                 method: 'PATCH',
                 headers: headerParams,
                 body: JSON.stringify(params.operations),
-                
+
             };
 
             if (extraFetchParams) {
@@ -4658,11 +4594,11 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Replace Work Type
-         * @param id 
-         * @param worktypeId 
-         * @param workType 
+         * @param id
+         * @param worktypeId
+         * @param workType
          */
         public financeAgreementsIdWorktypesWorktypeIdPut (params: {  id: number; worktypeId: number; workType: AgreementWorkType; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<AgreementWorkType> {
             const localVarPath = this.basePath + '/finance/agreements/{id}/worktypes/{worktypeId}'
@@ -4689,7 +4625,7 @@ export interface WorkTypeReference {
                 method: 'PUT',
                 headers: headerParams,
                 body: JSON.stringify(params.workType),
-                
+
             };
 
             if (extraFetchParams) {
@@ -4724,9 +4660,9 @@ export interface WorkTypeReference {
         }
 
         /**
-         * 
+         *
          * Get Agreements Count
-         * @param conditions 
+         * @param conditions
          */
         public financeAgreementsCountGet (params: {  conditions?: string; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Count> {
             const localVarPath = this.basePath + '/finance/agreements/count';
@@ -4740,7 +4676,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -4760,12 +4696,12 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Get Agreements
-         * @param conditions 
-         * @param orderBy 
-         * @param page 
-         * @param pageSize 
+         * @param conditions
+         * @param orderBy
+         * @param page
+         * @param pageSize
          */
         public financeAgreementsGet (params: {  conditions?: string; orderBy?: string; page?: number; pageSize?: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Array<Agreement>> {
             const localVarPath = this.basePath + '/finance/agreements';
@@ -4791,7 +4727,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -4811,10 +4747,10 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Delete Configuration Association
-         * @param id 
-         * @param configurationId 
+         * @param id
+         * @param configurationId
          */
         public financeAgreementsIdConfigurationsConfigurationIdDelete (params: {  id: number; configurationId: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<{}> {
             const localVarPath = this.basePath + '/finance/agreements/{id}/configurations/{configurationId}'
@@ -4834,7 +4770,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'DELETE',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -4854,10 +4790,10 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Get Configuration Association
-         * @param id 
-         * @param configurationId 
+         * @param id
+         * @param configurationId
          */
         public financeAgreementsIdConfigurationsConfigurationIdGet (params: {  id: number; configurationId: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<ConfigurationReference> {
             const localVarPath = this.basePath + '/finance/agreements/{id}/configurations/{configurationId}'
@@ -4877,7 +4813,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -4897,9 +4833,9 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Get Agreement Configurations Count
-         * @param id 
+         * @param id
          */
         public financeAgreementsIdConfigurationsCountGet (params: {  id: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Count> {
             const localVarPath = this.basePath + '/finance/agreements/{id}/configurations/count'
@@ -4914,7 +4850,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -4934,11 +4870,11 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Get Agreement Configurations
-         * @param id 
-         * @param page 
-         * @param pageSize 
+         * @param id
+         * @param page
+         * @param pageSize
          */
         public financeAgreementsIdConfigurationsGet (params: {  id: number; page?: number; pageSize?: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Array<ConfigurationReference>> {
             const localVarPath = this.basePath + '/finance/agreements/{id}/configurations'
@@ -4961,7 +4897,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -4981,10 +4917,10 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Create Configuration Association
-         * @param id 
-         * @param configuration 
+         * @param id
+         * @param configuration
          */
         public financeAgreementsIdConfigurationsPost (params: {  id: number; configuration: ConfigurationReference; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<ConfigurationReference> {
             const localVarPath = this.basePath + '/finance/agreements/{id}/configurations'
@@ -5006,7 +4942,7 @@ export interface WorkTypeReference {
                 method: 'POST',
                 headers: headerParams,
                 body: JSON.stringify(params.configuration),
-                
+
             };
 
             if (extraFetchParams) {
@@ -5026,9 +4962,9 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Delete Agreement By Id
-         * @param id 
+         * @param id
          */
         public financeAgreementsIdDelete (params: {  id: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<{}> {
             const localVarPath = this.basePath + '/finance/agreements/{id}'
@@ -5043,7 +4979,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'DELETE',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -5063,9 +4999,9 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Get Agreement By Id
-         * @param id 
+         * @param id
          */
         public financeAgreementsIdGet (params: {  id: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Agreement> {
             const localVarPath = this.basePath + '/finance/agreements/{id}'
@@ -5080,7 +5016,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -5100,10 +5036,10 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Update Agreement
-         * @param id 
-         * @param operations 
+         * @param id
+         * @param operations
          */
         public financeAgreementsIdPatch (params: {  id: number; operations: Array<PatchOperation>; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Agreement> {
             const localVarPath = this.basePath + '/finance/agreements/{id}'
@@ -5125,7 +5061,7 @@ export interface WorkTypeReference {
                 method: 'PATCH',
                 headers: headerParams,
                 body: JSON.stringify(params.operations),
-                
+
             };
 
             if (extraFetchParams) {
@@ -5145,10 +5081,10 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Replace Agreement
-         * @param id 
-         * @param agreement 
+         * @param id
+         * @param agreement
          */
         public financeAgreementsIdPut (params: {  id: number; agreement: Agreement; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Agreement> {
             const localVarPath = this.basePath + '/finance/agreements/{id}'
@@ -5170,7 +5106,7 @@ export interface WorkTypeReference {
                 method: 'PUT',
                 headers: headerParams,
                 body: JSON.stringify(params.agreement),
-                
+
             };
 
             if (extraFetchParams) {
@@ -5190,9 +5126,9 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Create Agreement
-         * @param agreement 
+         * @param agreement
          */
         public financeAgreementsPost (params: {  agreement: Agreement; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Agreement> {
             const localVarPath = this.basePath + '/finance/agreements';
@@ -5209,7 +5145,7 @@ export interface WorkTypeReference {
                 method: 'POST',
                 headers: headerParams,
                 body: JSON.stringify(params.agreement),
-                
+
             };
 
             if (extraFetchParams) {
@@ -5244,9 +5180,9 @@ export interface WorkTypeReference {
         }
 
         /**
-         * 
+         *
          * Get Currencies Count
-         * @param conditions 
+         * @param conditions
          */
         public financeCurrenciesCountGet (params: {  conditions?: string; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Count> {
             const localVarPath = this.basePath + '/finance/currencies/count';
@@ -5260,7 +5196,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -5280,12 +5216,12 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Get Currencies
-         * @param conditions 
-         * @param orderBy 
-         * @param page 
-         * @param pageSize 
+         * @param conditions
+         * @param orderBy
+         * @param page
+         * @param pageSize
          */
         public financeCurrenciesGet (params: {  conditions?: string; orderBy?: string; page?: number; pageSize?: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Array<Currency>> {
             const localVarPath = this.basePath + '/finance/currencies';
@@ -5311,7 +5247,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -5331,9 +5267,9 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Delete Currency By Id
-         * @param id 
+         * @param id
          */
         public financeCurrenciesIdDelete (params: {  id: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<{}> {
             const localVarPath = this.basePath + '/finance/currencies/{id}'
@@ -5348,7 +5284,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'DELETE',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -5368,9 +5304,9 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Get Currency By Id
-         * @param id 
+         * @param id
          */
         public financeCurrenciesIdGet (params: {  id: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Currency> {
             const localVarPath = this.basePath + '/finance/currencies/{id}'
@@ -5385,7 +5321,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -5405,10 +5341,10 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Update Currency
-         * @param id 
-         * @param operations 
+         * @param id
+         * @param operations
          */
         public financeCurrenciesIdPatch (params: {  id: number; operations: Array<PatchOperation>; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Currency> {
             const localVarPath = this.basePath + '/finance/currencies/{id}'
@@ -5430,7 +5366,7 @@ export interface WorkTypeReference {
                 method: 'PATCH',
                 headers: headerParams,
                 body: JSON.stringify(params.operations),
-                
+
             };
 
             if (extraFetchParams) {
@@ -5450,10 +5386,10 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Replace Currency
-         * @param id 
-         * @param currency 
+         * @param id
+         * @param currency
          */
         public financeCurrenciesIdPut (params: {  id: number; currency: Currency; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Currency> {
             const localVarPath = this.basePath + '/finance/currencies/{id}'
@@ -5475,7 +5411,7 @@ export interface WorkTypeReference {
                 method: 'PUT',
                 headers: headerParams,
                 body: JSON.stringify(params.currency),
-                
+
             };
 
             if (extraFetchParams) {
@@ -5495,9 +5431,9 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Create Currency
-         * @param currency 
+         * @param currency
          */
         public financeCurrenciesPost (params: {  currency: Currency; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Currency> {
             const localVarPath = this.basePath + '/finance/currencies';
@@ -5514,7 +5450,7 @@ export interface WorkTypeReference {
                 method: 'POST',
                 headers: headerParams,
                 body: JSON.stringify(params.currency),
-                
+
             };
 
             if (extraFetchParams) {
@@ -5549,13 +5485,13 @@ export interface WorkTypeReference {
         }
 
         /**
-         * 
+         *
          * Get Payments
-         * @param id 
-         * @param conditions 
-         * @param orderBy 
-         * @param page 
-         * @param pageSize 
+         * @param id
+         * @param conditions
+         * @param orderBy
+         * @param page
+         * @param pageSize
          */
         public financeInvoicesIdPaymentsGet (params: {  id: number; conditions?: string; orderBy?: string; page?: number; pageSize?: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Array<Payment>> {
             const localVarPath = this.basePath + '/finance/invoices/{id}/payments'
@@ -5586,7 +5522,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -5606,10 +5542,10 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Delete Payment By Id
-         * @param id 
-         * @param paymentId 
+         * @param id
+         * @param paymentId
          */
         public financeInvoicesIdPaymentsPaymentIdDelete (params: {  id: number; paymentId: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<{}> {
             const localVarPath = this.basePath + '/finance/invoices/{id}/payments/{paymentId}'
@@ -5629,7 +5565,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'DELETE',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -5649,10 +5585,10 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Get Payment By Id
-         * @param id 
-         * @param paymentId 
+         * @param id
+         * @param paymentId
          */
         public financeInvoicesIdPaymentsPaymentIdGet (params: {  id: number; paymentId: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Payment> {
             const localVarPath = this.basePath + '/finance/invoices/{id}/payments/{paymentId}'
@@ -5672,7 +5608,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -5692,11 +5628,11 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Update Payment
-         * @param id 
-         * @param paymentId 
-         * @param operations 
+         * @param id
+         * @param paymentId
+         * @param operations
          */
         public financeInvoicesIdPaymentsPaymentIdPatch (params: {  id: number; paymentId: number; operations: Array<PatchOperation>; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Payment> {
             const localVarPath = this.basePath + '/finance/invoices/{id}/payments/{paymentId}'
@@ -5723,7 +5659,7 @@ export interface WorkTypeReference {
                 method: 'PATCH',
                 headers: headerParams,
                 body: JSON.stringify(params.operations),
-                
+
             };
 
             if (extraFetchParams) {
@@ -5743,11 +5679,11 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Replace Payment
-         * @param id 
-         * @param paymentId 
-         * @param payment 
+         * @param id
+         * @param paymentId
+         * @param payment
          */
         public financeInvoicesIdPaymentsPaymentIdPut (params: {  id: number; paymentId: number; payment: Payment; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Payment> {
             const localVarPath = this.basePath + '/finance/invoices/{id}/payments/{paymentId}'
@@ -5774,7 +5710,7 @@ export interface WorkTypeReference {
                 method: 'PUT',
                 headers: headerParams,
                 body: JSON.stringify(params.payment),
-                
+
             };
 
             if (extraFetchParams) {
@@ -5794,10 +5730,10 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Create Payment
-         * @param id 
-         * @param payment 
+         * @param id
+         * @param payment
          */
         public financeInvoicesIdPaymentsPost (params: {  id: number; payment: Payment; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Payment> {
             const localVarPath = this.basePath + '/finance/invoices/{id}/payments'
@@ -5819,7 +5755,7 @@ export interface WorkTypeReference {
                 method: 'POST',
                 headers: headerParams,
                 body: JSON.stringify(params.payment),
-                
+
             };
 
             if (extraFetchParams) {
@@ -5854,9 +5790,9 @@ export interface WorkTypeReference {
         }
 
         /**
-         * 
+         *
          * Get Invoices Count
-         * @param conditions 
+         * @param conditions
          */
         public financeInvoicesCountGet (params: {  conditions?: string; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Count> {
             const localVarPath = this.basePath + '/finance/invoices/count';
@@ -5870,7 +5806,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -5890,12 +5826,12 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Get Invoices
-         * @param conditions 
-         * @param orderBy 
-         * @param page 
-         * @param pageSize 
+         * @param conditions
+         * @param orderBy
+         * @param page
+         * @param pageSize
          */
         public financeInvoicesGet (params: {  conditions?: string; orderBy?: string; page?: number; pageSize?: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Array<Invoice>> {
             const localVarPath = this.basePath + '/finance/invoices';
@@ -5921,7 +5857,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -5941,9 +5877,9 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Delete Invoice By Id
-         * @param id 
+         * @param id
          */
         public financeInvoicesIdDelete (params: {  id: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<{}> {
             const localVarPath = this.basePath + '/finance/invoices/{id}'
@@ -5958,7 +5894,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'DELETE',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -5978,9 +5914,9 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Get Invoice By Id
-         * @param id 
+         * @param id
          */
         public financeInvoicesIdGet (params: {  id: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Invoice> {
             const localVarPath = this.basePath + '/finance/invoices/{id}'
@@ -5995,7 +5931,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -6015,10 +5951,10 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Update Invoice
-         * @param id 
-         * @param operations 
+         * @param id
+         * @param operations
          */
         public financeInvoicesIdPatch (params: {  id: number; operations: Array<PatchOperation>; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Invoice> {
             const localVarPath = this.basePath + '/finance/invoices/{id}'
@@ -6040,7 +5976,7 @@ export interface WorkTypeReference {
                 method: 'PATCH',
                 headers: headerParams,
                 body: JSON.stringify(params.operations),
-                
+
             };
 
             if (extraFetchParams) {
@@ -6060,9 +5996,9 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Get Invoice Pdf
-         * @param id 
+         * @param id
          */
         public financeInvoicesIdPdfGet (params: {  id: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<{}> {
             const localVarPath = this.basePath + '/finance/invoices/{id}/pdf'
@@ -6077,7 +6013,7 @@ export interface WorkTypeReference {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -6097,10 +6033,10 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Replace Invoice
-         * @param id 
-         * @param invoice 
+         * @param id
+         * @param invoice
          */
         public financeInvoicesIdPut (params: {  id: number; invoice: Invoice; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Invoice> {
             const localVarPath = this.basePath + '/finance/invoices/{id}'
@@ -6122,7 +6058,7 @@ export interface WorkTypeReference {
                 method: 'PUT',
                 headers: headerParams,
                 body: JSON.stringify(params.invoice),
-                
+
             };
 
             if (extraFetchParams) {
@@ -6142,9 +6078,9 @@ export interface WorkTypeReference {
             });
         }
         /**
-         * 
+         *
          * Create Invoice
-         * @param invoice 
+         * @param invoice
          */
         public financeInvoicesPost (params: {  invoice: Invoice; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Invoice> {
             const localVarPath = this.basePath + '/finance/invoices';
@@ -6161,7 +6097,7 @@ export interface WorkTypeReference {
                 method: 'POST',
                 headers: headerParams,
                 body: JSON.stringify(params.invoice),
-                
+
             };
 
             if (extraFetchParams) {

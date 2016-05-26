@@ -1,4 +1,7 @@
-///<reference path="../typings/main.d.ts"/>
+///<reference path="../typings/index.d.ts"/>
+
+'use strict';
+
 import * as comp from './api/companyAPI';
 import * as exp from './api/expenseAPI';
 import * as fin from './api/financeAPI';

@@ -1,4 +1,8 @@
-///<reference path="../../typings/main.d.ts"/>
+///<reference path="../../typings/index.d.ts"/>
+/* tslint:disable */
+
+'use strict';
+
 import * as querystring from 'querystring';
 import * as fetch from 'isomorphic-fetch';
 import {assign} from './assign';
@@ -568,20 +572,6 @@ export interface ConfigurationQuestion {
     "requiredFlag"?: boolean;
 }
 
-
-export enum FieldTypeEnum {
-    Text = <any> 'Text',
-    Button = <any> 'Button',
-    Currency = <any> 'Currency',
-    Date = <any> 'Date',
-    Hyperlink = <any> 'Hyperlink',
-    IPAddress = <any> 'IPAddress',
-    Checkbox = <any> 'Checkbox',
-    Number = <any> 'Number',
-    Percent = <any> 'Percent',
-    TextArea = <any> 'TextArea',
-    Password = <any> 'Password'
-}
 export interface ConfigurationStatus {
     "id"?: number;
     "description": string;
@@ -739,12 +729,6 @@ export interface ContactCommunication {
     "info"?: Metadata;
 }
 
-
-export enum CommunicationTypeEnum {
-    Phone = <any> 'Phone',
-    Fax = <any> 'Fax',
-    Email = <any> 'Email'
-}
 export interface ContactCommunicationItem {
     "id"?: number;
     "type": CommunicationTypeReference;
@@ -1080,12 +1064,12 @@ export interface ValidationError {
 }
 
 
-//export namespace  {
+// export namespace  {
     'use strict';
 
     export class CompaniesApi {
         protected basePath = 'https://api-na.myconnectwise.net/v4_6_release/apis/3.0';
-        public defaultHeaders : any = {};
+        public defaultHeaders: any = {};
 
         constructor(basePath?: string) {
             if (basePath) {

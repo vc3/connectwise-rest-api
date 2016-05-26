@@ -1,3 +1,9 @@
+///<reference path="../../typings/index.d.ts"/>
+/* tslint:disable */
+
+'use strict';
+
+
 import * as querystring from 'querystring';
 import * as fetch from 'isomorphic-fetch';
 import {assign} from './assign';
@@ -22,7 +28,7 @@ export interface AuditTrailObjects {
 }
 
 
-export enum TypeEnum { 
+export enum TypeEnum {
     Ticket = <any> 'Ticket',
     Configuration = <any> 'Configuration'
 }
@@ -63,7 +69,7 @@ export interface ConnectWiseHostedSetup {
 }
 
 
-export enum TypeEnum { 
+export enum TypeEnum {
     Tab = <any> 'Tab',
     Pod = <any> 'Pod'
 }
@@ -251,7 +257,7 @@ export interface UserDefinedField {
 }
 
 
-export enum FieldTypeIdentifierEnum { 
+export enum FieldTypeIdentifierEnum {
     Text = <any> 'Text',
     Button = <any> 'Button',
     Date = <any> 'Date',
@@ -262,7 +268,7 @@ export enum FieldTypeIdentifierEnum {
     TextArea = <any> 'TextArea'
 }
 
-export enum EntryTypeIdentifierEnum { 
+export enum EntryTypeIdentifierEnum {
     EntryField = <any> 'EntryField',
     List = <any> 'List',
     Option = <any> 'Option'
@@ -297,11 +303,11 @@ export interface ValidationError {
         }
 
         /**
-         * 
+         *
          * Get Members Count
-         * @param type 
-         * @param id 
-         * @param deviceIdentifier 
+         * @param type
+         * @param id
+         * @param deviceIdentifier
          */
         public systemAudittrailCountGet (params: {  type?: string; id?: number; deviceIdentifier?: string; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Count> {
             const localVarPath = this.basePath + '/system/audittrail/count';
@@ -323,7 +329,7 @@ export interface ValidationError {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -343,13 +349,13 @@ export interface ValidationError {
             });
         }
         /**
-         * 
+         *
          * Get Audit Trail
-         * @param type 
-         * @param id 
-         * @param deviceIdentifier 
-         * @param page 
-         * @param pageSize 
+         * @param type
+         * @param id
+         * @param deviceIdentifier
+         * @param page
+         * @param pageSize
          */
         public systemAudittrailGet (params: {  type?: string; id?: number; deviceIdentifier?: string; page?: number; pageSize?: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Array<AuditTrailEntry>> {
             const localVarPath = this.basePath + '/system/audittrail';
@@ -379,7 +385,7 @@ export interface ValidationError {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -399,9 +405,9 @@ export interface ValidationError {
             });
         }
         /**
-         * 
+         *
          * Insert Audit Trail Entries
-         * @param insertRequest 
+         * @param insertRequest
          */
         public systemAudittrailPost (params: {  insertRequest: AuditTrailEntryInsertRequest; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<{}> {
             const localVarPath = this.basePath + '/system/audittrail';
@@ -418,7 +424,7 @@ export interface ValidationError {
                 method: 'POST',
                 headers: headerParams,
                 body: JSON.stringify(params.insertRequest),
-                
+
             };
 
             if (extraFetchParams) {
@@ -453,9 +459,9 @@ export interface ValidationError {
         }
 
         /**
-         * 
+         *
          * Get Callback Entries Count
-         * @param conditions 
+         * @param conditions
          */
         public systemCallbacksCountGet (params: {  conditions?: string; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Count> {
             const localVarPath = this.basePath + '/system/callbacks/count';
@@ -469,7 +475,7 @@ export interface ValidationError {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -489,12 +495,12 @@ export interface ValidationError {
             });
         }
         /**
-         * 
+         *
          * Get Callback Entries
-         * @param conditions 
-         * @param orderBy 
-         * @param page 
-         * @param pageSize 
+         * @param conditions
+         * @param orderBy
+         * @param page
+         * @param pageSize
          */
         public systemCallbacksGet (params: {  conditions?: string; orderBy?: string; page?: number; pageSize?: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Array<CallbackEntry>> {
             const localVarPath = this.basePath + '/system/callbacks';
@@ -520,7 +526,7 @@ export interface ValidationError {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -540,9 +546,9 @@ export interface ValidationError {
             });
         }
         /**
-         * 
+         *
          * Delete Callback Entry By Id
-         * @param id 
+         * @param id
          */
         public systemCallbacksIdDelete (params: {  id: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<{}> {
             const localVarPath = this.basePath + '/system/callbacks/{id}'
@@ -557,7 +563,7 @@ export interface ValidationError {
             let fetchParams = {
                 method: 'DELETE',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -577,9 +583,9 @@ export interface ValidationError {
             });
         }
         /**
-         * 
+         *
          * Get Callback Entry By Id
-         * @param id 
+         * @param id
          */
         public systemCallbacksIdGet (params: {  id: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<CallbackEntry> {
             const localVarPath = this.basePath + '/system/callbacks/{id}'
@@ -594,7 +600,7 @@ export interface ValidationError {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -614,10 +620,10 @@ export interface ValidationError {
             });
         }
         /**
-         * 
+         *
          * Update Callback Entry
-         * @param id 
-         * @param operations 
+         * @param id
+         * @param operations
          */
         public systemCallbacksIdPatch (params: {  id: number; operations: Array<PatchOperation>; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<CallbackEntry> {
             const localVarPath = this.basePath + '/system/callbacks/{id}'
@@ -639,7 +645,7 @@ export interface ValidationError {
                 method: 'PATCH',
                 headers: headerParams,
                 body: JSON.stringify(params.operations),
-                
+
             };
 
             if (extraFetchParams) {
@@ -659,10 +665,10 @@ export interface ValidationError {
             });
         }
         /**
-         * 
+         *
          * Replace Callback Entry
-         * @param id 
-         * @param callbackEntry 
+         * @param id
+         * @param callbackEntry
          */
         public systemCallbacksIdPut (params: {  id: number; callbackEntry: CallbackEntry; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<CallbackEntry> {
             const localVarPath = this.basePath + '/system/callbacks/{id}'
@@ -684,7 +690,7 @@ export interface ValidationError {
                 method: 'PUT',
                 headers: headerParams,
                 body: JSON.stringify(params.callbackEntry),
-                
+
             };
 
             if (extraFetchParams) {
@@ -704,9 +710,9 @@ export interface ValidationError {
             });
         }
         /**
-         * 
+         *
          * Create Callback Entry
-         * @param callbackEntry 
+         * @param callbackEntry
          */
         public systemCallbacksPost (params: {  callbackEntry: CallbackEntry; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<CallbackEntry> {
             const localVarPath = this.basePath + '/system/callbacks';
@@ -723,7 +729,7 @@ export interface ValidationError {
                 method: 'POST',
                 headers: headerParams,
                 body: JSON.stringify(params.callbackEntry),
-                
+
             };
 
             if (extraFetchParams) {
@@ -758,9 +764,9 @@ export interface ValidationError {
         }
 
         /**
-         * 
+         *
          * Get Connect Wise Hosted Setups Count
-         * @param conditions 
+         * @param conditions
          */
         public systemConnectwisehostedsetupsCountGet (params: {  conditions?: string; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Count> {
             const localVarPath = this.basePath + '/system/connectwisehostedsetups/count';
@@ -774,7 +780,7 @@ export interface ValidationError {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -794,12 +800,12 @@ export interface ValidationError {
             });
         }
         /**
-         * 
+         *
          * Get Connect Wise Hosted Setups
-         * @param conditions 
-         * @param orderBy 
-         * @param page 
-         * @param pageSize 
+         * @param conditions
+         * @param orderBy
+         * @param page
+         * @param pageSize
          */
         public systemConnectwisehostedsetupsGet (params: {  conditions?: string; orderBy?: string; page?: number; pageSize?: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Array<ConnectWiseHostedSetup>> {
             const localVarPath = this.basePath + '/system/connectwisehostedsetups';
@@ -825,7 +831,7 @@ export interface ValidationError {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -845,9 +851,9 @@ export interface ValidationError {
             });
         }
         /**
-         * 
+         *
          * Delete Connect Wise Hosted Setup By Id
-         * @param id 
+         * @param id
          */
         public systemConnectwisehostedsetupsIdDelete (params: {  id: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<{}> {
             const localVarPath = this.basePath + '/system/connectwisehostedsetups/{id}'
@@ -862,7 +868,7 @@ export interface ValidationError {
             let fetchParams = {
                 method: 'DELETE',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -882,9 +888,9 @@ export interface ValidationError {
             });
         }
         /**
-         * 
+         *
          * Get Connect Wise Hosted Setup By Id
-         * @param id 
+         * @param id
          */
         public systemConnectwisehostedsetupsIdGet (params: {  id: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<ConnectWiseHostedSetup> {
             const localVarPath = this.basePath + '/system/connectwisehostedsetups/{id}'
@@ -899,7 +905,7 @@ export interface ValidationError {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -919,10 +925,10 @@ export interface ValidationError {
             });
         }
         /**
-         * 
+         *
          * Update Connect Wise Hosted Setup
-         * @param id 
-         * @param operations 
+         * @param id
+         * @param operations
          */
         public systemConnectwisehostedsetupsIdPatch (params: {  id: number; operations: Array<PatchOperation>; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<ConnectWiseHostedSetup> {
             const localVarPath = this.basePath + '/system/connectwisehostedsetups/{id}'
@@ -944,7 +950,7 @@ export interface ValidationError {
                 method: 'PATCH',
                 headers: headerParams,
                 body: JSON.stringify(params.operations),
-                
+
             };
 
             if (extraFetchParams) {
@@ -964,10 +970,10 @@ export interface ValidationError {
             });
         }
         /**
-         * 
+         *
          * Replace Connect Wise Hosted Setup
-         * @param id 
-         * @param connectWiseHostedSetup 
+         * @param id
+         * @param connectWiseHostedSetup
          */
         public systemConnectwisehostedsetupsIdPut (params: {  id: number; connectWiseHostedSetup: ConnectWiseHostedSetup; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<ConnectWiseHostedSetup> {
             const localVarPath = this.basePath + '/system/connectwisehostedsetups/{id}'
@@ -989,7 +995,7 @@ export interface ValidationError {
                 method: 'PUT',
                 headers: headerParams,
                 body: JSON.stringify(params.connectWiseHostedSetup),
-                
+
             };
 
             if (extraFetchParams) {
@@ -1009,9 +1015,9 @@ export interface ValidationError {
             });
         }
         /**
-         * 
+         *
          * Create Connect Wise Hosted Setup
-         * @param connectWiseHostedSetup 
+         * @param connectWiseHostedSetup
          */
         public systemConnectwisehostedsetupsPost (params: {  connectWiseHostedSetup: ConnectWiseHostedSetup; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<ConnectWiseHostedSetup> {
             const localVarPath = this.basePath + '/system/connectwisehostedsetups';
@@ -1028,7 +1034,7 @@ export interface ValidationError {
                 method: 'POST',
                 headers: headerParams,
                 body: JSON.stringify(params.connectWiseHostedSetup),
-                
+
             };
 
             if (extraFetchParams) {
@@ -1063,10 +1069,10 @@ export interface ValidationError {
         }
 
         /**
-         * 
+         *
          * Get Documents Info Count
-         * @param recordType 
-         * @param recordId 
+         * @param recordType
+         * @param recordId
          */
         public systemDocumentsCountGet (params: {  recordType?: string; recordId?: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Count> {
             const localVarPath = this.basePath + '/system/documents/count';
@@ -1084,7 +1090,7 @@ export interface ValidationError {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -1104,12 +1110,12 @@ export interface ValidationError {
             });
         }
         /**
-         * 
+         *
          * Get Documents Info
-         * @param recordType 
-         * @param recordId 
-         * @param page 
-         * @param pageSize 
+         * @param recordType
+         * @param recordId
+         * @param page
+         * @param pageSize
          */
         public systemDocumentsGet (params: {  recordType?: string; recordId?: number; page?: number; pageSize?: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Array<DocumentInfo>> {
             const localVarPath = this.basePath + '/system/documents';
@@ -1135,7 +1141,7 @@ export interface ValidationError {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -1155,9 +1161,9 @@ export interface ValidationError {
             });
         }
         /**
-         * 
+         *
          * Delete Document Info By Id
-         * @param id 
+         * @param id
          */
         public systemDocumentsIdDelete (params: {  id: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<{}> {
             const localVarPath = this.basePath + '/system/documents/{id}'
@@ -1172,7 +1178,7 @@ export interface ValidationError {
             let fetchParams = {
                 method: 'DELETE',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -1192,10 +1198,10 @@ export interface ValidationError {
             });
         }
         /**
-         * 
+         *
          * Download Document
-         * @param id 
-         * @param lastModified 
+         * @param id
+         * @param lastModified
          */
         public systemDocumentsIdDownloadGet (params: {  id: number; lastModified?: string; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<{}> {
             const localVarPath = this.basePath + '/system/documents/{id}/download'
@@ -1214,7 +1220,7 @@ export interface ValidationError {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -1234,9 +1240,9 @@ export interface ValidationError {
             });
         }
         /**
-         * 
+         *
          * Get Document Info By Id
-         * @param id 
+         * @param id
          */
         public systemDocumentsIdGet (params: {  id: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<DocumentInfo> {
             const localVarPath = this.basePath + '/system/documents/{id}'
@@ -1251,7 +1257,7 @@ export interface ValidationError {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -1271,9 +1277,9 @@ export interface ValidationError {
             });
         }
         /**
-         * 
+         *
          * Update Document By Id
-         * @param id 
+         * @param id
          * @param recordId Entity id
          * @param recordType Entity type
          * @param title Document title
@@ -1349,7 +1355,7 @@ export interface ValidationError {
             });
         }
         /**
-         * 
+         *
          * Insert Document
          * @param recordId Entity id
          * @param recordType Entity type
@@ -1421,7 +1427,7 @@ export interface ValidationError {
             });
         }
         /**
-         * 
+         *
          * Get Upload Sample Page
          */
         public systemDocumentsUploadsampleGet (params: {  }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<{}> {
@@ -1432,7 +1438,7 @@ export interface ValidationError {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -1467,7 +1473,7 @@ export interface ValidationError {
         }
 
         /**
-         * 
+         *
          * Get Infos
          */
         public systemInfoGet (params: {  }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Info> {
@@ -1478,7 +1484,7 @@ export interface ValidationError {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -1513,11 +1519,11 @@ export interface ValidationError {
         }
 
         /**
-         * 
+         *
          * Add Or Update Integration
-         * @param integrator 
-         * @param request 
-         * @param type 
+         * @param integrator
+         * @param request
+         * @param type
          */
         public systemIntegrationsIntegratorPost (params: {  integrator: string; request: IntegrationRequest; type?: string; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<{}> {
             const localVarPath = this.basePath + '/system/integrations/{integrator}'
@@ -1543,7 +1549,7 @@ export interface ValidationError {
                 method: 'POST',
                 headers: headerParams,
                 body: JSON.stringify(params.request),
-                
+
             };
 
             if (extraFetchParams) {
@@ -1578,9 +1584,9 @@ export interface ValidationError {
         }
 
         /**
-         * 
+         *
          * Get Links Count
-         * @param conditions 
+         * @param conditions
          */
         public systemLinksCountGet (params: {  conditions?: string; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Count> {
             const localVarPath = this.basePath + '/system/links/count';
@@ -1594,7 +1600,7 @@ export interface ValidationError {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -1614,12 +1620,12 @@ export interface ValidationError {
             });
         }
         /**
-         * 
+         *
          * Get Links
-         * @param conditions 
-         * @param orderBy 
-         * @param page 
-         * @param pageSize 
+         * @param conditions
+         * @param orderBy
+         * @param page
+         * @param pageSize
          */
         public systemLinksGet (params: {  conditions?: string; orderBy?: string; page?: number; pageSize?: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Array<Link>> {
             const localVarPath = this.basePath + '/system/links';
@@ -1645,7 +1651,7 @@ export interface ValidationError {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -1665,9 +1671,9 @@ export interface ValidationError {
             });
         }
         /**
-         * 
+         *
          * Delete Link By Id
-         * @param id 
+         * @param id
          */
         public systemLinksIdDelete (params: {  id: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<{}> {
             const localVarPath = this.basePath + '/system/links/{id}'
@@ -1682,7 +1688,7 @@ export interface ValidationError {
             let fetchParams = {
                 method: 'DELETE',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -1702,9 +1708,9 @@ export interface ValidationError {
             });
         }
         /**
-         * 
+         *
          * Get Link By Id
-         * @param id 
+         * @param id
          */
         public systemLinksIdGet (params: {  id: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Link> {
             const localVarPath = this.basePath + '/system/links/{id}'
@@ -1719,7 +1725,7 @@ export interface ValidationError {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -1739,10 +1745,10 @@ export interface ValidationError {
             });
         }
         /**
-         * 
+         *
          * Update Link
-         * @param id 
-         * @param operations 
+         * @param id
+         * @param operations
          */
         public systemLinksIdPatch (params: {  id: number; operations: Array<PatchOperation>; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Link> {
             const localVarPath = this.basePath + '/system/links/{id}'
@@ -1764,7 +1770,7 @@ export interface ValidationError {
                 method: 'PATCH',
                 headers: headerParams,
                 body: JSON.stringify(params.operations),
-                
+
             };
 
             if (extraFetchParams) {
@@ -1784,10 +1790,10 @@ export interface ValidationError {
             });
         }
         /**
-         * 
+         *
          * Replace Link
-         * @param id 
-         * @param link 
+         * @param id
+         * @param link
          */
         public systemLinksIdPut (params: {  id: number; link: Link; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Link> {
             const localVarPath = this.basePath + '/system/links/{id}'
@@ -1809,7 +1815,7 @@ export interface ValidationError {
                 method: 'PUT',
                 headers: headerParams,
                 body: JSON.stringify(params.link),
-                
+
             };
 
             if (extraFetchParams) {
@@ -1829,9 +1835,9 @@ export interface ValidationError {
             });
         }
         /**
-         * 
+         *
          * Create Link
-         * @param link 
+         * @param link
          */
         public systemLinksPost (params: {  link: Link; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Link> {
             const localVarPath = this.basePath + '/system/links';
@@ -1848,7 +1854,7 @@ export interface ValidationError {
                 method: 'POST',
                 headers: headerParams,
                 body: JSON.stringify(params.link),
-                
+
             };
 
             if (extraFetchParams) {
@@ -1883,9 +1889,9 @@ export interface ValidationError {
         }
 
         /**
-         * 
+         *
          * Get Members Count
-         * @param conditions 
+         * @param conditions
          */
         public systemMembersCountGet (params: {  conditions?: string; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Count> {
             const localVarPath = this.basePath + '/system/members/count';
@@ -1899,7 +1905,7 @@ export interface ValidationError {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -1919,12 +1925,12 @@ export interface ValidationError {
             });
         }
         /**
-         * 
+         *
          * Get Members
-         * @param conditions 
-         * @param orderBy 
-         * @param page 
-         * @param pageSize 
+         * @param conditions
+         * @param orderBy
+         * @param page
+         * @param pageSize
          */
         public systemMembersGet (params: {  conditions?: string; orderBy?: string; page?: number; pageSize?: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Array<Member>> {
             const localVarPath = this.basePath + '/system/members';
@@ -1950,7 +1956,7 @@ export interface ValidationError {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -1970,9 +1976,9 @@ export interface ValidationError {
             });
         }
         /**
-         * 
+         *
          * Get Member By Id
-         * @param memberIdentifier 
+         * @param memberIdentifier
          */
         public systemMembersMemberIdentifierGet (params: {  memberIdentifier: string; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Member> {
             const localVarPath = this.basePath + '/system/members/{memberIdentifier}'
@@ -1987,7 +1993,7 @@ export interface ValidationError {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -2007,11 +2013,11 @@ export interface ValidationError {
             });
         }
         /**
-         * 
+         *
          * Get Member Image
-         * @param memberIdentifier 
-         * @param useDefaultFlag 
-         * @param lastmodified 
+         * @param memberIdentifier
+         * @param useDefaultFlag
+         * @param lastmodified
          */
         public systemMembersMemberIdentifierImageGet (params: {  memberIdentifier: string; useDefaultFlag?: boolean; lastmodified?: string; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<{}> {
             const localVarPath = this.basePath + '/system/members/{memberIdentifier}/image'
@@ -2034,7 +2040,7 @@ export interface ValidationError {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -2054,9 +2060,9 @@ export interface ValidationError {
             });
         }
         /**
-         * 
+         *
          * Create Token By Member Identifier
-         * @param memberIdentifier 
+         * @param memberIdentifier
          */
         public systemMembersMemberIdentifierTokensPost (params: {  memberIdentifier: string; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Token> {
             const localVarPath = this.basePath + '/system/members/{memberIdentifier}/tokens'
@@ -2071,7 +2077,7 @@ export interface ValidationError {
             let fetchParams = {
                 method: 'POST',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -2106,9 +2112,9 @@ export interface ValidationError {
         }
 
         /**
-         * 
+         *
          * Get Menu Entries Count
-         * @param conditions 
+         * @param conditions
          */
         public systemMenuentriesCountGet (params: {  conditions?: string; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Count> {
             const localVarPath = this.basePath + '/system/menuentries/count';
@@ -2122,7 +2128,7 @@ export interface ValidationError {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -2142,12 +2148,12 @@ export interface ValidationError {
             });
         }
         /**
-         * 
+         *
          * Get Menu Entries
-         * @param conditions 
-         * @param orderBy 
-         * @param page 
-         * @param pageSize 
+         * @param conditions
+         * @param orderBy
+         * @param page
+         * @param pageSize
          */
         public systemMenuentriesGet (params: {  conditions?: string; orderBy?: string; page?: number; pageSize?: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Array<MenuEntry>> {
             const localVarPath = this.basePath + '/system/menuentries';
@@ -2173,7 +2179,7 @@ export interface ValidationError {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -2193,9 +2199,9 @@ export interface ValidationError {
             });
         }
         /**
-         * 
+         *
          * Delete Menu Entry By Id
-         * @param id 
+         * @param id
          */
         public systemMenuentriesIdDelete (params: {  id: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<{}> {
             const localVarPath = this.basePath + '/system/menuentries/{id}'
@@ -2210,7 +2216,7 @@ export interface ValidationError {
             let fetchParams = {
                 method: 'DELETE',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -2230,9 +2236,9 @@ export interface ValidationError {
             });
         }
         /**
-         * 
+         *
          * Get Menu Entry By Id
-         * @param id 
+         * @param id
          */
         public systemMenuentriesIdGet (params: {  id: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<MenuEntry> {
             const localVarPath = this.basePath + '/system/menuentries/{id}'
@@ -2247,7 +2253,7 @@ export interface ValidationError {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -2267,11 +2273,11 @@ export interface ValidationError {
             });
         }
         /**
-         * 
+         *
          * Get Menu Entry Image
-         * @param id 
-         * @param lastmodified 
-         * @param largeFlag 
+         * @param id
+         * @param lastmodified
+         * @param largeFlag
          */
         public systemMenuentriesIdImageGet (params: {  id: number; lastmodified?: string; largeFlag?: boolean; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<{}> {
             const localVarPath = this.basePath + '/system/menuentries/{id}/image'
@@ -2294,7 +2300,7 @@ export interface ValidationError {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -2314,9 +2320,9 @@ export interface ValidationError {
             });
         }
         /**
-         * 
+         *
          * Upload Menu Entry Image
-         * @param id 
+         * @param id
          */
         public systemMenuentriesIdImagePost (params: {  id: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<{}> {
             const localVarPath = this.basePath + '/system/menuentries/{id}/image'
@@ -2331,7 +2337,7 @@ export interface ValidationError {
             let fetchParams = {
                 method: 'POST',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -2351,10 +2357,10 @@ export interface ValidationError {
             });
         }
         /**
-         * 
+         *
          * Update Menu Entry
-         * @param id 
-         * @param operations 
+         * @param id
+         * @param operations
          */
         public systemMenuentriesIdPatch (params: {  id: number; operations: Array<PatchOperation>; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<MenuEntry> {
             const localVarPath = this.basePath + '/system/menuentries/{id}'
@@ -2376,7 +2382,7 @@ export interface ValidationError {
                 method: 'PATCH',
                 headers: headerParams,
                 body: JSON.stringify(params.operations),
-                
+
             };
 
             if (extraFetchParams) {
@@ -2396,10 +2402,10 @@ export interface ValidationError {
             });
         }
         /**
-         * 
+         *
          * Replace Menu Entry
-         * @param id 
-         * @param menuEntry 
+         * @param id
+         * @param menuEntry
          */
         public systemMenuentriesIdPut (params: {  id: number; menuEntry: MenuEntry; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<MenuEntry> {
             const localVarPath = this.basePath + '/system/menuentries/{id}'
@@ -2421,7 +2427,7 @@ export interface ValidationError {
                 method: 'PUT',
                 headers: headerParams,
                 body: JSON.stringify(params.menuEntry),
-                
+
             };
 
             if (extraFetchParams) {
@@ -2441,9 +2447,9 @@ export interface ValidationError {
             });
         }
         /**
-         * 
+         *
          * Create Menu Entry
-         * @param menuEntry 
+         * @param menuEntry
          */
         public systemMenuentriesPost (params: {  menuEntry: MenuEntry; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<MenuEntry> {
             const localVarPath = this.basePath + '/system/menuentries';
@@ -2460,7 +2466,7 @@ export interface ValidationError {
                 method: 'POST',
                 headers: headerParams,
                 body: JSON.stringify(params.menuEntry),
-                
+
             };
 
             if (extraFetchParams) {
@@ -2495,10 +2501,10 @@ export interface ValidationError {
         }
 
         /**
-         * 
+         *
          * Get Reports
-         * @param conditions 
-         * @param orderBy 
+         * @param conditions
+         * @param orderBy
          */
         public systemReportsGet (params: {  conditions?: string; orderBy?: string; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Array<Report>> {
             const localVarPath = this.basePath + '/system/reports';
@@ -2516,7 +2522,7 @@ export interface ValidationError {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -2536,9 +2542,9 @@ export interface ValidationError {
             });
         }
         /**
-         * 
+         *
          * Get Column Definitions
-         * @param reportName 
+         * @param reportName
          */
         public systemReportsReportNameColumnsGet (params: {  reportName: string; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Array<JObject>> {
             const localVarPath = this.basePath + '/system/reports/{reportName}/columns'
@@ -2553,7 +2559,7 @@ export interface ValidationError {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -2573,10 +2579,10 @@ export interface ValidationError {
             });
         }
         /**
-         * 
+         *
          * Get Report Results Count
-         * @param reportName 
-         * @param conditions 
+         * @param reportName
+         * @param conditions
          */
         public systemReportsReportNameCountGet (params: {  reportName: string; conditions?: string; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Count> {
             const localVarPath = this.basePath + '/system/reports/{reportName}/count'
@@ -2595,7 +2601,7 @@ export interface ValidationError {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -2615,14 +2621,14 @@ export interface ValidationError {
             });
         }
         /**
-         * 
+         *
          * Get Report Results
-         * @param reportName 
-         * @param conditions 
-         * @param orderBy 
-         * @param page 
-         * @param pageSize 
-         * @param columns 
+         * @param reportName
+         * @param conditions
+         * @param orderBy
+         * @param page
+         * @param pageSize
+         * @param columns
          */
         public systemReportsReportNameGet (params: {  reportName: string; conditions?: string; orderBy?: string; page?: number; pageSize?: number; columns?: string; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<ReportDataResponse> {
             const localVarPath = this.basePath + '/system/reports/{reportName}'
@@ -2657,7 +2663,7 @@ export interface ValidationError {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -2692,9 +2698,9 @@ export interface ValidationError {
         }
 
         /**
-         * 
+         *
          * Get User Defined Fields Count
-         * @param conditions 
+         * @param conditions
          */
         public systemUserDefinedFieldsCountGet (params: {  conditions?: string; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Count> {
             const localVarPath = this.basePath + '/system/userDefinedFields/count';
@@ -2708,7 +2714,7 @@ export interface ValidationError {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -2728,12 +2734,12 @@ export interface ValidationError {
             });
         }
         /**
-         * 
+         *
          * Get User Defined Fields
-         * @param conditions 
-         * @param orderBy 
-         * @param page 
-         * @param pageSize 
+         * @param conditions
+         * @param orderBy
+         * @param page
+         * @param pageSize
          */
         public systemUserDefinedFieldsGet (params: {  conditions?: string; orderBy?: string; page?: number; pageSize?: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<Array<UserDefinedField>> {
             const localVarPath = this.basePath + '/system/userDefinedFields';
@@ -2759,7 +2765,7 @@ export interface ValidationError {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -2779,9 +2785,9 @@ export interface ValidationError {
             });
         }
         /**
-         * 
+         *
          * Delete User Defined Field By Id
-         * @param id 
+         * @param id
          */
         public systemUserDefinedFieldsIdDelete (params: {  id: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<{}> {
             const localVarPath = this.basePath + '/system/userDefinedFields/{id}'
@@ -2796,7 +2802,7 @@ export interface ValidationError {
             let fetchParams = {
                 method: 'DELETE',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -2816,9 +2822,9 @@ export interface ValidationError {
             });
         }
         /**
-         * 
+         *
          * Get User Defined Field By Id
-         * @param id 
+         * @param id
          */
         public systemUserDefinedFieldsIdGet (params: {  id: number; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<UserDefinedField> {
             const localVarPath = this.basePath + '/system/userDefinedFields/{id}'
@@ -2833,7 +2839,7 @@ export interface ValidationError {
             let fetchParams = {
                 method: 'GET',
                 headers: headerParams,
-                                
+
             };
 
             if (extraFetchParams) {
@@ -2853,10 +2859,10 @@ export interface ValidationError {
             });
         }
         /**
-         * 
+         *
          * Update User Defined Field
-         * @param id 
-         * @param operations 
+         * @param id
+         * @param operations
          */
         public systemUserDefinedFieldsIdPatch (params: {  id: number; operations: Array<PatchOperation>; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<UserDefinedField> {
             const localVarPath = this.basePath + '/system/userDefinedFields/{id}'
@@ -2878,7 +2884,7 @@ export interface ValidationError {
                 method: 'PATCH',
                 headers: headerParams,
                 body: JSON.stringify(params.operations),
-                
+
             };
 
             if (extraFetchParams) {
@@ -2898,10 +2904,10 @@ export interface ValidationError {
             });
         }
         /**
-         * 
+         *
          * Replace User Defined Field
-         * @param id 
-         * @param userDefinedField 
+         * @param id
+         * @param userDefinedField
          */
         public systemUserDefinedFieldsIdPut (params: {  id: number; userDefinedField: UserDefinedField; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<UserDefinedField> {
             const localVarPath = this.basePath + '/system/userDefinedFields/{id}'
@@ -2923,7 +2929,7 @@ export interface ValidationError {
                 method: 'PUT',
                 headers: headerParams,
                 body: JSON.stringify(params.userDefinedField),
-                
+
             };
 
             if (extraFetchParams) {
@@ -2943,9 +2949,9 @@ export interface ValidationError {
             });
         }
         /**
-         * 
+         *
          * Create User Defined Field
-         * @param userDefinedField 
+         * @param userDefinedField
          */
         public systemUserDefinedFieldsPost (params: {  userDefinedField: UserDefinedField; }, extraQueryParams?: any, extraFetchParams?: any ) : Promise<UserDefinedField> {
             const localVarPath = this.basePath + '/system/userDefinedFields';
@@ -2962,7 +2968,7 @@ export interface ValidationError {
                 method: 'POST',
                 headers: headerParams,
                 body: JSON.stringify(params.userDefinedField),
-                
+
             };
 
             if (extraFetchParams) {

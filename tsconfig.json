@@ -1,13 +1,12 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es6",
     "declaration": true,
+    "pretty": true,
+    "removeComments": true,
     "outDir": "release"
   },
   "exclude": [
-    "node_modules",
-    "typings/browser",
-    "typings/main",
-    "typings/main.d.ts"
+    "node_modules"
   ]
 }
