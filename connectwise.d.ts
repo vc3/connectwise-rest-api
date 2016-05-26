@@ -634,12 +634,12 @@ export interface CurrencyReference {
 export interface CustomFieldValue {
     "id"?: number;
     "caption"?: string;
-    "type"?: TypeEnum;
+    "type"?: CustomFieldTypeEnum;
     "entryMethod"?: EntryMethodEnum;
     "numberOfDecimals"?: number;
     "value"?: string;
 }
-export enum TypeEnum {
+export enum CustomFieldTypeEnum {
     Text,
     Button,
     Currency,
@@ -2165,7 +2165,7 @@ export interface Transaction {
     "batch"?: BatchReference;
     "billingLogId"?: number;
     "invoiceNumber"?: string;
-    "type"?: TypeEnum;
+    "type"?: TransactionTypeEnum;
     "description"?: string;
     "cost"?: number;
     "item"?: string;
@@ -2210,7 +2210,7 @@ export interface Transaction {
     "taxTotal"?: number;
     "info"?: Metadata;
 }
-export enum TypeEnum {
+export enum TransactionTypeEnum {
     AP,
     AR,
     EE,
@@ -5171,7 +5171,7 @@ export interface Forecast {
     "name"?: string;
     "revenue"?: number;
     "cost"?: number;
-    "type": TypeEnum;
+    "type": ForecastTypeEnum;
     "status"?: OpportunityStatusReference;
     "includedFlag"?: boolean;
     "recurring"?: ProductRecurring;
@@ -5180,7 +5180,7 @@ export interface Forecast {
     "opportunityId"?: number;
     "info"?: Metadata;
 }
-export enum TypeEnum {
+export enum ForecastTypeEnum {
     Product,
     Service,
     Agreement,
@@ -5626,7 +5626,7 @@ export interface TaxCodeReference {
 }
 export interface Team {
     "id"?: number;
-    "type": TypeEnum;
+    "type": TeamTypeEnum;
     "member"?: MemberReference;
     "salesTeam"?: SalesTeamReference;
     "commissionPercent"?: number;
@@ -5635,7 +5635,7 @@ export interface Team {
     "responsibleFlag"?: boolean;
     "info"?: Metadata;
 }
-export enum TypeEnum {
+export enum TeamTypeEnum {
     Individual,
     Team,
 }
@@ -6759,7 +6759,7 @@ export interface Survey {
 export interface SurveyQuestion {
     "id"?: number;
     "sequenceNumber"?: number;
-    "type": TypeEnum;
+    "type": SurveyQuestionTypeEnum;
     "question": string;
     "options"?: Array<SurveyQuestionOption>;
     "includeFlag"?: boolean;
@@ -6768,7 +6768,7 @@ export interface SurveyQuestion {
     "surveyId"?: number;
     "info"?: Metadata;
 }
-export enum TypeEnum {
+export enum SurveyQuestionTypeEnum {
     OpenEnded,
     Selection,
 }
@@ -7728,13 +7728,13 @@ export interface ConnectWiseHostedSetup {
     "origin"?: string;
     "url": string;
     "podHeight"?: number;
-    "type": TypeEnum;
+    "type": ConnectWiseHostedSetupTypeEnum;
     "disabledFlag"?: boolean;
     "createdBy"?: string;
     "dateCreated"?: string;
     "info"?: Metadata;
 }
-export enum TypeEnum {
+export enum ConnectWiseHostedSetupTypeEnum {
     Tab,
     Pod,
 }
