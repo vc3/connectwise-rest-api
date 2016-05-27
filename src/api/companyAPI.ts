@@ -1,4 +1,4 @@
-///<reference path="../../typings/main.d.ts"/>
+///<reference path="../../typings/index.d.ts"/>
 import * as querystring from 'querystring';
 import * as fetch from 'isomorphic-fetch';
 import {assign} from './assign';
@@ -567,21 +567,6 @@ export interface ConfigurationQuestion {
     "fieldType"?: FieldTypeEnum;
     "requiredFlag"?: boolean;
 }
-
-
-export enum FieldTypeEnum {
-    Text = <any> 'Text',
-    Button = <any> 'Button',
-    Currency = <any> 'Currency',
-    Date = <any> 'Date',
-    Hyperlink = <any> 'Hyperlink',
-    IPAddress = <any> 'IPAddress',
-    Checkbox = <any> 'Checkbox',
-    Number = <any> 'Number',
-    Percent = <any> 'Percent',
-    TextArea = <any> 'TextArea',
-    Password = <any> 'Password'
-}
 export interface ConfigurationStatus {
     "id"?: number;
     "description": string;
@@ -737,13 +722,6 @@ export interface ContactCommunication {
      * Metadata of the entity
      */
     "info"?: Metadata;
-}
-
-
-export enum CommunicationTypeEnum {
-    Phone = <any> 'Phone',
-    Fax = <any> 'Fax',
-    Email = <any> 'Email'
 }
 export interface ContactCommunicationItem {
     "id"?: number;

@@ -1,3 +1,4 @@
+///<reference path="../../typings/index.d.ts"/>
 import * as querystring from 'querystring';
 import * as fetch from 'isomorphic-fetch';
 import {assign} from './assign';
@@ -190,27 +191,6 @@ export enum EmployeeCompNotExceedEnum {
 export enum InvoicingCycleEnum { 
     CalendarYear = <any> 'CalendarYear',
     ContractYear = <any> 'ContractYear'
-}
-
-export enum BillTimeEnum { 
-    Billable = <any> 'Billable',
-    DoNotBill = <any> 'DoNotBill',
-    NoCharge = <any> 'NoCharge',
-    NoDefault = <any> 'NoDefault'
-}
-
-export enum BillExpensesEnum { 
-    Billable = <any> 'Billable',
-    DoNotBill = <any> 'DoNotBill',
-    NoCharge = <any> 'NoCharge',
-    NoDefault = <any> 'NoDefault'
-}
-
-export enum BillProductsEnum { 
-    Billable = <any> 'Billable',
-    DoNotBill = <any> 'DoNotBill',
-    NoCharge = <any> 'NoCharge',
-    NoDefault = <any> 'NoDefault'
 }
 
 export enum PeriodTypeEnum { 
@@ -819,27 +799,6 @@ export enum BudgetAnalysisEnum {
 export enum BillingRateTypeEnum { 
     WorkRole = <any> 'WorkRole',
     StaffMember = <any> 'StaffMember'
-}
-
-export enum BillTimeEnum { 
-    Billable = <any> 'Billable',
-    DoNotBill = <any> 'DoNotBill',
-    NoCharge = <any> 'NoCharge',
-    NoDefault = <any> 'NoDefault'
-}
-
-export enum BillExpensesEnum { 
-    Billable = <any> 'Billable',
-    DoNotBill = <any> 'DoNotBill',
-    NoCharge = <any> 'NoCharge',
-    NoDefault = <any> 'NoDefault'
-}
-
-export enum BillProductsEnum { 
-    Billable = <any> 'Billable',
-    DoNotBill = <any> 'DoNotBill',
-    NoCharge = <any> 'NoCharge',
-    NoDefault = <any> 'NoDefault'
 }
 export interface ProjectBoardReference {
     "id"?: number;

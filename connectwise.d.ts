@@ -492,19 +492,6 @@ export interface ConfigurationQuestion {
     "fieldType"?: FieldTypeEnum;
     "requiredFlag"?: boolean;
 }
-export enum FieldTypeEnum {
-    Text,
-    Button,
-    Currency,
-    Date,
-    Hyperlink,
-    IPAddress,
-    Checkbox,
-    Number,
-    Percent,
-    TextArea,
-    Password,
-}
 export interface ConfigurationStatus {
     "id"?: number;
     "description": string;
@@ -644,11 +631,6 @@ export interface ContactCommunication {
      */
     "info"?: Metadata;
 }
-export enum CommunicationTypeEnum {
-    Phone,
-    Fax,
-    Email,
-}
 export interface ContactCommunicationItem {
     "id"?: number;
     "type": CommunicationTypeReference;
@@ -745,12 +727,12 @@ export interface CurrencyReference {
 export interface CustomFieldValue {
     "id"?: number;
     "caption"?: string;
-    "type"?: TypeEnum;
+    "type"?: CustomFieldTypeEnum;
     "entryMethod"?: EntryMethodEnum;
     "numberOfDecimals"?: number;
     "value"?: string;
 }
-export enum TypeEnum {
+export enum CustomFieldTypeEnum {
     Text,
     Button,
     Currency,
@@ -2818,52 +2800,6 @@ export interface Agreement {
     "info"?: Metadata;
     "periodType"?: PeriodTypeEnum;
 }
-export enum ApplicationUnitsEnum {
-    Amount,
-    Hours,
-    Incidents,
-}
-export enum ApplicationCycleEnum {
-    Contract2Weeks,
-    Contract4Weeks,
-    ContractYear,
-    CalendarMonth,
-    CalendarQuarter,
-    CalendarWeek,
-    ContractQuarter,
-    CalendarYear,
-}
-export enum EmployeeCompRateEnum {
-    Actual,
-    Hourly,
-}
-export enum EmployeeCompNotExceedEnum {
-    Billing,
-    Percent,
-    Amount,
-}
-export enum InvoicingCycleEnum {
-    CalendarYear,
-    ContractYear,
-}
-export enum BillTimeEnum {
-    Billable,
-    DoNotBill,
-    NoCharge,
-    NoDefault,
-}
-export enum BillExpensesEnum {
-    Billable,
-    DoNotBill,
-    NoCharge,
-    NoDefault,
-}
-export enum BillProductsEnum {
-    Billable,
-    DoNotBill,
-    NoCharge,
-    NoDefault,
-}
 export enum PeriodTypeEnum {
     Current,
     Future,
@@ -2979,12 +2915,6 @@ export enum InvoicingCycleEnum {
     CalendarYear,
     ContractYear,
 }
-export enum BillTimeEnum {
-    Billable,
-    DoNotBill,
-    NoCharge,
-    NoDefault,
-}
 export enum BillExpensesEnum {
     Billable,
     DoNotBill,
@@ -3019,11 +2949,6 @@ export interface AgreementWorkRole {
      * Metadata of the entity
      */
     "info"?: Metadata;
-}
-export enum RateTypeEnum {
-    AdjAmount,
-    Custom,
-    Multiplier,
 }
 export interface AgreementWorkRoleExclusion {
     "id"?: number;
@@ -3431,7 +3356,7 @@ export interface Transaction {
     "batch"?: BatchReference;
     "billingLogId"?: number;
     "invoiceNumber"?: string;
-    "type"?: TypeEnum;
+    "type"?: TransactionTypeEnum;
     "description"?: string;
     "cost"?: number;
     "item"?: string;
@@ -3479,7 +3404,7 @@ export interface Transaction {
      */
     "info"?: Metadata;
 }
-export enum TypeEnum {
+export enum TransactionTypeEnum {
     AP,
     AR,
     EE,
@@ -6243,12 +6168,6 @@ export interface PricingBreak {
      */
     "info"?: Metadata;
 }
-export enum PriceMethodEnum {
-    FlatRateForRange,
-    PercentMarkupFromCost,
-    PercentMarkdownFromPrice,
-    PricePerUnit,
-}
 export interface PricingDetail {
     "id"?: number;
     "product"?: CatalogItemReference;
@@ -7959,12 +7878,6 @@ export interface Project {
      */
     "info"?: Metadata;
 }
-export enum BillingMethodEnum {
-    ActualRates,
-    FixedFee,
-    NotToExceed,
-    OverrideRate,
-}
 export enum BudgetAnalysisEnum {
     ActualHours,
     BillableHours,
@@ -7972,24 +7885,6 @@ export enum BudgetAnalysisEnum {
 export enum BillingRateTypeEnum {
     WorkRole,
     StaffMember,
-}
-export enum BillTimeEnum {
-    Billable,
-    DoNotBill,
-    NoCharge,
-    NoDefault,
-}
-export enum BillExpensesEnum {
-    Billable,
-    DoNotBill,
-    NoCharge,
-    NoDefault,
-}
-export enum BillProductsEnum {
-    Billable,
-    DoNotBill,
-    NoCharge,
-    NoDefault,
 }
 export interface ProjectBoardReference {
     "id"?: number;
@@ -8700,24 +8595,6 @@ export enum InvoicingCycleEnum {
     CalendarYear,
     ContractYear,
 }
-export enum BillTimeEnum {
-    Billable,
-    DoNotBill,
-    NoCharge,
-    NoDefault,
-}
-export enum BillExpensesEnum {
-    Billable,
-    DoNotBill,
-    NoCharge,
-    NoDefault,
-}
-export enum BillProductsEnum {
-    Billable,
-    DoNotBill,
-    NoCharge,
-    NoDefault,
-}
 export enum PeriodTypeEnum {
     Current,
     Future,
@@ -8828,7 +8705,7 @@ export interface Forecast {
     "name"?: string;
     "revenue"?: number;
     "cost"?: number;
-    "type": TypeEnum;
+    "type": ForecastTypeEnum;
     "status"?: OpportunityStatusReference;
     "includedFlag"?: boolean;
     "recurring"?: ProductRecurring;
@@ -8840,7 +8717,7 @@ export interface Forecast {
      */
     "info"?: Metadata;
 }
-export enum TypeEnum {
+export enum ForecastTypeEnum {
     Product,
     Service,
     Agreement,
@@ -9247,24 +9124,6 @@ export enum BillingRateTypeEnum {
     WorkRole,
     StaffMember,
 }
-export enum BillTimeEnum {
-    Billable,
-    DoNotBill,
-    NoCharge,
-    NoDefault,
-}
-export enum BillExpensesEnum {
-    Billable,
-    DoNotBill,
-    NoCharge,
-    NoDefault,
-}
-export enum BillProductsEnum {
-    Billable,
-    DoNotBill,
-    NoCharge,
-    NoDefault,
-}
 export interface ProjectBoardReference {
     "id"?: number;
     "name"?: string;
@@ -9403,7 +9262,7 @@ export interface TaxCodeReference {
 }
 export interface Team {
     "id"?: number;
-    "type": TypeEnum;
+    "type": TeamTypeEnum;
     "member"?: MemberReference;
     "salesTeam"?: SalesTeamReference;
     "commissionPercent"?: number;
@@ -9415,7 +9274,7 @@ export interface Team {
      */
     "info"?: Metadata;
 }
-export enum TypeEnum {
+export enum TeamTypeEnum {
     Individual,
     Team,
 }
@@ -11414,7 +11273,7 @@ export interface Survey {
 export interface SurveyQuestion {
     "id"?: number;
     "sequenceNumber"?: number;
-    "type": TypeEnum;
+    "type": SurveyQuestionTypeEnum;
     "question": string;
     "options"?: Array<SurveyQuestionOption>;
     "includeFlag"?: boolean;
@@ -11426,7 +11285,7 @@ export interface SurveyQuestion {
      */
     "info"?: Metadata;
 }
-export enum TypeEnum {
+export enum SurveyQuestionTypeEnum {
     OpenEnded,
     Selection,
 }
@@ -13299,7 +13158,7 @@ export interface ConnectWiseHostedSetup {
     "origin"?: string;
     "url": string;
     "podHeight"?: number;
-    "type": TypeEnum;
+    "type": ConnectWiseHostedSetupTypeEnum;
     "disabledFlag"?: boolean;
     "createdBy"?: string;
     "dateCreated"?: string;
@@ -13308,7 +13167,7 @@ export interface ConnectWiseHostedSetup {
      */
     "info"?: Metadata;
 }
-export enum TypeEnum {
+export enum ConnectWiseHostedSetupTypeEnum {
     Tab,
     Pod,
 }

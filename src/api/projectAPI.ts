@@ -1,3 +1,4 @@
+///<reference path="../../typings/index.d.ts"/>
 import * as querystring from 'querystring';
 import * as fetch from 'isomorphic-fetch';
 import {assign} from './assign';
@@ -154,15 +155,6 @@ export interface Project {
      */
     "info"?: Metadata;
 }
-
-
-export enum BillingMethodEnum { 
-    ActualRates = <any> 'ActualRates',
-    FixedFee = <any> 'FixedFee',
-    NotToExceed = <any> 'NotToExceed',
-    OverrideRate = <any> 'OverrideRate'
-}
-
 export enum BudgetAnalysisEnum { 
     ActualHours = <any> 'ActualHours',
     BillableHours = <any> 'BillableHours'
@@ -171,27 +163,6 @@ export enum BudgetAnalysisEnum {
 export enum BillingRateTypeEnum { 
     WorkRole = <any> 'WorkRole',
     StaffMember = <any> 'StaffMember'
-}
-
-export enum BillTimeEnum { 
-    Billable = <any> 'Billable',
-    DoNotBill = <any> 'DoNotBill',
-    NoCharge = <any> 'NoCharge',
-    NoDefault = <any> 'NoDefault'
-}
-
-export enum BillExpensesEnum { 
-    Billable = <any> 'Billable',
-    DoNotBill = <any> 'DoNotBill',
-    NoCharge = <any> 'NoCharge',
-    NoDefault = <any> 'NoDefault'
-}
-
-export enum BillProductsEnum { 
-    Billable = <any> 'Billable',
-    DoNotBill = <any> 'DoNotBill',
-    NoCharge = <any> 'NoCharge',
-    NoDefault = <any> 'NoDefault'
 }
 export interface ProjectBoardReference {
     "id"?: number;

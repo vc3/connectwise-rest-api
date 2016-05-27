@@ -1,3 +1,4 @@
+///<reference path="../../typings/index.d.ts"/>
 import * as querystring from 'querystring';
 
 import * as fetch from 'isomorphic-fetch';
@@ -223,14 +224,6 @@ export interface PricingBreak {
      * Metadata of the entity
      */
     "info"?: Metadata;
-}
-
-
-export enum PriceMethodEnum { 
-    FlatRateForRange = <any> 'FlatRateForRange',
-    PercentMarkupFromCost = <any> 'PercentMarkupFromCost',
-    PercentMarkdownFromPrice = <any> 'PercentMarkdownFromPrice',
-    PricePerUnit = <any> 'PricePerUnit'
 }
 export interface PricingDetail {
     "id"?: number;

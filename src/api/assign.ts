@@ -1,4 +1,4 @@
-///<reference path="../../typings/main.d.ts"/>
+///<reference path="../../typings/index.d.ts"/>
 export function assign (target, ...args) {
   'use strict';
   if (target === undefined || target === null) {

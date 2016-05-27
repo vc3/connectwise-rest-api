@@ -1,4 +1,4 @@
-///<reference path="../../typings/main.d.ts"/>
+///<reference path="../../typings/index.d.ts"/>
 import * as querystring from 'querystring';
 import * as fetch from 'isomorphic-fetch';
 import {assign} from './assign';
@@ -137,62 +137,6 @@ export interface Agreement {
     "info"?: Metadata;
     "periodType"?: PeriodTypeEnum;
 }
-
-
-export enum ApplicationUnitsEnum { 
-    Amount = <any> 'Amount',
-    Hours = <any> 'Hours',
-    Incidents = <any> 'Incidents'
-}
-
-export enum ApplicationCycleEnum { 
-    Contract2Weeks = <any> 'Contract2Weeks',
-    Contract4Weeks = <any> 'Contract4Weeks',
-    ContractYear = <any> 'ContractYear',
-    CalendarMonth = <any> 'CalendarMonth',
-    CalendarQuarter = <any> 'CalendarQuarter',
-    CalendarWeek = <any> 'CalendarWeek',
-    ContractQuarter = <any> 'ContractQuarter',
-    CalendarYear = <any> 'CalendarYear'
-}
-
-export enum EmployeeCompRateEnum { 
-    Actual = <any> 'Actual',
-    Hourly = <any> 'Hourly'
-}
-
-export enum EmployeeCompNotExceedEnum { 
-    Billing = <any> 'Billing',
-    Percent = <any> 'Percent',
-    Amount = <any> 'Amount'
-}
-
-export enum InvoicingCycleEnum { 
-    CalendarYear = <any> 'CalendarYear',
-    ContractYear = <any> 'ContractYear'
-}
-
-export enum BillTimeEnum { 
-    Billable = <any> 'Billable',
-    DoNotBill = <any> 'DoNotBill',
-    NoCharge = <any> 'NoCharge',
-    NoDefault = <any> 'NoDefault'
-}
-
-export enum BillExpensesEnum { 
-    Billable = <any> 'Billable',
-    DoNotBill = <any> 'DoNotBill',
-    NoCharge = <any> 'NoCharge',
-    NoDefault = <any> 'NoDefault'
-}
-
-export enum BillProductsEnum { 
-    Billable = <any> 'Billable',
-    DoNotBill = <any> 'DoNotBill',
-    NoCharge = <any> 'NoCharge',
-    NoDefault = <any> 'NoDefault'
-}
-
 export enum PeriodTypeEnum { 
     Current = <any> 'Current',
     Future = <any> 'Future',
@@ -320,14 +264,6 @@ export enum InvoicingCycleEnum {
     CalendarYear = <any> 'CalendarYear',
     ContractYear = <any> 'ContractYear'
 }
-
-export enum BillTimeEnum { 
-    Billable = <any> 'Billable',
-    DoNotBill = <any> 'DoNotBill',
-    NoCharge = <any> 'NoCharge',
-    NoDefault = <any> 'NoDefault'
-}
-
 export enum BillExpensesEnum { 
     Billable = <any> 'Billable',
     DoNotBill = <any> 'DoNotBill',
@@ -366,13 +302,6 @@ export interface AgreementWorkRole {
      * Metadata of the entity
      */
     "info"?: Metadata;
-}
-
-
-export enum RateTypeEnum { 
-    AdjAmount = <any> 'AdjAmount',
-    Custom = <any> 'Custom',
-    Multiplier = <any> 'Multiplier'
 }
 export interface AgreementWorkRoleExclusion {
     "id"?: number;
