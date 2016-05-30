@@ -1,12 +1,12 @@
 {
   "name": "connectwise-rest-api",
-  "version": "0.0.17",
+  "version": "0.0.18",
   "main": "./release/connectwise.js",
   "typings": "./connectwise.d.ts",
   "description": "Nodejs Module to interact with Connectwise's REST API",
   "repository": {
       "type": "git",
-      "url": "git+https://github/sowderca/connectwise-rest-api.git"
+      "url": "git+https://github.com/sowderca/connectwise-rest-api.git"
   },
   "author": {
     "name": "Cameron Sowder",
