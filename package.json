@@ -1,6 +1,7 @@
 {
   "name": "connectwise-rest-api",
-  "version": "0.0.18",
+  "version": "0.0.19",
+  "license": "MIT",
   "main": "./release/connectwise.js",
   "typings": "./connectwise.d.ts",
   "description": "Nodejs Module to interact with Connectwise's REST API",
