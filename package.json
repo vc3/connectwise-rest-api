@@ -1,6 +1,6 @@
 {
   "name": "connectwise-rest-api",
-  "version": "0.0.20",
+  "version": "1.0.0",
   "license": "MIT",
   "main": "./release/connectwise.js",
   "typings": "./connectwise.d.ts",
