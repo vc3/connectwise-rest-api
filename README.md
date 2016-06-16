@@ -20,7 +20,7 @@ $ typings install github:vc3/connectwise-rest-api/connectwise.d.ts -S --global
 ##Usage
 ---------
 
-```
+```ts
 import { Connectwise } from 'connectwise-rest-api';
 
 // The Connectwise is a wrapper class provides access to all the api endpoints and methods.
@@ -36,7 +36,7 @@ connectwise.CompaniesApi.companyCompaniesGet(params).then( response => {
 
 You can also import types or a specific api class
 
-```
+```ts
 import { Ticket, TicketsApi } from 'connectwise-rest-api/release/api/serviceAPI';
 
 // Make sure you set your connectwise URL and Auth header
