@@ -1,13 +1,13 @@
 {
-  "compilerOptions": {
-    "target": "es5",
-    "declaration": true,
-    "outDir": "release"
-  },
-  "exclude": [
-    "node_modules",
-    "typings/browser",
-    "typings/main",
-    "typings/main.d.ts"
-  ]
+	"compilerOptions": {
+		"target": "es5",
+		"declaration": true,
+		"outDir": "release"
+	},
+	"exclude": [
+		"node_modules",
+		"typings/browser",
+		"typings/main",
+		"typings/main.d.ts"
+	]
 }

@@ -3,785 +3,785 @@
 // Source: release/api/companyAPI.d.ts
 declare module '~connectwise-rest-api/release/api/companyAPI' {
 export interface AgreementReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface CalendarReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface CommunicationTypeReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface Company {
-    "id"?: number;
-    "identifier": string;
-    "name": string;
-    "status": CompanyStatusReference;
-    "type": CompanyTypeReference;
-    "addressLine1": string;
-    "addressLine2"?: string;
-    "city"?: string;
-    "state"?: string;
-    "zip"?: string;
-    "country"?: CountryReference;
-    "phoneNumber"?: string;
-    "faxNumber"?: string;
-    "website"?: string;
-    "territoryId"?: number;
-    "marketId"?: number;
-    "accountNumber"?: string;
-    "defaultContact"?: ContactReference;
-    "dateAcquired"?: Date;
-    "sicCode"?: SicCodeReference;
-    "parentCompany"?: CompanyReference;
-    "annualRevenue"?: number;
-    "numberOfEmployees"?: number;
-    "ownershipType"?: OwnershipTypeReference;
-    "timeZone"?: TimeZoneReference;
-    "leadSource"?: string;
-    "leadFlag"?: boolean;
-    "unsubscribeFlag"?: boolean;
-    "calendarId"?: number;
-    "deletedFlag"?: boolean;
-    "dateDeleted"?: Date;
-    "deletedBy"?: string;
-    "mobileGuid"?: Guid;
-    "currency"?: CurrencyReference;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
-    "customFields"?: Array<CustomFieldValue>;
+	"id"?: number;
+	"identifier": string;
+	"name": string;
+	"status": CompanyStatusReference;
+	"type": CompanyTypeReference;
+	"addressLine1": string;
+	"addressLine2"?: string;
+	"city"?: string;
+	"state"?: string;
+	"zip"?: string;
+	"country"?: CountryReference;
+	"phoneNumber"?: string;
+	"faxNumber"?: string;
+	"website"?: string;
+	"territoryId"?: number;
+	"marketId"?: number;
+	"accountNumber"?: string;
+	"defaultContact"?: ContactReference;
+	"dateAcquired"?: Date;
+	"sicCode"?: SicCodeReference;
+	"parentCompany"?: CompanyReference;
+	"annualRevenue"?: number;
+	"numberOfEmployees"?: number;
+	"ownershipType"?: OwnershipTypeReference;
+	"timeZone"?: TimeZoneReference;
+	"leadSource"?: string;
+	"leadFlag"?: boolean;
+	"unsubscribeFlag"?: boolean;
+	"calendarId"?: number;
+	"deletedFlag"?: boolean;
+	"dateDeleted"?: Date;
+	"deletedBy"?: string;
+	"mobileGuid"?: Guid;
+	"currency"?: CurrencyReference;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
+	"customFields"?: Array<CustomFieldValue>;
 }
 export interface CompanyManagementSummary {
-    "id"?: number;
-    "managementSolution"?: ManagementSolutionReference;
-    "groupIdentifier": string;
-    /**
-     * deviceType is required if the managementSolution is Legacy
-     */
-    "deviceType"?: DeviceTypeEnum;
-    "agreement"?: AgreementReference;
-    "snmpMachines"?: number;
-    "totalWorkstations"?: number;
-    "totalServers"?: number;
-    "totalWindowsServers"?: number;
-    "totalWindowsWorkstations"?: number;
-    "totalManagedMachines"?: number;
-    "serversOffline"?: number;
-    "serversDiskSpaceLow"?: number;
-    "failedBackupJobs"?: number;
-    "totalNotifications"?: number;
-    "successfulBackupJobs"?: number;
-    "serverAvailability"?: number;
-    "virusesRemoved"?: number;
-    "spywareItemsRemoved"?: number;
-    "windowsPatchesInstalled"?: number;
-    "diskCleanups"?: number;
-    "diskDefragmentations"?: number;
-    "fullyPatchedMachines"?: number;
-    "missingOneTwoPatchesMachines"?: number;
-    "missingThreeFivePatchesMachines"?: number;
-    "missingMoreFivePatchesMachines"?: number;
-    "missingUnscannedPatchesMachines"?: number;
-    "alertsGenerated"?: string;
-    "internetConnectivity"?: number;
-    "diskSpaceCleanedMb"?: number;
-    "missingSecurityPatches"?: string;
-    "cpuUtilization"?: number;
-    "memoryUtilization"?: number;
-    "company"?: CompanyReference;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"managementSolution"?: ManagementSolutionReference;
+	"groupIdentifier": string;
+	/**
+	 * deviceType is required if the managementSolution is Legacy
+	 */
+	"deviceType"?: DeviceTypeEnum;
+	"agreement"?: AgreementReference;
+	"snmpMachines"?: number;
+	"totalWorkstations"?: number;
+	"totalServers"?: number;
+	"totalWindowsServers"?: number;
+	"totalWindowsWorkstations"?: number;
+	"totalManagedMachines"?: number;
+	"serversOffline"?: number;
+	"serversDiskSpaceLow"?: number;
+	"failedBackupJobs"?: number;
+	"totalNotifications"?: number;
+	"successfulBackupJobs"?: number;
+	"serverAvailability"?: number;
+	"virusesRemoved"?: number;
+	"spywareItemsRemoved"?: number;
+	"windowsPatchesInstalled"?: number;
+	"diskCleanups"?: number;
+	"diskDefragmentations"?: number;
+	"fullyPatchedMachines"?: number;
+	"missingOneTwoPatchesMachines"?: number;
+	"missingThreeFivePatchesMachines"?: number;
+	"missingMoreFivePatchesMachines"?: number;
+	"missingUnscannedPatchesMachines"?: number;
+	"alertsGenerated"?: string;
+	"internetConnectivity"?: number;
+	"diskSpaceCleanedMb"?: number;
+	"missingSecurityPatches"?: string;
+	"cpuUtilization"?: number;
+	"memoryUtilization"?: number;
+	"company"?: CompanyReference;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export enum DeviceTypeEnum {
-    WorkstationsAndServers,
-    BackupStats,
-    Servers,
-    Workstations,
+	WorkstationsAndServers,
+	BackupStats,
+	Servers,
+	Workstations,
 }
 export interface CompanyMerge {
-    "toCompanyId": number;
-    "name"?: NameEnum;
-    "identifier"?: IdentifierEnum;
-    "status"?: StatusEnum;
-    "type"?: TypeEnum;
-    "primaryAddress"?: PrimaryAddressEnum;
-    "primaryContact"?: PrimaryContactEnum;
-    "phone"?: PhoneEnum;
-    "fax"?: FaxEnum;
-    "website"?: WebsiteEnum;
-    "market"?: MarketEnum;
-    "territory"?: TerritoryEnum;
-    "revenue"?: RevenueEnum;
-    "revenueYear"?: RevenueYearEnum;
-    "numberOfEmployees"?: NumberOfEmployeesEnum;
-    "sicCode"?: SicCodeEnum;
-    "dateAcquired"?: DateAcquiredEnum;
-    "timeZone"?: TimeZoneEnum;
-    "sourceList"?: SourceListEnum;
-    "userDefinedField1"?: UserDefinedField1Enum;
-    "userDefinedField2"?: UserDefinedField2Enum;
-    "userDefinedField3"?: UserDefinedField3Enum;
-    "userDefinedField4"?: UserDefinedField4Enum;
-    "userDefinedField5"?: UserDefinedField5Enum;
-    "userDefinedField6"?: UserDefinedField6Enum;
-    "userDefinedField7"?: UserDefinedField7Enum;
-    "userDefinedField8"?: UserDefinedField8Enum;
-    "userDefinedField9"?: UserDefinedField9Enum;
-    "userDefinedField10"?: UserDefinedField10Enum;
-    "billingAddress"?: BillingAddressEnum;
-    "billingContact"?: BillingContactEnum;
-    "taxCode"?: TaxCodeEnum;
-    "accountNumber"?: AccountNumberEnum;
-    "billingTerms"?: BillingTermsEnum;
-    "notes"?: NotesEnum;
-    "sites"?: SitesEnum;
-    "activities"?: ActivitiesEnum;
-    "opportunities"?: OpportunitiesEnum;
-    "services"?: ServicesEnum;
-    "projects"?: ProjectsEnum;
-    "contacts"?: ContactsEnum;
-    "documents"?: DocumentsEnum;
+	"toCompanyId": number;
+	"name"?: NameEnum;
+	"identifier"?: IdentifierEnum;
+	"status"?: StatusEnum;
+	"type"?: TypeEnum;
+	"primaryAddress"?: PrimaryAddressEnum;
+	"primaryContact"?: PrimaryContactEnum;
+	"phone"?: PhoneEnum;
+	"fax"?: FaxEnum;
+	"website"?: WebsiteEnum;
+	"market"?: MarketEnum;
+	"territory"?: TerritoryEnum;
+	"revenue"?: RevenueEnum;
+	"revenueYear"?: RevenueYearEnum;
+	"numberOfEmployees"?: NumberOfEmployeesEnum;
+	"sicCode"?: SicCodeEnum;
+	"dateAcquired"?: DateAcquiredEnum;
+	"timeZone"?: TimeZoneEnum;
+	"sourceList"?: SourceListEnum;
+	"userDefinedField1"?: UserDefinedField1Enum;
+	"userDefinedField2"?: UserDefinedField2Enum;
+	"userDefinedField3"?: UserDefinedField3Enum;
+	"userDefinedField4"?: UserDefinedField4Enum;
+	"userDefinedField5"?: UserDefinedField5Enum;
+	"userDefinedField6"?: UserDefinedField6Enum;
+	"userDefinedField7"?: UserDefinedField7Enum;
+	"userDefinedField8"?: UserDefinedField8Enum;
+	"userDefinedField9"?: UserDefinedField9Enum;
+	"userDefinedField10"?: UserDefinedField10Enum;
+	"billingAddress"?: BillingAddressEnum;
+	"billingContact"?: BillingContactEnum;
+	"taxCode"?: TaxCodeEnum;
+	"accountNumber"?: AccountNumberEnum;
+	"billingTerms"?: BillingTermsEnum;
+	"notes"?: NotesEnum;
+	"sites"?: SitesEnum;
+	"activities"?: ActivitiesEnum;
+	"opportunities"?: OpportunitiesEnum;
+	"services"?: ServicesEnum;
+	"projects"?: ProjectsEnum;
+	"contacts"?: ContactsEnum;
+	"documents"?: DocumentsEnum;
 }
 export enum NameEnum {
-    From,
-    To,
+	From,
+	To,
 }
 export enum IdentifierEnum {
-    From,
-    To,
+	From,
+	To,
 }
 export enum StatusEnum {
-    From,
-    To,
+	From,
+	To,
 }
 export enum TypeEnum {
-    From,
-    To,
+	From,
+	To,
 }
 export enum PrimaryAddressEnum {
-    From,
-    To,
+	From,
+	To,
 }
 export enum PrimaryContactEnum {
-    From,
-    To,
+	From,
+	To,
 }
 export enum PhoneEnum {
-    From,
-    To,
+	From,
+	To,
 }
 export enum FaxEnum {
-    From,
-    To,
+	From,
+	To,
 }
 export enum WebsiteEnum {
-    From,
-    To,
+	From,
+	To,
 }
 export enum MarketEnum {
-    From,
-    To,
+	From,
+	To,
 }
 export enum TerritoryEnum {
-    From,
-    To,
+	From,
+	To,
 }
 export enum RevenueEnum {
-    From,
-    To,
+	From,
+	To,
 }
 export enum RevenueYearEnum {
-    From,
-    To,
+	From,
+	To,
 }
 export enum NumberOfEmployeesEnum {
-    From,
-    To,
+	From,
+	To,
 }
 export enum SicCodeEnum {
-    From,
-    To,
+	From,
+	To,
 }
 export enum DateAcquiredEnum {
-    From,
-    To,
+	From,
+	To,
 }
 export enum TimeZoneEnum {
-    From,
-    To,
+	From,
+	To,
 }
 export enum SourceListEnum {
-    From,
-    To,
+	From,
+	To,
 }
 export enum UserDefinedField1Enum {
-    From,
-    To,
+	From,
+	To,
 }
 export enum UserDefinedField2Enum {
-    From,
-    To,
+	From,
+	To,
 }
 export enum UserDefinedField3Enum {
-    From,
-    To,
+	From,
+	To,
 }
 export enum UserDefinedField4Enum {
-    From,
-    To,
+	From,
+	To,
 }
 export enum UserDefinedField5Enum {
-    From,
-    To,
+	From,
+	To,
 }
 export enum UserDefinedField6Enum {
-    From,
-    To,
+	From,
+	To,
 }
 export enum UserDefinedField7Enum {
-    From,
-    To,
+	From,
+	To,
 }
 export enum UserDefinedField8Enum {
-    From,
-    To,
+	From,
+	To,
 }
 export enum UserDefinedField9Enum {
-    From,
-    To,
+	From,
+	To,
 }
 export enum UserDefinedField10Enum {
-    From,
-    To,
+	From,
+	To,
 }
 export enum BillingAddressEnum {
-    From,
-    To,
+	From,
+	To,
 }
 export enum BillingContactEnum {
-    From,
-    To,
+	From,
+	To,
 }
 export enum TaxCodeEnum {
-    From,
-    To,
+	From,
+	To,
 }
 export enum AccountNumberEnum {
-    From,
-    To,
+	From,
+	To,
 }
 export enum BillingTermsEnum {
-    From,
-    To,
+	From,
+	To,
 }
 export enum NotesEnum {
-    Discard,
-    Merge,
+	Discard,
+	Merge,
 }
 export enum SitesEnum {
-    Discard,
-    Merge,
+	Discard,
+	Merge,
 }
 export enum ActivitiesEnum {
-    Discard,
-    Merge,
+	Discard,
+	Merge,
 }
 export enum OpportunitiesEnum {
-    Discard,
-    Merge,
+	Discard,
+	Merge,
 }
 export enum ServicesEnum {
-    Discard,
-    Merge,
+	Discard,
+	Merge,
 }
 export enum ProjectsEnum {
-    Discard,
-    Merge,
+	Discard,
+	Merge,
 }
 export enum ContactsEnum {
-    Discard,
-    Merge,
+	Discard,
+	Merge,
 }
 export enum DocumentsEnum {
-    Discard,
-    Merge,
+	Discard,
+	Merge,
 }
 export interface CompanyNote {
-    "id"?: number;
-    "text": string;
-    "type"?: NoteTypeReference;
-    "flagged"?: boolean;
-    "enteredBy"?: string;
-    "company"?: CompanyReference;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"text": string;
+	"type"?: NoteTypeReference;
+	"flagged"?: boolean;
+	"enteredBy"?: string;
+	"company"?: CompanyReference;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface CompanyReference {
-    "id"?: number;
-    "identifier"?: string;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"identifier"?: string;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface CompanySite {
-    "id"?: number;
-    "name": string;
-    "addressLine1"?: string;
-    "addressLine2"?: string;
-    "city"?: string;
-    "state"?: string;
-    "zip"?: string;
-    "country"?: CountryReference;
-    "phoneNumber"?: string;
-    "faxNumber"?: string;
-    "taxCodeId"?: number;
-    "expenseReimbursement"?: number;
-    "primaryAddressFlag"?: boolean;
-    "defaultShippingFlag"?: boolean;
-    "defaultBillingFlag"?: boolean;
-    "defaultMailingFlag"?: boolean;
-    "calendar"?: CalendarReference;
-    "timeZone"?: TimeZoneReference;
-    "company"?: CompanyReference;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name": string;
+	"addressLine1"?: string;
+	"addressLine2"?: string;
+	"city"?: string;
+	"state"?: string;
+	"zip"?: string;
+	"country"?: CountryReference;
+	"phoneNumber"?: string;
+	"faxNumber"?: string;
+	"taxCodeId"?: number;
+	"expenseReimbursement"?: number;
+	"primaryAddressFlag"?: boolean;
+	"defaultShippingFlag"?: boolean;
+	"defaultBillingFlag"?: boolean;
+	"defaultMailingFlag"?: boolean;
+	"calendar"?: CalendarReference;
+	"timeZone"?: TimeZoneReference;
+	"company"?: CompanyReference;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface CompanyStatus {
-    "id"?: number;
-    "name": string;
-    "defaultFlag"?: boolean;
-    "inactiveFlag"?: boolean;
-    "notifyFlag"?: boolean;
-    "disallowSavingFlag"?: boolean;
-    "notificationMessage"?: string;
-    "customNoteFlag"?: boolean;
-    "cancelOpenTracksFlag"?: boolean;
-    "track"?: TrackReference;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name": string;
+	"defaultFlag"?: boolean;
+	"inactiveFlag"?: boolean;
+	"notifyFlag"?: boolean;
+	"disallowSavingFlag"?: boolean;
+	"notificationMessage"?: string;
+	"customNoteFlag"?: boolean;
+	"cancelOpenTracksFlag"?: boolean;
+	"track"?: TrackReference;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface CompanyStatusReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface CompanyTeam {
-    "id"?: number;
-    "company"?: CompanyReference;
-    "teamRole": TeamRoleReference;
-    "locationId"?: number;
-    "businessUnitId"?: number;
-    "contact"?: ContactReference;
-    "member"?: MemberReference;
-    "accountManagerFlag"?: boolean;
-    "techFlag"?: boolean;
-    "salesFlag"?: boolean;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"company"?: CompanyReference;
+	"teamRole": TeamRoleReference;
+	"locationId"?: number;
+	"businessUnitId"?: number;
+	"contact"?: ContactReference;
+	"member"?: MemberReference;
+	"accountManagerFlag"?: boolean;
+	"techFlag"?: boolean;
+	"salesFlag"?: boolean;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface CompanyType {
-    "id"?: number;
-    "name": string;
-    "defaultFlag"?: boolean;
-    "vendorFlag"?: boolean;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name": string;
+	"defaultFlag"?: boolean;
+	"vendorFlag"?: boolean;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface CompanyTypeReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface Configuration {
-    "id"?: number;
-    "name": string;
-    "type": ConfigurationTypeReference;
-    "status"?: ConfigurationStatusReference;
-    "company": CompanyReference;
-    "contact"?: ContactReference;
-    "site"?: SiteReference;
-    "locationId"?: number;
-    "businessUnitId"?: number;
-    "deviceIdentifier"?: string;
-    "serialNumber"?: string;
-    "modelNumber"?: string;
-    "tagNumber"?: string;
-    "purchaseDate"?: Date;
-    "installationDate"?: Date;
-    "installedBy"?: MemberReference;
-    "warrantyExpirationDate"?: Date;
-    "vendorNotes"?: string;
-    "notes"?: string;
-    "macAddress"?: string;
-    "lastLoginName"?: string;
-    "billFlag"?: boolean;
-    "backupSuccesses"?: number;
-    "backupIncomplete"?: number;
-    "backupFailed"?: number;
-    "backupRestores"?: number;
-    "lastBackupDate"?: Date;
-    "backupServerName"?: string;
-    "backupBillableSpaceGb"?: number;
-    "backupProtectedDeviceList"?: string;
-    "backupYear"?: number;
-    "backupMonth"?: number;
-    "ipAddress"?: string;
-    "defaultGateway"?: string;
-    "osType"?: string;
-    "osInfo"?: string;
-    "cpuSpeed"?: string;
-    "ram"?: string;
-    "localHardDrives"?: string;
-    "parentConfigurationId"?: number;
-    "vendor"?: CompanyReference;
-    "manufacturer"?: ManufacturerReference;
-    "questions"?: Array<ConfigurationQuestion>;
-    "activeFlag"?: boolean;
-    "managementLink"?: string;
-    "remoteLink"?: string;
-    "sla"?: SLAReference;
-    "mobileGuid"?: Guid;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
-    "customFields"?: Array<CustomFieldValue>;
+	"id"?: number;
+	"name": string;
+	"type": ConfigurationTypeReference;
+	"status"?: ConfigurationStatusReference;
+	"company": CompanyReference;
+	"contact"?: ContactReference;
+	"site"?: SiteReference;
+	"locationId"?: number;
+	"businessUnitId"?: number;
+	"deviceIdentifier"?: string;
+	"serialNumber"?: string;
+	"modelNumber"?: string;
+	"tagNumber"?: string;
+	"purchaseDate"?: Date;
+	"installationDate"?: Date;
+	"installedBy"?: MemberReference;
+	"warrantyExpirationDate"?: Date;
+	"vendorNotes"?: string;
+	"notes"?: string;
+	"macAddress"?: string;
+	"lastLoginName"?: string;
+	"billFlag"?: boolean;
+	"backupSuccesses"?: number;
+	"backupIncomplete"?: number;
+	"backupFailed"?: number;
+	"backupRestores"?: number;
+	"lastBackupDate"?: Date;
+	"backupServerName"?: string;
+	"backupBillableSpaceGb"?: number;
+	"backupProtectedDeviceList"?: string;
+	"backupYear"?: number;
+	"backupMonth"?: number;
+	"ipAddress"?: string;
+	"defaultGateway"?: string;
+	"osType"?: string;
+	"osInfo"?: string;
+	"cpuSpeed"?: string;
+	"ram"?: string;
+	"localHardDrives"?: string;
+	"parentConfigurationId"?: number;
+	"vendor"?: CompanyReference;
+	"manufacturer"?: ManufacturerReference;
+	"questions"?: Array<ConfigurationQuestion>;
+	"activeFlag"?: boolean;
+	"managementLink"?: string;
+	"remoteLink"?: string;
+	"sla"?: SLAReference;
+	"mobileGuid"?: Guid;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
+	"customFields"?: Array<CustomFieldValue>;
 }
 export interface ConfigurationQuestion {
-    "answerId"?: number;
-    "questionId"?: number;
-    "question"?: string;
-    "answer"?: string;
-    "sequenceNumber"?: number;
-    "numberOfDecimals"?: number;
-    "fieldType"?: FieldTypeEnum;
-    "requiredFlag"?: boolean;
+	"answerId"?: number;
+	"questionId"?: number;
+	"question"?: string;
+	"answer"?: string;
+	"sequenceNumber"?: number;
+	"numberOfDecimals"?: number;
+	"fieldType"?: FieldTypeEnum;
+	"requiredFlag"?: boolean;
 }
 export interface ConfigurationStatus {
-    "id"?: number;
-    "description": string;
-    "closedFlag"?: boolean;
-    "defaultFlag"?: boolean;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"description": string;
+	"closedFlag"?: boolean;
+	"defaultFlag"?: boolean;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ConfigurationStatusReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ConfigurationType {
-    "id"?: number;
-    "name": string;
-    "inactiveFlag"?: boolean;
-    "systemFlag"?: boolean;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name": string;
+	"inactiveFlag"?: boolean;
+	"systemFlag"?: boolean;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ConfigurationTypeQuestion {
-    "id"?: number;
-    "configurationTypeId"?: number;
-    "fieldType": FieldTypeEnum;
-    "entryType": EntryTypeEnum;
-    "sequenceNumber"?: number;
-    "question": string;
-    "numberOfDecimals"?: number;
-    "requiredFlag"?: boolean;
-    "inactiveFlag"?: boolean;
-    "possibleAnswers"?: Array<string>;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"configurationTypeId"?: number;
+	"fieldType": FieldTypeEnum;
+	"entryType": EntryTypeEnum;
+	"sequenceNumber"?: number;
+	"question": string;
+	"numberOfDecimals"?: number;
+	"requiredFlag"?: boolean;
+	"inactiveFlag"?: boolean;
+	"possibleAnswers"?: Array<string>;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export enum FieldTypeEnum {
-    Text,
-    Button,
-    Currency,
-    Date,
-    Hyperlink,
-    IPAddress,
-    Checkbox,
-    Number,
-    Percent,
-    TextArea,
-    Password,
+	Text,
+	Button,
+	Currency,
+	Date,
+	Hyperlink,
+	IPAddress,
+	Checkbox,
+	Number,
+	Percent,
+	TextArea,
+	Password,
 }
 export enum EntryTypeEnum {
-    EntryField,
-    List,
-    Option,
+	EntryField,
+	List,
+	Option,
 }
 export interface ConfigurationTypeReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface Contact {
-    "id"?: number;
-    "firstName": string;
-    "lastName"?: string;
-    "type"?: ContactTypeReference;
-    "company"?: CompanyReference;
-    "site"?: SiteReference;
-    "addressLine1"?: string;
-    "addressLine2"?: string;
-    "city"?: string;
-    "state"?: string;
-    "zip"?: string;
-    "country"?: string;
-    "relationship"?: RelationshipReference;
-    "department"?: ContactDepartmentReference;
-    "inactiveFlag"?: boolean;
-    "securityIdentifier"?: string;
-    "managerContactId"?: number;
-    "assistantContactId"?: number;
-    "title"?: string;
-    "school"?: string;
-    "nickName"?: string;
-    "marriedFlag"?: boolean;
-    "childrenFlag"?: boolean;
-    "significantOther"?: string;
-    "portalPassword"?: string;
-    "portalSecurityLevel"?: number;
-    "disablePortalLoginFlag"?: boolean;
-    "unsubscribeFlag"?: boolean;
-    "gender"?: GenderEnum;
-    "birthDay"?: Date;
-    "anniversary"?: Date;
-    "presence"?: PresenceEnum;
-    "mobileGuid"?: Guid;
-    "facebookUrl"?: string;
-    "twitterUrl"?: string;
-    "linkedInUrl"?: string;
-    "communicationItems"?: Array<ContactCommunicationItem>;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
-    "customFields"?: Array<CustomFieldValue>;
+	"id"?: number;
+	"firstName": string;
+	"lastName"?: string;
+	"type"?: ContactTypeReference;
+	"company"?: CompanyReference;
+	"site"?: SiteReference;
+	"addressLine1"?: string;
+	"addressLine2"?: string;
+	"city"?: string;
+	"state"?: string;
+	"zip"?: string;
+	"country"?: string;
+	"relationship"?: RelationshipReference;
+	"department"?: ContactDepartmentReference;
+	"inactiveFlag"?: boolean;
+	"securityIdentifier"?: string;
+	"managerContactId"?: number;
+	"assistantContactId"?: number;
+	"title"?: string;
+	"school"?: string;
+	"nickName"?: string;
+	"marriedFlag"?: boolean;
+	"childrenFlag"?: boolean;
+	"significantOther"?: string;
+	"portalPassword"?: string;
+	"portalSecurityLevel"?: number;
+	"disablePortalLoginFlag"?: boolean;
+	"unsubscribeFlag"?: boolean;
+	"gender"?: GenderEnum;
+	"birthDay"?: Date;
+	"anniversary"?: Date;
+	"presence"?: PresenceEnum;
+	"mobileGuid"?: Guid;
+	"facebookUrl"?: string;
+	"twitterUrl"?: string;
+	"linkedInUrl"?: string;
+	"communicationItems"?: Array<ContactCommunicationItem>;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
+	"customFields"?: Array<CustomFieldValue>;
 }
 export enum GenderEnum {
-    Male,
-    Female,
+	Male,
+	Female,
 }
 export enum PresenceEnum {
-    Online,
-    DoNotDisturb,
-    Away,
-    Offline,
-    NoAgent,
+	Online,
+	DoNotDisturb,
+	Away,
+	Offline,
+	NoAgent,
 }
 export interface ContactCommunication {
-    "id"?: number;
-    "contactId"?: number;
-    "type": CommunicationTypeReference;
-    "value": string;
-    "extension"?: string;
-    "defaultFlag"?: boolean;
-    "mobileGuid"?: Guid;
-    "communicationType"?: CommunicationTypeEnum;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"contactId"?: number;
+	"type": CommunicationTypeReference;
+	"value": string;
+	"extension"?: string;
+	"defaultFlag"?: boolean;
+	"mobileGuid"?: Guid;
+	"communicationType"?: CommunicationTypeEnum;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ContactCommunicationItem {
-    "id"?: number;
-    "type": CommunicationTypeReference;
-    "value": string;
-    "extension"?: string;
-    "defaultFlag"?: boolean;
-    "communicationType"?: CommunicationTypeEnum;
+	"id"?: number;
+	"type": CommunicationTypeReference;
+	"value": string;
+	"extension"?: string;
+	"defaultFlag"?: boolean;
+	"communicationType"?: CommunicationTypeEnum;
 }
 export enum CommunicationTypeEnum {
-    Phone,
-    Fax,
-    Email,
+	Phone,
+	Fax,
+	Email,
 }
 export interface ContactDepartment {
-    "id"?: number;
-    "name": string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name": string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ContactDepartmentReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ContactNote {
-    "id"?: number;
-    "contactId"?: number;
-    "text": string;
-    "type"?: NoteTypeReference;
-    "flagged"?: boolean;
-    "enteredBy"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"contactId"?: number;
+	"text": string;
+	"type"?: NoteTypeReference;
+	"flagged"?: boolean;
+	"enteredBy"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ContactReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ContactRelationship {
-    "id"?: number;
-    "name": string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name": string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ContactType {
-    "id"?: number;
-    "description": string;
-    "defaultFlag"?: boolean;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"description": string;
+	"defaultFlag"?: boolean;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ContactTypeReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface Count {
-    "count"?: number;
+	"count"?: number;
 }
 export interface CountryReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface CurrencyReference {
-    "id"?: number;
-    "identifier"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"identifier"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface CustomFieldValue {
-    "id"?: number;
-    "caption"?: string;
-    "type"?: CustomFieldTypeEnum;
-    "entryMethod"?: EntryMethodEnum;
-    "numberOfDecimals"?: number;
-    "value"?: string;
+	"id"?: number;
+	"caption"?: string;
+	"type"?: CustomFieldTypeEnum;
+	"entryMethod"?: EntryMethodEnum;
+	"numberOfDecimals"?: number;
+	"value"?: string;
 }
 export enum CustomFieldTypeEnum {
-    Text,
-    Button,
-    Currency,
-    Date,
-    Hyperlink,
-    IPAddress,
-    Checkbox,
-    Number,
-    Percent,
-    TextArea,
-    Password,
+	Text,
+	Button,
+	Currency,
+	Date,
+	Hyperlink,
+	IPAddress,
+	Checkbox,
+	Number,
+	Percent,
+	TextArea,
+	Password,
 }
 export enum EntryMethodEnum {
-    EntryField,
-    List,
-    Option,
+	EntryField,
+	List,
+	Option,
 }
 export interface Error {
-    "code"?: string;
-    "message"?: string;
-    "errors"?: Array<ValidationError>;
+	"code"?: string;
+	"message"?: string;
+	"errors"?: Array<ValidationError>;
 }
 export interface Guid {
 }
 export interface ManagementSolutionReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ManufacturerReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface MemberReference {
-    "id"?: number;
-    "identifier"?: string;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"identifier"?: string;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 /**
  * Metadata of the entity
@@ -789,1582 +789,1582 @@ export interface MemberReference {
 export interface Metadata {
 }
 export interface NoteTypeReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface OwnershipTypeReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface PatchOperation {
-    "op"?: string;
-    "path"?: string;
-    "value"?: string;
+	"op"?: string;
+	"path"?: string;
+	"value"?: string;
 }
 export interface PortalSecurity {
-    "identifier"?: string;
-    "enabled"?: boolean;
+	"identifier"?: string;
+	"enabled"?: boolean;
 }
 export interface RelationshipReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface RequestPasswordRequest {
-    "email"?: string;
+	"email"?: string;
 }
 export interface SLAReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface SicCodeReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface SiteReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface SuccessResponse {
-    "success"?: boolean;
-    "message"?: string;
+	"success"?: boolean;
+	"message"?: string;
 }
 export interface TeamRoleReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface TimeZoneReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface Track {
-    "id"?: number;
-    "trackId": number;
-    "name"?: string;
-    "startDate"?: string;
-    "endDate"?: string;
-    "actionTaken"?: number;
-    "actionRemaining"?: number;
-    "startedBy"?: string;
-    "company"?: CompanyReference;
-    "contact"?: ContactReference;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"trackId": number;
+	"name"?: string;
+	"startDate"?: string;
+	"endDate"?: string;
+	"actionTaken"?: number;
+	"actionRemaining"?: number;
+	"startedBy"?: string;
+	"company"?: CompanyReference;
+	"contact"?: ContactReference;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface TrackReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ValidatePortalRequest {
-    "email"?: string;
-    "password"?: string;
+	"email"?: string;
+	"password"?: string;
 }
 export interface ValidatePortalResponse {
-    "success"?: boolean;
-    "contactId"?: number;
+	"success"?: boolean;
+	"contactId"?: number;
 }
 export interface ValidationError {
-    "code"?: string;
-    "message"?: string;
-    "resource"?: string;
-    "field"?: string;
+	"code"?: string;
+	"message"?: string;
+	"resource"?: string;
+	"field"?: string;
 }
 export class CompaniesApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Companies Count
-     * @param conditions
-     */
-    companyCompaniesCountGet(params: {
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Companies
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    companyCompaniesGet(params: {
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Company>>;
-    /**
-     *
-     * Delete Company By Id
-     * @param id
-     */
-    companyCompaniesIdDelete(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Company By Id
-     * @param id
-     */
-    companyCompaniesIdGet(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Company>;
-    /**
-     *
-     * Merge Company
-     * @param id
-     * @param merge
-     */
-    companyCompaniesIdMergePost(params: {
-        id: number;
-        merge: CompanyMerge;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<SuccessResponse>;
-    /**
-     *
-     * Update Company
-     * @param id
-     * @param operations
-     */
-    companyCompaniesIdPatch(params: {
-        id: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Company>;
-    /**
-     *
-     * Replace Company
-     * @param id
-     * @param company
-     */
-    companyCompaniesIdPut(params: {
-        id: number;
-        company: Company;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Company>;
-    /**
-     *
-     * Create Company
-     * @param company
-     */
-    companyCompaniesPost(params: {
-        company: Company;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Company>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Companies Count
+	 * @param conditions
+	 */
+	companyCompaniesCountGet(params: {
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Companies
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	companyCompaniesGet(params: {
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Company>>;
+	/**
+	 *
+	 * Delete Company By Id
+	 * @param id
+	 */
+	companyCompaniesIdDelete(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Company By Id
+	 * @param id
+	 */
+	companyCompaniesIdGet(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Company>;
+	/**
+	 *
+	 * Merge Company
+	 * @param id
+	 * @param merge
+	 */
+	companyCompaniesIdMergePost(params: {
+		id: number;
+		merge: CompanyMerge;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<SuccessResponse>;
+	/**
+	 *
+	 * Update Company
+	 * @param id
+	 * @param operations
+	 */
+	companyCompaniesIdPatch(params: {
+		id: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Company>;
+	/**
+	 *
+	 * Replace Company
+	 * @param id
+	 * @param company
+	 */
+	companyCompaniesIdPut(params: {
+		id: number;
+		company: Company;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Company>;
+	/**
+	 *
+	 * Create Company
+	 * @param company
+	 */
+	companyCompaniesPost(params: {
+		company: Company;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Company>;
 }
 export class CompanyManagementSummarysApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Company Types Count
-     * @param id
-     * @param conditions
-     */
-    companyCompaniesIdManagementSummaryReportsCountGet(params: {
-        id: number;
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Management Summarys
-     * @param id
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    companyCompaniesIdManagementSummaryReportsGet(params: {
-        id: number;
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<CompanyManagementSummary>>;
-    /**
-     *
-     * Create Management Summary
-     * @param id
-     * @param managementSummary
-     */
-    companyCompaniesIdManagementSummaryReportsPost(params: {
-        id: number;
-        managementSummary: CompanyManagementSummary;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CompanyManagementSummary>;
-    /**
-     *
-     * Delete Management Summary By Id
-     * @param id
-     * @param reportId
-     */
-    companyCompaniesIdManagementSummaryReportsReportIdDelete(params: {
-        id: number;
-        reportId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Management Summary By Id
-     * @param id
-     * @param reportId
-     */
-    companyCompaniesIdManagementSummaryReportsReportIdGet(params: {
-        id: number;
-        reportId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CompanyManagementSummary>;
-    /**
-     *
-     * Update Management Summary
-     * @param id
-     * @param reportId
-     * @param operations
-     */
-    companyCompaniesIdManagementSummaryReportsReportIdPatch(params: {
-        id: number;
-        reportId: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CompanyManagementSummary>;
-    /**
-     *
-     * Replace Management Summary
-     * @param id
-     * @param reportId
-     * @param managementSummary
-     */
-    companyCompaniesIdManagementSummaryReportsReportIdPut(params: {
-        id: number;
-        reportId: number;
-        managementSummary: CompanyManagementSummary;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CompanyManagementSummary>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Company Types Count
+	 * @param id
+	 * @param conditions
+	 */
+	companyCompaniesIdManagementSummaryReportsCountGet(params: {
+		id: number;
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Management Summarys
+	 * @param id
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	companyCompaniesIdManagementSummaryReportsGet(params: {
+		id: number;
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<CompanyManagementSummary>>;
+	/**
+	 *
+	 * Create Management Summary
+	 * @param id
+	 * @param managementSummary
+	 */
+	companyCompaniesIdManagementSummaryReportsPost(params: {
+		id: number;
+		managementSummary: CompanyManagementSummary;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<CompanyManagementSummary>;
+	/**
+	 *
+	 * Delete Management Summary By Id
+	 * @param id
+	 * @param reportId
+	 */
+	companyCompaniesIdManagementSummaryReportsReportIdDelete(params: {
+		id: number;
+		reportId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Management Summary By Id
+	 * @param id
+	 * @param reportId
+	 */
+	companyCompaniesIdManagementSummaryReportsReportIdGet(params: {
+		id: number;
+		reportId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<CompanyManagementSummary>;
+	/**
+	 *
+	 * Update Management Summary
+	 * @param id
+	 * @param reportId
+	 * @param operations
+	 */
+	companyCompaniesIdManagementSummaryReportsReportIdPatch(params: {
+		id: number;
+		reportId: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<CompanyManagementSummary>;
+	/**
+	 *
+	 * Replace Management Summary
+	 * @param id
+	 * @param reportId
+	 * @param managementSummary
+	 */
+	companyCompaniesIdManagementSummaryReportsReportIdPut(params: {
+		id: number;
+		reportId: number;
+		managementSummary: CompanyManagementSummary;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<CompanyManagementSummary>;
 }
 export class CompanyNotesApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Company Notes Count
-     * @param id
-     * @param conditions
-     */
-    companyCompaniesIdNotesCountGet(params: {
-        id: number;
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Company Notes
-     * @param id
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    companyCompaniesIdNotesGet(params: {
-        id: number;
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<CompanyNote>>;
-    /**
-     *
-     * Delete Company Note By Id
-     * @param id
-     * @param noteId
-     */
-    companyCompaniesIdNotesNoteIdDelete(params: {
-        id: number;
-        noteId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Company Note By Id
-     * @param id
-     * @param noteId
-     */
-    companyCompaniesIdNotesNoteIdGet(params: {
-        id: number;
-        noteId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CompanyNote>;
-    /**
-     *
-     * Update Company Note
-     * @param id
-     * @param noteId
-     * @param operations
-     */
-    companyCompaniesIdNotesNoteIdPatch(params: {
-        id: number;
-        noteId: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CompanyNote>;
-    /**
-     *
-     * Replace Company Note
-     * @param id
-     * @param noteId
-     * @param companyNote
-     */
-    companyCompaniesIdNotesNoteIdPut(params: {
-        id: number;
-        noteId: number;
-        companyNote: CompanyNote;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CompanyNote>;
-    /**
-     *
-     * Create Company Note
-     * @param id
-     * @param companyNote
-     */
-    companyCompaniesIdNotesPost(params: {
-        id: number;
-        companyNote: CompanyNote;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CompanyNote>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Company Notes Count
+	 * @param id
+	 * @param conditions
+	 */
+	companyCompaniesIdNotesCountGet(params: {
+		id: number;
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Company Notes
+	 * @param id
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	companyCompaniesIdNotesGet(params: {
+		id: number;
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<CompanyNote>>;
+	/**
+	 *
+	 * Delete Company Note By Id
+	 * @param id
+	 * @param noteId
+	 */
+	companyCompaniesIdNotesNoteIdDelete(params: {
+		id: number;
+		noteId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Company Note By Id
+	 * @param id
+	 * @param noteId
+	 */
+	companyCompaniesIdNotesNoteIdGet(params: {
+		id: number;
+		noteId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<CompanyNote>;
+	/**
+	 *
+	 * Update Company Note
+	 * @param id
+	 * @param noteId
+	 * @param operations
+	 */
+	companyCompaniesIdNotesNoteIdPatch(params: {
+		id: number;
+		noteId: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<CompanyNote>;
+	/**
+	 *
+	 * Replace Company Note
+	 * @param id
+	 * @param noteId
+	 * @param companyNote
+	 */
+	companyCompaniesIdNotesNoteIdPut(params: {
+		id: number;
+		noteId: number;
+		companyNote: CompanyNote;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<CompanyNote>;
+	/**
+	 *
+	 * Create Company Note
+	 * @param id
+	 * @param companyNote
+	 */
+	companyCompaniesIdNotesPost(params: {
+		id: number;
+		companyNote: CompanyNote;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<CompanyNote>;
 }
 export class CompanySitesApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Sites Count
-     * @param id
-     * @param conditions
-     */
-    companyCompaniesIdSitesCountGet(params: {
-        id: number;
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Sites
-     * @param id
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    companyCompaniesIdSitesGet(params: {
-        id: number;
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<CompanySite>>;
-    /**
-     *
-     * Create Site
-     * @param id
-     * @param site
-     */
-    companyCompaniesIdSitesPost(params: {
-        id: number;
-        site: CompanySite;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CompanySite>;
-    /**
-     *
-     * Delete Site By Id
-     * @param id
-     * @param siteId
-     */
-    companyCompaniesIdSitesSiteIdDelete(params: {
-        id: number;
-        siteId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Site By Id
-     * @param id
-     * @param siteId
-     */
-    companyCompaniesIdSitesSiteIdGet(params: {
-        id: number;
-        siteId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CompanySite>;
-    /**
-     *
-     * Update Site
-     * @param id
-     * @param siteId
-     * @param operations
-     */
-    companyCompaniesIdSitesSiteIdPatch(params: {
-        id: number;
-        siteId: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CompanySite>;
-    /**
-     *
-     * Replace Site
-     * @param id
-     * @param siteId
-     * @param site
-     */
-    companyCompaniesIdSitesSiteIdPut(params: {
-        id: number;
-        siteId: number;
-        site: CompanySite;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CompanySite>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Sites Count
+	 * @param id
+	 * @param conditions
+	 */
+	companyCompaniesIdSitesCountGet(params: {
+		id: number;
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Sites
+	 * @param id
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	companyCompaniesIdSitesGet(params: {
+		id: number;
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<CompanySite>>;
+	/**
+	 *
+	 * Create Site
+	 * @param id
+	 * @param site
+	 */
+	companyCompaniesIdSitesPost(params: {
+		id: number;
+		site: CompanySite;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<CompanySite>;
+	/**
+	 *
+	 * Delete Site By Id
+	 * @param id
+	 * @param siteId
+	 */
+	companyCompaniesIdSitesSiteIdDelete(params: {
+		id: number;
+		siteId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Site By Id
+	 * @param id
+	 * @param siteId
+	 */
+	companyCompaniesIdSitesSiteIdGet(params: {
+		id: number;
+		siteId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<CompanySite>;
+	/**
+	 *
+	 * Update Site
+	 * @param id
+	 * @param siteId
+	 * @param operations
+	 */
+	companyCompaniesIdSitesSiteIdPatch(params: {
+		id: number;
+		siteId: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<CompanySite>;
+	/**
+	 *
+	 * Replace Site
+	 * @param id
+	 * @param siteId
+	 * @param site
+	 */
+	companyCompaniesIdSitesSiteIdPut(params: {
+		id: number;
+		siteId: number;
+		site: CompanySite;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<CompanySite>;
 }
 export class CompanyStatusesApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Company Statuses Count
-     * @param conditions
-     */
-    companyCompaniesStatusesCountGet(params: {
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Company Statuses
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    companyCompaniesStatusesGet(params: {
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<CompanyStatus>>;
-    /**
-     *
-     * Delete Company Status By Id
-     * @param id
-     */
-    companyCompaniesStatusesIdDelete(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Company Status By Id
-     * @param id
-     */
-    companyCompaniesStatusesIdGet(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CompanyStatus>;
-    /**
-     *
-     * Update Company Status
-     * @param id
-     * @param operations
-     */
-    companyCompaniesStatusesIdPatch(params: {
-        id: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CompanyStatus>;
-    /**
-     *
-     * Replace Company Status
-     * @param id
-     * @param companyStatus
-     */
-    companyCompaniesStatusesIdPut(params: {
-        id: number;
-        companyStatus: CompanyStatus;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CompanyStatus>;
-    /**
-     *
-     * Create Company Status
-     * @param companyStatus
-     */
-    companyCompaniesStatusesPost(params: {
-        companyStatus: CompanyStatus;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CompanyStatus>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Company Statuses Count
+	 * @param conditions
+	 */
+	companyCompaniesStatusesCountGet(params: {
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Company Statuses
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	companyCompaniesStatusesGet(params: {
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<CompanyStatus>>;
+	/**
+	 *
+	 * Delete Company Status By Id
+	 * @param id
+	 */
+	companyCompaniesStatusesIdDelete(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Company Status By Id
+	 * @param id
+	 */
+	companyCompaniesStatusesIdGet(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<CompanyStatus>;
+	/**
+	 *
+	 * Update Company Status
+	 * @param id
+	 * @param operations
+	 */
+	companyCompaniesStatusesIdPatch(params: {
+		id: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<CompanyStatus>;
+	/**
+	 *
+	 * Replace Company Status
+	 * @param id
+	 * @param companyStatus
+	 */
+	companyCompaniesStatusesIdPut(params: {
+		id: number;
+		companyStatus: CompanyStatus;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<CompanyStatus>;
+	/**
+	 *
+	 * Create Company Status
+	 * @param companyStatus
+	 */
+	companyCompaniesStatusesPost(params: {
+		companyStatus: CompanyStatus;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<CompanyStatus>;
 }
 export class CompanyTeamsApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Company Teams Count
-     * @param id
-     * @param conditions
-     */
-    companyCompaniesIdTeamsCountGet(params: {
-        id: number;
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Company Teams
-     * @param id
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    companyCompaniesIdTeamsGet(params: {
-        id: number;
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<CompanyTeam>>;
-    /**
-     *
-     * Create Company Team
-     * @param id
-     * @param companyTeam
-     */
-    companyCompaniesIdTeamsPost(params: {
-        id: number;
-        companyTeam: CompanyTeam;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CompanyTeam>;
-    /**
-     *
-     * Delete Company Team By Id
-     * @param id
-     * @param teamId
-     */
-    companyCompaniesIdTeamsTeamIdDelete(params: {
-        id: number;
-        teamId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Company Team By Id
-     * @param id
-     * @param teamId
-     */
-    companyCompaniesIdTeamsTeamIdGet(params: {
-        id: number;
-        teamId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CompanyTeam>;
-    /**
-     *
-     * Update Company Team
-     * @param id
-     * @param teamId
-     * @param operations
-     */
-    companyCompaniesIdTeamsTeamIdPatch(params: {
-        id: number;
-        teamId: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CompanyTeam>;
-    /**
-     *
-     * Replace Company Team
-     * @param id
-     * @param teamId
-     * @param companyTeam
-     */
-    companyCompaniesIdTeamsTeamIdPut(params: {
-        id: number;
-        teamId: number;
-        companyTeam: CompanyTeam;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CompanyTeam>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Company Teams Count
+	 * @param id
+	 * @param conditions
+	 */
+	companyCompaniesIdTeamsCountGet(params: {
+		id: number;
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Company Teams
+	 * @param id
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	companyCompaniesIdTeamsGet(params: {
+		id: number;
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<CompanyTeam>>;
+	/**
+	 *
+	 * Create Company Team
+	 * @param id
+	 * @param companyTeam
+	 */
+	companyCompaniesIdTeamsPost(params: {
+		id: number;
+		companyTeam: CompanyTeam;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<CompanyTeam>;
+	/**
+	 *
+	 * Delete Company Team By Id
+	 * @param id
+	 * @param teamId
+	 */
+	companyCompaniesIdTeamsTeamIdDelete(params: {
+		id: number;
+		teamId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Company Team By Id
+	 * @param id
+	 * @param teamId
+	 */
+	companyCompaniesIdTeamsTeamIdGet(params: {
+		id: number;
+		teamId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<CompanyTeam>;
+	/**
+	 *
+	 * Update Company Team
+	 * @param id
+	 * @param teamId
+	 * @param operations
+	 */
+	companyCompaniesIdTeamsTeamIdPatch(params: {
+		id: number;
+		teamId: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<CompanyTeam>;
+	/**
+	 *
+	 * Replace Company Team
+	 * @param id
+	 * @param teamId
+	 * @param companyTeam
+	 */
+	companyCompaniesIdTeamsTeamIdPut(params: {
+		id: number;
+		teamId: number;
+		companyTeam: CompanyTeam;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<CompanyTeam>;
 }
 export class CompanyTypesApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Company Types Count
-     * @param conditions
-     */
-    companyCompaniesTypesCountGet(params: {
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Company Types
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    companyCompaniesTypesGet(params: {
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<CompanyType>>;
-    /**
-     *
-     * Delete Company Type By Id
-     * @param id
-     */
-    companyCompaniesTypesIdDelete(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Company Type By Id
-     * @param id
-     */
-    companyCompaniesTypesIdGet(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CompanyType>;
-    /**
-     *
-     * Update Company Type
-     * @param id
-     * @param operations
-     */
-    companyCompaniesTypesIdPatch(params: {
-        id: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CompanyType>;
-    /**
-     *
-     * Replace Company Type
-     * @param id
-     * @param companyType
-     */
-    companyCompaniesTypesIdPut(params: {
-        id: number;
-        companyType: CompanyType;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CompanyType>;
-    /**
-     *
-     * Create Company Type
-     * @param companyType
-     */
-    companyCompaniesTypesPost(params: {
-        companyType: CompanyType;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CompanyType>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Company Types Count
+	 * @param conditions
+	 */
+	companyCompaniesTypesCountGet(params: {
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Company Types
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	companyCompaniesTypesGet(params: {
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<CompanyType>>;
+	/**
+	 *
+	 * Delete Company Type By Id
+	 * @param id
+	 */
+	companyCompaniesTypesIdDelete(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Company Type By Id
+	 * @param id
+	 */
+	companyCompaniesTypesIdGet(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<CompanyType>;
+	/**
+	 *
+	 * Update Company Type
+	 * @param id
+	 * @param operations
+	 */
+	companyCompaniesTypesIdPatch(params: {
+		id: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<CompanyType>;
+	/**
+	 *
+	 * Replace Company Type
+	 * @param id
+	 * @param companyType
+	 */
+	companyCompaniesTypesIdPut(params: {
+		id: number;
+		companyType: CompanyType;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<CompanyType>;
+	/**
+	 *
+	 * Create Company Type
+	 * @param companyType
+	 */
+	companyCompaniesTypesPost(params: {
+		companyType: CompanyType;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<CompanyType>;
 }
 export class ConfigurationStatusesApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Configuration Statuses Count
-     * @param conditions
-     */
-    companyConfigurationsStatusesCountGet(params: {
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Configuration Statuses
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    companyConfigurationsStatusesGet(params: {
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ConfigurationStatus>>;
-    /**
-     *
-     * Delete Configuration Status By Id
-     * @param id
-     */
-    companyConfigurationsStatusesIdDelete(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Configuration Status By Id
-     * @param id
-     */
-    companyConfigurationsStatusesIdGet(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ConfigurationStatus>;
-    /**
-     *
-     * Update Configuration Status
-     * @param id
-     * @param operations
-     */
-    companyConfigurationsStatusesIdPatch(params: {
-        id: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ConfigurationStatus>;
-    /**
-     *
-     * Replace Configuration Status
-     * @param id
-     * @param configurationStatus
-     */
-    companyConfigurationsStatusesIdPut(params: {
-        id: number;
-        configurationStatus: ConfigurationStatus;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ConfigurationStatus>;
-    /**
-     *
-     * Create Configuration Status
-     * @param configurationStatus
-     */
-    companyConfigurationsStatusesPost(params: {
-        configurationStatus: ConfigurationStatus;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ConfigurationStatus>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Configuration Statuses Count
+	 * @param conditions
+	 */
+	companyConfigurationsStatusesCountGet(params: {
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Configuration Statuses
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	companyConfigurationsStatusesGet(params: {
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ConfigurationStatus>>;
+	/**
+	 *
+	 * Delete Configuration Status By Id
+	 * @param id
+	 */
+	companyConfigurationsStatusesIdDelete(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Configuration Status By Id
+	 * @param id
+	 */
+	companyConfigurationsStatusesIdGet(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ConfigurationStatus>;
+	/**
+	 *
+	 * Update Configuration Status
+	 * @param id
+	 * @param operations
+	 */
+	companyConfigurationsStatusesIdPatch(params: {
+		id: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ConfigurationStatus>;
+	/**
+	 *
+	 * Replace Configuration Status
+	 * @param id
+	 * @param configurationStatus
+	 */
+	companyConfigurationsStatusesIdPut(params: {
+		id: number;
+		configurationStatus: ConfigurationStatus;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ConfigurationStatus>;
+	/**
+	 *
+	 * Create Configuration Status
+	 * @param configurationStatus
+	 */
+	companyConfigurationsStatusesPost(params: {
+		configurationStatus: ConfigurationStatus;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ConfigurationStatus>;
 }
 export class ConfigurationTypeQuestionsApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Configuration Type Questions Count
-     * @param id
-     * @param conditions
-     */
-    companyConfigurationsTypesIdQuestionsCountGet(params: {
-        id: number;
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Configuration Type Questions
-     * @param id
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    companyConfigurationsTypesIdQuestionsGet(params: {
-        id: number;
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ConfigurationTypeQuestion>>;
-    /**
-     *
-     * Create Configuration Type Question
-     * @param id
-     * @param configurationTypeQuestion
-     */
-    companyConfigurationsTypesIdQuestionsPost(params: {
-        id: number;
-        configurationTypeQuestion: ConfigurationTypeQuestion;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ConfigurationTypeQuestion>;
-    /**
-     *
-     * Delete Configuration Type Question By Id
-     * @param id
-     * @param questionId
-     */
-    companyConfigurationsTypesIdQuestionsQuestionIdDelete(params: {
-        id: number;
-        questionId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Configuration Type Question By Id
-     * @param id
-     * @param questionId
-     */
-    companyConfigurationsTypesIdQuestionsQuestionIdGet(params: {
-        id: number;
-        questionId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ConfigurationTypeQuestion>;
-    /**
-     *
-     * Update Configuration Type Question
-     * @param id
-     * @param questionId
-     * @param operations
-     */
-    companyConfigurationsTypesIdQuestionsQuestionIdPatch(params: {
-        id: number;
-        questionId: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ConfigurationTypeQuestion>;
-    /**
-     *
-     * Replace Configuration Type Question
-     * @param id
-     * @param questionId
-     * @param configurationTypeQuestion
-     */
-    companyConfigurationsTypesIdQuestionsQuestionIdPut(params: {
-        id: number;
-        questionId: number;
-        configurationTypeQuestion: ConfigurationTypeQuestion;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ConfigurationTypeQuestion>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Configuration Type Questions Count
+	 * @param id
+	 * @param conditions
+	 */
+	companyConfigurationsTypesIdQuestionsCountGet(params: {
+		id: number;
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Configuration Type Questions
+	 * @param id
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	companyConfigurationsTypesIdQuestionsGet(params: {
+		id: number;
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ConfigurationTypeQuestion>>;
+	/**
+	 *
+	 * Create Configuration Type Question
+	 * @param id
+	 * @param configurationTypeQuestion
+	 */
+	companyConfigurationsTypesIdQuestionsPost(params: {
+		id: number;
+		configurationTypeQuestion: ConfigurationTypeQuestion;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ConfigurationTypeQuestion>;
+	/**
+	 *
+	 * Delete Configuration Type Question By Id
+	 * @param id
+	 * @param questionId
+	 */
+	companyConfigurationsTypesIdQuestionsQuestionIdDelete(params: {
+		id: number;
+		questionId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Configuration Type Question By Id
+	 * @param id
+	 * @param questionId
+	 */
+	companyConfigurationsTypesIdQuestionsQuestionIdGet(params: {
+		id: number;
+		questionId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ConfigurationTypeQuestion>;
+	/**
+	 *
+	 * Update Configuration Type Question
+	 * @param id
+	 * @param questionId
+	 * @param operations
+	 */
+	companyConfigurationsTypesIdQuestionsQuestionIdPatch(params: {
+		id: number;
+		questionId: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ConfigurationTypeQuestion>;
+	/**
+	 *
+	 * Replace Configuration Type Question
+	 * @param id
+	 * @param questionId
+	 * @param configurationTypeQuestion
+	 */
+	companyConfigurationsTypesIdQuestionsQuestionIdPut(params: {
+		id: number;
+		questionId: number;
+		configurationTypeQuestion: ConfigurationTypeQuestion;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ConfigurationTypeQuestion>;
 }
 export class ConfigurationTypesApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Configuration Types Count
-     * @param conditions
-     */
-    companyConfigurationsTypesCountGet(params: {
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Configuration Types
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    companyConfigurationsTypesGet(params: {
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ConfigurationType>>;
-    /**
-     *
-     * Delete Configuration Type By Id
-     * @param id
-     */
-    companyConfigurationsTypesIdDelete(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Configuration Type By Id
-     * @param id
-     */
-    companyConfigurationsTypesIdGet(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ConfigurationType>;
-    /**
-     *
-     * Update Configuration Type
-     * @param id
-     * @param operations
-     */
-    companyConfigurationsTypesIdPatch(params: {
-        id: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ConfigurationType>;
-    /**
-     *
-     * Replace Configuration Type
-     * @param id
-     * @param configurationType
-     */
-    companyConfigurationsTypesIdPut(params: {
-        id: number;
-        configurationType: ConfigurationType;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ConfigurationType>;
-    /**
-     *
-     * Create Configuration Type
-     * @param configurationType
-     */
-    companyConfigurationsTypesPost(params: {
-        configurationType: ConfigurationType;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ConfigurationType>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Configuration Types Count
+	 * @param conditions
+	 */
+	companyConfigurationsTypesCountGet(params: {
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Configuration Types
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	companyConfigurationsTypesGet(params: {
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ConfigurationType>>;
+	/**
+	 *
+	 * Delete Configuration Type By Id
+	 * @param id
+	 */
+	companyConfigurationsTypesIdDelete(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Configuration Type By Id
+	 * @param id
+	 */
+	companyConfigurationsTypesIdGet(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ConfigurationType>;
+	/**
+	 *
+	 * Update Configuration Type
+	 * @param id
+	 * @param operations
+	 */
+	companyConfigurationsTypesIdPatch(params: {
+		id: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ConfigurationType>;
+	/**
+	 *
+	 * Replace Configuration Type
+	 * @param id
+	 * @param configurationType
+	 */
+	companyConfigurationsTypesIdPut(params: {
+		id: number;
+		configurationType: ConfigurationType;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ConfigurationType>;
+	/**
+	 *
+	 * Create Configuration Type
+	 * @param configurationType
+	 */
+	companyConfigurationsTypesPost(params: {
+		configurationType: ConfigurationType;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ConfigurationType>;
 }
 export class ConfigurationsApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Configurations Count
-     * @param conditions
-     * @param managedIdentifier
-     */
-    companyConfigurationsCountGet(params: {
-        conditions?: string;
-        managedIdentifier?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Configurations
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     * @param managedIdentifier
-     */
-    companyConfigurationsGet(params: {
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-        managedIdentifier?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Configuration>>;
-    /**
-     *
-     * Delete Configuration By Id
-     * @param id
-     */
-    companyConfigurationsIdDelete(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Configuration By Id
-     * @param id
-     */
-    companyConfigurationsIdGet(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Configuration>;
-    /**
-     *
-     * Update Configuration
-     * @param id
-     * @param operations
-     * @param managementSolutionName
-     * @param managedIdentifier
-     * @param type
-     * @param level
-     * @param childConfigurationsMatchingOn
-     * @param inactivateConfigurationsMatchingOn
-     * @param inactiveConfigurationStatusId
-     */
-    companyConfigurationsIdPatch(params: {
-        id: number;
-        operations: Array<PatchOperation>;
-        managementSolutionName?: string;
-        managedIdentifier?: string;
-        type?: string;
-        level?: string;
-        childConfigurationsMatchingOn?: string;
-        inactivateConfigurationsMatchingOn?: string;
-        inactiveConfigurationStatusId?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Configuration>;
-    /**
-     *
-     * Replace Configuration
-     * @param id
-     * @param configuration
-     * @param managementSolutionName
-     * @param managedIdentifier
-     * @param type
-     * @param level
-     * @param childConfigurationsMatchingOn
-     * @param inactivateConfigurationsMatchingOn
-     * @param inactiveConfigurationStatusId
-     */
-    companyConfigurationsIdPut(params: {
-        id: number;
-        configuration: Configuration;
-        managementSolutionName?: string;
-        managedIdentifier?: string;
-        type?: string;
-        level?: string;
-        childConfigurationsMatchingOn?: string;
-        inactivateConfigurationsMatchingOn?: string;
-        inactiveConfigurationStatusId?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Configuration>;
-    /**
-     *
-     * Create Configuration
-     * @param configuration
-     * @param managementSolutionName
-     * @param managedIdentifier
-     * @param type
-     * @param level
-     * @param childConfigurationsMatchingOn
-     * @param inactivateConfigurationsMatchingOn
-     * @param inactiveConfigurationStatusId
-     */
-    companyConfigurationsPost(params: {
-        configuration: Configuration;
-        managementSolutionName?: string;
-        managedIdentifier?: string;
-        type?: string;
-        level?: string;
-        childConfigurationsMatchingOn?: string;
-        inactivateConfigurationsMatchingOn?: string;
-        inactiveConfigurationStatusId?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Configuration>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Configurations Count
+	 * @param conditions
+	 * @param managedIdentifier
+	 */
+	companyConfigurationsCountGet(params: {
+		conditions?: string;
+		managedIdentifier?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Configurations
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 * @param managedIdentifier
+	 */
+	companyConfigurationsGet(params: {
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+		managedIdentifier?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Configuration>>;
+	/**
+	 *
+	 * Delete Configuration By Id
+	 * @param id
+	 */
+	companyConfigurationsIdDelete(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Configuration By Id
+	 * @param id
+	 */
+	companyConfigurationsIdGet(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Configuration>;
+	/**
+	 *
+	 * Update Configuration
+	 * @param id
+	 * @param operations
+	 * @param managementSolutionName
+	 * @param managedIdentifier
+	 * @param type
+	 * @param level
+	 * @param childConfigurationsMatchingOn
+	 * @param inactivateConfigurationsMatchingOn
+	 * @param inactiveConfigurationStatusId
+	 */
+	companyConfigurationsIdPatch(params: {
+		id: number;
+		operations: Array<PatchOperation>;
+		managementSolutionName?: string;
+		managedIdentifier?: string;
+		type?: string;
+		level?: string;
+		childConfigurationsMatchingOn?: string;
+		inactivateConfigurationsMatchingOn?: string;
+		inactiveConfigurationStatusId?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Configuration>;
+	/**
+	 *
+	 * Replace Configuration
+	 * @param id
+	 * @param configuration
+	 * @param managementSolutionName
+	 * @param managedIdentifier
+	 * @param type
+	 * @param level
+	 * @param childConfigurationsMatchingOn
+	 * @param inactivateConfigurationsMatchingOn
+	 * @param inactiveConfigurationStatusId
+	 */
+	companyConfigurationsIdPut(params: {
+		id: number;
+		configuration: Configuration;
+		managementSolutionName?: string;
+		managedIdentifier?: string;
+		type?: string;
+		level?: string;
+		childConfigurationsMatchingOn?: string;
+		inactivateConfigurationsMatchingOn?: string;
+		inactiveConfigurationStatusId?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Configuration>;
+	/**
+	 *
+	 * Create Configuration
+	 * @param configuration
+	 * @param managementSolutionName
+	 * @param managedIdentifier
+	 * @param type
+	 * @param level
+	 * @param childConfigurationsMatchingOn
+	 * @param inactivateConfigurationsMatchingOn
+	 * @param inactiveConfigurationStatusId
+	 */
+	companyConfigurationsPost(params: {
+		configuration: Configuration;
+		managementSolutionName?: string;
+		managedIdentifier?: string;
+		type?: string;
+		level?: string;
+		childConfigurationsMatchingOn?: string;
+		inactivateConfigurationsMatchingOn?: string;
+		inactiveConfigurationStatusId?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Configuration>;
 }
 export class ContactCommunicationsApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Delete Contact Communication By Id
-     * @param id
-     * @param communicationId
-     */
-    companyContactsIdCommunicationsCommunicationIdDelete(params: {
-        id: number;
-        communicationId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Contact Communication By Id
-     * @param id
-     * @param communicationId
-     */
-    companyContactsIdCommunicationsCommunicationIdGet(params: {
-        id: number;
-        communicationId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ContactCommunication>;
-    /**
-     *
-     * Update Contact Communication
-     * @param id
-     * @param communicationId
-     * @param operations
-     */
-    companyContactsIdCommunicationsCommunicationIdPatch(params: {
-        id: number;
-        communicationId: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ContactCommunication>;
-    /**
-     *
-     * Replace Contact Communication
-     * @param id
-     * @param communicationId
-     * @param contactCommunication
-     */
-    companyContactsIdCommunicationsCommunicationIdPut(params: {
-        id: number;
-        communicationId: number;
-        contactCommunication: ContactCommunication;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ContactCommunication>;
-    /**
-     *
-     * Get Contact Communications Count
-     * @param id
-     * @param conditions
-     */
-    companyContactsIdCommunicationsCountGet(params: {
-        id: number;
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Contact Communications
-     * @param id
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    companyContactsIdCommunicationsGet(params: {
-        id: number;
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ContactCommunication>>;
-    /**
-     *
-     * Create Contact Communication
-     * @param id
-     * @param contactCommunication
-     */
-    companyContactsIdCommunicationsPost(params: {
-        id: number;
-        contactCommunication: ContactCommunication;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ContactCommunication>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Delete Contact Communication By Id
+	 * @param id
+	 * @param communicationId
+	 */
+	companyContactsIdCommunicationsCommunicationIdDelete(params: {
+		id: number;
+		communicationId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Contact Communication By Id
+	 * @param id
+	 * @param communicationId
+	 */
+	companyContactsIdCommunicationsCommunicationIdGet(params: {
+		id: number;
+		communicationId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ContactCommunication>;
+	/**
+	 *
+	 * Update Contact Communication
+	 * @param id
+	 * @param communicationId
+	 * @param operations
+	 */
+	companyContactsIdCommunicationsCommunicationIdPatch(params: {
+		id: number;
+		communicationId: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ContactCommunication>;
+	/**
+	 *
+	 * Replace Contact Communication
+	 * @param id
+	 * @param communicationId
+	 * @param contactCommunication
+	 */
+	companyContactsIdCommunicationsCommunicationIdPut(params: {
+		id: number;
+		communicationId: number;
+		contactCommunication: ContactCommunication;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ContactCommunication>;
+	/**
+	 *
+	 * Get Contact Communications Count
+	 * @param id
+	 * @param conditions
+	 */
+	companyContactsIdCommunicationsCountGet(params: {
+		id: number;
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Contact Communications
+	 * @param id
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	companyContactsIdCommunicationsGet(params: {
+		id: number;
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ContactCommunication>>;
+	/**
+	 *
+	 * Create Contact Communication
+	 * @param id
+	 * @param contactCommunication
+	 */
+	companyContactsIdCommunicationsPost(params: {
+		id: number;
+		contactCommunication: ContactCommunication;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ContactCommunication>;
 }
 export class ContactDepartmentsApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Contact Departments Count
-     * @param conditions
-     */
-    companyContactsDepartmentsCountGet(params: {
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Contact Departments
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    companyContactsDepartmentsGet(params: {
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ContactDepartment>>;
-    /**
-     *
-     * Delete Contact Department By Id
-     * @param id
-     */
-    companyContactsDepartmentsIdDelete(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Contact Department By Id
-     * @param id
-     */
-    companyContactsDepartmentsIdGet(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ContactDepartment>;
-    /**
-     *
-     * Update Contact Department
-     * @param id
-     * @param operations
-     */
-    companyContactsDepartmentsIdPatch(params: {
-        id: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ContactDepartment>;
-    /**
-     *
-     * Replace Contact Department
-     * @param id
-     * @param contactDepartment
-     */
-    companyContactsDepartmentsIdPut(params: {
-        id: number;
-        contactDepartment: ContactDepartment;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ContactDepartment>;
-    /**
-     *
-     * Create Contact Department
-     * @param contactDepartment
-     */
-    companyContactsDepartmentsPost(params: {
-        contactDepartment: ContactDepartment;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ContactDepartment>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Contact Departments Count
+	 * @param conditions
+	 */
+	companyContactsDepartmentsCountGet(params: {
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Contact Departments
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	companyContactsDepartmentsGet(params: {
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ContactDepartment>>;
+	/**
+	 *
+	 * Delete Contact Department By Id
+	 * @param id
+	 */
+	companyContactsDepartmentsIdDelete(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Contact Department By Id
+	 * @param id
+	 */
+	companyContactsDepartmentsIdGet(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ContactDepartment>;
+	/**
+	 *
+	 * Update Contact Department
+	 * @param id
+	 * @param operations
+	 */
+	companyContactsDepartmentsIdPatch(params: {
+		id: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ContactDepartment>;
+	/**
+	 *
+	 * Replace Contact Department
+	 * @param id
+	 * @param contactDepartment
+	 */
+	companyContactsDepartmentsIdPut(params: {
+		id: number;
+		contactDepartment: ContactDepartment;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ContactDepartment>;
+	/**
+	 *
+	 * Create Contact Department
+	 * @param contactDepartment
+	 */
+	companyContactsDepartmentsPost(params: {
+		contactDepartment: ContactDepartment;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ContactDepartment>;
 }
 export class ContactNotesApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Contact Notes Count
-     * @param id
-     * @param conditions
-     */
-    companyContactsIdNotesCountGet(params: {
-        id: number;
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Contact Notes
-     * @param id
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    companyContactsIdNotesGet(params: {
-        id: number;
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ContactNote>>;
-    /**
-     *
-     * Delete Contact Note By Id
-     * @param id
-     * @param noteId
-     */
-    companyContactsIdNotesNoteIdDelete(params: {
-        id: number;
-        noteId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Contact Note By Id
-     * @param id
-     * @param noteId
-     */
-    companyContactsIdNotesNoteIdGet(params: {
-        id: number;
-        noteId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ContactNote>;
-    /**
-     *
-     * Update Contact Note
-     * @param id
-     * @param noteId
-     * @param operations
-     */
-    companyContactsIdNotesNoteIdPatch(params: {
-        id: number;
-        noteId: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ContactNote>;
-    /**
-     *
-     * Replace Contact Note
-     * @param id
-     * @param noteId
-     * @param contactNote
-     */
-    companyContactsIdNotesNoteIdPut(params: {
-        id: number;
-        noteId: number;
-        contactNote: ContactNote;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ContactNote>;
-    /**
-     *
-     * Create Contact Note
-     * @param id
-     * @param contactNote
-     */
-    companyContactsIdNotesPost(params: {
-        id: number;
-        contactNote: ContactNote;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ContactNote>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Contact Notes Count
+	 * @param id
+	 * @param conditions
+	 */
+	companyContactsIdNotesCountGet(params: {
+		id: number;
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Contact Notes
+	 * @param id
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	companyContactsIdNotesGet(params: {
+		id: number;
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ContactNote>>;
+	/**
+	 *
+	 * Delete Contact Note By Id
+	 * @param id
+	 * @param noteId
+	 */
+	companyContactsIdNotesNoteIdDelete(params: {
+		id: number;
+		noteId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Contact Note By Id
+	 * @param id
+	 * @param noteId
+	 */
+	companyContactsIdNotesNoteIdGet(params: {
+		id: number;
+		noteId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ContactNote>;
+	/**
+	 *
+	 * Update Contact Note
+	 * @param id
+	 * @param noteId
+	 * @param operations
+	 */
+	companyContactsIdNotesNoteIdPatch(params: {
+		id: number;
+		noteId: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ContactNote>;
+	/**
+	 *
+	 * Replace Contact Note
+	 * @param id
+	 * @param noteId
+	 * @param contactNote
+	 */
+	companyContactsIdNotesNoteIdPut(params: {
+		id: number;
+		noteId: number;
+		contactNote: ContactNote;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ContactNote>;
+	/**
+	 *
+	 * Create Contact Note
+	 * @param id
+	 * @param contactNote
+	 */
+	companyContactsIdNotesPost(params: {
+		id: number;
+		contactNote: ContactNote;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ContactNote>;
 }
 export class ContactRelationshipsApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Contact Relationships Count
-     * @param conditions
-     */
-    companyContactsRelationshipsCountGet(params: {
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Contact Relationships
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    companyContactsRelationshipsGet(params: {
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ContactRelationship>>;
-    /**
-     *
-     * Delete Contact Relationship By Id
-     * @param id
-     */
-    companyContactsRelationshipsIdDelete(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Contact Relationship By Id
-     * @param id
-     */
-    companyContactsRelationshipsIdGet(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ContactRelationship>;
-    /**
-     *
-     * Update Contact Relationship
-     * @param id
-     * @param operations
-     */
-    companyContactsRelationshipsIdPatch(params: {
-        id: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ContactRelationship>;
-    /**
-     *
-     * Replace Contact Relationship
-     * @param id
-     * @param contactRelationship
-     */
-    companyContactsRelationshipsIdPut(params: {
-        id: number;
-        contactRelationship: ContactRelationship;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ContactRelationship>;
-    /**
-     *
-     * Create Contact Relationship
-     * @param contactRelationship
-     */
-    companyContactsRelationshipsPost(params: {
-        contactRelationship: ContactRelationship;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ContactRelationship>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Contact Relationships Count
+	 * @param conditions
+	 */
+	companyContactsRelationshipsCountGet(params: {
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Contact Relationships
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	companyContactsRelationshipsGet(params: {
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ContactRelationship>>;
+	/**
+	 *
+	 * Delete Contact Relationship By Id
+	 * @param id
+	 */
+	companyContactsRelationshipsIdDelete(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Contact Relationship By Id
+	 * @param id
+	 */
+	companyContactsRelationshipsIdGet(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ContactRelationship>;
+	/**
+	 *
+	 * Update Contact Relationship
+	 * @param id
+	 * @param operations
+	 */
+	companyContactsRelationshipsIdPatch(params: {
+		id: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ContactRelationship>;
+	/**
+	 *
+	 * Replace Contact Relationship
+	 * @param id
+	 * @param contactRelationship
+	 */
+	companyContactsRelationshipsIdPut(params: {
+		id: number;
+		contactRelationship: ContactRelationship;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ContactRelationship>;
+	/**
+	 *
+	 * Create Contact Relationship
+	 * @param contactRelationship
+	 */
+	companyContactsRelationshipsPost(params: {
+		contactRelationship: ContactRelationship;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ContactRelationship>;
 }
 export class ContactTracksApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Tracks Count
-     * @param id
-     * @param conditions
-     */
-    companyContactsIdTracksCountGet(params: {
-        id: number;
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Tracks
-     * @param id
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    companyContactsIdTracksGet(params: {
-        id: number;
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Track>>;
-    /**
-     *
-     * Create Track
-     * @param id
-     * @param track
-     */
-    companyContactsIdTracksPost(params: {
-        id: number;
-        track: Track;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Track>;
-    /**
-     *
-     * Delete Track By Id
-     * @param id
-     * @param trackId
-     */
-    companyContactsIdTracksTrackIdDelete(params: {
-        id: number;
-        trackId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Track By Id
-     * @param id
-     * @param trackId
-     */
-    companyContactsIdTracksTrackIdGet(params: {
-        id: number;
-        trackId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Track>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Tracks Count
+	 * @param id
+	 * @param conditions
+	 */
+	companyContactsIdTracksCountGet(params: {
+		id: number;
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Tracks
+	 * @param id
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	companyContactsIdTracksGet(params: {
+		id: number;
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Track>>;
+	/**
+	 *
+	 * Create Track
+	 * @param id
+	 * @param track
+	 */
+	companyContactsIdTracksPost(params: {
+		id: number;
+		track: Track;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Track>;
+	/**
+	 *
+	 * Delete Track By Id
+	 * @param id
+	 * @param trackId
+	 */
+	companyContactsIdTracksTrackIdDelete(params: {
+		id: number;
+		trackId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Track By Id
+	 * @param id
+	 * @param trackId
+	 */
+	companyContactsIdTracksTrackIdGet(params: {
+		id: number;
+		trackId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Track>;
 }
 export class ContactTypesApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Contact Types Count
-     * @param conditions
-     */
-    companyContactsTypesCountGet(params: {
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Contact Types
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    companyContactsTypesGet(params: {
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ContactType>>;
-    /**
-     *
-     * Delete Contact Type By Id
-     * @param id
-     */
-    companyContactsTypesIdDelete(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Contact Type By Id
-     * @param id
-     */
-    companyContactsTypesIdGet(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ContactType>;
-    /**
-     *
-     * Update Contact Type
-     * @param id
-     * @param operations
-     */
-    companyContactsTypesIdPatch(params: {
-        id: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ContactType>;
-    /**
-     *
-     * Replace Contact Type
-     * @param id
-     * @param contactType
-     */
-    companyContactsTypesIdPut(params: {
-        id: number;
-        contactType: ContactType;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ContactType>;
-    /**
-     *
-     * Create Contact Type
-     * @param contactType
-     */
-    companyContactsTypesPost(params: {
-        contactType: ContactType;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ContactType>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Contact Types Count
+	 * @param conditions
+	 */
+	companyContactsTypesCountGet(params: {
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Contact Types
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	companyContactsTypesGet(params: {
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ContactType>>;
+	/**
+	 *
+	 * Delete Contact Type By Id
+	 * @param id
+	 */
+	companyContactsTypesIdDelete(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Contact Type By Id
+	 * @param id
+	 */
+	companyContactsTypesIdGet(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ContactType>;
+	/**
+	 *
+	 * Update Contact Type
+	 * @param id
+	 * @param operations
+	 */
+	companyContactsTypesIdPatch(params: {
+		id: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ContactType>;
+	/**
+	 *
+	 * Replace Contact Type
+	 * @param id
+	 * @param contactType
+	 */
+	companyContactsTypesIdPut(params: {
+		id: number;
+		contactType: ContactType;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ContactType>;
+	/**
+	 *
+	 * Create Contact Type
+	 * @param contactType
+	 */
+	companyContactsTypesPost(params: {
+		contactType: ContactType;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ContactType>;
 }
 export class ContactsApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Contacts Count
-     * @param conditions
-     */
-    companyContactsCountGet(params: {
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Contacts
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    companyContactsGet(params: {
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Contact>>;
-    /**
-     *
-     * Delete Contact By Id
-     * @param id
-     * @param transferContactId
-     */
-    companyContactsIdDelete(params: {
-        id: number;
-        transferContactId?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Contact By Id
-     * @param id
-     */
-    companyContactsIdGet(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Contact>;
-    /**
-     *
-     * Get Contact Image
-     * @param id
-     * @param useDefaultFlag
-     * @param lastModified
-     */
-    companyContactsIdImageGet(params: {
-        id: number;
-        useDefaultFlag?: boolean;
-        lastModified?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Update Contact
-     * @param id
-     * @param operations
-     */
-    companyContactsIdPatch(params: {
-        id: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Contact>;
-    /**
-     *
-     * Get Portal Security
-     * @param id
-     */
-    companyContactsIdPortalSecurityGet(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<PortalSecurity>>;
-    /**
-     *
-     * Replace Contact
-     * @param id
-     * @param contact
-     */
-    companyContactsIdPut(params: {
-        id: number;
-        contact: Contact;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Contact>;
-    /**
-     *
-     * Create Contact
-     * @param contact
-     */
-    companyContactsPost(params: {
-        contact: Contact;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Contact>;
-    /**
-     *
-     * Request Password
-     * @param request
-     */
-    companyContactsRequestPasswordPost(params: {
-        request: RequestPasswordRequest;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Validate Portal Credentials
-     * @param request
-     */
-    companyContactsValidatePortalCredentialsPost(params: {
-        request: ValidatePortalRequest;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ValidatePortalResponse>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Contacts Count
+	 * @param conditions
+	 */
+	companyContactsCountGet(params: {
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Contacts
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	companyContactsGet(params: {
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Contact>>;
+	/**
+	 *
+	 * Delete Contact By Id
+	 * @param id
+	 * @param transferContactId
+	 */
+	companyContactsIdDelete(params: {
+		id: number;
+		transferContactId?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Contact By Id
+	 * @param id
+	 */
+	companyContactsIdGet(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Contact>;
+	/**
+	 *
+	 * Get Contact Image
+	 * @param id
+	 * @param useDefaultFlag
+	 * @param lastModified
+	 */
+	companyContactsIdImageGet(params: {
+		id: number;
+		useDefaultFlag?: boolean;
+		lastModified?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Update Contact
+	 * @param id
+	 * @param operations
+	 */
+	companyContactsIdPatch(params: {
+		id: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Contact>;
+	/**
+	 *
+	 * Get Portal Security
+	 * @param id
+	 */
+	companyContactsIdPortalSecurityGet(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<PortalSecurity>>;
+	/**
+	 *
+	 * Replace Contact
+	 * @param id
+	 * @param contact
+	 */
+	companyContactsIdPut(params: {
+		id: number;
+		contact: Contact;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Contact>;
+	/**
+	 *
+	 * Create Contact
+	 * @param contact
+	 */
+	companyContactsPost(params: {
+		contact: Contact;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Contact>;
+	/**
+	 *
+	 * Request Password
+	 * @param request
+	 */
+	companyContactsRequestPasswordPost(params: {
+		request: RequestPasswordRequest;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Validate Portal Credentials
+	 * @param request
+	 */
+	companyContactsValidatePortalCredentialsPost(params: {
+		request: ValidatePortalRequest;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ValidatePortalResponse>;
 }
 }
 declare module 'connectwise-rest-api/release/api/companyAPI' {
@@ -2376,130 +2376,130 @@ export = alias;
 // Source: release/api/expenseAPI.d.ts
 declare module '~connectwise-rest-api/release/api/expenseAPI' {
 export interface AgreementReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ClassificationReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface CompanyReference {
-    "id"?: number;
-    "identifier"?: string;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"identifier"?: string;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface Count {
-    "value"?: number;
+	"value"?: number;
 }
 export interface Error {
-    "code"?: string;
-    "message"?: string;
-    "errors"?: Array<ValidationError>;
+	"code"?: string;
+	"message"?: string;
+	"errors"?: Array<ValidationError>;
 }
 export interface ExpenseEntry {
-    "id"?: number;
-    "company"?: CompanyReference;
-    "chargeToId"?: number;
-    "chargeToType"?: ChargeToTypeEnum;
-    "type": ExpenseTypeReference;
-    "member"?: MemberReference;
-    "paymentMethod"?: PaymentMethodReference;
-    "classification"?: ClassificationReference;
-    "amount": number;
-    "billableOption": BillableOptionEnum;
-    "date": Date;
-    "locationId"?: number;
-    "businessUnitId"?: number;
-    "notes"?: string;
-    "agreement"?: AgreementReference;
-    "invoiceAmount"?: number;
-    "taxes"?: Array<ExpenseTax>;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"company"?: CompanyReference;
+	"chargeToId"?: number;
+	"chargeToType"?: ChargeToTypeEnum;
+	"type": ExpenseTypeReference;
+	"member"?: MemberReference;
+	"paymentMethod"?: PaymentMethodReference;
+	"classification"?: ClassificationReference;
+	"amount": number;
+	"billableOption": BillableOptionEnum;
+	"date": Date;
+	"locationId"?: number;
+	"businessUnitId"?: number;
+	"notes"?: string;
+	"agreement"?: AgreementReference;
+	"invoiceAmount"?: number;
+	"taxes"?: Array<ExpenseTax>;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export enum ChargeToTypeEnum {
-    ServiceTicket,
-    ProjectTicket,
-    ChargeCode,
-    Activity,
+	ServiceTicket,
+	ProjectTicket,
+	ChargeCode,
+	Activity,
 }
 export enum BillableOptionEnum {
-    Billable,
-    DoNotBill,
-    NoCharge,
-    NoDefault,
+	Billable,
+	DoNotBill,
+	NoCharge,
+	NoDefault,
 }
 export interface ExpenseTax {
-    "id"?: number;
-    "amount"?: number;
-    "type"?: ExpenseTaxTypeReference;
+	"id"?: number;
+	"amount"?: number;
+	"type"?: ExpenseTaxTypeReference;
 }
 export interface ExpenseTaxTypeReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ExpenseType {
-    "id"?: number;
-    "name": string;
-    "amountCaption": string;
-    "reimbursementRate"?: number;
-    "billExpenses": BillExpensesEnum;
-    "invoiceMarkupOption": InvoiceMarkupOptionEnum;
-    "invoiceMarkupAmount"?: number;
-    "advancedAmountFlag"?: boolean;
-    "mileageFlag"?: boolean;
-    "quantityFlag"?: boolean;
-    "inactiveFlag"?: boolean;
-    "maxAmount"?: number;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name": string;
+	"amountCaption": string;
+	"reimbursementRate"?: number;
+	"billExpenses": BillExpensesEnum;
+	"invoiceMarkupOption": InvoiceMarkupOptionEnum;
+	"invoiceMarkupAmount"?: number;
+	"advancedAmountFlag"?: boolean;
+	"mileageFlag"?: boolean;
+	"quantityFlag"?: boolean;
+	"inactiveFlag"?: boolean;
+	"maxAmount"?: number;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export enum BillExpensesEnum {
-    Billable,
-    DoNotBill,
-    NoCharge,
+	Billable,
+	DoNotBill,
+	NoCharge,
 }
 export enum InvoiceMarkupOptionEnum {
-    Percent,
-    Amount,
-    Mile,
+	Percent,
+	Amount,
+	Mile,
 }
 export interface ExpenseTypeReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface MemberReference {
-    "id"?: number;
-    "identifier"?: string;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"identifier"?: string;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 /**
  * Metadata of the entity
@@ -2507,165 +2507,165 @@ export interface MemberReference {
 export interface Metadata {
 }
 export interface PatchOperation {
-    "op"?: string;
-    "path"?: string;
-    "value"?: string;
+	"op"?: string;
+	"path"?: string;
+	"value"?: string;
 }
 export interface PaymentMethodReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ValidationError {
-    "code"?: string;
-    "message"?: string;
-    "resource"?: string;
-    "field"?: string;
+	"code"?: string;
+	"message"?: string;
+	"resource"?: string;
+	"field"?: string;
 }
 export class ExpenseEntriesApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Expense Entries Count
-     * @param conditions
-     */
-    expenseEntriesCountGet(params: {
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Expense Entries
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    expenseEntriesGet(params: {
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ExpenseEntry>>;
-    /**
-     *
-     * Delete Expense Entry By Id
-     * @param id
-     */
-    expenseEntriesIdDelete(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Expense Entry By Id
-     * @param id
-     */
-    expenseEntriesIdGet(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ExpenseEntry>;
-    /**
-     *
-     * Update Expense Entry
-     * @param id
-     * @param operations
-     */
-    expenseEntriesIdPatch(params: {
-        id: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ExpenseEntry>;
-    /**
-     *
-     * Replace Expense Entry
-     * @param id
-     * @param expenseEntry
-     */
-    expenseEntriesIdPut(params: {
-        id: number;
-        expenseEntry: ExpenseEntry;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ExpenseEntry>;
-    /**
-     *
-     * Create Expense Entry
-     * @param expenseEntry
-     */
-    expenseEntriesPost(params: {
-        expenseEntry: ExpenseEntry;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ExpenseEntry>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Expense Entries Count
+	 * @param conditions
+	 */
+	expenseEntriesCountGet(params: {
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Expense Entries
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	expenseEntriesGet(params: {
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ExpenseEntry>>;
+	/**
+	 *
+	 * Delete Expense Entry By Id
+	 * @param id
+	 */
+	expenseEntriesIdDelete(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Expense Entry By Id
+	 * @param id
+	 */
+	expenseEntriesIdGet(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ExpenseEntry>;
+	/**
+	 *
+	 * Update Expense Entry
+	 * @param id
+	 * @param operations
+	 */
+	expenseEntriesIdPatch(params: {
+		id: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ExpenseEntry>;
+	/**
+	 *
+	 * Replace Expense Entry
+	 * @param id
+	 * @param expenseEntry
+	 */
+	expenseEntriesIdPut(params: {
+		id: number;
+		expenseEntry: ExpenseEntry;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ExpenseEntry>;
+	/**
+	 *
+	 * Create Expense Entry
+	 * @param expenseEntry
+	 */
+	expenseEntriesPost(params: {
+		expenseEntry: ExpenseEntry;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ExpenseEntry>;
 }
 export class ExpenseTypesApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Expense Types Count
-     * @param conditions
-     */
-    expenseTypesCountGet(params: {
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Expense Types
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    expenseTypesGet(params: {
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ExpenseType>>;
-    /**
-     *
-     * Delete Expense Type By Id
-     * @param id
-     */
-    expenseTypesIdDelete(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Expense Type By Id
-     * @param id
-     */
-    expenseTypesIdGet(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ExpenseType>;
-    /**
-     *
-     * Update Expense Type
-     * @param id
-     * @param operations
-     */
-    expenseTypesIdPatch(params: {
-        id: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ExpenseType>;
-    /**
-     *
-     * Replace Expense Type
-     * @param id
-     * @param expenseType
-     */
-    expenseTypesIdPut(params: {
-        id: number;
-        expenseType: ExpenseType;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ExpenseType>;
-    /**
-     *
-     * Create Expense Type
-     * @param expenseType
-     */
-    expenseTypesPost(params: {
-        expenseType: ExpenseType;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ExpenseType>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Expense Types Count
+	 * @param conditions
+	 */
+	expenseTypesCountGet(params: {
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Expense Types
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	expenseTypesGet(params: {
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ExpenseType>>;
+	/**
+	 *
+	 * Delete Expense Type By Id
+	 * @param id
+	 */
+	expenseTypesIdDelete(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Expense Type By Id
+	 * @param id
+	 */
+	expenseTypesIdGet(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ExpenseType>;
+	/**
+	 *
+	 * Update Expense Type
+	 * @param id
+	 * @param operations
+	 */
+	expenseTypesIdPatch(params: {
+		id: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ExpenseType>;
+	/**
+	 *
+	 * Replace Expense Type
+	 * @param id
+	 * @param expenseType
+	 */
+	expenseTypesIdPut(params: {
+		id: number;
+		expenseType: ExpenseType;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ExpenseType>;
+	/**
+	 *
+	 * Create Expense Type
+	 * @param expenseType
+	 */
+	expenseTypesPost(params: {
+		expenseType: ExpenseType;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ExpenseType>;
 }
 }
 declare module 'connectwise-rest-api/release/api/expenseAPI' {
@@ -2677,563 +2677,563 @@ export = alias;
 // Source: release/api/financeAPI.d.ts
 declare module '~connectwise-rest-api/release/api/financeAPI' {
 export interface ActivityReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface Addition {
-    "id"?: number;
-    "product": IvItemReference;
-    "quantity"?: number;
-    "lessIncluded"?: number;
-    "unitPrice"?: number;
-    "unitCost"?: number;
-    "billCustomer": BillCustomerEnum;
-    "effectiveDate"?: Date;
-    "cancelledDate"?: Date;
-    "taxableFlag"?: boolean;
-    "serialNumber"?: string;
-    "invoiceDescription"?: string;
-    "purchaseItemFlag"?: boolean;
-    "specialOrderFlag"?: boolean;
-    "agreementId"?: number;
-    "description"?: string;
-    "billedQuantity"?: number;
-    "uom"?: string;
-    "extPrice"?: number;
-    "extCost"?: number;
-    "margin"?: number;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"product": IvItemReference;
+	"quantity"?: number;
+	"lessIncluded"?: number;
+	"unitPrice"?: number;
+	"unitCost"?: number;
+	"billCustomer": BillCustomerEnum;
+	"effectiveDate"?: Date;
+	"cancelledDate"?: Date;
+	"taxableFlag"?: boolean;
+	"serialNumber"?: string;
+	"invoiceDescription"?: string;
+	"purchaseItemFlag"?: boolean;
+	"specialOrderFlag"?: boolean;
+	"agreementId"?: number;
+	"description"?: string;
+	"billedQuantity"?: number;
+	"uom"?: string;
+	"extPrice"?: number;
+	"extCost"?: number;
+	"margin"?: number;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export enum BillCustomerEnum {
-    Billable,
-    DoNotBill,
-    NoCharge,
+	Billable,
+	DoNotBill,
+	NoCharge,
 }
 export interface Adjustment {
-    "id"?: number;
-    "amount"?: number;
-    "description"?: string;
-    "effectiveDate"?: Date;
-    "agreementId"?: number;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"amount"?: number;
+	"description"?: string;
+	"effectiveDate"?: Date;
+	"agreementId"?: number;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface Agreement {
-    "id"?: number;
-    "name": string;
-    "type": AgreementTypeReference;
-    "company": CompanyReference;
-    "contact": ContactReference;
-    "subContractCompany"?: CompanyReference;
-    "subContractContact"?: ContactReference;
-    "parentAgreementId"?: number;
-    "customerPO"?: string;
-    "locationId"?: number;
-    "businessUnitId"?: number;
-    "restrictLocationFlag"?: boolean;
-    "restrictDepartmentFlag"?: boolean;
-    "startDate"?: Date;
-    "endDate"?: Date;
-    "noEndingDateFlag"?: boolean;
-    "opportunity"?: OpportunityReference;
-    "cancelledFlag"?: boolean;
-    "dateCancelled"?: Date;
-    "reasonCancelled"?: string;
-    "slaId"?: number;
-    "workOrder"?: string;
-    "internalNotes"?: string;
-    "applicationUnits"?: ApplicationUnitsEnum;
-    "applicationLimit"?: number;
-    "applicationCycle"?: ApplicationCycleEnum;
-    "applicationUnlimitedFlag"?: boolean;
-    "oneTimeFlag"?: boolean;
-    "coverAgreementTime"?: boolean;
-    "coverAgreementProduct"?: boolean;
-    "coverAgreementExpense"?: boolean;
-    "coverSalesTax"?: boolean;
-    "carryOverUnused"?: boolean;
-    "allowOverruns"?: boolean;
-    "expiredDays"?: number;
-    "limit"?: number;
-    "expireWhenZero"?: boolean;
-    "chargeToFirm"?: boolean;
-    "employeeCompRate"?: EmployeeCompRateEnum;
-    "employeeCompNotExceed"?: EmployeeCompNotExceedEnum;
-    "compHourlyRate"?: number;
-    "compLimitAmount"?: number;
-    "billCycleId"?: number;
-    "billOneTimeFlag"?: boolean;
-    "billTermsId"?: number;
-    "invoicingCycle"?: InvoicingCycleEnum;
-    "billToCompany"?: CompanyReference;
-    "billToSite"?: SiteReference;
-    "billAmount"?: number;
-    "taxable"?: boolean;
-    "prorateFirstBill"?: number;
-    "billStartDate"?: Date;
-    "taxCodeId"?: number;
-    "restrictDownPayment"?: boolean;
-    "invoiceDescription"?: string;
-    "topComment"?: boolean;
-    "bottomComment"?: boolean;
-    "workRole"?: WorkRoleReference;
-    "workType"?: WorkTypeReference;
-    "projectTypeId"?: number;
-    "invoiceTemplateSetupId"?: number;
-    "billTime"?: BillTimeEnum;
-    "billExpenses"?: BillExpensesEnum;
-    "billProducts"?: BillProductsEnum;
-    "billableTimeInvoice"?: boolean;
-    "billableExpenseInvoice"?: boolean;
-    "billableProductInvoice"?: boolean;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
-    "periodType"?: PeriodTypeEnum;
+	"id"?: number;
+	"name": string;
+	"type": AgreementTypeReference;
+	"company": CompanyReference;
+	"contact": ContactReference;
+	"subContractCompany"?: CompanyReference;
+	"subContractContact"?: ContactReference;
+	"parentAgreementId"?: number;
+	"customerPO"?: string;
+	"locationId"?: number;
+	"businessUnitId"?: number;
+	"restrictLocationFlag"?: boolean;
+	"restrictDepartmentFlag"?: boolean;
+	"startDate"?: Date;
+	"endDate"?: Date;
+	"noEndingDateFlag"?: boolean;
+	"opportunity"?: OpportunityReference;
+	"cancelledFlag"?: boolean;
+	"dateCancelled"?: Date;
+	"reasonCancelled"?: string;
+	"slaId"?: number;
+	"workOrder"?: string;
+	"internalNotes"?: string;
+	"applicationUnits"?: ApplicationUnitsEnum;
+	"applicationLimit"?: number;
+	"applicationCycle"?: ApplicationCycleEnum;
+	"applicationUnlimitedFlag"?: boolean;
+	"oneTimeFlag"?: boolean;
+	"coverAgreementTime"?: boolean;
+	"coverAgreementProduct"?: boolean;
+	"coverAgreementExpense"?: boolean;
+	"coverSalesTax"?: boolean;
+	"carryOverUnused"?: boolean;
+	"allowOverruns"?: boolean;
+	"expiredDays"?: number;
+	"limit"?: number;
+	"expireWhenZero"?: boolean;
+	"chargeToFirm"?: boolean;
+	"employeeCompRate"?: EmployeeCompRateEnum;
+	"employeeCompNotExceed"?: EmployeeCompNotExceedEnum;
+	"compHourlyRate"?: number;
+	"compLimitAmount"?: number;
+	"billCycleId"?: number;
+	"billOneTimeFlag"?: boolean;
+	"billTermsId"?: number;
+	"invoicingCycle"?: InvoicingCycleEnum;
+	"billToCompany"?: CompanyReference;
+	"billToSite"?: SiteReference;
+	"billAmount"?: number;
+	"taxable"?: boolean;
+	"prorateFirstBill"?: number;
+	"billStartDate"?: Date;
+	"taxCodeId"?: number;
+	"restrictDownPayment"?: boolean;
+	"invoiceDescription"?: string;
+	"topComment"?: boolean;
+	"bottomComment"?: boolean;
+	"workRole"?: WorkRoleReference;
+	"workType"?: WorkTypeReference;
+	"projectTypeId"?: number;
+	"invoiceTemplateSetupId"?: number;
+	"billTime"?: BillTimeEnum;
+	"billExpenses"?: BillExpensesEnum;
+	"billProducts"?: BillProductsEnum;
+	"billableTimeInvoice"?: boolean;
+	"billableExpenseInvoice"?: boolean;
+	"billableProductInvoice"?: boolean;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
+	"periodType"?: PeriodTypeEnum;
 }
 export enum PeriodTypeEnum {
-    Current,
-    Future,
-    Both,
-    Undefined,
+	Current,
+	Future,
+	Both,
+	Undefined,
 }
 export interface AgreementReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface AgreementSite {
-    "id"?: number;
-    "company": CompanyReference;
-    "site"?: SiteReference;
-    "agreementId"?: number;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"company": CompanyReference;
+	"site"?: SiteReference;
+	"agreementId"?: number;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface AgreementType {
-    "id"?: number;
-    "name": string;
-    "prefixSuffixOption": PrefixSuffixOptionEnum;
-    "defaultFlag"?: boolean;
-    "inactiveFlag"?: boolean;
-    "prePaymentFlag"?: boolean;
-    "invoicePreSuffix"?: string;
-    "locationId"?: number;
-    "businessUnitId"?: number;
-    "restrictLocationFlag"?: boolean;
-    "restrictDepartmentFlag"?: boolean;
-    "slaId"?: number;
-    "applicationUnits"?: ApplicationUnitsEnum;
-    "applicationLimit"?: number;
-    "applicationCycle"?: ApplicationCycleEnum;
-    "applicationUnlimitedFlag"?: boolean;
-    "oneTimeFlag"?: boolean;
-    "coverAgreementTimeFlag"?: boolean;
-    "coverAgreementProductFlag"?: boolean;
-    "coverAgreementExpenseFlag"?: boolean;
-    "coverSalesTaxFlag"?: boolean;
-    "carryOverUnusedFlag"?: boolean;
-    "allowOverrunsFlag"?: boolean;
-    "expiredDays"?: number;
-    "limit"?: number;
-    "expireWhenZero"?: boolean;
-    "chargeToFirmFlag"?: boolean;
-    "employeeCompRate": EmployeeCompRateEnum;
-    "employeeCompNotExceed": EmployeeCompNotExceedEnum;
-    "compHourlyRate"?: number;
-    "compLimitAmount"?: number;
-    "billCycleId"?: number;
-    "billOneTimeFlag"?: boolean;
-    "billTermsId"?: number;
-    "invoicingCycle": InvoicingCycleEnum;
-    "billAmount"?: number;
-    "taxableFlag"?: boolean;
-    "restrictDownPaymentFlag"?: boolean;
-    "invoiceDescription"?: string;
-    "topCommentFlag"?: boolean;
-    "bottomCommentFlag"?: boolean;
-    "workRole"?: WorkRoleReference;
-    "workType"?: WorkTypeReference;
-    "projectTypeId"?: number;
-    "invoiceTemplateSetupId"?: number;
-    "billTime": BillTimeEnum;
-    "billExpenses": BillExpensesEnum;
-    "billProducts": BillProductsEnum;
-    "billableTimeInvoiceFlag"?: boolean;
-    "billableExpenseInvoiceFlag"?: boolean;
-    "billableProductInvoiceFlag"?: boolean;
-    "copyWorkRolesFlag"?: boolean;
-    "copyWorkTypesFlag"?: boolean;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name": string;
+	"prefixSuffixOption": PrefixSuffixOptionEnum;
+	"defaultFlag"?: boolean;
+	"inactiveFlag"?: boolean;
+	"prePaymentFlag"?: boolean;
+	"invoicePreSuffix"?: string;
+	"locationId"?: number;
+	"businessUnitId"?: number;
+	"restrictLocationFlag"?: boolean;
+	"restrictDepartmentFlag"?: boolean;
+	"slaId"?: number;
+	"applicationUnits"?: ApplicationUnitsEnum;
+	"applicationLimit"?: number;
+	"applicationCycle"?: ApplicationCycleEnum;
+	"applicationUnlimitedFlag"?: boolean;
+	"oneTimeFlag"?: boolean;
+	"coverAgreementTimeFlag"?: boolean;
+	"coverAgreementProductFlag"?: boolean;
+	"coverAgreementExpenseFlag"?: boolean;
+	"coverSalesTaxFlag"?: boolean;
+	"carryOverUnusedFlag"?: boolean;
+	"allowOverrunsFlag"?: boolean;
+	"expiredDays"?: number;
+	"limit"?: number;
+	"expireWhenZero"?: boolean;
+	"chargeToFirmFlag"?: boolean;
+	"employeeCompRate": EmployeeCompRateEnum;
+	"employeeCompNotExceed": EmployeeCompNotExceedEnum;
+	"compHourlyRate"?: number;
+	"compLimitAmount"?: number;
+	"billCycleId"?: number;
+	"billOneTimeFlag"?: boolean;
+	"billTermsId"?: number;
+	"invoicingCycle": InvoicingCycleEnum;
+	"billAmount"?: number;
+	"taxableFlag"?: boolean;
+	"restrictDownPaymentFlag"?: boolean;
+	"invoiceDescription"?: string;
+	"topCommentFlag"?: boolean;
+	"bottomCommentFlag"?: boolean;
+	"workRole"?: WorkRoleReference;
+	"workType"?: WorkTypeReference;
+	"projectTypeId"?: number;
+	"invoiceTemplateSetupId"?: number;
+	"billTime": BillTimeEnum;
+	"billExpenses": BillExpensesEnum;
+	"billProducts": BillProductsEnum;
+	"billableTimeInvoiceFlag"?: boolean;
+	"billableExpenseInvoiceFlag"?: boolean;
+	"billableProductInvoiceFlag"?: boolean;
+	"copyWorkRolesFlag"?: boolean;
+	"copyWorkTypesFlag"?: boolean;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export enum PrefixSuffixOptionEnum {
-    Prefix,
-    Suffix,
+	Prefix,
+	Suffix,
 }
 export enum ApplicationUnitsEnum {
-    Amount,
-    Hours,
-    Incidents,
+	Amount,
+	Hours,
+	Incidents,
 }
 export enum ApplicationCycleEnum {
-    Contract2Weeks,
-    Contract4Weeks,
-    ContractYear,
-    CalendarMonth,
-    CalendarQuarter,
-    CalendarWeek,
-    ContractQuarter,
-    CalendarYear,
+	Contract2Weeks,
+	Contract4Weeks,
+	ContractYear,
+	CalendarMonth,
+	CalendarQuarter,
+	CalendarWeek,
+	ContractQuarter,
+	CalendarYear,
 }
 export enum EmployeeCompRateEnum {
-    Actual,
-    Hourly,
+	Actual,
+	Hourly,
 }
 export enum EmployeeCompNotExceedEnum {
-    Billing,
-    Percent,
-    Amount,
+	Billing,
+	Percent,
+	Amount,
 }
 export enum InvoicingCycleEnum {
-    CalendarYear,
-    ContractYear,
+	CalendarYear,
+	ContractYear,
 }
 export enum BillExpensesEnum {
-    Billable,
-    DoNotBill,
-    NoCharge,
-    NoDefault,
+	Billable,
+	DoNotBill,
+	NoCharge,
+	NoDefault,
 }
 export enum BillProductsEnum {
-    Billable,
-    DoNotBill,
-    NoCharge,
-    NoDefault,
+	Billable,
+	DoNotBill,
+	NoCharge,
+	NoDefault,
 }
 export interface AgreementTypeReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface AgreementWorkRole {
-    "id"?: number;
-    "workRole"?: WorkRoleReference;
-    "locationId"?: number;
-    "rateType": RateTypeEnum;
-    "rate"?: number;
-    "limitTo"?: number;
-    "effectiveDate"?: Date;
-    "endingDate"?: Date;
-    "agreementId"?: number;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"workRole"?: WorkRoleReference;
+	"locationId"?: number;
+	"rateType": RateTypeEnum;
+	"rate"?: number;
+	"limitTo"?: number;
+	"effectiveDate"?: Date;
+	"endingDate"?: Date;
+	"agreementId"?: number;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface AgreementWorkRoleExclusion {
-    "id"?: number;
-    "workRole": WorkRoleReference;
-    "agreementId"?: number;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"workRole": WorkRoleReference;
+	"agreementId"?: number;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface AgreementWorkType {
-    "id"?: number;
-    "workType"?: WorkTypeReference;
-    "locationId"?: number;
-    "rateType": RateTypeEnum;
-    "billTime": BillTimeEnum;
-    "rate"?: number;
-    "hoursMax"?: number;
-    "hoursMin"?: number;
-    "roundBillHours"?: number;
-    "overageRate"?: number;
-    "overageRateType"?: OverageRateTypeEnum;
-    "agreementLimit"?: number;
-    "site"?: SiteReference;
-    "effectiveDate"?: Date;
-    "endingDate"?: Date;
-    "agreementId"?: number;
-    "company"?: CompanyReference;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"workType"?: WorkTypeReference;
+	"locationId"?: number;
+	"rateType": RateTypeEnum;
+	"billTime": BillTimeEnum;
+	"rate"?: number;
+	"hoursMax"?: number;
+	"hoursMin"?: number;
+	"roundBillHours"?: number;
+	"overageRate"?: number;
+	"overageRateType"?: OverageRateTypeEnum;
+	"agreementLimit"?: number;
+	"site"?: SiteReference;
+	"effectiveDate"?: Date;
+	"endingDate"?: Date;
+	"agreementId"?: number;
+	"company"?: CompanyReference;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export enum RateTypeEnum {
-    AdjAmount,
-    Custom,
-    Multiplier,
+	AdjAmount,
+	Custom,
+	Multiplier,
 }
 export enum BillTimeEnum {
-    Billable,
-    DoNotBill,
-    NoCharge,
-    NoDefault,
+	Billable,
+	DoNotBill,
+	NoCharge,
+	NoDefault,
 }
 export enum OverageRateTypeEnum {
-    AdjAmount,
-    Custom,
-    Multiplier,
+	AdjAmount,
+	Custom,
+	Multiplier,
 }
 export interface AgreementWorkTypeExclusion {
-    "id"?: number;
-    "workType": WorkTypeReference;
-    "agreementId"?: number;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"workType": WorkTypeReference;
+	"agreementId"?: number;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface Batch {
-    "thruDate"?: Date;
-    "locationId"?: number;
-    "summarizeInvoices"?: number;
-    "excludedInvoiceIds"?: Array<number>;
-    "excludedExpenseIds"?: Array<number>;
-    "excludedProductIds"?: Array<number>;
-    "id"?: number;
-    "batchIdentifier": string;
-    "exportInvoicesFlag"?: boolean;
-    "exportExpensesFlag"?: boolean;
-    "exportProductsFlag"?: boolean;
-    "closedFlag"?: boolean;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"thruDate"?: Date;
+	"locationId"?: number;
+	"summarizeInvoices"?: number;
+	"excludedInvoiceIds"?: Array<number>;
+	"excludedExpenseIds"?: Array<number>;
+	"excludedProductIds"?: Array<number>;
+	"id"?: number;
+	"batchIdentifier": string;
+	"exportInvoicesFlag"?: boolean;
+	"exportExpensesFlag"?: boolean;
+	"exportProductsFlag"?: boolean;
+	"closedFlag"?: boolean;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface BatchReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface BillingStatusReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface BillingTermsReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface BoardDefault {
-    "id"?: number;
-    "board": BoardReference;
-    "serviceType"?: ServiceTypeReference;
-    "defaultFlag"?: boolean;
-    "agreementId"?: number;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"board": BoardReference;
+	"serviceType"?: ServiceTypeReference;
+	"defaultFlag"?: boolean;
+	"agreementId"?: number;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface BoardReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ChargeCodeReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface CompanyReference {
-    "id"?: number;
-    "identifier"?: string;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"identifier"?: string;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ConfigurationReference {
-    "id"?: number;
-    "deviceIdentifier"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"deviceIdentifier"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ContactReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface Count {
-    "count"?: number;
+	"count"?: number;
 }
 export interface Currency {
-    "id"?: number;
-    "currencyIdentifier": string;
-    "name"?: string;
-    "symbol"?: string;
-    "displayIdFlag"?: boolean;
-    "displaySymbolFlag"?: boolean;
-    "isoCode"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"currencyIdentifier": string;
+	"name"?: string;
+	"symbol"?: string;
+	"displayIdFlag"?: boolean;
+	"displaySymbolFlag"?: boolean;
+	"isoCode"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface CurrencyReference {
-    "id"?: number;
-    "identifier"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"identifier"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface Error {
-    "code"?: string;
-    "message"?: string;
-    "errors"?: Array<ValidationError>;
+	"code"?: string;
+	"message"?: string;
+	"errors"?: Array<ValidationError>;
 }
 export interface ExpenseTypeReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface Invoice {
-    "id"?: number;
-    "invoiceNumber"?: string;
-    "type": TypeEnum;
-    "status"?: BillingStatusReference;
-    "company": CompanyReference;
-    "billToCompany"?: CompanyReference;
-    "shipToCompany"?: CompanyReference;
-    "applyToType"?: ApplyToTypeEnum;
-    "applyToId"?: number;
-    "attention"?: string;
-    "billingSite"?: SiteReference;
-    "shippingSite"?: SiteReference;
-    "billingTerms"?: BillingTermsReference;
-    "reference"?: string;
-    "customerPO"?: string;
-    /**
-     * Can be obtained via InvoiceTemplate report
-     */
-    "templateSetupId"?: number;
-    /**
-     * Can be obtained via InvoiceEmailTemplate report
-     */
-    "emailTemplateId"?: number;
-    "addToBatchEmailList"?: boolean;
-    "date"?: Date;
-    "restrictDownpaymentFlag"?: boolean;
-    "locationId"?: number;
-    "departmentId"?: number;
-    "territoryId"?: number;
-    "topComment"?: string;
-    "bottomComment"?: string;
-    "taxableFlag"?: boolean;
-    "taxCode"?: TaxCodeReference;
-    "internalNotes"?: string;
-    "downpaymentPreviouslyTaxedFlag"?: boolean;
-    "serviceTotal"?: number;
-    "dueDate"?: Date;
-    "expenseTotal"?: number;
-    "productTotal"?: number;
-    "previousProgressApplied"?: number;
-    "serviceAdjustmentAmount"?: number;
-    "agreementAmount"?: number;
-    "downpaymentApplied"?: number;
-    "subtotal"?: number;
-    "total"?: number;
-    "remainingDownpayment"?: number;
-    "salesTax"?: number;
-    "adjustmentReason"?: string;
-    "adjustedBy"?: string;
-    "payments"?: number;
-    "credits"?: number;
-    "balance"?: number;
-    "specialInvoiceFlag"?: boolean;
+	"id"?: number;
+	"invoiceNumber"?: string;
+	"type": TypeEnum;
+	"status"?: BillingStatusReference;
+	"company": CompanyReference;
+	"billToCompany"?: CompanyReference;
+	"shipToCompany"?: CompanyReference;
+	"applyToType"?: ApplyToTypeEnum;
+	"applyToId"?: number;
+	"attention"?: string;
+	"billingSite"?: SiteReference;
+	"shippingSite"?: SiteReference;
+	"billingTerms"?: BillingTermsReference;
+	"reference"?: string;
+	"customerPO"?: string;
+	/**
+	 * Can be obtained via InvoiceTemplate report
+	 */
+	"templateSetupId"?: number;
+	/**
+	 * Can be obtained via InvoiceEmailTemplate report
+	 */
+	"emailTemplateId"?: number;
+	"addToBatchEmailList"?: boolean;
+	"date"?: Date;
+	"restrictDownpaymentFlag"?: boolean;
+	"locationId"?: number;
+	"departmentId"?: number;
+	"territoryId"?: number;
+	"topComment"?: string;
+	"bottomComment"?: string;
+	"taxableFlag"?: boolean;
+	"taxCode"?: TaxCodeReference;
+	"internalNotes"?: string;
+	"downpaymentPreviouslyTaxedFlag"?: boolean;
+	"serviceTotal"?: number;
+	"dueDate"?: Date;
+	"expenseTotal"?: number;
+	"productTotal"?: number;
+	"previousProgressApplied"?: number;
+	"serviceAdjustmentAmount"?: number;
+	"agreementAmount"?: number;
+	"downpaymentApplied"?: number;
+	"subtotal"?: number;
+	"total"?: number;
+	"remainingDownpayment"?: number;
+	"salesTax"?: number;
+	"adjustmentReason"?: string;
+	"adjustedBy"?: string;
+	"payments"?: number;
+	"credits"?: number;
+	"balance"?: number;
+	"specialInvoiceFlag"?: boolean;
 }
 export enum TypeEnum {
-    Agreement,
-    CreditMemo,
-    DownPayment,
-    Miscellaneous,
-    Progress,
-    Standard,
+	Agreement,
+	CreditMemo,
+	DownPayment,
+	Miscellaneous,
+	Progress,
+	Standard,
 }
 export enum ApplyToTypeEnum {
-    All,
-    Agreement,
-    Project,
-    ProjectPhase,
-    SalesOrder,
-    Ticket,
+	All,
+	Agreement,
+	Project,
+	ProjectPhase,
+	SalesOrder,
+	Ticket,
 }
 export interface InvoiceReference {
-    "id"?: number;
-    "identifier"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"identifier"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface IvItemReference {
-    "id"?: number;
-    "identifier"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"identifier"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface MemberReference {
-    "id"?: number;
-    "identifier"?: string;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"identifier"?: string;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 /**
  * Metadata of the entity
@@ -3241,1599 +3241,1599 @@ export interface MemberReference {
 export interface Metadata {
 }
 export interface OpportunityReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface PatchOperation {
-    "op"?: string;
-    "path"?: string;
-    "value"?: string;
+	"op"?: string;
+	"path"?: string;
+	"value"?: string;
 }
 export interface Payment {
-    "id"?: number;
-    "type"?: string;
-    "invoice"?: InvoiceReference;
-    "amount": number;
-    "paymentDate"?: Date;
-    "appliedBy"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"type"?: string;
+	"invoice"?: InvoiceReference;
+	"amount": number;
+	"paymentDate"?: Date;
+	"appliedBy"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface PaymentMethodReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ProductReference {
-    "id"?: number;
-    "description"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"description"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ProjectPhaseReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ProjectReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface PurchaseOrderReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ServiceTypeReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ShipmentMethodReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface SiteReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface TaxCodeReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface TicketReference {
-    "id"?: number;
-    "summary"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"summary"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface TimeEntryReference {
-    "id"?: number;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface Transaction {
-    "id"?: number;
-    "batch"?: BatchReference;
-    "billingLogId"?: number;
-    "invoiceNumber"?: string;
-    "type"?: TransactionTypeEnum;
-    "description"?: string;
-    "cost"?: number;
-    "item"?: string;
-    "inventory"?: string;
-    "salesCode"?: string;
-    "cogs"?: string;
-    "glAccount"?: string;
-    "currency"?: CurrencyReference;
-    "debitAmount"?: number;
-    "creditAmount"?: number;
-    "balance"?: string;
-    "product"?: ProductReference;
-    "quantity"?: number;
-    "unitOfMeasure"?: UnitOfMeasureReference;
-    "serializedFlag"?: boolean;
-    "serialNumber"?: string;
-    "shipmentMethod"?: ShipmentMethodReference;
-    "packingSlip"?: string;
-    "ticket"?: TicketReference;
-    "project"?: ProjectReference;
-    "phase"?: ProjectPhaseReference;
-    "expenseClass"?: ExpenseClassEnum;
-    "expenseType"?: ExpenseTypeReference;
-    "timeEntry"?: TimeEntryReference;
-    "activity"?: ActivityReference;
-    "segment1"?: string;
-    "segment2"?: string;
-    "segment3"?: string;
-    "segment4"?: string;
-    "segment5"?: string;
-    "segment6"?: string;
-    "segment7"?: string;
-    "segment8"?: string;
-    "segment9"?: string;
-    "segment10"?: string;
-    "avalaraTaxFlag"?: boolean;
-    "stateTaxAmount"?: number;
-    "countyTaxAmount"?: number;
-    "cityTaxAmount"?: number;
-    "countryTaxAmount"?: number;
-    "compositeTaxAmount"?: number;
-    "taxTotal"?: number;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"batch"?: BatchReference;
+	"billingLogId"?: number;
+	"invoiceNumber"?: string;
+	"type"?: TransactionTypeEnum;
+	"description"?: string;
+	"cost"?: number;
+	"item"?: string;
+	"inventory"?: string;
+	"salesCode"?: string;
+	"cogs"?: string;
+	"glAccount"?: string;
+	"currency"?: CurrencyReference;
+	"debitAmount"?: number;
+	"creditAmount"?: number;
+	"balance"?: string;
+	"product"?: ProductReference;
+	"quantity"?: number;
+	"unitOfMeasure"?: UnitOfMeasureReference;
+	"serializedFlag"?: boolean;
+	"serialNumber"?: string;
+	"shipmentMethod"?: ShipmentMethodReference;
+	"packingSlip"?: string;
+	"ticket"?: TicketReference;
+	"project"?: ProjectReference;
+	"phase"?: ProjectPhaseReference;
+	"expenseClass"?: ExpenseClassEnum;
+	"expenseType"?: ExpenseTypeReference;
+	"timeEntry"?: TimeEntryReference;
+	"activity"?: ActivityReference;
+	"segment1"?: string;
+	"segment2"?: string;
+	"segment3"?: string;
+	"segment4"?: string;
+	"segment5"?: string;
+	"segment6"?: string;
+	"segment7"?: string;
+	"segment8"?: string;
+	"segment9"?: string;
+	"segment10"?: string;
+	"avalaraTaxFlag"?: boolean;
+	"stateTaxAmount"?: number;
+	"countyTaxAmount"?: number;
+	"cityTaxAmount"?: number;
+	"countryTaxAmount"?: number;
+	"compositeTaxAmount"?: number;
+	"taxTotal"?: number;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export enum TransactionTypeEnum {
-    AP,
-    AR,
-    EE,
-    EI,
-    EO,
-    IA,
-    IT,
-    P,
-    PF,
-    R,
-    RA,
-    RD,
-    RE,
-    RP,
-    ST,
-    SD,
-    ET,
-    RM,
-    FT,
-    PT,
+	AP,
+	AR,
+	EE,
+	EI,
+	EO,
+	IA,
+	IT,
+	P,
+	PF,
+	R,
+	RA,
+	RD,
+	RE,
+	RP,
+	ST,
+	SD,
+	ET,
+	RM,
+	FT,
+	PT,
 }
 export enum ExpenseClassEnum {
-    NonReimbursable,
-    Reimbursable,
-    Personal,
+	NonReimbursable,
+	Reimbursable,
+	Personal,
 }
 export interface UnitOfMeasureReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface UnpostedExpense {
-    "id"?: number;
-    "locationId"?: number;
-    "departmentId"?: number;
-    "company"?: CompanyReference;
-    "accountNumber"?: string;
-    "creditAccount"?: string;
-    "expenseDetailId"?: number;
-    "expenseType"?: ExpenseTypeReference;
-    "classification"?: ClassificationEnum;
-    "glType"?: GlTypeEnum;
-    "member"?: MemberReference;
-    "dateExpense"?: Date;
-    "chargeCode"?: ChargeCodeReference;
-    "chargeDescription"?: string;
-    "inPolicy"?: boolean;
-    "paymentMethod"?: PaymentMethodReference;
-    "currency"?: CurrencyReference;
-    "total"?: number;
-    "billableAmount"?: number;
-    "nonBillableAmount"?: number;
-    "agreement"?: AgreementReference;
-    "agreementAmountCovered"?: number;
-    "ticket"?: TicketReference;
-    "project"?: ProjectReference;
-    "projectPhase"?: ProjectPhaseReference;
-    "taxCode"?: TaxCodeReference;
-    "avalaraTaxFlag"?: boolean;
-    "salesTaxAmount"?: number;
-    "stateTaxAmount"?: number;
-    "countyTaxAmount"?: number;
-    "cityTaxAmount"?: number;
-    "countryTaxAmount"?: number;
-    "compositeTaxAmount"?: number;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"locationId"?: number;
+	"departmentId"?: number;
+	"company"?: CompanyReference;
+	"accountNumber"?: string;
+	"creditAccount"?: string;
+	"expenseDetailId"?: number;
+	"expenseType"?: ExpenseTypeReference;
+	"classification"?: ClassificationEnum;
+	"glType"?: GlTypeEnum;
+	"member"?: MemberReference;
+	"dateExpense"?: Date;
+	"chargeCode"?: ChargeCodeReference;
+	"chargeDescription"?: string;
+	"inPolicy"?: boolean;
+	"paymentMethod"?: PaymentMethodReference;
+	"currency"?: CurrencyReference;
+	"total"?: number;
+	"billableAmount"?: number;
+	"nonBillableAmount"?: number;
+	"agreement"?: AgreementReference;
+	"agreementAmountCovered"?: number;
+	"ticket"?: TicketReference;
+	"project"?: ProjectReference;
+	"projectPhase"?: ProjectPhaseReference;
+	"taxCode"?: TaxCodeReference;
+	"avalaraTaxFlag"?: boolean;
+	"salesTaxAmount"?: number;
+	"stateTaxAmount"?: number;
+	"countyTaxAmount"?: number;
+	"cityTaxAmount"?: number;
+	"countryTaxAmount"?: number;
+	"compositeTaxAmount"?: number;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export enum ClassificationEnum {
-    NonReimbursable,
-    Reimbursable,
-    Personal,
+	NonReimbursable,
+	Reimbursable,
+	Personal,
 }
 export enum GlTypeEnum {
-    AP,
-    AR,
-    EE,
-    EI,
-    EO,
-    IA,
-    IT,
-    P,
-    PF,
-    R,
-    RA,
-    RD,
-    RE,
-    RP,
-    ST,
-    SD,
-    ET,
-    RM,
-    FT,
-    PT,
+	AP,
+	AR,
+	EE,
+	EI,
+	EO,
+	IA,
+	IT,
+	P,
+	PF,
+	R,
+	RA,
+	RD,
+	RE,
+	RP,
+	ST,
+	SD,
+	ET,
+	RM,
+	FT,
+	PT,
 }
 export interface UnpostedInvoice {
-    "id"?: number;
-    "billingLogId"?: number;
-    "locationId"?: number;
-    "departmentId"?: number;
-    "company"?: CompanyReference;
-    "accountNumber"?: string;
-    "billToCompany"?: CompanyReference;
-    "billToSite"?: SiteReference;
-    "shipToCompany"?: CompanyReference;
-    "shipToSite"?: SiteReference;
-    "invoiceNumber"?: string;
-    "invoiceDate"?: Date;
-    "invoiceType"?: InvoiceTypeEnum;
-    "description"?: string;
-    "billingTerms"?: BillingTermsReference;
-    "dueDays"?: string;
-    "dueDate"?: Date;
-    "currency"?: CurrencyReference;
-    "subTotal"?: number;
-    "total"?: number;
-    "invoiceTaxableFlag"?: boolean;
-    "taxCode"?: TaxCodeReference;
-    "avalaraTaxFlag"?: boolean;
-    "salesTaxAmount"?: number;
-    "stateTaxAmount"?: number;
-    "countyTaxAmount"?: number;
-    "cityTaxAmount"?: number;
-    "countryTaxAmount"?: number;
-    "compositeTaxAmount"?: number;
-    "createdBy"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"billingLogId"?: number;
+	"locationId"?: number;
+	"departmentId"?: number;
+	"company"?: CompanyReference;
+	"accountNumber"?: string;
+	"billToCompany"?: CompanyReference;
+	"billToSite"?: SiteReference;
+	"shipToCompany"?: CompanyReference;
+	"shipToSite"?: SiteReference;
+	"invoiceNumber"?: string;
+	"invoiceDate"?: Date;
+	"invoiceType"?: InvoiceTypeEnum;
+	"description"?: string;
+	"billingTerms"?: BillingTermsReference;
+	"dueDays"?: string;
+	"dueDate"?: Date;
+	"currency"?: CurrencyReference;
+	"subTotal"?: number;
+	"total"?: number;
+	"invoiceTaxableFlag"?: boolean;
+	"taxCode"?: TaxCodeReference;
+	"avalaraTaxFlag"?: boolean;
+	"salesTaxAmount"?: number;
+	"stateTaxAmount"?: number;
+	"countyTaxAmount"?: number;
+	"cityTaxAmount"?: number;
+	"countryTaxAmount"?: number;
+	"compositeTaxAmount"?: number;
+	"createdBy"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export enum InvoiceTypeEnum {
-    Agreement,
-    CreditMemo,
-    DownPayment,
-    Miscellaneous,
-    Progress,
-    Standard,
+	Agreement,
+	CreditMemo,
+	DownPayment,
+	Miscellaneous,
+	Progress,
+	Standard,
 }
 export interface UnpostedProcurement {
-    "id"?: number;
-    "description"?: string;
-    "locationId"?: number;
-    "departmentId"?: number;
-    "procurementType"?: ProcurementTypeEnum;
-    "purchaseOrder"?: PurchaseOrderReference;
-    "purchaseDate"?: Date;
-    "billingTerms"?: BillingTermsReference;
-    "currency"?: CurrencyReference;
-    "total"?: number;
-    "taxCode"?: TaxCodeReference;
-    "avalaraTaxFlag"?: boolean;
-    "stateTaxAmount"?: number;
-    "countyTaxAmount"?: number;
-    "cityTaxAmount"?: number;
-    "countryTaxAmount"?: number;
-    "compositeTaxAmount"?: number;
-    "taxTotal"?: number;
-    "customer"?: CompanyReference;
-    "vendor"?: CompanyReference;
-    "vendorAccountNumber"?: string;
-    "vendorInvoiceNumber"?: string;
-    "vendorInvoiceDate"?: Date;
-    "taxFreightFlag"?: boolean;
-    "freightTaxTotal"?: number;
-    "freightCost"?: number;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"description"?: string;
+	"locationId"?: number;
+	"departmentId"?: number;
+	"procurementType"?: ProcurementTypeEnum;
+	"purchaseOrder"?: PurchaseOrderReference;
+	"purchaseDate"?: Date;
+	"billingTerms"?: BillingTermsReference;
+	"currency"?: CurrencyReference;
+	"total"?: number;
+	"taxCode"?: TaxCodeReference;
+	"avalaraTaxFlag"?: boolean;
+	"stateTaxAmount"?: number;
+	"countyTaxAmount"?: number;
+	"cityTaxAmount"?: number;
+	"countryTaxAmount"?: number;
+	"compositeTaxAmount"?: number;
+	"taxTotal"?: number;
+	"customer"?: CompanyReference;
+	"vendor"?: CompanyReference;
+	"vendorAccountNumber"?: string;
+	"vendorInvoiceNumber"?: string;
+	"vendorInvoiceDate"?: Date;
+	"taxFreightFlag"?: boolean;
+	"freightTaxTotal"?: number;
+	"freightCost"?: number;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export enum ProcurementTypeEnum {
-    Purchase,
-    Adjustment,
-    Transfer,
+	Purchase,
+	Adjustment,
+	Transfer,
 }
 export interface ValidationError {
-    "code"?: string;
-    "message"?: string;
-    "resource"?: string;
-    "field"?: string;
+	"code"?: string;
+	"message"?: string;
+	"resource"?: string;
+	"field"?: string;
 }
 export interface WorkRoleReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface WorkTypeReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export class AccountingBatchTransactionsApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Transactions Count
-     * @param id
-     * @param conditions
-     */
-    financeAccountingBatchesIdTransactionsCountGet(params: {
-        id: number;
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Transactions
-     * @param id
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    financeAccountingBatchesIdTransactionsGet(params: {
-        id: number;
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Transaction>>;
-    /**
-     *
-     * Get Transaction By Id
-     * @param id
-     * @param transactionId
-     */
-    financeAccountingBatchesIdTransactionsTransactionIdGet(params: {
-        id: number;
-        transactionId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Transaction>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Transactions Count
+	 * @param id
+	 * @param conditions
+	 */
+	financeAccountingBatchesIdTransactionsCountGet(params: {
+		id: number;
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Transactions
+	 * @param id
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	financeAccountingBatchesIdTransactionsGet(params: {
+		id: number;
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Transaction>>;
+	/**
+	 *
+	 * Get Transaction By Id
+	 * @param id
+	 * @param transactionId
+	 */
+	financeAccountingBatchesIdTransactionsTransactionIdGet(params: {
+		id: number;
+		transactionId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Transaction>;
 }
 export class AccountingBatchesApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Batches Count
-     * @param conditions
-     */
-    financeAccountingBatchesCountGet(params: {
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Batches
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    financeAccountingBatchesGet(params: {
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Batch>>;
-    /**
-     *
-     * Delete Batch By Id
-     * @param id
-     */
-    financeAccountingBatchesIdDelete(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Batch By Id
-     * @param id
-     */
-    financeAccountingBatchesIdGet(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Batch>;
-    /**
-     *
-     * Create Batch
-     * @param batch
-     */
-    financeAccountingBatchesPost(params: {
-        batch: Batch;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Batch>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Batches Count
+	 * @param conditions
+	 */
+	financeAccountingBatchesCountGet(params: {
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Batches
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	financeAccountingBatchesGet(params: {
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Batch>>;
+	/**
+	 *
+	 * Delete Batch By Id
+	 * @param id
+	 */
+	financeAccountingBatchesIdDelete(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Batch By Id
+	 * @param id
+	 */
+	financeAccountingBatchesIdGet(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Batch>;
+	/**
+	 *
+	 * Create Batch
+	 * @param batch
+	 */
+	financeAccountingBatchesPost(params: {
+		batch: Batch;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Batch>;
 }
 export class AccountingUnpostedExpensesApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Unposted Expenses Count
-     * @param conditions
-     */
-    financeAccountingUnpostedexpensesCountGet(params: {
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Unposted Expenses
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    financeAccountingUnpostedexpensesGet(params: {
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<UnpostedExpense>>;
-    /**
-     *
-     * Get Unposted Expense By Id
-     * @param id
-     */
-    financeAccountingUnpostedexpensesIdGet(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<UnpostedExpense>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Unposted Expenses Count
+	 * @param conditions
+	 */
+	financeAccountingUnpostedexpensesCountGet(params: {
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Unposted Expenses
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	financeAccountingUnpostedexpensesGet(params: {
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<UnpostedExpense>>;
+	/**
+	 *
+	 * Get Unposted Expense By Id
+	 * @param id
+	 */
+	financeAccountingUnpostedexpensesIdGet(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<UnpostedExpense>;
 }
 export class AccountingUnpostedProcurementsApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Unposted Procurements Count
-     * @param conditions
-     */
-    financeAccountingUnpostedprocurementCountGet(params: {
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Unposted Procurements
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    financeAccountingUnpostedprocurementGet(params: {
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<UnpostedProcurement>>;
-    /**
-     *
-     * Get Unposted Procurement By Id
-     * @param id
-     */
-    financeAccountingUnpostedprocurementIdGet(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<UnpostedProcurement>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Unposted Procurements Count
+	 * @param conditions
+	 */
+	financeAccountingUnpostedprocurementCountGet(params: {
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Unposted Procurements
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	financeAccountingUnpostedprocurementGet(params: {
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<UnpostedProcurement>>;
+	/**
+	 *
+	 * Get Unposted Procurement By Id
+	 * @param id
+	 */
+	financeAccountingUnpostedprocurementIdGet(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<UnpostedProcurement>;
 }
 export class AccountingUnpostedinvoicesApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Unposted Invoices Count
-     * @param conditions
-     */
-    financeAccountingUnpostedinvoicesCountGet(params: {
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Unposted Invoices
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    financeAccountingUnpostedinvoicesGet(params: {
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<UnpostedInvoice>>;
-    /**
-     *
-     * Get Unposted Invoice By Id
-     * @param id
-     */
-    financeAccountingUnpostedinvoicesIdGet(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<UnpostedInvoice>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Unposted Invoices Count
+	 * @param conditions
+	 */
+	financeAccountingUnpostedinvoicesCountGet(params: {
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Unposted Invoices
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	financeAccountingUnpostedinvoicesGet(params: {
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<UnpostedInvoice>>;
+	/**
+	 *
+	 * Get Unposted Invoice By Id
+	 * @param id
+	 */
+	financeAccountingUnpostedinvoicesIdGet(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<UnpostedInvoice>;
 }
 export class AgreementAdditionsApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Delete Addition By Id
-     * @param id
-     * @param additionId
-     */
-    financeAgreementsIdAdditionsAdditionIdDelete(params: {
-        id: number;
-        additionId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Addition By Id
-     * @param id
-     * @param additionId
-     */
-    financeAgreementsIdAdditionsAdditionIdGet(params: {
-        id: number;
-        additionId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Addition>;
-    /**
-     *
-     * Update Addition
-     * @param id
-     * @param additionId
-     * @param operations
-     */
-    financeAgreementsIdAdditionsAdditionIdPatch(params: {
-        id: number;
-        additionId: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Addition>;
-    /**
-     *
-     * Replace Addition
-     * @param id
-     * @param additionId
-     * @param addition
-     */
-    financeAgreementsIdAdditionsAdditionIdPut(params: {
-        id: number;
-        additionId: number;
-        addition: Addition;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Addition>;
-    /**
-     *
-     * Get Additions Count
-     * @param id
-     * @param conditions
-     */
-    financeAgreementsIdAdditionsCountGet(params: {
-        id: number;
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Additions
-     * @param id
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    financeAgreementsIdAdditionsGet(params: {
-        id: number;
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Addition>>;
-    /**
-     *
-     * Create Addition
-     * @param id
-     * @param addition
-     */
-    financeAgreementsIdAdditionsPost(params: {
-        id: number;
-        addition: Addition;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Addition>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Delete Addition By Id
+	 * @param id
+	 * @param additionId
+	 */
+	financeAgreementsIdAdditionsAdditionIdDelete(params: {
+		id: number;
+		additionId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Addition By Id
+	 * @param id
+	 * @param additionId
+	 */
+	financeAgreementsIdAdditionsAdditionIdGet(params: {
+		id: number;
+		additionId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Addition>;
+	/**
+	 *
+	 * Update Addition
+	 * @param id
+	 * @param additionId
+	 * @param operations
+	 */
+	financeAgreementsIdAdditionsAdditionIdPatch(params: {
+		id: number;
+		additionId: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Addition>;
+	/**
+	 *
+	 * Replace Addition
+	 * @param id
+	 * @param additionId
+	 * @param addition
+	 */
+	financeAgreementsIdAdditionsAdditionIdPut(params: {
+		id: number;
+		additionId: number;
+		addition: Addition;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Addition>;
+	/**
+	 *
+	 * Get Additions Count
+	 * @param id
+	 * @param conditions
+	 */
+	financeAgreementsIdAdditionsCountGet(params: {
+		id: number;
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Additions
+	 * @param id
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	financeAgreementsIdAdditionsGet(params: {
+		id: number;
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Addition>>;
+	/**
+	 *
+	 * Create Addition
+	 * @param id
+	 * @param addition
+	 */
+	financeAgreementsIdAdditionsPost(params: {
+		id: number;
+		addition: Addition;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Addition>;
 }
 export class AgreementAdjustmentsApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Delete Adjustment By Id
-     * @param id
-     * @param adjustmentId
-     */
-    financeAgreementsIdAdjustmentsAdjustmentIdDelete(params: {
-        id: number;
-        adjustmentId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Adjustment By Id
-     * @param id
-     * @param adjustmentId
-     */
-    financeAgreementsIdAdjustmentsAdjustmentIdGet(params: {
-        id: number;
-        adjustmentId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Adjustment>;
-    /**
-     *
-     * Update Adjustment
-     * @param id
-     * @param adjustmentId
-     * @param operations
-     */
-    financeAgreementsIdAdjustmentsAdjustmentIdPatch(params: {
-        id: number;
-        adjustmentId: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Adjustment>;
-    /**
-     *
-     * Replace Adjustment
-     * @param id
-     * @param adjustmentId
-     * @param adjustment
-     */
-    financeAgreementsIdAdjustmentsAdjustmentIdPut(params: {
-        id: number;
-        adjustmentId: number;
-        adjustment: Adjustment;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Adjustment>;
-    /**
-     *
-     * Get Adjustments Count
-     * @param id
-     * @param conditions
-     */
-    financeAgreementsIdAdjustmentsCountGet(params: {
-        id: number;
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Adjustments
-     * @param id
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    financeAgreementsIdAdjustmentsGet(params: {
-        id: number;
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Adjustment>>;
-    /**
-     *
-     * Create Adjustment
-     * @param id
-     * @param adjustment
-     */
-    financeAgreementsIdAdjustmentsPost(params: {
-        id: number;
-        adjustment: Adjustment;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Adjustment>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Delete Adjustment By Id
+	 * @param id
+	 * @param adjustmentId
+	 */
+	financeAgreementsIdAdjustmentsAdjustmentIdDelete(params: {
+		id: number;
+		adjustmentId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Adjustment By Id
+	 * @param id
+	 * @param adjustmentId
+	 */
+	financeAgreementsIdAdjustmentsAdjustmentIdGet(params: {
+		id: number;
+		adjustmentId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Adjustment>;
+	/**
+	 *
+	 * Update Adjustment
+	 * @param id
+	 * @param adjustmentId
+	 * @param operations
+	 */
+	financeAgreementsIdAdjustmentsAdjustmentIdPatch(params: {
+		id: number;
+		adjustmentId: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Adjustment>;
+	/**
+	 *
+	 * Replace Adjustment
+	 * @param id
+	 * @param adjustmentId
+	 * @param adjustment
+	 */
+	financeAgreementsIdAdjustmentsAdjustmentIdPut(params: {
+		id: number;
+		adjustmentId: number;
+		adjustment: Adjustment;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Adjustment>;
+	/**
+	 *
+	 * Get Adjustments Count
+	 * @param id
+	 * @param conditions
+	 */
+	financeAgreementsIdAdjustmentsCountGet(params: {
+		id: number;
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Adjustments
+	 * @param id
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	financeAgreementsIdAdjustmentsGet(params: {
+		id: number;
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Adjustment>>;
+	/**
+	 *
+	 * Create Adjustment
+	 * @param id
+	 * @param adjustment
+	 */
+	financeAgreementsIdAdjustmentsPost(params: {
+		id: number;
+		adjustment: Adjustment;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Adjustment>;
 }
 export class AgreementBoardDefaultsApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Delete Board Default By Id
-     * @param id
-     * @param boardDefaultId
-     */
-    financeAgreementsIdBoardDefaultsBoardDefaultIdDelete(params: {
-        id: number;
-        boardDefaultId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Board Default By Id
-     * @param id
-     * @param boardDefaultId
-     */
-    financeAgreementsIdBoardDefaultsBoardDefaultIdGet(params: {
-        id: number;
-        boardDefaultId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<BoardDefault>;
-    /**
-     *
-     * Update Board Default
-     * @param id
-     * @param boardDefaultId
-     * @param operations
-     */
-    financeAgreementsIdBoardDefaultsBoardDefaultIdPatch(params: {
-        id: number;
-        boardDefaultId: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<BoardDefault>;
-    /**
-     *
-     * Replace Board Default
-     * @param id
-     * @param boardDefaultId
-     * @param boardDefault
-     */
-    financeAgreementsIdBoardDefaultsBoardDefaultIdPut(params: {
-        id: number;
-        boardDefaultId: number;
-        boardDefault: BoardDefault;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<BoardDefault>;
-    /**
-     *
-     * Get Board Defaults Count
-     * @param id
-     * @param conditions
-     */
-    financeAgreementsIdBoardDefaultsCountGet(params: {
-        id: number;
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Board Defaults
-     * @param id
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    financeAgreementsIdBoardDefaultsGet(params: {
-        id: number;
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<BoardDefault>>;
-    /**
-     *
-     * Create Board Default
-     * @param id
-     * @param boardDefault
-     */
-    financeAgreementsIdBoardDefaultsPost(params: {
-        id: number;
-        boardDefault: BoardDefault;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<BoardDefault>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Delete Board Default By Id
+	 * @param id
+	 * @param boardDefaultId
+	 */
+	financeAgreementsIdBoardDefaultsBoardDefaultIdDelete(params: {
+		id: number;
+		boardDefaultId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Board Default By Id
+	 * @param id
+	 * @param boardDefaultId
+	 */
+	financeAgreementsIdBoardDefaultsBoardDefaultIdGet(params: {
+		id: number;
+		boardDefaultId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<BoardDefault>;
+	/**
+	 *
+	 * Update Board Default
+	 * @param id
+	 * @param boardDefaultId
+	 * @param operations
+	 */
+	financeAgreementsIdBoardDefaultsBoardDefaultIdPatch(params: {
+		id: number;
+		boardDefaultId: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<BoardDefault>;
+	/**
+	 *
+	 * Replace Board Default
+	 * @param id
+	 * @param boardDefaultId
+	 * @param boardDefault
+	 */
+	financeAgreementsIdBoardDefaultsBoardDefaultIdPut(params: {
+		id: number;
+		boardDefaultId: number;
+		boardDefault: BoardDefault;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<BoardDefault>;
+	/**
+	 *
+	 * Get Board Defaults Count
+	 * @param id
+	 * @param conditions
+	 */
+	financeAgreementsIdBoardDefaultsCountGet(params: {
+		id: number;
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Board Defaults
+	 * @param id
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	financeAgreementsIdBoardDefaultsGet(params: {
+		id: number;
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<BoardDefault>>;
+	/**
+	 *
+	 * Create Board Default
+	 * @param id
+	 * @param boardDefault
+	 */
+	financeAgreementsIdBoardDefaultsPost(params: {
+		id: number;
+		boardDefault: BoardDefault;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<BoardDefault>;
 }
 export class AgreementSitesApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Sites Count
-     * @param id
-     * @param conditions
-     */
-    financeAgreementsIdSitesCountGet(params: {
-        id: number;
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Sites
-     * @param id
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    financeAgreementsIdSitesGet(params: {
-        id: number;
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<AgreementSite>>;
-    /**
-     *
-     * Create Site
-     * @param id
-     * @param site
-     */
-    financeAgreementsIdSitesPost(params: {
-        id: number;
-        site: AgreementSite;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<AgreementSite>;
-    /**
-     *
-     * Delete Site By Id
-     * @param id
-     * @param siteId
-     */
-    financeAgreementsIdSitesSiteIdDelete(params: {
-        id: number;
-        siteId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Site By Id
-     * @param id
-     * @param siteId
-     */
-    financeAgreementsIdSitesSiteIdGet(params: {
-        id: number;
-        siteId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<AgreementSite>;
-    /**
-     *
-     * Update Site
-     * @param id
-     * @param siteId
-     * @param operations
-     */
-    financeAgreementsIdSitesSiteIdPatch(params: {
-        id: number;
-        siteId: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<AgreementSite>;
-    /**
-     *
-     * Replace Site
-     * @param id
-     * @param siteId
-     * @param site
-     */
-    financeAgreementsIdSitesSiteIdPut(params: {
-        id: number;
-        siteId: number;
-        site: AgreementSite;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<AgreementSite>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Sites Count
+	 * @param id
+	 * @param conditions
+	 */
+	financeAgreementsIdSitesCountGet(params: {
+		id: number;
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Sites
+	 * @param id
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	financeAgreementsIdSitesGet(params: {
+		id: number;
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<AgreementSite>>;
+	/**
+	 *
+	 * Create Site
+	 * @param id
+	 * @param site
+	 */
+	financeAgreementsIdSitesPost(params: {
+		id: number;
+		site: AgreementSite;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<AgreementSite>;
+	/**
+	 *
+	 * Delete Site By Id
+	 * @param id
+	 * @param siteId
+	 */
+	financeAgreementsIdSitesSiteIdDelete(params: {
+		id: number;
+		siteId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Site By Id
+	 * @param id
+	 * @param siteId
+	 */
+	financeAgreementsIdSitesSiteIdGet(params: {
+		id: number;
+		siteId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<AgreementSite>;
+	/**
+	 *
+	 * Update Site
+	 * @param id
+	 * @param siteId
+	 * @param operations
+	 */
+	financeAgreementsIdSitesSiteIdPatch(params: {
+		id: number;
+		siteId: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<AgreementSite>;
+	/**
+	 *
+	 * Replace Site
+	 * @param id
+	 * @param siteId
+	 * @param site
+	 */
+	financeAgreementsIdSitesSiteIdPut(params: {
+		id: number;
+		siteId: number;
+		site: AgreementSite;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<AgreementSite>;
 }
 export class AgreementTypesApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Agreement Types Count
-     * @param conditions
-     */
-    financeAgreementsTypesCountGet(params: {
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Agreement Types
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    financeAgreementsTypesGet(params: {
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<AgreementType>>;
-    /**
-     *
-     * Delete Agreement Type By Id
-     * @param id
-     */
-    financeAgreementsTypesIdDelete(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Agreement Type By Id
-     * @param id
-     */
-    financeAgreementsTypesIdGet(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<AgreementType>;
-    /**
-     *
-     * Update Agreement Type
-     * @param id
-     * @param operations
-     */
-    financeAgreementsTypesIdPatch(params: {
-        id: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<AgreementType>;
-    /**
-     *
-     * Replace Agreement Type
-     * @param id
-     * @param agreementType
-     */
-    financeAgreementsTypesIdPut(params: {
-        id: number;
-        agreementType: AgreementType;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<AgreementType>;
-    /**
-     *
-     * Create Agreement Type
-     * @param agreementType
-     */
-    financeAgreementsTypesPost(params: {
-        agreementType: AgreementType;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<AgreementType>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Agreement Types Count
+	 * @param conditions
+	 */
+	financeAgreementsTypesCountGet(params: {
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Agreement Types
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	financeAgreementsTypesGet(params: {
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<AgreementType>>;
+	/**
+	 *
+	 * Delete Agreement Type By Id
+	 * @param id
+	 */
+	financeAgreementsTypesIdDelete(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Agreement Type By Id
+	 * @param id
+	 */
+	financeAgreementsTypesIdGet(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<AgreementType>;
+	/**
+	 *
+	 * Update Agreement Type
+	 * @param id
+	 * @param operations
+	 */
+	financeAgreementsTypesIdPatch(params: {
+		id: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<AgreementType>;
+	/**
+	 *
+	 * Replace Agreement Type
+	 * @param id
+	 * @param agreementType
+	 */
+	financeAgreementsTypesIdPut(params: {
+		id: number;
+		agreementType: AgreementType;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<AgreementType>;
+	/**
+	 *
+	 * Create Agreement Type
+	 * @param agreementType
+	 */
+	financeAgreementsTypesPost(params: {
+		agreementType: AgreementType;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<AgreementType>;
 }
 export class AgreementWorkRoleExclusionsApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Work Role Exclusions Count
-     * @param id
-     * @param conditions
-     */
-    financeAgreementsIdWorkRoleExclusionsCountGet(params: {
-        id: number;
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Work Role Exclusions
-     * @param id
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    financeAgreementsIdWorkRoleExclusionsGet(params: {
-        id: number;
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<AgreementWorkRoleExclusion>>;
-    /**
-     *
-     * Create Work Role Exclusion
-     * @param id
-     * @param workRoleExclusion
-     */
-    financeAgreementsIdWorkRoleExclusionsPost(params: {
-        id: number;
-        workRoleExclusion: AgreementWorkRoleExclusion;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<AgreementWorkRoleExclusion>;
-    /**
-     *
-     * Delete Work Role Exclusion By Id
-     * @param id
-     * @param workRoleExclusionId
-     */
-    financeAgreementsIdWorkRoleExclusionsWorkRoleExclusionIdDelete(params: {
-        id: number;
-        workRoleExclusionId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Work Role Exclusions Count
+	 * @param id
+	 * @param conditions
+	 */
+	financeAgreementsIdWorkRoleExclusionsCountGet(params: {
+		id: number;
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Work Role Exclusions
+	 * @param id
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	financeAgreementsIdWorkRoleExclusionsGet(params: {
+		id: number;
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<AgreementWorkRoleExclusion>>;
+	/**
+	 *
+	 * Create Work Role Exclusion
+	 * @param id
+	 * @param workRoleExclusion
+	 */
+	financeAgreementsIdWorkRoleExclusionsPost(params: {
+		id: number;
+		workRoleExclusion: AgreementWorkRoleExclusion;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<AgreementWorkRoleExclusion>;
+	/**
+	 *
+	 * Delete Work Role Exclusion By Id
+	 * @param id
+	 * @param workRoleExclusionId
+	 */
+	financeAgreementsIdWorkRoleExclusionsWorkRoleExclusionIdDelete(params: {
+		id: number;
+		workRoleExclusionId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
 }
 export class AgreementWorkRolesApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Work Roles Count
-     * @param id
-     * @param conditions
-     */
-    financeAgreementsIdWorkrolesCountGet(params: {
-        id: number;
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Work Roles
-     * @param id
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    financeAgreementsIdWorkrolesGet(params: {
-        id: number;
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<AgreementWorkRole>>;
-    /**
-     *
-     * Create Work Role
-     * @param id
-     * @param workRole
-     */
-    financeAgreementsIdWorkrolesPost(params: {
-        id: number;
-        workRole: AgreementWorkRole;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<AgreementWorkRole>;
-    /**
-     *
-     * Delete Work Role By Id
-     * @param id
-     * @param workRoleId
-     */
-    financeAgreementsIdWorkrolesWorkRoleIdDelete(params: {
-        id: number;
-        workRoleId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Work Role By Id
-     * @param id
-     * @param workRoleId
-     */
-    financeAgreementsIdWorkrolesWorkRoleIdGet(params: {
-        id: number;
-        workRoleId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<AgreementWorkRole>;
-    /**
-     *
-     * Update Work Role
-     * @param id
-     * @param workRoleId
-     * @param operations
-     */
-    financeAgreementsIdWorkrolesWorkRoleIdPatch(params: {
-        id: number;
-        workRoleId: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<AgreementWorkRole>;
-    /**
-     *
-     * Replace Work Role
-     * @param id
-     * @param workRoleId
-     * @param workRole
-     */
-    financeAgreementsIdWorkrolesWorkRoleIdPut(params: {
-        id: number;
-        workRoleId: number;
-        workRole: AgreementWorkRole;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<AgreementWorkRole>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Work Roles Count
+	 * @param id
+	 * @param conditions
+	 */
+	financeAgreementsIdWorkrolesCountGet(params: {
+		id: number;
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Work Roles
+	 * @param id
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	financeAgreementsIdWorkrolesGet(params: {
+		id: number;
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<AgreementWorkRole>>;
+	/**
+	 *
+	 * Create Work Role
+	 * @param id
+	 * @param workRole
+	 */
+	financeAgreementsIdWorkrolesPost(params: {
+		id: number;
+		workRole: AgreementWorkRole;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<AgreementWorkRole>;
+	/**
+	 *
+	 * Delete Work Role By Id
+	 * @param id
+	 * @param workRoleId
+	 */
+	financeAgreementsIdWorkrolesWorkRoleIdDelete(params: {
+		id: number;
+		workRoleId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Work Role By Id
+	 * @param id
+	 * @param workRoleId
+	 */
+	financeAgreementsIdWorkrolesWorkRoleIdGet(params: {
+		id: number;
+		workRoleId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<AgreementWorkRole>;
+	/**
+	 *
+	 * Update Work Role
+	 * @param id
+	 * @param workRoleId
+	 * @param operations
+	 */
+	financeAgreementsIdWorkrolesWorkRoleIdPatch(params: {
+		id: number;
+		workRoleId: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<AgreementWorkRole>;
+	/**
+	 *
+	 * Replace Work Role
+	 * @param id
+	 * @param workRoleId
+	 * @param workRole
+	 */
+	financeAgreementsIdWorkrolesWorkRoleIdPut(params: {
+		id: number;
+		workRoleId: number;
+		workRole: AgreementWorkRole;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<AgreementWorkRole>;
 }
 export class AgreementWorkTypeExclusionsApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Work Type Exclusions Count
-     * @param id
-     * @param conditions
-     */
-    financeAgreementsIdWorkTypeExclusionsCountGet(params: {
-        id: number;
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Work Type Exclusions
-     * @param id
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    financeAgreementsIdWorkTypeExclusionsGet(params: {
-        id: number;
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<AgreementWorkTypeExclusion>>;
-    /**
-     *
-     * Create Work Type Exclusion
-     * @param id
-     * @param workTypeExclusion
-     */
-    financeAgreementsIdWorkTypeExclusionsPost(params: {
-        id: number;
-        workTypeExclusion: AgreementWorkTypeExclusion;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<AgreementWorkTypeExclusion>;
-    /**
-     *
-     * Delete Work Type Exclusion By Id
-     * @param id
-     * @param workTypeExclusionId
-     */
-    financeAgreementsIdWorkTypeExclusionsWorkTypeExclusionIdDelete(params: {
-        id: number;
-        workTypeExclusionId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Work Type Exclusions Count
+	 * @param id
+	 * @param conditions
+	 */
+	financeAgreementsIdWorkTypeExclusionsCountGet(params: {
+		id: number;
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Work Type Exclusions
+	 * @param id
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	financeAgreementsIdWorkTypeExclusionsGet(params: {
+		id: number;
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<AgreementWorkTypeExclusion>>;
+	/**
+	 *
+	 * Create Work Type Exclusion
+	 * @param id
+	 * @param workTypeExclusion
+	 */
+	financeAgreementsIdWorkTypeExclusionsPost(params: {
+		id: number;
+		workTypeExclusion: AgreementWorkTypeExclusion;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<AgreementWorkTypeExclusion>;
+	/**
+	 *
+	 * Delete Work Type Exclusion By Id
+	 * @param id
+	 * @param workTypeExclusionId
+	 */
+	financeAgreementsIdWorkTypeExclusionsWorkTypeExclusionIdDelete(params: {
+		id: number;
+		workTypeExclusionId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
 }
 export class AgreementWorkTypesApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Work Types Count
-     * @param id
-     * @param conditions
-     */
-    financeAgreementsIdWorktypesCountGet(params: {
-        id: number;
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Work Types
-     * @param id
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    financeAgreementsIdWorktypesGet(params: {
-        id: number;
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<AgreementWorkType>>;
-    /**
-     *
-     * Create Work Type
-     * @param id
-     * @param workType
-     */
-    financeAgreementsIdWorktypesPost(params: {
-        id: number;
-        workType: AgreementWorkType;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<AgreementWorkType>;
-    /**
-     *
-     * Delete Work Type By Id
-     * @param id
-     * @param worktypeId
-     */
-    financeAgreementsIdWorktypesWorktypeIdDelete(params: {
-        id: number;
-        worktypeId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Work Type By Id
-     * @param id
-     * @param worktypeId
-     */
-    financeAgreementsIdWorktypesWorktypeIdGet(params: {
-        id: number;
-        worktypeId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<AgreementWorkType>;
-    /**
-     *
-     * Update Work Type
-     * @param id
-     * @param worktypeId
-     * @param operations
-     */
-    financeAgreementsIdWorktypesWorktypeIdPatch(params: {
-        id: number;
-        worktypeId: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<AgreementWorkType>;
-    /**
-     *
-     * Replace Work Type
-     * @param id
-     * @param worktypeId
-     * @param workType
-     */
-    financeAgreementsIdWorktypesWorktypeIdPut(params: {
-        id: number;
-        worktypeId: number;
-        workType: AgreementWorkType;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<AgreementWorkType>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Work Types Count
+	 * @param id
+	 * @param conditions
+	 */
+	financeAgreementsIdWorktypesCountGet(params: {
+		id: number;
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Work Types
+	 * @param id
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	financeAgreementsIdWorktypesGet(params: {
+		id: number;
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<AgreementWorkType>>;
+	/**
+	 *
+	 * Create Work Type
+	 * @param id
+	 * @param workType
+	 */
+	financeAgreementsIdWorktypesPost(params: {
+		id: number;
+		workType: AgreementWorkType;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<AgreementWorkType>;
+	/**
+	 *
+	 * Delete Work Type By Id
+	 * @param id
+	 * @param worktypeId
+	 */
+	financeAgreementsIdWorktypesWorktypeIdDelete(params: {
+		id: number;
+		worktypeId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Work Type By Id
+	 * @param id
+	 * @param worktypeId
+	 */
+	financeAgreementsIdWorktypesWorktypeIdGet(params: {
+		id: number;
+		worktypeId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<AgreementWorkType>;
+	/**
+	 *
+	 * Update Work Type
+	 * @param id
+	 * @param worktypeId
+	 * @param operations
+	 */
+	financeAgreementsIdWorktypesWorktypeIdPatch(params: {
+		id: number;
+		worktypeId: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<AgreementWorkType>;
+	/**
+	 *
+	 * Replace Work Type
+	 * @param id
+	 * @param worktypeId
+	 * @param workType
+	 */
+	financeAgreementsIdWorktypesWorktypeIdPut(params: {
+		id: number;
+		worktypeId: number;
+		workType: AgreementWorkType;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<AgreementWorkType>;
 }
 export class AgreementsApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Agreements Count
-     * @param conditions
-     */
-    financeAgreementsCountGet(params: {
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Agreements
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    financeAgreementsGet(params: {
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Agreement>>;
-    /**
-     *
-     * Delete Configuration Association
-     * @param id
-     * @param configurationId
-     */
-    financeAgreementsIdConfigurationsConfigurationIdDelete(params: {
-        id: number;
-        configurationId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Configuration Association
-     * @param id
-     * @param configurationId
-     */
-    financeAgreementsIdConfigurationsConfigurationIdGet(params: {
-        id: number;
-        configurationId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ConfigurationReference>;
-    /**
-     *
-     * Get Agreement Configurations Count
-     * @param id
-     */
-    financeAgreementsIdConfigurationsCountGet(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Agreement Configurations
-     * @param id
-     * @param page
-     * @param pageSize
-     */
-    financeAgreementsIdConfigurationsGet(params: {
-        id: number;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ConfigurationReference>>;
-    /**
-     *
-     * Create Configuration Association
-     * @param id
-     * @param configuration
-     */
-    financeAgreementsIdConfigurationsPost(params: {
-        id: number;
-        configuration: ConfigurationReference;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ConfigurationReference>;
-    /**
-     *
-     * Delete Agreement By Id
-     * @param id
-     */
-    financeAgreementsIdDelete(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Agreement By Id
-     * @param id
-     */
-    financeAgreementsIdGet(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Agreement>;
-    /**
-     *
-     * Update Agreement
-     * @param id
-     * @param operations
-     */
-    financeAgreementsIdPatch(params: {
-        id: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Agreement>;
-    /**
-     *
-     * Replace Agreement
-     * @param id
-     * @param agreement
-     */
-    financeAgreementsIdPut(params: {
-        id: number;
-        agreement: Agreement;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Agreement>;
-    /**
-     *
-     * Create Agreement
-     * @param agreement
-     */
-    financeAgreementsPost(params: {
-        agreement: Agreement;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Agreement>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Agreements Count
+	 * @param conditions
+	 */
+	financeAgreementsCountGet(params: {
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Agreements
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	financeAgreementsGet(params: {
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Agreement>>;
+	/**
+	 *
+	 * Delete Configuration Association
+	 * @param id
+	 * @param configurationId
+	 */
+	financeAgreementsIdConfigurationsConfigurationIdDelete(params: {
+		id: number;
+		configurationId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Configuration Association
+	 * @param id
+	 * @param configurationId
+	 */
+	financeAgreementsIdConfigurationsConfigurationIdGet(params: {
+		id: number;
+		configurationId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ConfigurationReference>;
+	/**
+	 *
+	 * Get Agreement Configurations Count
+	 * @param id
+	 */
+	financeAgreementsIdConfigurationsCountGet(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Agreement Configurations
+	 * @param id
+	 * @param page
+	 * @param pageSize
+	 */
+	financeAgreementsIdConfigurationsGet(params: {
+		id: number;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ConfigurationReference>>;
+	/**
+	 *
+	 * Create Configuration Association
+	 * @param id
+	 * @param configuration
+	 */
+	financeAgreementsIdConfigurationsPost(params: {
+		id: number;
+		configuration: ConfigurationReference;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ConfigurationReference>;
+	/**
+	 *
+	 * Delete Agreement By Id
+	 * @param id
+	 */
+	financeAgreementsIdDelete(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Agreement By Id
+	 * @param id
+	 */
+	financeAgreementsIdGet(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Agreement>;
+	/**
+	 *
+	 * Update Agreement
+	 * @param id
+	 * @param operations
+	 */
+	financeAgreementsIdPatch(params: {
+		id: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Agreement>;
+	/**
+	 *
+	 * Replace Agreement
+	 * @param id
+	 * @param agreement
+	 */
+	financeAgreementsIdPut(params: {
+		id: number;
+		agreement: Agreement;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Agreement>;
+	/**
+	 *
+	 * Create Agreement
+	 * @param agreement
+	 */
+	financeAgreementsPost(params: {
+		agreement: Agreement;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Agreement>;
 }
 export class CurrenciesApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Currencies Count
-     * @param conditions
-     */
-    financeCurrenciesCountGet(params: {
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Currencies
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    financeCurrenciesGet(params: {
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Currency>>;
-    /**
-     *
-     * Delete Currency By Id
-     * @param id
-     */
-    financeCurrenciesIdDelete(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Currency By Id
-     * @param id
-     */
-    financeCurrenciesIdGet(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Currency>;
-    /**
-     *
-     * Update Currency
-     * @param id
-     * @param operations
-     */
-    financeCurrenciesIdPatch(params: {
-        id: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Currency>;
-    /**
-     *
-     * Replace Currency
-     * @param id
-     * @param currency
-     */
-    financeCurrenciesIdPut(params: {
-        id: number;
-        currency: Currency;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Currency>;
-    /**
-     *
-     * Create Currency
-     * @param currency
-     */
-    financeCurrenciesPost(params: {
-        currency: Currency;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Currency>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Currencies Count
+	 * @param conditions
+	 */
+	financeCurrenciesCountGet(params: {
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Currencies
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	financeCurrenciesGet(params: {
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Currency>>;
+	/**
+	 *
+	 * Delete Currency By Id
+	 * @param id
+	 */
+	financeCurrenciesIdDelete(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Currency By Id
+	 * @param id
+	 */
+	financeCurrenciesIdGet(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Currency>;
+	/**
+	 *
+	 * Update Currency
+	 * @param id
+	 * @param operations
+	 */
+	financeCurrenciesIdPatch(params: {
+		id: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Currency>;
+	/**
+	 *
+	 * Replace Currency
+	 * @param id
+	 * @param currency
+	 */
+	financeCurrenciesIdPut(params: {
+		id: number;
+		currency: Currency;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Currency>;
+	/**
+	 *
+	 * Create Currency
+	 * @param currency
+	 */
+	financeCurrenciesPost(params: {
+		currency: Currency;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Currency>;
 }
 export class InvoicePaymentsApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Payments
-     * @param id
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    financeInvoicesIdPaymentsGet(params: {
-        id: number;
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Payment>>;
-    /**
-     *
-     * Delete Payment By Id
-     * @param id
-     * @param paymentId
-     */
-    financeInvoicesIdPaymentsPaymentIdDelete(params: {
-        id: number;
-        paymentId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Payment By Id
-     * @param id
-     * @param paymentId
-     */
-    financeInvoicesIdPaymentsPaymentIdGet(params: {
-        id: number;
-        paymentId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Payment>;
-    /**
-     *
-     * Update Payment
-     * @param id
-     * @param paymentId
-     * @param operations
-     */
-    financeInvoicesIdPaymentsPaymentIdPatch(params: {
-        id: number;
-        paymentId: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Payment>;
-    /**
-     *
-     * Replace Payment
-     * @param id
-     * @param paymentId
-     * @param payment
-     */
-    financeInvoicesIdPaymentsPaymentIdPut(params: {
-        id: number;
-        paymentId: number;
-        payment: Payment;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Payment>;
-    /**
-     *
-     * Create Payment
-     * @param id
-     * @param payment
-     */
-    financeInvoicesIdPaymentsPost(params: {
-        id: number;
-        payment: Payment;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Payment>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Payments
+	 * @param id
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	financeInvoicesIdPaymentsGet(params: {
+		id: number;
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Payment>>;
+	/**
+	 *
+	 * Delete Payment By Id
+	 * @param id
+	 * @param paymentId
+	 */
+	financeInvoicesIdPaymentsPaymentIdDelete(params: {
+		id: number;
+		paymentId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Payment By Id
+	 * @param id
+	 * @param paymentId
+	 */
+	financeInvoicesIdPaymentsPaymentIdGet(params: {
+		id: number;
+		paymentId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Payment>;
+	/**
+	 *
+	 * Update Payment
+	 * @param id
+	 * @param paymentId
+	 * @param operations
+	 */
+	financeInvoicesIdPaymentsPaymentIdPatch(params: {
+		id: number;
+		paymentId: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Payment>;
+	/**
+	 *
+	 * Replace Payment
+	 * @param id
+	 * @param paymentId
+	 * @param payment
+	 */
+	financeInvoicesIdPaymentsPaymentIdPut(params: {
+		id: number;
+		paymentId: number;
+		payment: Payment;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Payment>;
+	/**
+	 *
+	 * Create Payment
+	 * @param id
+	 * @param payment
+	 */
+	financeInvoicesIdPaymentsPost(params: {
+		id: number;
+		payment: Payment;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Payment>;
 }
 export class InvoicesApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Invoices Count
-     * @param conditions
-     */
-    financeInvoicesCountGet(params: {
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Invoices
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    financeInvoicesGet(params: {
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Invoice>>;
-    /**
-     *
-     * Delete Invoice By Id
-     * @param id
-     */
-    financeInvoicesIdDelete(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Invoice By Id
-     * @param id
-     */
-    financeInvoicesIdGet(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Invoice>;
-    /**
-     *
-     * Update Invoice
-     * @param id
-     * @param operations
-     */
-    financeInvoicesIdPatch(params: {
-        id: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Invoice>;
-    /**
-     *
-     * Get Invoice Pdf
-     * @param id
-     */
-    financeInvoicesIdPdfGet(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Replace Invoice
-     * @param id
-     * @param invoice
-     */
-    financeInvoicesIdPut(params: {
-        id: number;
-        invoice: Invoice;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Invoice>;
-    /**
-     *
-     * Create Invoice
-     * @param invoice
-     */
-    financeInvoicesPost(params: {
-        invoice: Invoice;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Invoice>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Invoices Count
+	 * @param conditions
+	 */
+	financeInvoicesCountGet(params: {
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Invoices
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	financeInvoicesGet(params: {
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Invoice>>;
+	/**
+	 *
+	 * Delete Invoice By Id
+	 * @param id
+	 */
+	financeInvoicesIdDelete(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Invoice By Id
+	 * @param id
+	 */
+	financeInvoicesIdGet(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Invoice>;
+	/**
+	 *
+	 * Update Invoice
+	 * @param id
+	 * @param operations
+	 */
+	financeInvoicesIdPatch(params: {
+		id: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Invoice>;
+	/**
+	 *
+	 * Get Invoice Pdf
+	 * @param id
+	 */
+	financeInvoicesIdPdfGet(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Replace Invoice
+	 * @param id
+	 * @param invoice
+	 */
+	financeInvoicesIdPut(params: {
+		id: number;
+		invoice: Invoice;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Invoice>;
+	/**
+	 *
+	 * Create Invoice
+	 * @param invoice
+	 */
+	financeInvoicesPost(params: {
+		invoice: Invoice;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Invoice>;
 }
 }
 declare module 'connectwise-rest-api/release/api/financeAPI' {
@@ -4845,190 +4845,190 @@ export = alias;
 // Source: release/api/marketingAPI.d.ts
 declare module '~connectwise-rest-api/release/api/marketingAPI' {
 export interface ActivityReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface Campaign {
-    "id"?: number;
-    "name": string;
-    "type": CampaignTypeReference;
-    "subType": CampaignSubTypeReference;
-    "status"?: CampaignStatusReference;
-    "startDate": Date;
-    "endDate"?: Date;
-    "locationId"?: number;
-    "member"?: MemberReference;
-    "inactive"?: boolean;
-    "inactiveDaysAfterEnd"?: number;
-    "notes"?: string;
-    "defaultGroup"?: GroupReference;
-    "marketingManagerDefaultTrackId"?: number;
-    "opportunityDefaultTrackId"?: number;
-    "impressions"?: number;
-    "budgetRevenue"?: number;
-    "budgetCost"?: number;
-    "actualCost"?: number;
-    "budgetGrossMargin"?: number;
-    "budgetROI"?: number;
-    "actualRevenue"?: number;
-    "actualGrossMargin"?: number;
-    "actualROI"?: number;
-    "emailsSent"?: number;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name": string;
+	"type": CampaignTypeReference;
+	"subType": CampaignSubTypeReference;
+	"status"?: CampaignStatusReference;
+	"startDate": Date;
+	"endDate"?: Date;
+	"locationId"?: number;
+	"member"?: MemberReference;
+	"inactive"?: boolean;
+	"inactiveDaysAfterEnd"?: number;
+	"notes"?: string;
+	"defaultGroup"?: GroupReference;
+	"marketingManagerDefaultTrackId"?: number;
+	"opportunityDefaultTrackId"?: number;
+	"impressions"?: number;
+	"budgetRevenue"?: number;
+	"budgetCost"?: number;
+	"actualCost"?: number;
+	"budgetGrossMargin"?: number;
+	"budgetROI"?: number;
+	"actualRevenue"?: number;
+	"actualGrossMargin"?: number;
+	"actualROI"?: number;
+	"emailsSent"?: number;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface CampaignAudit {
-    "id"?: number;
-    "emailsSent": number;
-    "emailsUnsent"?: number;
-    "documentsCreated"?: number;
-    "emailSubject"?: string;
-    "group"?: GroupReference;
-    "campaignId"?: number;
-    "createdBy"?: string;
-    "dateCreated"?: string;
+	"id"?: number;
+	"emailsSent": number;
+	"emailsUnsent"?: number;
+	"documentsCreated"?: number;
+	"emailSubject"?: string;
+	"group"?: GroupReference;
+	"campaignId"?: number;
+	"createdBy"?: string;
+	"dateCreated"?: string;
 }
 export interface CampaignStatus {
-    "id"?: number;
-    "name": string;
-    "defaultFlag"?: boolean;
-    "inactiveFlag"?: boolean;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name": string;
+	"defaultFlag"?: boolean;
+	"inactiveFlag"?: boolean;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface CampaignStatusReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface CampaignSubType {
-    "id"?: number;
-    "typeId"?: number;
-    "name": string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"typeId"?: number;
+	"name": string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface CampaignSubTypeReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface CampaignType {
-    "id"?: number;
-    "name": string;
-    "defaultFlag"?: boolean;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name": string;
+	"defaultFlag"?: boolean;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface CampaignTypeReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface Count {
-    "count"?: number;
+	"count"?: number;
 }
 export interface EmailOpened {
-    "id"?: number;
-    "campaignId"?: number;
-    "contactId": number;
-    "dateOpened"?: Date;
+	"id"?: number;
+	"campaignId"?: number;
+	"contactId": number;
+	"dateOpened"?: Date;
 }
 export interface Error {
-    "code"?: string;
-    "message"?: string;
-    "errors"?: Array<ValidationError>;
+	"code"?: string;
+	"message"?: string;
+	"errors"?: Array<ValidationError>;
 }
 export interface FormSubmitted {
-    "id"?: number;
-    "campaignId"?: number;
-    "contactId": number;
-    "dateSubmitted"?: Date;
-    "url": string;
-    "queryString"?: string;
-    "pageType"?: string;
-    "pageSubType"?: string;
-    "topic"?: string;
-    "version"?: string;
-    "status"?: string;
+	"id"?: number;
+	"campaignId"?: number;
+	"contactId": number;
+	"dateSubmitted"?: Date;
+	"url": string;
+	"queryString"?: string;
+	"pageType"?: string;
+	"pageSubType"?: string;
+	"topic"?: string;
+	"version"?: string;
+	"status"?: string;
 }
 export interface Group {
-    "id"?: number;
-    "name": string;
-    "publicDescription"?: string;
-    "publicFlag"?: boolean;
-    "inactiveFlag"?: boolean;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name": string;
+	"publicDescription"?: string;
+	"publicFlag"?: boolean;
+	"inactiveFlag"?: boolean;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface GroupReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface LinkClicked {
-    "id"?: number;
-    "campaignId"?: number;
-    "contactId": number;
-    "dateClicked"?: Date;
-    "url": string;
-    "queryString"?: string;
+	"id"?: number;
+	"campaignId"?: number;
+	"contactId": number;
+	"dateClicked"?: Date;
+	"url": string;
+	"queryString"?: string;
 }
 export interface MarketingCompany {
-    "id": number;
-    "groupId"?: number;
-    "defaultContactFlag"?: boolean;
-    "allContactsFlag"?: boolean;
-    "unsubscribeFlag"?: boolean;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id": number;
+	"groupId"?: number;
+	"defaultContactFlag"?: boolean;
+	"allContactsFlag"?: boolean;
+	"unsubscribeFlag"?: boolean;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface MarketingContact {
-    "id": number;
-    "groupId"?: number;
-    "note"?: string;
-    "unsubscribeFlag"?: boolean;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id": number;
+	"groupId"?: number;
+	"note"?: string;
+	"unsubscribeFlag"?: boolean;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface MemberReference {
-    "id"?: number;
-    "identifier"?: string;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"identifier"?: string;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 /**
  * Metadata of the entity
@@ -5036,942 +5036,942 @@ export interface MemberReference {
 export interface Metadata {
 }
 export interface OpportunityReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface PatchOperation {
-    "op"?: string;
-    "path"?: string;
-    "value"?: string;
+	"op"?: string;
+	"path"?: string;
+	"value"?: string;
 }
 export interface ValidationError {
-    "code"?: string;
-    "message"?: string;
-    "resource"?: string;
-    "field"?: string;
+	"code"?: string;
+	"message"?: string;
+	"resource"?: string;
+	"field"?: string;
 }
 export class CampaignAuditsApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Delete Campaign Audit By Id
-     * @param id
-     * @param auditId
-     */
-    marketingCampaignsIdAuditsAuditIdDelete(params: {
-        id: number;
-        auditId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Campaign Audit By Id
-     * @param id
-     * @param auditId
-     */
-    marketingCampaignsIdAuditsAuditIdGet(params: {
-        id: number;
-        auditId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CampaignAudit>;
-    /**
-     *
-     * Update Campaign Audit
-     * @param id
-     * @param auditId
-     * @param operations
-     */
-    marketingCampaignsIdAuditsAuditIdPatch(params: {
-        id: number;
-        auditId: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CampaignAudit>;
-    /**
-     *
-     * Replace Campaign Audit
-     * @param id
-     * @param auditId
-     * @param campaignAudit
-     */
-    marketingCampaignsIdAuditsAuditIdPut(params: {
-        id: number;
-        auditId: number;
-        campaignAudit: CampaignAudit;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CampaignAudit>;
-    /**
-     *
-     * Get Campaign Audits Count
-     * @param id
-     * @param conditions
-     */
-    marketingCampaignsIdAuditsCountGet(params: {
-        id: number;
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Campaign Audits
-     * @param id
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    marketingCampaignsIdAuditsGet(params: {
-        id: number;
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<CampaignAudit>>;
-    /**
-     *
-     * Create Campaign Audit
-     * @param id
-     * @param campaignAudit
-     */
-    marketingCampaignsIdAuditsPost(params: {
-        id: number;
-        campaignAudit: CampaignAudit;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CampaignAudit>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Delete Campaign Audit By Id
+	 * @param id
+	 * @param auditId
+	 */
+	marketingCampaignsIdAuditsAuditIdDelete(params: {
+		id: number;
+		auditId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Campaign Audit By Id
+	 * @param id
+	 * @param auditId
+	 */
+	marketingCampaignsIdAuditsAuditIdGet(params: {
+		id: number;
+		auditId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<CampaignAudit>;
+	/**
+	 *
+	 * Update Campaign Audit
+	 * @param id
+	 * @param auditId
+	 * @param operations
+	 */
+	marketingCampaignsIdAuditsAuditIdPatch(params: {
+		id: number;
+		auditId: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<CampaignAudit>;
+	/**
+	 *
+	 * Replace Campaign Audit
+	 * @param id
+	 * @param auditId
+	 * @param campaignAudit
+	 */
+	marketingCampaignsIdAuditsAuditIdPut(params: {
+		id: number;
+		auditId: number;
+		campaignAudit: CampaignAudit;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<CampaignAudit>;
+	/**
+	 *
+	 * Get Campaign Audits Count
+	 * @param id
+	 * @param conditions
+	 */
+	marketingCampaignsIdAuditsCountGet(params: {
+		id: number;
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Campaign Audits
+	 * @param id
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	marketingCampaignsIdAuditsGet(params: {
+		id: number;
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<CampaignAudit>>;
+	/**
+	 *
+	 * Create Campaign Audit
+	 * @param id
+	 * @param campaignAudit
+	 */
+	marketingCampaignsIdAuditsPost(params: {
+		id: number;
+		campaignAudit: CampaignAudit;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<CampaignAudit>;
 }
 export class CampaignEmailsOpenedApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Emails Opened Count
-     * @param id
-     * @param conditions
-     */
-    marketingCampaignsIdEmailsOpenedCountGet(params: {
-        id: number;
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Delete Email Opened By Id
-     * @param id
-     * @param emailOpenedId
-     */
-    marketingCampaignsIdEmailsOpenedEmailOpenedIdDelete(params: {
-        id: number;
-        emailOpenedId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Email Opened By Id
-     * @param id
-     * @param emailOpenedId
-     */
-    marketingCampaignsIdEmailsOpenedEmailOpenedIdGet(params: {
-        id: number;
-        emailOpenedId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<EmailOpened>;
-    /**
-     *
-     * Update Email Opened
-     * @param id
-     * @param emailOpenedId
-     * @param operations
-     */
-    marketingCampaignsIdEmailsOpenedEmailOpenedIdPatch(params: {
-        id: number;
-        emailOpenedId: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<EmailOpened>;
-    /**
-     *
-     * Replace Email Opened
-     * @param id
-     * @param emailOpenedId
-     * @param emailOpened
-     */
-    marketingCampaignsIdEmailsOpenedEmailOpenedIdPut(params: {
-        id: number;
-        emailOpenedId: number;
-        emailOpened: EmailOpened;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<EmailOpened>;
-    /**
-     *
-     * Get Emails Opened
-     * @param id
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    marketingCampaignsIdEmailsOpenedGet(params: {
-        id: number;
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<EmailOpened>>;
-    /**
-     *
-     * Create Email Opened
-     * @param id
-     * @param emailOpened
-     */
-    marketingCampaignsIdEmailsOpenedPost(params: {
-        id: number;
-        emailOpened: EmailOpened;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<EmailOpened>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Emails Opened Count
+	 * @param id
+	 * @param conditions
+	 */
+	marketingCampaignsIdEmailsOpenedCountGet(params: {
+		id: number;
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Delete Email Opened By Id
+	 * @param id
+	 * @param emailOpenedId
+	 */
+	marketingCampaignsIdEmailsOpenedEmailOpenedIdDelete(params: {
+		id: number;
+		emailOpenedId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Email Opened By Id
+	 * @param id
+	 * @param emailOpenedId
+	 */
+	marketingCampaignsIdEmailsOpenedEmailOpenedIdGet(params: {
+		id: number;
+		emailOpenedId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<EmailOpened>;
+	/**
+	 *
+	 * Update Email Opened
+	 * @param id
+	 * @param emailOpenedId
+	 * @param operations
+	 */
+	marketingCampaignsIdEmailsOpenedEmailOpenedIdPatch(params: {
+		id: number;
+		emailOpenedId: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<EmailOpened>;
+	/**
+	 *
+	 * Replace Email Opened
+	 * @param id
+	 * @param emailOpenedId
+	 * @param emailOpened
+	 */
+	marketingCampaignsIdEmailsOpenedEmailOpenedIdPut(params: {
+		id: number;
+		emailOpenedId: number;
+		emailOpened: EmailOpened;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<EmailOpened>;
+	/**
+	 *
+	 * Get Emails Opened
+	 * @param id
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	marketingCampaignsIdEmailsOpenedGet(params: {
+		id: number;
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<EmailOpened>>;
+	/**
+	 *
+	 * Create Email Opened
+	 * @param id
+	 * @param emailOpened
+	 */
+	marketingCampaignsIdEmailsOpenedPost(params: {
+		id: number;
+		emailOpened: EmailOpened;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<EmailOpened>;
 }
 export class CampaignFormsSubmittedApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Forms Submitted Count
-     * @param id
-     * @param conditions
-     */
-    marketingCampaignsIdFormsSubmittedCountGet(params: {
-        id: number;
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Delete Form Submitted By Id
-     * @param id
-     * @param formSubmittedId
-     */
-    marketingCampaignsIdFormsSubmittedFormSubmittedIdDelete(params: {
-        id: number;
-        formSubmittedId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Form Submitted By Id
-     * @param id
-     * @param formSubmittedId
-     */
-    marketingCampaignsIdFormsSubmittedFormSubmittedIdGet(params: {
-        id: number;
-        formSubmittedId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<FormSubmitted>;
-    /**
-     *
-     * Update Form Submitted
-     * @param id
-     * @param formSubmittedId
-     * @param operations
-     */
-    marketingCampaignsIdFormsSubmittedFormSubmittedIdPatch(params: {
-        id: number;
-        formSubmittedId: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<FormSubmitted>;
-    /**
-     *
-     * Replace Form Submitted
-     * @param id
-     * @param formSubmittedId
-     * @param formSubmitted
-     */
-    marketingCampaignsIdFormsSubmittedFormSubmittedIdPut(params: {
-        id: number;
-        formSubmittedId: number;
-        formSubmitted: FormSubmitted;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<FormSubmitted>;
-    /**
-     *
-     * Get Forms Submitted
-     * @param id
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    marketingCampaignsIdFormsSubmittedGet(params: {
-        id: number;
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<FormSubmitted>>;
-    /**
-     *
-     * Create Form Submitted
-     * @param id
-     * @param formSubmitted
-     */
-    marketingCampaignsIdFormsSubmittedPost(params: {
-        id: number;
-        formSubmitted: FormSubmitted;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<FormSubmitted>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Forms Submitted Count
+	 * @param id
+	 * @param conditions
+	 */
+	marketingCampaignsIdFormsSubmittedCountGet(params: {
+		id: number;
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Delete Form Submitted By Id
+	 * @param id
+	 * @param formSubmittedId
+	 */
+	marketingCampaignsIdFormsSubmittedFormSubmittedIdDelete(params: {
+		id: number;
+		formSubmittedId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Form Submitted By Id
+	 * @param id
+	 * @param formSubmittedId
+	 */
+	marketingCampaignsIdFormsSubmittedFormSubmittedIdGet(params: {
+		id: number;
+		formSubmittedId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<FormSubmitted>;
+	/**
+	 *
+	 * Update Form Submitted
+	 * @param id
+	 * @param formSubmittedId
+	 * @param operations
+	 */
+	marketingCampaignsIdFormsSubmittedFormSubmittedIdPatch(params: {
+		id: number;
+		formSubmittedId: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<FormSubmitted>;
+	/**
+	 *
+	 * Replace Form Submitted
+	 * @param id
+	 * @param formSubmittedId
+	 * @param formSubmitted
+	 */
+	marketingCampaignsIdFormsSubmittedFormSubmittedIdPut(params: {
+		id: number;
+		formSubmittedId: number;
+		formSubmitted: FormSubmitted;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<FormSubmitted>;
+	/**
+	 *
+	 * Get Forms Submitted
+	 * @param id
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	marketingCampaignsIdFormsSubmittedGet(params: {
+		id: number;
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<FormSubmitted>>;
+	/**
+	 *
+	 * Create Form Submitted
+	 * @param id
+	 * @param formSubmitted
+	 */
+	marketingCampaignsIdFormsSubmittedPost(params: {
+		id: number;
+		formSubmitted: FormSubmitted;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<FormSubmitted>;
 }
 export class CampaignLinksClickedApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Links Clicked Count
-     * @param id
-     * @param conditions
-     */
-    marketingCampaignsIdLinksClickedCountGet(params: {
-        id: number;
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Links Clicked
-     * @param id
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    marketingCampaignsIdLinksClickedGet(params: {
-        id: number;
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<LinkClicked>>;
-    /**
-     *
-     * Delete Link Clicked By Id
-     * @param id
-     * @param linkClickedId
-     */
-    marketingCampaignsIdLinksClickedLinkClickedIdDelete(params: {
-        id: number;
-        linkClickedId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Link Clicked By Id
-     * @param id
-     * @param linkClickedId
-     */
-    marketingCampaignsIdLinksClickedLinkClickedIdGet(params: {
-        id: number;
-        linkClickedId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<LinkClicked>;
-    /**
-     *
-     * Update Link Clicked
-     * @param id
-     * @param linkClickedId
-     * @param operations
-     */
-    marketingCampaignsIdLinksClickedLinkClickedIdPatch(params: {
-        id: number;
-        linkClickedId: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<LinkClicked>;
-    /**
-     *
-     * Replace Link Clicked
-     * @param id
-     * @param linkClickedId
-     * @param linkClicked
-     */
-    marketingCampaignsIdLinksClickedLinkClickedIdPut(params: {
-        id: number;
-        linkClickedId: number;
-        linkClicked: LinkClicked;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<LinkClicked>;
-    /**
-     *
-     * Create Link Clicked
-     * @param id
-     * @param linkClicked
-     */
-    marketingCampaignsIdLinksClickedPost(params: {
-        id: number;
-        linkClicked: LinkClicked;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<LinkClicked>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Links Clicked Count
+	 * @param id
+	 * @param conditions
+	 */
+	marketingCampaignsIdLinksClickedCountGet(params: {
+		id: number;
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Links Clicked
+	 * @param id
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	marketingCampaignsIdLinksClickedGet(params: {
+		id: number;
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<LinkClicked>>;
+	/**
+	 *
+	 * Delete Link Clicked By Id
+	 * @param id
+	 * @param linkClickedId
+	 */
+	marketingCampaignsIdLinksClickedLinkClickedIdDelete(params: {
+		id: number;
+		linkClickedId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Link Clicked By Id
+	 * @param id
+	 * @param linkClickedId
+	 */
+	marketingCampaignsIdLinksClickedLinkClickedIdGet(params: {
+		id: number;
+		linkClickedId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<LinkClicked>;
+	/**
+	 *
+	 * Update Link Clicked
+	 * @param id
+	 * @param linkClickedId
+	 * @param operations
+	 */
+	marketingCampaignsIdLinksClickedLinkClickedIdPatch(params: {
+		id: number;
+		linkClickedId: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<LinkClicked>;
+	/**
+	 *
+	 * Replace Link Clicked
+	 * @param id
+	 * @param linkClickedId
+	 * @param linkClicked
+	 */
+	marketingCampaignsIdLinksClickedLinkClickedIdPut(params: {
+		id: number;
+		linkClickedId: number;
+		linkClicked: LinkClicked;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<LinkClicked>;
+	/**
+	 *
+	 * Create Link Clicked
+	 * @param id
+	 * @param linkClicked
+	 */
+	marketingCampaignsIdLinksClickedPost(params: {
+		id: number;
+		linkClicked: LinkClicked;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<LinkClicked>;
 }
 export class CampaignStatusesApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Campaign Statuses Count
-     * @param conditions
-     */
-    marketingCampaignsStatusesCountGet(params: {
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Campaign Statuses
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    marketingCampaignsStatusesGet(params: {
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<CampaignStatus>>;
-    /**
-     *
-     * Delete Campaign Status By Id
-     * @param id
-     */
-    marketingCampaignsStatusesIdDelete(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Campaign Status By Id
-     * @param id
-     */
-    marketingCampaignsStatusesIdGet(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CampaignStatus>;
-    /**
-     *
-     * Update Campaign Status
-     * @param id
-     * @param operations
-     */
-    marketingCampaignsStatusesIdPatch(params: {
-        id: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CampaignStatus>;
-    /**
-     *
-     * Replace Campaign Status
-     * @param id
-     * @param campaignStatus
-     */
-    marketingCampaignsStatusesIdPut(params: {
-        id: number;
-        campaignStatus: CampaignStatus;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CampaignStatus>;
-    /**
-     *
-     * Create Campaign Status
-     * @param campaignStatus
-     */
-    marketingCampaignsStatusesPost(params: {
-        campaignStatus: CampaignStatus;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CampaignStatus>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Campaign Statuses Count
+	 * @param conditions
+	 */
+	marketingCampaignsStatusesCountGet(params: {
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Campaign Statuses
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	marketingCampaignsStatusesGet(params: {
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<CampaignStatus>>;
+	/**
+	 *
+	 * Delete Campaign Status By Id
+	 * @param id
+	 */
+	marketingCampaignsStatusesIdDelete(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Campaign Status By Id
+	 * @param id
+	 */
+	marketingCampaignsStatusesIdGet(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<CampaignStatus>;
+	/**
+	 *
+	 * Update Campaign Status
+	 * @param id
+	 * @param operations
+	 */
+	marketingCampaignsStatusesIdPatch(params: {
+		id: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<CampaignStatus>;
+	/**
+	 *
+	 * Replace Campaign Status
+	 * @param id
+	 * @param campaignStatus
+	 */
+	marketingCampaignsStatusesIdPut(params: {
+		id: number;
+		campaignStatus: CampaignStatus;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<CampaignStatus>;
+	/**
+	 *
+	 * Create Campaign Status
+	 * @param campaignStatus
+	 */
+	marketingCampaignsStatusesPost(params: {
+		campaignStatus: CampaignStatus;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<CampaignStatus>;
 }
 export class CampaignSubTypesApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Campaign Sub Types Count
-     * @param id
-     * @param conditions
-     */
-    marketingCampaignsTypesIdSubTypesCountGet(params: {
-        id: number;
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Campaign Sub Types
-     * @param id
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    marketingCampaignsTypesIdSubTypesGet(params: {
-        id: number;
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<CampaignSubType>>;
-    /**
-     *
-     * Create Campaign Sub Type
-     * @param id
-     * @param campaignSubType
-     */
-    marketingCampaignsTypesIdSubTypesPost(params: {
-        id: number;
-        campaignSubType: CampaignSubType;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CampaignSubType>;
-    /**
-     *
-     * Delete Campaign Sub Type By Id
-     * @param id
-     * @param subTypeId
-     */
-    marketingCampaignsTypesIdSubTypesSubTypeIdDelete(params: {
-        id: number;
-        subTypeId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Campaign Sub Type By Id
-     * @param id
-     * @param subTypeId
-     */
-    marketingCampaignsTypesIdSubTypesSubTypeIdGet(params: {
-        id: number;
-        subTypeId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CampaignSubType>;
-    /**
-     *
-     * Update Campaign Sub Type
-     * @param id
-     * @param subTypeId
-     * @param operations
-     */
-    marketingCampaignsTypesIdSubTypesSubTypeIdPatch(params: {
-        id: number;
-        subTypeId: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CampaignSubType>;
-    /**
-     *
-     * Replace Campaign Sub Type
-     * @param id
-     * @param subTypeId
-     * @param campaignSubType
-     */
-    marketingCampaignsTypesIdSubTypesSubTypeIdPut(params: {
-        id: number;
-        subTypeId: number;
-        campaignSubType: CampaignSubType;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CampaignSubType>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Campaign Sub Types Count
+	 * @param id
+	 * @param conditions
+	 */
+	marketingCampaignsTypesIdSubTypesCountGet(params: {
+		id: number;
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Campaign Sub Types
+	 * @param id
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	marketingCampaignsTypesIdSubTypesGet(params: {
+		id: number;
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<CampaignSubType>>;
+	/**
+	 *
+	 * Create Campaign Sub Type
+	 * @param id
+	 * @param campaignSubType
+	 */
+	marketingCampaignsTypesIdSubTypesPost(params: {
+		id: number;
+		campaignSubType: CampaignSubType;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<CampaignSubType>;
+	/**
+	 *
+	 * Delete Campaign Sub Type By Id
+	 * @param id
+	 * @param subTypeId
+	 */
+	marketingCampaignsTypesIdSubTypesSubTypeIdDelete(params: {
+		id: number;
+		subTypeId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Campaign Sub Type By Id
+	 * @param id
+	 * @param subTypeId
+	 */
+	marketingCampaignsTypesIdSubTypesSubTypeIdGet(params: {
+		id: number;
+		subTypeId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<CampaignSubType>;
+	/**
+	 *
+	 * Update Campaign Sub Type
+	 * @param id
+	 * @param subTypeId
+	 * @param operations
+	 */
+	marketingCampaignsTypesIdSubTypesSubTypeIdPatch(params: {
+		id: number;
+		subTypeId: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<CampaignSubType>;
+	/**
+	 *
+	 * Replace Campaign Sub Type
+	 * @param id
+	 * @param subTypeId
+	 * @param campaignSubType
+	 */
+	marketingCampaignsTypesIdSubTypesSubTypeIdPut(params: {
+		id: number;
+		subTypeId: number;
+		campaignSubType: CampaignSubType;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<CampaignSubType>;
 }
 export class CampaignTypesApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Campaign Types Count
-     * @param conditions
-     */
-    marketingCampaignsTypesCountGet(params: {
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Campaign Types
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    marketingCampaignsTypesGet(params: {
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<CampaignType>>;
-    /**
-     *
-     * Delete Campaign Type By Id
-     * @param id
-     */
-    marketingCampaignsTypesIdDelete(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Campaign Type By Id
-     * @param id
-     */
-    marketingCampaignsTypesIdGet(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CampaignType>;
-    /**
-     *
-     * Update Campaign Type
-     * @param id
-     * @param operations
-     */
-    marketingCampaignsTypesIdPatch(params: {
-        id: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CampaignType>;
-    /**
-     *
-     * Replace Campaign Type
-     * @param id
-     * @param campaignType
-     */
-    marketingCampaignsTypesIdPut(params: {
-        id: number;
-        campaignType: CampaignType;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CampaignType>;
-    /**
-     *
-     * Create Campaign Type
-     * @param campaignType
-     */
-    marketingCampaignsTypesPost(params: {
-        campaignType: CampaignType;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CampaignType>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Campaign Types Count
+	 * @param conditions
+	 */
+	marketingCampaignsTypesCountGet(params: {
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Campaign Types
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	marketingCampaignsTypesGet(params: {
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<CampaignType>>;
+	/**
+	 *
+	 * Delete Campaign Type By Id
+	 * @param id
+	 */
+	marketingCampaignsTypesIdDelete(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Campaign Type By Id
+	 * @param id
+	 */
+	marketingCampaignsTypesIdGet(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<CampaignType>;
+	/**
+	 *
+	 * Update Campaign Type
+	 * @param id
+	 * @param operations
+	 */
+	marketingCampaignsTypesIdPatch(params: {
+		id: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<CampaignType>;
+	/**
+	 *
+	 * Replace Campaign Type
+	 * @param id
+	 * @param campaignType
+	 */
+	marketingCampaignsTypesIdPut(params: {
+		id: number;
+		campaignType: CampaignType;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<CampaignType>;
+	/**
+	 *
+	 * Create Campaign Type
+	 * @param campaignType
+	 */
+	marketingCampaignsTypesPost(params: {
+		campaignType: CampaignType;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<CampaignType>;
 }
 export class CampaignsApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Campaigns Count
-     * @param conditions
-     */
-    marketingCampaignsCountGet(params: {
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Campaigns
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    marketingCampaignsGet(params: {
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Campaign>>;
-    /**
-     *
-     * Get Campaign Activities Count
-     * @param id
-     */
-    marketingCampaignsIdActivitiesCountGet(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Campaign Activities
-     * @param id
-     * @param page
-     * @param pageSize
-     */
-    marketingCampaignsIdActivitiesGet(params: {
-        id: number;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ActivityReference>>;
-    /**
-     *
-     * Delete Campaign By Id
-     * @param id
-     */
-    marketingCampaignsIdDelete(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Campaign By Id
-     * @param id
-     */
-    marketingCampaignsIdGet(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Campaign>;
-    /**
-     *
-     * Get Campaign Opportunities Count
-     * @param id
-     */
-    marketingCampaignsIdOpportunitiesCountGet(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Campaign Opportunities
-     * @param id
-     * @param page
-     * @param pageSize
-     */
-    marketingCampaignsIdOpportunitiesGet(params: {
-        id: number;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<OpportunityReference>>;
-    /**
-     *
-     * Update Campaign
-     * @param id
-     * @param operations
-     */
-    marketingCampaignsIdPatch(params: {
-        id: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Campaign>;
-    /**
-     *
-     * Replace Campaign
-     * @param id
-     * @param campaign
-     */
-    marketingCampaignsIdPut(params: {
-        id: number;
-        campaign: Campaign;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Campaign>;
-    /**
-     *
-     * Create Campaign
-     * @param campaign
-     */
-    marketingCampaignsPost(params: {
-        campaign: Campaign;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Campaign>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Campaigns Count
+	 * @param conditions
+	 */
+	marketingCampaignsCountGet(params: {
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Campaigns
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	marketingCampaignsGet(params: {
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Campaign>>;
+	/**
+	 *
+	 * Get Campaign Activities Count
+	 * @param id
+	 */
+	marketingCampaignsIdActivitiesCountGet(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Campaign Activities
+	 * @param id
+	 * @param page
+	 * @param pageSize
+	 */
+	marketingCampaignsIdActivitiesGet(params: {
+		id: number;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ActivityReference>>;
+	/**
+	 *
+	 * Delete Campaign By Id
+	 * @param id
+	 */
+	marketingCampaignsIdDelete(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Campaign By Id
+	 * @param id
+	 */
+	marketingCampaignsIdGet(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Campaign>;
+	/**
+	 *
+	 * Get Campaign Opportunities Count
+	 * @param id
+	 */
+	marketingCampaignsIdOpportunitiesCountGet(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Campaign Opportunities
+	 * @param id
+	 * @param page
+	 * @param pageSize
+	 */
+	marketingCampaignsIdOpportunitiesGet(params: {
+		id: number;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<OpportunityReference>>;
+	/**
+	 *
+	 * Update Campaign
+	 * @param id
+	 * @param operations
+	 */
+	marketingCampaignsIdPatch(params: {
+		id: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Campaign>;
+	/**
+	 *
+	 * Replace Campaign
+	 * @param id
+	 * @param campaign
+	 */
+	marketingCampaignsIdPut(params: {
+		id: number;
+		campaign: Campaign;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Campaign>;
+	/**
+	 *
+	 * Create Campaign
+	 * @param campaign
+	 */
+	marketingCampaignsPost(params: {
+		campaign: Campaign;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Campaign>;
 }
 export class GroupCompaniesApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Delete Marketing Company By Id
-     * @param id
-     * @param companyId
-     */
-    marketingGroupsIdCompaniesCompanyIdDelete(params: {
-        id: number;
-        companyId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Marketing Company By Id
-     * @param id
-     * @param companyId
-     */
-    marketingGroupsIdCompaniesCompanyIdGet(params: {
-        id: number;
-        companyId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<MarketingCompany>;
-    /**
-     *
-     * Update Marketing Company
-     * @param id
-     * @param companyId
-     * @param operations
-     */
-    marketingGroupsIdCompaniesCompanyIdPatch(params: {
-        id: number;
-        companyId: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<MarketingCompany>;
-    /**
-     *
-     * Replace Marketing Company
-     * @param id
-     * @param companyId
-     * @param marketingCompany
-     */
-    marketingGroupsIdCompaniesCompanyIdPut(params: {
-        id: number;
-        companyId: number;
-        marketingCompany: MarketingCompany;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<MarketingCompany>;
-    /**
-     *
-     * Get Marketing Companys Count
-     * @param id
-     * @param conditions
-     */
-    marketingGroupsIdCompaniesCountGet(params: {
-        id: number;
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Marketing Companys
-     * @param id
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    marketingGroupsIdCompaniesGet(params: {
-        id: number;
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<MarketingCompany>>;
-    /**
-     *
-     * Create Marketing Company
-     * @param id
-     * @param marketingCompany
-     */
-    marketingGroupsIdCompaniesPost(params: {
-        id: number;
-        marketingCompany: MarketingCompany;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<MarketingCompany>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Delete Marketing Company By Id
+	 * @param id
+	 * @param companyId
+	 */
+	marketingGroupsIdCompaniesCompanyIdDelete(params: {
+		id: number;
+		companyId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Marketing Company By Id
+	 * @param id
+	 * @param companyId
+	 */
+	marketingGroupsIdCompaniesCompanyIdGet(params: {
+		id: number;
+		companyId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<MarketingCompany>;
+	/**
+	 *
+	 * Update Marketing Company
+	 * @param id
+	 * @param companyId
+	 * @param operations
+	 */
+	marketingGroupsIdCompaniesCompanyIdPatch(params: {
+		id: number;
+		companyId: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<MarketingCompany>;
+	/**
+	 *
+	 * Replace Marketing Company
+	 * @param id
+	 * @param companyId
+	 * @param marketingCompany
+	 */
+	marketingGroupsIdCompaniesCompanyIdPut(params: {
+		id: number;
+		companyId: number;
+		marketingCompany: MarketingCompany;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<MarketingCompany>;
+	/**
+	 *
+	 * Get Marketing Companys Count
+	 * @param id
+	 * @param conditions
+	 */
+	marketingGroupsIdCompaniesCountGet(params: {
+		id: number;
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Marketing Companys
+	 * @param id
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	marketingGroupsIdCompaniesGet(params: {
+		id: number;
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<MarketingCompany>>;
+	/**
+	 *
+	 * Create Marketing Company
+	 * @param id
+	 * @param marketingCompany
+	 */
+	marketingGroupsIdCompaniesPost(params: {
+		id: number;
+		marketingCompany: MarketingCompany;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<MarketingCompany>;
 }
 export class GroupContactsApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Delete Marketing Contact By Id
-     * @param id
-     * @param contactId
-     */
-    marketingGroupsIdContactsContactIdDelete(params: {
-        id: number;
-        contactId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Marketing Contact By Id
-     * @param id
-     * @param contactId
-     */
-    marketingGroupsIdContactsContactIdGet(params: {
-        id: number;
-        contactId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<MarketingContact>;
-    /**
-     *
-     * Update Marketing Contact
-     * @param id
-     * @param contactId
-     * @param operations
-     */
-    marketingGroupsIdContactsContactIdPatch(params: {
-        id: number;
-        contactId: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<MarketingContact>;
-    /**
-     *
-     * Replace Marketing Contact
-     * @param id
-     * @param contactId
-     * @param marketingContact
-     */
-    marketingGroupsIdContactsContactIdPut(params: {
-        id: number;
-        contactId: number;
-        marketingContact: MarketingContact;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<MarketingContact>;
-    /**
-     *
-     * Get Marketing Contacts Count
-     * @param id
-     * @param conditions
-     */
-    marketingGroupsIdContactsCountGet(params: {
-        id: number;
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Marketing Contacts
-     * @param id
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    marketingGroupsIdContactsGet(params: {
-        id: number;
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<MarketingContact>>;
-    /**
-     *
-     * Create Marketing Contact
-     * @param id
-     * @param marketingContact
-     */
-    marketingGroupsIdContactsPost(params: {
-        id: number;
-        marketingContact: MarketingContact;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<MarketingContact>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Delete Marketing Contact By Id
+	 * @param id
+	 * @param contactId
+	 */
+	marketingGroupsIdContactsContactIdDelete(params: {
+		id: number;
+		contactId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Marketing Contact By Id
+	 * @param id
+	 * @param contactId
+	 */
+	marketingGroupsIdContactsContactIdGet(params: {
+		id: number;
+		contactId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<MarketingContact>;
+	/**
+	 *
+	 * Update Marketing Contact
+	 * @param id
+	 * @param contactId
+	 * @param operations
+	 */
+	marketingGroupsIdContactsContactIdPatch(params: {
+		id: number;
+		contactId: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<MarketingContact>;
+	/**
+	 *
+	 * Replace Marketing Contact
+	 * @param id
+	 * @param contactId
+	 * @param marketingContact
+	 */
+	marketingGroupsIdContactsContactIdPut(params: {
+		id: number;
+		contactId: number;
+		marketingContact: MarketingContact;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<MarketingContact>;
+	/**
+	 *
+	 * Get Marketing Contacts Count
+	 * @param id
+	 * @param conditions
+	 */
+	marketingGroupsIdContactsCountGet(params: {
+		id: number;
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Marketing Contacts
+	 * @param id
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	marketingGroupsIdContactsGet(params: {
+		id: number;
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<MarketingContact>>;
+	/**
+	 *
+	 * Create Marketing Contact
+	 * @param id
+	 * @param marketingContact
+	 */
+	marketingGroupsIdContactsPost(params: {
+		id: number;
+		marketingContact: MarketingContact;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<MarketingContact>;
 }
 export class GroupsApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Groups Count
-     * @param conditions
-     */
-    marketingGroupsCountGet(params: {
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Groups
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    marketingGroupsGet(params: {
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Group>>;
-    /**
-     *
-     * Delete Group By Id
-     * @param id
-     */
-    marketingGroupsIdDelete(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Group By Id
-     * @param id
-     */
-    marketingGroupsIdGet(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Group>;
-    /**
-     *
-     * Update Group
-     * @param id
-     * @param operations
-     */
-    marketingGroupsIdPatch(params: {
-        id: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Group>;
-    /**
-     *
-     * Replace Group
-     * @param id
-     * @param group
-     */
-    marketingGroupsIdPut(params: {
-        id: number;
-        group: Group;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Group>;
-    /**
-     *
-     * Create Group
-     * @param group
-     */
-    marketingGroupsPost(params: {
-        group: Group;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Group>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Groups Count
+	 * @param conditions
+	 */
+	marketingGroupsCountGet(params: {
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Groups
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	marketingGroupsGet(params: {
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Group>>;
+	/**
+	 *
+	 * Delete Group By Id
+	 * @param id
+	 */
+	marketingGroupsIdDelete(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Group By Id
+	 * @param id
+	 */
+	marketingGroupsIdGet(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Group>;
+	/**
+	 *
+	 * Update Group
+	 * @param id
+	 * @param operations
+	 */
+	marketingGroupsIdPatch(params: {
+		id: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Group>;
+	/**
+	 *
+	 * Replace Group
+	 * @param id
+	 * @param group
+	 */
+	marketingGroupsIdPut(params: {
+		id: number;
+		group: Group;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Group>;
+	/**
+	 *
+	 * Create Group
+	 * @param group
+	 */
+	marketingGroupsPost(params: {
+		group: Group;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Group>;
 }
 }
 declare module 'connectwise-rest-api/release/api/marketingAPI' {
@@ -5983,169 +5983,169 @@ export = alias;
 // Source: release/api/procurementAPI.d.ts
 declare module '~connectwise-rest-api/release/api/procurementAPI' {
 export interface AgreementReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface BillingTermsReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface CatalogComponent {
-    "id"?: number;
-    "sequenceNumber"?: number;
-    "quantity": number;
-    "catalogItem": CatalogItemReference;
-    "hidePriceFlag"?: boolean;
-    "hideItemIdentifierFlag"?: boolean;
-    "hideDescriptionFlag"?: boolean;
-    "hideQuantityFlag"?: boolean;
-    "parentCatalogItem"?: CatalogItemReference;
-    "price"?: number;
-    "cost"?: number;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"sequenceNumber"?: number;
+	"quantity": number;
+	"catalogItem": CatalogItemReference;
+	"hidePriceFlag"?: boolean;
+	"hideItemIdentifierFlag"?: boolean;
+	"hideDescriptionFlag"?: boolean;
+	"hideQuantityFlag"?: boolean;
+	"parentCatalogItem"?: CatalogItemReference;
+	"price"?: number;
+	"cost"?: number;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface CatalogItem {
-    "id"?: number;
-    "identifier": string;
-    "description": string;
-    "inactiveFlag"?: boolean;
-    "subcategory": ProductSubCategoryReference;
-    "type": ProductTypeReference;
-    "productClass": ProductClassEnum;
-    "serializedFlag"?: boolean;
-    "serializedCostFlag"?: boolean;
-    "phaseProductFlag"?: boolean;
-    "unitOfMeasure"?: UnitOfMeasureReference;
-    "minStockLevel"?: number;
-    "price"?: number;
-    "cost"?: number;
-    "priceAttribute"?: PriceAttributeEnum;
-    "taxableFlag"?: boolean;
-    "customerDescription": string;
-    "manufacturer"?: ManufacturerReference;
-    "manufacturerPartNumber"?: string;
-    "vendor"?: CompanyReference;
-    "vendorSku"?: string;
-    "notes"?: string;
-    "integrationXRef"?: string;
-    "dateEntered"?: string;
-    "category"?: ProductCategoryReference;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"identifier": string;
+	"description": string;
+	"inactiveFlag"?: boolean;
+	"subcategory": ProductSubCategoryReference;
+	"type": ProductTypeReference;
+	"productClass": ProductClassEnum;
+	"serializedFlag"?: boolean;
+	"serializedCostFlag"?: boolean;
+	"phaseProductFlag"?: boolean;
+	"unitOfMeasure"?: UnitOfMeasureReference;
+	"minStockLevel"?: number;
+	"price"?: number;
+	"cost"?: number;
+	"priceAttribute"?: PriceAttributeEnum;
+	"taxableFlag"?: boolean;
+	"customerDescription": string;
+	"manufacturer"?: ManufacturerReference;
+	"manufacturerPartNumber"?: string;
+	"vendor"?: CompanyReference;
+	"vendorSku"?: string;
+	"notes"?: string;
+	"integrationXRef"?: string;
+	"dateEntered"?: string;
+	"category"?: ProductCategoryReference;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export enum ProductClassEnum {
-    Agreement,
-    Bundle,
-    Inventory,
-    NonInventory,
-    Service,
+	Agreement,
+	Bundle,
+	Inventory,
+	NonInventory,
+	Service,
 }
 export enum PriceAttributeEnum {
-    FixedFee,
-    NotToExceed,
-    TimeAndMaterials,
-    OverrideRate,
+	FixedFee,
+	NotToExceed,
+	TimeAndMaterials,
+	OverrideRate,
 }
 export interface CatalogItemReference {
-    "id"?: number;
-    "identifier"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"identifier"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface Category {
-    "id"?: number;
-    "name": string;
-    "inactiveFlag"?: boolean;
-    "priceLevelXref"?: string;
-    "integrationXref"?: string;
-    "locationIds"?: Array<number>;
-    "addAllLocations"?: boolean;
-    "removeAllLocations"?: boolean;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name": string;
+	"inactiveFlag"?: boolean;
+	"priceLevelXref"?: string;
+	"integrationXref"?: string;
+	"locationIds"?: Array<number>;
+	"addAllLocations"?: boolean;
+	"removeAllLocations"?: boolean;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface CompanyReference {
-    "id"?: number;
-    "identifier"?: string;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"identifier"?: string;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ContactReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface Count {
-    "count"?: number;
+	"count"?: number;
 }
 export interface CountryReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface EntityTypeReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface Error {
-    "code"?: string;
-    "message"?: string;
-    "errors"?: Array<ValidationError>;
+	"code"?: string;
+	"message"?: string;
+	"errors"?: Array<ValidationError>;
 }
 export interface IvItemReference {
-    "id"?: number;
-    "identifier"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"identifier"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface Manufacturer {
-    "id"?: number;
-    "name": string;
-    "inactiveFlag"?: boolean;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name": string;
+	"inactiveFlag"?: boolean;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ManufacturerReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 /**
  * Metadata of the entity
@@ -6153,1590 +6153,1590 @@ export interface ManufacturerReference {
 export interface Metadata {
 }
 export interface PatchOperation {
-    "op"?: string;
-    "path"?: string;
-    "value"?: string;
+	"op"?: string;
+	"path"?: string;
+	"value"?: string;
 }
 export interface PricingBreak {
-    "id"?: number;
-    "detailId"?: number;
-    "amount"?: number;
-    "quantityStart"?: number;
-    "quantityEnd"?: number;
-    "priceMethod": PriceMethodEnum;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"detailId"?: number;
+	"amount"?: number;
+	"quantityStart"?: number;
+	"quantityEnd"?: number;
+	"priceMethod": PriceMethodEnum;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface PricingDetail {
-    "id"?: number;
-    "product"?: CatalogItemReference;
-    "category"?: ProductCategoryReference;
-    "subCategory"?: ProductSubCategoryReference;
-    "startDate": Date;
-    "endDate"?: Date;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"product"?: CatalogItemReference;
+	"category"?: ProductCategoryReference;
+	"subCategory"?: ProductSubCategoryReference;
+	"startDate": Date;
+	"endDate"?: Date;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface PricingSchedule {
-    "id"?: number;
-    "name": string;
-    "inactiveFlag"?: boolean;
-    "defaultFlag"?: boolean;
-    "companies"?: Array<number>;
-    "setAllCompaniesFlag"?: boolean;
-    "removeAllCompaniesFlag"?: boolean;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name": string;
+	"inactiveFlag"?: boolean;
+	"defaultFlag"?: boolean;
+	"companies"?: Array<number>;
+	"setAllCompaniesFlag"?: boolean;
+	"removeAllCompaniesFlag"?: boolean;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ProductCategoryReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ProductComponent {
-    "id"?: number;
-    "sequenceNumber"?: number;
-    "quantity": number;
-    "catalogItem": CatalogItemReference;
-    "hidePriceFlag"?: boolean;
-    "hideItemIdentifierFlag"?: boolean;
-    "hideDescriptionFlag"?: boolean;
-    "hideQuantityFlag"?: boolean;
-    "vendor"?: CompanyReference;
-    "parentProductItem"?: ProductItemReference;
-    "productItem"?: ProductItemReference;
-    "price"?: number;
-    "cost"?: number;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"sequenceNumber"?: number;
+	"quantity": number;
+	"catalogItem": CatalogItemReference;
+	"hidePriceFlag"?: boolean;
+	"hideItemIdentifierFlag"?: boolean;
+	"hideDescriptionFlag"?: boolean;
+	"hideQuantityFlag"?: boolean;
+	"vendor"?: CompanyReference;
+	"parentProductItem"?: ProductItemReference;
+	"productItem"?: ProductItemReference;
+	"price"?: number;
+	"cost"?: number;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ProductItem {
-    "id"?: number;
-    "catalogItem": CatalogItemReference;
-    "chargeToId": number;
-    "chargeToType": ChargeToTypeEnum;
-    "description"?: string;
-    "sequenceNumber"?: number;
-    "quantity"?: number;
-    "price"?: number;
-    "cost"?: number;
-    "discount"?: number;
-    "priceMethod"?: PriceMethodEnum;
-    "billableOption": BillableOptionEnum;
-    "agreement"?: AgreementReference;
-    "locationId"?: number;
-    "businessUnitId"?: number;
-    "vendor"?: CompanyReference;
-    "taxableFlag"?: boolean;
-    "dropshipFlag"?: boolean;
-    "specialOrderFlag"?: boolean;
-    "phaseProductFlag"?: boolean;
-    "cancelledFlag"?: boolean;
-    "quantityCancelled"?: number;
-    "cancelledReason"?: string;
-    "customerDescription"?: string;
-    "internalNotes"?: string;
-    "productSuppliedFlag"?: boolean;
-    "subContractorShipToId"?: number;
-    "subContractorAmountLimit"?: number;
-    "recurring"?: ProductRecurring;
-    "sla"?: SLAReference;
-    "entityType"?: EntityTypeReference;
-    "forecastDetailId"?: number;
-    "cancelledBy"?: number;
-    "cancelledDate"?: Date;
-    "warehouse"?: string;
-    "warehouseBin"?: string;
-    "purchaseDate"?: Date;
-    "integrationXRef"?: string;
-    "listPrice"?: number;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
-    "bypassForecastUpdate"?: boolean;
+	"id"?: number;
+	"catalogItem": CatalogItemReference;
+	"chargeToId": number;
+	"chargeToType": ChargeToTypeEnum;
+	"description"?: string;
+	"sequenceNumber"?: number;
+	"quantity"?: number;
+	"price"?: number;
+	"cost"?: number;
+	"discount"?: number;
+	"priceMethod"?: PriceMethodEnum;
+	"billableOption": BillableOptionEnum;
+	"agreement"?: AgreementReference;
+	"locationId"?: number;
+	"businessUnitId"?: number;
+	"vendor"?: CompanyReference;
+	"taxableFlag"?: boolean;
+	"dropshipFlag"?: boolean;
+	"specialOrderFlag"?: boolean;
+	"phaseProductFlag"?: boolean;
+	"cancelledFlag"?: boolean;
+	"quantityCancelled"?: number;
+	"cancelledReason"?: string;
+	"customerDescription"?: string;
+	"internalNotes"?: string;
+	"productSuppliedFlag"?: boolean;
+	"subContractorShipToId"?: number;
+	"subContractorAmountLimit"?: number;
+	"recurring"?: ProductRecurring;
+	"sla"?: SLAReference;
+	"entityType"?: EntityTypeReference;
+	"forecastDetailId"?: number;
+	"cancelledBy"?: number;
+	"cancelledDate"?: Date;
+	"warehouse"?: string;
+	"warehouseBin"?: string;
+	"purchaseDate"?: Date;
+	"integrationXRef"?: string;
+	"listPrice"?: number;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
+	"bypassForecastUpdate"?: boolean;
 }
 export enum ChargeToTypeEnum {
-    Ticket,
-    Project,
-    Invoice,
-    Opportunity,
-    SalesOrder,
+	Ticket,
+	Project,
+	Invoice,
+	Opportunity,
+	SalesOrder,
 }
 export enum PriceMethodEnum {
-    FlatRateForRange,
-    PercentMarkupFromCost,
-    PercentMarkdownFromPrice,
-    PricePerUnit,
+	FlatRateForRange,
+	PercentMarkupFromCost,
+	PercentMarkdownFromPrice,
+	PricePerUnit,
 }
 export enum BillableOptionEnum {
-    Billable,
-    DoNotBill,
-    NoCharge,
+	Billable,
+	DoNotBill,
+	NoCharge,
 }
 export interface ProductItemReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ProductPickingShippingDetail {
-    "id"?: number;
-    "pickedQuantity": number;
-    "shippedQuantity": number;
-    "warehouse": WarehouseReference;
-    "warehouseBin": WarehouseBinReference;
-    "shipmentMethod"?: ShipmentMethodReference;
-    "serialNumber"?: string;
-    "serialNumberIds"?: Array<number>;
-    "trackingNumber"?: string;
-    "productItem"?: ProductItemReference;
-    "lineNumber"?: number;
-    "quantity"?: number;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"pickedQuantity": number;
+	"shippedQuantity": number;
+	"warehouse": WarehouseReference;
+	"warehouseBin": WarehouseBinReference;
+	"shipmentMethod"?: ShipmentMethodReference;
+	"serialNumber"?: string;
+	"serialNumberIds"?: Array<number>;
+	"trackingNumber"?: string;
+	"productItem"?: ProductItemReference;
+	"lineNumber"?: number;
+	"quantity"?: number;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ProductRecurring {
-    "recurringRevenue": number;
-    "recurringCost": number;
-    "startDate": Date;
-    "endDate": Date;
-    "billCycleId": number;
-    "cycles": number;
-    "cycleType": CycleTypeEnum;
+	"recurringRevenue": number;
+	"recurringCost": number;
+	"startDate": Date;
+	"endDate": Date;
+	"billCycleId": number;
+	"cycles": number;
+	"cycleType": CycleTypeEnum;
 }
 export enum CycleTypeEnum {
-    CalendarYear,
-    ContractYear,
+	CalendarYear,
+	ContractYear,
 }
 export interface ProductSubCategoryReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ProductType {
-    "id"?: number;
-    "name": string;
-    "inactiveFlag"?: boolean;
-    "typeXref"?: TypeXrefEnum;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name": string;
+	"inactiveFlag"?: boolean;
+	"typeXref"?: TypeXrefEnum;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export enum TypeXrefEnum {
-    InventoryPart,
-    NonInventoryPart,
-    OtherCharge,
-    Service,
+	InventoryPart,
+	NonInventoryPart,
+	OtherCharge,
+	Service,
 }
 export interface ProductTypeReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface PurchaseOrder {
-    "id"?: number;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
-    "businessUnitId"?: number;
-    "cancelReason"?: string;
-    "closedFlag"?: boolean;
-    "customerCity"?: string;
-    "customerCompany"?: CompanyReference;
-    "customerContact"?: ContactReference;
-    "customerCountry"?: CountryReference;
-    "customerExtension"?: string;
-    "customerName"?: string;
-    "customerPhone"?: string;
-    "customerSite"?: SiteReference;
-    "customerSiteName"?: string;
-    "customerState"?: string;
-    "customerStreetLine1"?: string;
-    "customerStreetLine2"?: string;
-    "customerZip"?: string;
-    "dateClosed"?: Date;
-    "dropShipCustomerFlag"?: boolean;
-    "enteredBy"?: string;
-    "freightCost"?: number;
-    "freightPackingSlip"?: string;
-    "freightTaxTotal"?: number;
-    "internalNotes"?: string;
-    "locationId": number;
-    "poDate"?: Date;
-    "poNumber"?: string;
-    "salesTax"?: number;
-    "shipmentDate"?: Date;
-    "shipmentMethod"?: ShipmentMethodReference;
-    "shippingInstructions"?: string;
-    "status": PurchaseOrderStatusReference;
-    "subTotal"?: number;
-    "taxCode"?: TaxCodeReference;
-    "taxFreightFlag"?: boolean;
-    "taxPoFlag"?: boolean;
-    "terms": BillingTermsReference;
-    "total"?: number;
-    "trackingNumber"?: string;
-    /**
-     * Determines whether or not to update all of the shipment info for each associated line item when new shipment info is passed in
-     */
-    "updateShipmentInfo"?: boolean;
-    /**
-     * Determines whether or not to update vendor order number for each associated line item when new vendor order number is passed in
-     */
-    "updateVendorOrderNumber"?: boolean;
-    "vendorCompany": CompanyReference;
-    "vendorContact"?: ContactReference;
-    "vendorInvoiceDate"?: Date;
-    "vendorInvoiceNumber"?: string;
-    "vendorOrderNumber"?: string;
-    "vendorSite"?: SiteReference;
-    "warehouse"?: WarehouseReference;
+	"id"?: number;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
+	"businessUnitId"?: number;
+	"cancelReason"?: string;
+	"closedFlag"?: boolean;
+	"customerCity"?: string;
+	"customerCompany"?: CompanyReference;
+	"customerContact"?: ContactReference;
+	"customerCountry"?: CountryReference;
+	"customerExtension"?: string;
+	"customerName"?: string;
+	"customerPhone"?: string;
+	"customerSite"?: SiteReference;
+	"customerSiteName"?: string;
+	"customerState"?: string;
+	"customerStreetLine1"?: string;
+	"customerStreetLine2"?: string;
+	"customerZip"?: string;
+	"dateClosed"?: Date;
+	"dropShipCustomerFlag"?: boolean;
+	"enteredBy"?: string;
+	"freightCost"?: number;
+	"freightPackingSlip"?: string;
+	"freightTaxTotal"?: number;
+	"internalNotes"?: string;
+	"locationId": number;
+	"poDate"?: Date;
+	"poNumber"?: string;
+	"salesTax"?: number;
+	"shipmentDate"?: Date;
+	"shipmentMethod"?: ShipmentMethodReference;
+	"shippingInstructions"?: string;
+	"status": PurchaseOrderStatusReference;
+	"subTotal"?: number;
+	"taxCode"?: TaxCodeReference;
+	"taxFreightFlag"?: boolean;
+	"taxPoFlag"?: boolean;
+	"terms": BillingTermsReference;
+	"total"?: number;
+	"trackingNumber"?: string;
+	/**
+	 * Determines whether or not to update all of the shipment info for each associated line item when new shipment info is passed in
+	 */
+	"updateShipmentInfo"?: boolean;
+	/**
+	 * Determines whether or not to update vendor order number for each associated line item when new vendor order number is passed in
+	 */
+	"updateVendorOrderNumber"?: boolean;
+	"vendorCompany": CompanyReference;
+	"vendorContact"?: ContactReference;
+	"vendorInvoiceDate"?: Date;
+	"vendorInvoiceNumber"?: string;
+	"vendorOrderNumber"?: string;
+	"vendorSite"?: SiteReference;
+	"warehouse"?: WarehouseReference;
 }
 export interface PurchaseOrderLineItem {
-    "id"?: number;
-    "backorderedFlag"?: boolean;
-    "canceledBy"?: string;
-    "canceledFlag"?: boolean;
-    "canceledReason"?: string;
-    "closedFlag"?: boolean;
-    "dateCanceled"?: Date;
-    "description": string;
-    "displayInternalNotesFlag"?: boolean;
-    "expectedShipDate"?: Date;
-    "internalNotes"?: string;
-    "lineNumber": number;
-    "packingSlip"?: string;
-    "product": IvItemReference;
-    "purchaseOrderId"?: number;
-    "quantity": number;
-    "receivedQuantity"?: number;
-    "serialNumbers"?: string;
-    "shipDate"?: Date;
-    "shipmentMethod"?: ShipmentMethodReference;
-    "tax"?: number;
-    "trackingNumber"?: string;
-    "unitCost"?: number;
-    "unitOfMeasure": UnitOfMeasureReference;
-    "vendorOrderNumber"?: string;
-    "warehouse"?: WarehouseReference;
-    "warehouseBin"?: WarehouseBinReference;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"backorderedFlag"?: boolean;
+	"canceledBy"?: string;
+	"canceledFlag"?: boolean;
+	"canceledReason"?: string;
+	"closedFlag"?: boolean;
+	"dateCanceled"?: Date;
+	"description": string;
+	"displayInternalNotesFlag"?: boolean;
+	"expectedShipDate"?: Date;
+	"internalNotes"?: string;
+	"lineNumber": number;
+	"packingSlip"?: string;
+	"product": IvItemReference;
+	"purchaseOrderId"?: number;
+	"quantity": number;
+	"receivedQuantity"?: number;
+	"serialNumbers"?: string;
+	"shipDate"?: Date;
+	"shipmentMethod"?: ShipmentMethodReference;
+	"tax"?: number;
+	"trackingNumber"?: string;
+	"unitCost"?: number;
+	"unitOfMeasure": UnitOfMeasureReference;
+	"vendorOrderNumber"?: string;
+	"warehouse"?: WarehouseReference;
+	"warehouseBin"?: WarehouseBinReference;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface PurchaseOrderStatusReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface SLAReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ShipmentMethod {
-    "id"?: number;
-    "name": string;
-    "defaultFlag"?: boolean;
-    "trackingUrl"?: string;
-    "shippingType"?: ShippingTypeEnum;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name": string;
+	"defaultFlag"?: boolean;
+	"trackingUrl"?: string;
+	"shippingType"?: ShippingTypeEnum;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export enum ShippingTypeEnum {
-    None,
-    FedExTwoDay,
-    FedExPriority,
-    FedExGround,
-    UpsNextDay,
-    UpsSecondDay,
-    UpsGround,
-    CourierService,
-    UspsPriority,
-    UspsExpress,
+	None,
+	FedExTwoDay,
+	FedExPriority,
+	FedExGround,
+	UpsNextDay,
+	UpsSecondDay,
+	UpsGround,
+	CourierService,
+	UspsPriority,
+	UspsExpress,
 }
 export interface ShipmentMethodReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface SiteReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface SubCategory {
-    "id"?: number;
-    "name": string;
-    "inactiveFlag"?: boolean;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name": string;
+	"inactiveFlag"?: boolean;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface TaxCodeReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface UnitOfMeasureReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ValidationError {
-    "code"?: string;
-    "message"?: string;
-    "resource"?: string;
-    "field"?: string;
+	"code"?: string;
+	"message"?: string;
+	"resource"?: string;
+	"field"?: string;
 }
 export interface WarehouseBinReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface WarehouseReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export class CatalogComponentsApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Delete Catalog Component By Id
-     * @param id
-     * @param componentId
-     */
-    procurementCatalogIdComponentsComponentIdDelete(params: {
-        id: number;
-        componentId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Catalog Component By Id
-     * @param id
-     * @param componentId
-     */
-    procurementCatalogIdComponentsComponentIdGet(params: {
-        id: number;
-        componentId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CatalogComponent>;
-    /**
-     *
-     * Update Catalog Component
-     * @param id
-     * @param componentId
-     * @param operations
-     */
-    procurementCatalogIdComponentsComponentIdPatch(params: {
-        id: number;
-        componentId: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CatalogComponent>;
-    /**
-     *
-     * Replace Catalog Component
-     * @param id
-     * @param componentId
-     * @param catalogComponent
-     */
-    procurementCatalogIdComponentsComponentIdPut(params: {
-        id: number;
-        componentId: number;
-        catalogComponent: CatalogComponent;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CatalogComponent>;
-    /**
-     *
-     * Get Catalog Components Count
-     * @param id
-     * @param conditions
-     */
-    procurementCatalogIdComponentsCountGet(params: {
-        id: number;
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Catalog Components
-     * @param id
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    procurementCatalogIdComponentsGet(params: {
-        id: number;
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<CatalogComponent>>;
-    /**
-     *
-     * Create Catalog Component
-     * @param id
-     * @param catalogComponent
-     */
-    procurementCatalogIdComponentsPost(params: {
-        id: number;
-        catalogComponent: CatalogComponent;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CatalogComponent>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Delete Catalog Component By Id
+	 * @param id
+	 * @param componentId
+	 */
+	procurementCatalogIdComponentsComponentIdDelete(params: {
+		id: number;
+		componentId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Catalog Component By Id
+	 * @param id
+	 * @param componentId
+	 */
+	procurementCatalogIdComponentsComponentIdGet(params: {
+		id: number;
+		componentId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<CatalogComponent>;
+	/**
+	 *
+	 * Update Catalog Component
+	 * @param id
+	 * @param componentId
+	 * @param operations
+	 */
+	procurementCatalogIdComponentsComponentIdPatch(params: {
+		id: number;
+		componentId: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<CatalogComponent>;
+	/**
+	 *
+	 * Replace Catalog Component
+	 * @param id
+	 * @param componentId
+	 * @param catalogComponent
+	 */
+	procurementCatalogIdComponentsComponentIdPut(params: {
+		id: number;
+		componentId: number;
+		catalogComponent: CatalogComponent;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<CatalogComponent>;
+	/**
+	 *
+	 * Get Catalog Components Count
+	 * @param id
+	 * @param conditions
+	 */
+	procurementCatalogIdComponentsCountGet(params: {
+		id: number;
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Catalog Components
+	 * @param id
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	procurementCatalogIdComponentsGet(params: {
+		id: number;
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<CatalogComponent>>;
+	/**
+	 *
+	 * Create Catalog Component
+	 * @param id
+	 * @param catalogComponent
+	 */
+	procurementCatalogIdComponentsPost(params: {
+		id: number;
+		catalogComponent: CatalogComponent;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<CatalogComponent>;
 }
 export class CatalogsItemApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Inventory Quantity On Hand
-     * @param catalogItemIdentifier
-     * @param warehouseBinId
-     */
-    procurementCatalogCatalogItemIdentifierQuantityOnHandGet(params: {
-        catalogItemIdentifier: string;
-        warehouseBinId?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Catalogs Count
-     * @param conditions
-     */
-    procurementCatalogCountGet(params: {
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Catalogs
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    procurementCatalogGet(params: {
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<CatalogItem>>;
-    /**
-     *
-     * Delete Catalog By Id
-     * @param id
-     */
-    procurementCatalogIdDelete(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Catalog By Id
-     * @param id
-     */
-    procurementCatalogIdGet(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CatalogItem>;
-    /**
-     *
-     * Update Catalog
-     * @param id
-     * @param operations
-     */
-    procurementCatalogIdPatch(params: {
-        id: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CatalogItem>;
-    /**
-     *
-     * Replace Catalog
-     * @param id
-     * @param catalogItem
-     */
-    procurementCatalogIdPut(params: {
-        id: number;
-        catalogItem: CatalogItem;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CatalogItem>;
-    /**
-     *
-     * Create Catalog
-     * @param catalogItem
-     */
-    procurementCatalogPost(params: {
-        catalogItem: CatalogItem;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CatalogItem>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Inventory Quantity On Hand
+	 * @param catalogItemIdentifier
+	 * @param warehouseBinId
+	 */
+	procurementCatalogCatalogItemIdentifierQuantityOnHandGet(params: {
+		catalogItemIdentifier: string;
+		warehouseBinId?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Catalogs Count
+	 * @param conditions
+	 */
+	procurementCatalogCountGet(params: {
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Catalogs
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	procurementCatalogGet(params: {
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<CatalogItem>>;
+	/**
+	 *
+	 * Delete Catalog By Id
+	 * @param id
+	 */
+	procurementCatalogIdDelete(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Catalog By Id
+	 * @param id
+	 */
+	procurementCatalogIdGet(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<CatalogItem>;
+	/**
+	 *
+	 * Update Catalog
+	 * @param id
+	 * @param operations
+	 */
+	procurementCatalogIdPatch(params: {
+		id: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<CatalogItem>;
+	/**
+	 *
+	 * Replace Catalog
+	 * @param id
+	 * @param catalogItem
+	 */
+	procurementCatalogIdPut(params: {
+		id: number;
+		catalogItem: CatalogItem;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<CatalogItem>;
+	/**
+	 *
+	 * Create Catalog
+	 * @param catalogItem
+	 */
+	procurementCatalogPost(params: {
+		catalogItem: CatalogItem;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<CatalogItem>;
 }
 export class CategoriesApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Categories Count
-     * @param conditions
-     */
-    procurementCategoriesCountGet(params: {
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Categories
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    procurementCategoriesGet(params: {
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Category>>;
-    /**
-     *
-     * Delete Category By Id
-     * @param id
-     */
-    procurementCategoriesIdDelete(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Category By Id
-     * @param id
-     */
-    procurementCategoriesIdGet(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Category>;
-    /**
-     *
-     * Update Category
-     * @param id
-     * @param operations
-     */
-    procurementCategoriesIdPatch(params: {
-        id: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Category>;
-    /**
-     *
-     * Replace Category
-     * @param id
-     * @param category
-     */
-    procurementCategoriesIdPut(params: {
-        id: number;
-        category: Category;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Category>;
-    /**
-     *
-     * Create Category
-     * @param category
-     */
-    procurementCategoriesPost(params: {
-        category: Category;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Category>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Categories Count
+	 * @param conditions
+	 */
+	procurementCategoriesCountGet(params: {
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Categories
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	procurementCategoriesGet(params: {
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Category>>;
+	/**
+	 *
+	 * Delete Category By Id
+	 * @param id
+	 */
+	procurementCategoriesIdDelete(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Category By Id
+	 * @param id
+	 */
+	procurementCategoriesIdGet(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Category>;
+	/**
+	 *
+	 * Update Category
+	 * @param id
+	 * @param operations
+	 */
+	procurementCategoriesIdPatch(params: {
+		id: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Category>;
+	/**
+	 *
+	 * Replace Category
+	 * @param id
+	 * @param category
+	 */
+	procurementCategoriesIdPut(params: {
+		id: number;
+		category: Category;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Category>;
+	/**
+	 *
+	 * Create Category
+	 * @param category
+	 */
+	procurementCategoriesPost(params: {
+		category: Category;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Category>;
 }
 export class ManufacturersApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Manufacturers Count
-     * @param conditions
-     */
-    procurementManufacturersCountGet(params: {
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Manufacturers
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    procurementManufacturersGet(params: {
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Manufacturer>>;
-    /**
-     *
-     * Delete Manufacturer By Id
-     * @param id
-     */
-    procurementManufacturersIdDelete(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Manufacturer By Id
-     * @param id
-     */
-    procurementManufacturersIdGet(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Manufacturer>;
-    /**
-     *
-     * Update Manufacturer
-     * @param id
-     * @param operations
-     */
-    procurementManufacturersIdPatch(params: {
-        id: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Manufacturer>;
-    /**
-     *
-     * Replace Manufacturer
-     * @param id
-     * @param manufacturer
-     */
-    procurementManufacturersIdPut(params: {
-        id: number;
-        manufacturer: Manufacturer;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Manufacturer>;
-    /**
-     *
-     * Create Manufacturer
-     * @param manufacturer
-     */
-    procurementManufacturersPost(params: {
-        manufacturer: Manufacturer;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Manufacturer>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Manufacturers Count
+	 * @param conditions
+	 */
+	procurementManufacturersCountGet(params: {
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Manufacturers
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	procurementManufacturersGet(params: {
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Manufacturer>>;
+	/**
+	 *
+	 * Delete Manufacturer By Id
+	 * @param id
+	 */
+	procurementManufacturersIdDelete(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Manufacturer By Id
+	 * @param id
+	 */
+	procurementManufacturersIdGet(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Manufacturer>;
+	/**
+	 *
+	 * Update Manufacturer
+	 * @param id
+	 * @param operations
+	 */
+	procurementManufacturersIdPatch(params: {
+		id: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Manufacturer>;
+	/**
+	 *
+	 * Replace Manufacturer
+	 * @param id
+	 * @param manufacturer
+	 */
+	procurementManufacturersIdPut(params: {
+		id: number;
+		manufacturer: Manufacturer;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Manufacturer>;
+	/**
+	 *
+	 * Create Manufacturer
+	 * @param manufacturer
+	 */
+	procurementManufacturersPost(params: {
+		manufacturer: Manufacturer;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Manufacturer>;
 }
 export class PricingBreaksApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Delete Pricing Break By Id
-     * @param schedId
-     * @param detailId
-     * @param breakId
-     */
-    procurementPricingschedulesSchedIdDetailsDetailIdBreaksBreakIdDelete(params: {
-        schedId: number;
-        detailId: number;
-        breakId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Pricing Break By Id
-     * @param schedId
-     * @param detailId
-     * @param breakId
-     */
-    procurementPricingschedulesSchedIdDetailsDetailIdBreaksBreakIdGet(params: {
-        schedId: number;
-        detailId: number;
-        breakId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<PricingBreak>;
-    /**
-     *
-     * Update Pricing Break
-     * @param schedId
-     * @param detailId
-     * @param breakId
-     * @param operations
-     */
-    procurementPricingschedulesSchedIdDetailsDetailIdBreaksBreakIdPatch(params: {
-        schedId: number;
-        detailId: number;
-        breakId: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<PricingBreak>;
-    /**
-     *
-     * Replace Pricing Break
-     * @param schedId
-     * @param detailId
-     * @param breakId
-     * @param pricingBreak
-     */
-    procurementPricingschedulesSchedIdDetailsDetailIdBreaksBreakIdPut(params: {
-        schedId: number;
-        detailId: number;
-        breakId: number;
-        pricingBreak: PricingBreak;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<PricingBreak>;
-    /**
-     *
-     * Get Pricing Break Count
-     * @param schedId
-     * @param detailId
-     * @param conditions
-     */
-    procurementPricingschedulesSchedIdDetailsDetailIdBreaksCountGet(params: {
-        schedId: number;
-        detailId: number;
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Pricing Break
-     * @param schedId
-     * @param detailId
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    procurementPricingschedulesSchedIdDetailsDetailIdBreaksGet(params: {
-        schedId: number;
-        detailId: number;
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<PricingBreak>>;
-    /**
-     *
-     * Create Pricing Break
-     * @param schedId
-     * @param detailId
-     * @param pricingBreak
-     */
-    procurementPricingschedulesSchedIdDetailsDetailIdBreaksPost(params: {
-        schedId: number;
-        detailId: number;
-        pricingBreak: PricingBreak;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<PricingBreak>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Delete Pricing Break By Id
+	 * @param schedId
+	 * @param detailId
+	 * @param breakId
+	 */
+	procurementPricingschedulesSchedIdDetailsDetailIdBreaksBreakIdDelete(params: {
+		schedId: number;
+		detailId: number;
+		breakId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Pricing Break By Id
+	 * @param schedId
+	 * @param detailId
+	 * @param breakId
+	 */
+	procurementPricingschedulesSchedIdDetailsDetailIdBreaksBreakIdGet(params: {
+		schedId: number;
+		detailId: number;
+		breakId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<PricingBreak>;
+	/**
+	 *
+	 * Update Pricing Break
+	 * @param schedId
+	 * @param detailId
+	 * @param breakId
+	 * @param operations
+	 */
+	procurementPricingschedulesSchedIdDetailsDetailIdBreaksBreakIdPatch(params: {
+		schedId: number;
+		detailId: number;
+		breakId: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<PricingBreak>;
+	/**
+	 *
+	 * Replace Pricing Break
+	 * @param schedId
+	 * @param detailId
+	 * @param breakId
+	 * @param pricingBreak
+	 */
+	procurementPricingschedulesSchedIdDetailsDetailIdBreaksBreakIdPut(params: {
+		schedId: number;
+		detailId: number;
+		breakId: number;
+		pricingBreak: PricingBreak;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<PricingBreak>;
+	/**
+	 *
+	 * Get Pricing Break Count
+	 * @param schedId
+	 * @param detailId
+	 * @param conditions
+	 */
+	procurementPricingschedulesSchedIdDetailsDetailIdBreaksCountGet(params: {
+		schedId: number;
+		detailId: number;
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Pricing Break
+	 * @param schedId
+	 * @param detailId
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	procurementPricingschedulesSchedIdDetailsDetailIdBreaksGet(params: {
+		schedId: number;
+		detailId: number;
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<PricingBreak>>;
+	/**
+	 *
+	 * Create Pricing Break
+	 * @param schedId
+	 * @param detailId
+	 * @param pricingBreak
+	 */
+	procurementPricingschedulesSchedIdDetailsDetailIdBreaksPost(params: {
+		schedId: number;
+		detailId: number;
+		pricingBreak: PricingBreak;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<PricingBreak>;
 }
 export class PricingDetailsApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Pricing Detail Count
-     * @param id
-     * @param conditions
-     */
-    procurementPricingschedulesIdDetailsCountGet(params: {
-        id: number;
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Delete Pricing Detail By Id
-     * @param id
-     * @param detailID
-     */
-    procurementPricingschedulesIdDetailsDetailIDDelete(params: {
-        id: number;
-        detailID: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Pricing Detail By Id
-     * @param id
-     * @param detailID
-     */
-    procurementPricingschedulesIdDetailsDetailIDGet(params: {
-        id: number;
-        detailID: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<PricingDetail>;
-    /**
-     *
-     * Update Pricing Detail
-     * @param id
-     * @param detailID
-     * @param operations
-     */
-    procurementPricingschedulesIdDetailsDetailIDPatch(params: {
-        id: number;
-        detailID: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<PricingDetail>;
-    /**
-     *
-     * Replace Pricing Detail
-     * @param id
-     * @param detailID
-     * @param pricingDetail
-     */
-    procurementPricingschedulesIdDetailsDetailIDPut(params: {
-        id: number;
-        detailID: number;
-        pricingDetail: PricingDetail;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<PricingDetail>;
-    /**
-     *
-     * Get Pricing Detail
-     * @param id
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    procurementPricingschedulesIdDetailsGet(params: {
-        id: number;
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<PricingDetail>>;
-    /**
-     *
-     * Create Pricing Detail
-     * @param id
-     * @param pricingDetail
-     */
-    procurementPricingschedulesIdDetailsPost(params: {
-        id: number;
-        pricingDetail: PricingDetail;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<PricingDetail>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Pricing Detail Count
+	 * @param id
+	 * @param conditions
+	 */
+	procurementPricingschedulesIdDetailsCountGet(params: {
+		id: number;
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Delete Pricing Detail By Id
+	 * @param id
+	 * @param detailID
+	 */
+	procurementPricingschedulesIdDetailsDetailIDDelete(params: {
+		id: number;
+		detailID: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Pricing Detail By Id
+	 * @param id
+	 * @param detailID
+	 */
+	procurementPricingschedulesIdDetailsDetailIDGet(params: {
+		id: number;
+		detailID: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<PricingDetail>;
+	/**
+	 *
+	 * Update Pricing Detail
+	 * @param id
+	 * @param detailID
+	 * @param operations
+	 */
+	procurementPricingschedulesIdDetailsDetailIDPatch(params: {
+		id: number;
+		detailID: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<PricingDetail>;
+	/**
+	 *
+	 * Replace Pricing Detail
+	 * @param id
+	 * @param detailID
+	 * @param pricingDetail
+	 */
+	procurementPricingschedulesIdDetailsDetailIDPut(params: {
+		id: number;
+		detailID: number;
+		pricingDetail: PricingDetail;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<PricingDetail>;
+	/**
+	 *
+	 * Get Pricing Detail
+	 * @param id
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	procurementPricingschedulesIdDetailsGet(params: {
+		id: number;
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<PricingDetail>>;
+	/**
+	 *
+	 * Create Pricing Detail
+	 * @param id
+	 * @param pricingDetail
+	 */
+	procurementPricingschedulesIdDetailsPost(params: {
+		id: number;
+		pricingDetail: PricingDetail;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<PricingDetail>;
 }
 export class PricingSchedulesApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Pricing Schedules Count
-     * @param conditions
-     */
-    procurementPricingschedulesCountGet(params: {
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Pricing Schedules
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    procurementPricingschedulesGet(params: {
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<PricingSchedule>>;
-    /**
-     *
-     * Delete Pricing Schedule By Id
-     * @param id
-     */
-    procurementPricingschedulesIdDelete(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Pricing Schedule By Id
-     * @param id
-     */
-    procurementPricingschedulesIdGet(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<PricingSchedule>;
-    /**
-     *
-     * Update Pricing Schedule
-     * @param id
-     * @param operations
-     */
-    procurementPricingschedulesIdPatch(params: {
-        id: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<PricingSchedule>;
-    /**
-     *
-     * Replace Pricing Schedule
-     * @param id
-     * @param pricingSchedule
-     */
-    procurementPricingschedulesIdPut(params: {
-        id: number;
-        pricingSchedule: PricingSchedule;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<PricingSchedule>;
-    /**
-     *
-     * Create Pricing Schedule
-     * @param pricingSchedule
-     */
-    procurementPricingschedulesPost(params: {
-        pricingSchedule: PricingSchedule;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<PricingSchedule>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Pricing Schedules Count
+	 * @param conditions
+	 */
+	procurementPricingschedulesCountGet(params: {
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Pricing Schedules
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	procurementPricingschedulesGet(params: {
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<PricingSchedule>>;
+	/**
+	 *
+	 * Delete Pricing Schedule By Id
+	 * @param id
+	 */
+	procurementPricingschedulesIdDelete(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Pricing Schedule By Id
+	 * @param id
+	 */
+	procurementPricingschedulesIdGet(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<PricingSchedule>;
+	/**
+	 *
+	 * Update Pricing Schedule
+	 * @param id
+	 * @param operations
+	 */
+	procurementPricingschedulesIdPatch(params: {
+		id: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<PricingSchedule>;
+	/**
+	 *
+	 * Replace Pricing Schedule
+	 * @param id
+	 * @param pricingSchedule
+	 */
+	procurementPricingschedulesIdPut(params: {
+		id: number;
+		pricingSchedule: PricingSchedule;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<PricingSchedule>;
+	/**
+	 *
+	 * Create Pricing Schedule
+	 * @param pricingSchedule
+	 */
+	procurementPricingschedulesPost(params: {
+		pricingSchedule: PricingSchedule;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<PricingSchedule>;
 }
 export class ProductComponentsApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Delete Product Component By Id
-     * @param id
-     * @param componentId
-     */
-    procurementProductsIdComponentsComponentIdDelete(params: {
-        id: number;
-        componentId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Product Component By Id
-     * @param id
-     * @param componentId
-     */
-    procurementProductsIdComponentsComponentIdGet(params: {
-        id: number;
-        componentId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ProductComponent>>;
-    /**
-     *
-     * Update Product Component
-     * @param id
-     * @param componentId
-     * @param operations
-     */
-    procurementProductsIdComponentsComponentIdPatch(params: {
-        id: number;
-        componentId: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ProductComponent>>;
-    /**
-     *
-     * Replace Product Component
-     * @param id
-     * @param componentId
-     * @param productComponent
-     */
-    procurementProductsIdComponentsComponentIdPut(params: {
-        id: number;
-        componentId: number;
-        productComponent: ProductComponent;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ProductComponent>>;
-    /**
-     *
-     * Get Product Components Count
-     * @param id
-     * @param conditions
-     */
-    procurementProductsIdComponentsCountGet(params: {
-        id: number;
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Product Components
-     * @param id
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    procurementProductsIdComponentsGet(params: {
-        id: number;
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ProductComponent>>;
-    /**
-     *
-     * Create Product Component
-     * @param id
-     * @param productComponent
-     */
-    procurementProductsIdComponentsPost(params: {
-        id: number;
-        productComponent: ProductComponent;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ProductComponent>>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Delete Product Component By Id
+	 * @param id
+	 * @param componentId
+	 */
+	procurementProductsIdComponentsComponentIdDelete(params: {
+		id: number;
+		componentId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Product Component By Id
+	 * @param id
+	 * @param componentId
+	 */
+	procurementProductsIdComponentsComponentIdGet(params: {
+		id: number;
+		componentId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ProductComponent>>;
+	/**
+	 *
+	 * Update Product Component
+	 * @param id
+	 * @param componentId
+	 * @param operations
+	 */
+	procurementProductsIdComponentsComponentIdPatch(params: {
+		id: number;
+		componentId: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ProductComponent>>;
+	/**
+	 *
+	 * Replace Product Component
+	 * @param id
+	 * @param componentId
+	 * @param productComponent
+	 */
+	procurementProductsIdComponentsComponentIdPut(params: {
+		id: number;
+		componentId: number;
+		productComponent: ProductComponent;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ProductComponent>>;
+	/**
+	 *
+	 * Get Product Components Count
+	 * @param id
+	 * @param conditions
+	 */
+	procurementProductsIdComponentsCountGet(params: {
+		id: number;
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Product Components
+	 * @param id
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	procurementProductsIdComponentsGet(params: {
+		id: number;
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ProductComponent>>;
+	/**
+	 *
+	 * Create Product Component
+	 * @param id
+	 * @param productComponent
+	 */
+	procurementProductsIdComponentsPost(params: {
+		id: number;
+		productComponent: ProductComponent;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ProductComponent>>;
 }
 export class ProductPickingShippingDetailsApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Product Picking Shipping Details Count
-     * @param id
-     * @param conditions
-     */
-    procurementProductsIdPickingShippingDetailsCountGet(params: {
-        id: number;
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Product Picking Shipping Details
-     * @param id
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    procurementProductsIdPickingShippingDetailsGet(params: {
-        id: number;
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ProductPickingShippingDetail>>;
-    /**
-     *
-     * Delete Products By Id
-     * @param id
-     * @param pickingShippingDetailId
-     */
-    procurementProductsIdPickingShippingDetailsPickingShippingDetailIdDelete(params: {
-        id: number;
-        pickingShippingDetailId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Products By Id
-     * @param id
-     * @param pickingShippingDetailId
-     */
-    procurementProductsIdPickingShippingDetailsPickingShippingDetailIdGet(params: {
-        id: number;
-        pickingShippingDetailId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ProductPickingShippingDetail>>;
-    /**
-     *
-     * Update Products
-     * @param id
-     * @param pickingShippingDetailId
-     * @param operations
-     */
-    procurementProductsIdPickingShippingDetailsPickingShippingDetailIdPatch(params: {
-        id: number;
-        pickingShippingDetailId: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ProductPickingShippingDetail>>;
-    /**
-     *
-     * Replace Products
-     * @param id
-     * @param pickingShippingDetailId
-     * @param productPickingShippingDetails
-     */
-    procurementProductsIdPickingShippingDetailsPickingShippingDetailIdPut(params: {
-        id: number;
-        pickingShippingDetailId: number;
-        productPickingShippingDetails: ProductPickingShippingDetail;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ProductPickingShippingDetail>>;
-    /**
-     *
-     * Create Product Picking Shipping Detail
-     * @param id
-     * @param productPickingShippingDetails
-     */
-    procurementProductsIdPickingShippingDetailsPost(params: {
-        id: number;
-        productPickingShippingDetails: ProductPickingShippingDetail;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ProductPickingShippingDetail>>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Product Picking Shipping Details Count
+	 * @param id
+	 * @param conditions
+	 */
+	procurementProductsIdPickingShippingDetailsCountGet(params: {
+		id: number;
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Product Picking Shipping Details
+	 * @param id
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	procurementProductsIdPickingShippingDetailsGet(params: {
+		id: number;
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ProductPickingShippingDetail>>;
+	/**
+	 *
+	 * Delete Products By Id
+	 * @param id
+	 * @param pickingShippingDetailId
+	 */
+	procurementProductsIdPickingShippingDetailsPickingShippingDetailIdDelete(params: {
+		id: number;
+		pickingShippingDetailId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Products By Id
+	 * @param id
+	 * @param pickingShippingDetailId
+	 */
+	procurementProductsIdPickingShippingDetailsPickingShippingDetailIdGet(params: {
+		id: number;
+		pickingShippingDetailId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ProductPickingShippingDetail>>;
+	/**
+	 *
+	 * Update Products
+	 * @param id
+	 * @param pickingShippingDetailId
+	 * @param operations
+	 */
+	procurementProductsIdPickingShippingDetailsPickingShippingDetailIdPatch(params: {
+		id: number;
+		pickingShippingDetailId: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ProductPickingShippingDetail>>;
+	/**
+	 *
+	 * Replace Products
+	 * @param id
+	 * @param pickingShippingDetailId
+	 * @param productPickingShippingDetails
+	 */
+	procurementProductsIdPickingShippingDetailsPickingShippingDetailIdPut(params: {
+		id: number;
+		pickingShippingDetailId: number;
+		productPickingShippingDetails: ProductPickingShippingDetail;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ProductPickingShippingDetail>>;
+	/**
+	 *
+	 * Create Product Picking Shipping Detail
+	 * @param id
+	 * @param productPickingShippingDetails
+	 */
+	procurementProductsIdPickingShippingDetailsPost(params: {
+		id: number;
+		productPickingShippingDetails: ProductPickingShippingDetail;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ProductPickingShippingDetail>>;
 }
 export class ProductTypesApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Product Typess Count
-     * @param conditions
-     */
-    procurementTypesCountGet(params: {
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Product Typess
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    procurementTypesGet(params: {
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ProductType>>;
-    /**
-     *
-     * Delete Product Types By Id
-     * @param id
-     */
-    procurementTypesIdDelete(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Product Types By Id
-     * @param id
-     */
-    procurementTypesIdGet(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ProductType>;
-    /**
-     *
-     * Update Product Types
-     * @param id
-     * @param operations
-     */
-    procurementTypesIdPatch(params: {
-        id: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ProductType>;
-    /**
-     *
-     * Replace Product Types
-     * @param id
-     * @param productTypes
-     */
-    procurementTypesIdPut(params: {
-        id: number;
-        productTypes: ProductType;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ProductType>;
-    /**
-     *
-     * Create Product Types
-     * @param productTypes
-     */
-    procurementTypesPost(params: {
-        productTypes: ProductType;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ProductType>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Product Typess Count
+	 * @param conditions
+	 */
+	procurementTypesCountGet(params: {
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Product Typess
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	procurementTypesGet(params: {
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ProductType>>;
+	/**
+	 *
+	 * Delete Product Types By Id
+	 * @param id
+	 */
+	procurementTypesIdDelete(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Product Types By Id
+	 * @param id
+	 */
+	procurementTypesIdGet(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ProductType>;
+	/**
+	 *
+	 * Update Product Types
+	 * @param id
+	 * @param operations
+	 */
+	procurementTypesIdPatch(params: {
+		id: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ProductType>;
+	/**
+	 *
+	 * Replace Product Types
+	 * @param id
+	 * @param productTypes
+	 */
+	procurementTypesIdPut(params: {
+		id: number;
+		productTypes: ProductType;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ProductType>;
+	/**
+	 *
+	 * Create Product Types
+	 * @param productTypes
+	 */
+	procurementTypesPost(params: {
+		productTypes: ProductType;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ProductType>;
 }
 export class ProductsItemApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Products Count
-     * @param conditions
-     */
-    procurementProductsCountGet(params: {
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Products
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    procurementProductsGet(params: {
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ProductItem>>;
-    /**
-     *
-     * Delete Product By Id
-     * @param id
-     */
-    procurementProductsIdDelete(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Product By Id
-     * @param id
-     */
-    procurementProductsIdGet(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ProductItem>;
-    /**
-     *
-     * Update Product
-     * @param id
-     * @param operations
-     */
-    procurementProductsIdPatch(params: {
-        id: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ProductItem>;
-    /**
-     *
-     * Replace Product
-     * @param id
-     * @param productItem
-     */
-    procurementProductsIdPut(params: {
-        id: number;
-        productItem: ProductItem;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ProductItem>;
-    /**
-     *
-     * Create Product
-     * @param productItem
-     */
-    procurementProductsPost(params: {
-        productItem: ProductItem;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ProductItem>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Products Count
+	 * @param conditions
+	 */
+	procurementProductsCountGet(params: {
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Products
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	procurementProductsGet(params: {
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ProductItem>>;
+	/**
+	 *
+	 * Delete Product By Id
+	 * @param id
+	 */
+	procurementProductsIdDelete(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Product By Id
+	 * @param id
+	 */
+	procurementProductsIdGet(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ProductItem>;
+	/**
+	 *
+	 * Update Product
+	 * @param id
+	 * @param operations
+	 */
+	procurementProductsIdPatch(params: {
+		id: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ProductItem>;
+	/**
+	 *
+	 * Replace Product
+	 * @param id
+	 * @param productItem
+	 */
+	procurementProductsIdPut(params: {
+		id: number;
+		productItem: ProductItem;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ProductItem>;
+	/**
+	 *
+	 * Create Product
+	 * @param productItem
+	 */
+	procurementProductsPost(params: {
+		productItem: ProductItem;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ProductItem>;
 }
 export class PurchaseOrderLineItemsApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Purchase Order Line Items Count
-     * @param id
-     * @param conditions
-     */
-    procurementPurchaseordersIdPurchaseorderlineitemsCountGet(params: {
-        id: number;
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Purchase Order Line Items
-     * @param id
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    procurementPurchaseordersIdPurchaseorderlineitemsGet(params: {
-        id: number;
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<PurchaseOrderLineItem>>;
-    /**
-     *
-     * Delete Purchase Order Line Item By Id
-     * @param id
-     * @param lineItemId
-     */
-    procurementPurchaseordersIdPurchaseorderlineitemsLineItemIdDelete(params: {
-        id: number;
-        lineItemId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Purchase Order Line Item By Id
-     * @param id
-     * @param lineItemId
-     */
-    procurementPurchaseordersIdPurchaseorderlineitemsLineItemIdGet(params: {
-        id: number;
-        lineItemId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<PurchaseOrderLineItem>;
-    /**
-     *
-     * Update Purchase Order Line Item
-     * @param id
-     * @param lineItemId
-     * @param operations
-     */
-    procurementPurchaseordersIdPurchaseorderlineitemsLineItemIdPatch(params: {
-        id: number;
-        lineItemId: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<PurchaseOrderLineItem>;
-    /**
-     *
-     * Replace Purchase Order Line Item
-     * @param id
-     * @param lineItemId
-     * @param purchaseOrderLineItem
-     */
-    procurementPurchaseordersIdPurchaseorderlineitemsLineItemIdPut(params: {
-        id: number;
-        lineItemId: number;
-        purchaseOrderLineItem: PurchaseOrderLineItem;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<PurchaseOrderLineItem>;
-    /**
-     *
-     * Create Purchase Order Line Item
-     * @param id
-     * @param purchaseOrderLineItem
-     */
-    procurementPurchaseordersIdPurchaseorderlineitemsPost(params: {
-        id: number;
-        purchaseOrderLineItem: PurchaseOrderLineItem;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<PurchaseOrderLineItem>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Purchase Order Line Items Count
+	 * @param id
+	 * @param conditions
+	 */
+	procurementPurchaseordersIdPurchaseorderlineitemsCountGet(params: {
+		id: number;
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Purchase Order Line Items
+	 * @param id
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	procurementPurchaseordersIdPurchaseorderlineitemsGet(params: {
+		id: number;
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<PurchaseOrderLineItem>>;
+	/**
+	 *
+	 * Delete Purchase Order Line Item By Id
+	 * @param id
+	 * @param lineItemId
+	 */
+	procurementPurchaseordersIdPurchaseorderlineitemsLineItemIdDelete(params: {
+		id: number;
+		lineItemId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Purchase Order Line Item By Id
+	 * @param id
+	 * @param lineItemId
+	 */
+	procurementPurchaseordersIdPurchaseorderlineitemsLineItemIdGet(params: {
+		id: number;
+		lineItemId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<PurchaseOrderLineItem>;
+	/**
+	 *
+	 * Update Purchase Order Line Item
+	 * @param id
+	 * @param lineItemId
+	 * @param operations
+	 */
+	procurementPurchaseordersIdPurchaseorderlineitemsLineItemIdPatch(params: {
+		id: number;
+		lineItemId: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<PurchaseOrderLineItem>;
+	/**
+	 *
+	 * Replace Purchase Order Line Item
+	 * @param id
+	 * @param lineItemId
+	 * @param purchaseOrderLineItem
+	 */
+	procurementPurchaseordersIdPurchaseorderlineitemsLineItemIdPut(params: {
+		id: number;
+		lineItemId: number;
+		purchaseOrderLineItem: PurchaseOrderLineItem;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<PurchaseOrderLineItem>;
+	/**
+	 *
+	 * Create Purchase Order Line Item
+	 * @param id
+	 * @param purchaseOrderLineItem
+	 */
+	procurementPurchaseordersIdPurchaseorderlineitemsPost(params: {
+		id: number;
+		purchaseOrderLineItem: PurchaseOrderLineItem;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<PurchaseOrderLineItem>;
 }
 export class PurchaseOrdersApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Purchase Orders Count
-     * @param conditions
-     */
-    procurementPurchaseordersCountGet(params: {
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Purchase Orders
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    procurementPurchaseordersGet(params: {
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<PurchaseOrder>>;
-    /**
-     *
-     * Delete Purchase Order By Id
-     * @param id
-     */
-    procurementPurchaseordersIdDelete(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Purchase Order By Id
-     * @param id
-     */
-    procurementPurchaseordersIdGet(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<PurchaseOrder>;
-    /**
-     *
-     * Update Purchase Order
-     * @param id
-     * @param operations
-     */
-    procurementPurchaseordersIdPatch(params: {
-        id: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<PurchaseOrder>;
-    /**
-     *
-     * Replace Purchase Order
-     * @param id
-     * @param purchaseOrder
-     */
-    procurementPurchaseordersIdPut(params: {
-        id: number;
-        purchaseOrder: PurchaseOrder;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<PurchaseOrder>;
-    /**
-     *
-     * Create Purchase Order
-     * @param purchaseOrder
-     */
-    procurementPurchaseordersPost(params: {
-        purchaseOrder: PurchaseOrder;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<PurchaseOrder>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Purchase Orders Count
+	 * @param conditions
+	 */
+	procurementPurchaseordersCountGet(params: {
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Purchase Orders
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	procurementPurchaseordersGet(params: {
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<PurchaseOrder>>;
+	/**
+	 *
+	 * Delete Purchase Order By Id
+	 * @param id
+	 */
+	procurementPurchaseordersIdDelete(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Purchase Order By Id
+	 * @param id
+	 */
+	procurementPurchaseordersIdGet(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<PurchaseOrder>;
+	/**
+	 *
+	 * Update Purchase Order
+	 * @param id
+	 * @param operations
+	 */
+	procurementPurchaseordersIdPatch(params: {
+		id: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<PurchaseOrder>;
+	/**
+	 *
+	 * Replace Purchase Order
+	 * @param id
+	 * @param purchaseOrder
+	 */
+	procurementPurchaseordersIdPut(params: {
+		id: number;
+		purchaseOrder: PurchaseOrder;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<PurchaseOrder>;
+	/**
+	 *
+	 * Create Purchase Order
+	 * @param purchaseOrder
+	 */
+	procurementPurchaseordersPost(params: {
+		purchaseOrder: PurchaseOrder;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<PurchaseOrder>;
 }
 export class ShipmentMethodsApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Shipment Methods Count
-     * @param conditions
-     */
-    procurementShipmentmethodsCountGet(params: {
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Shipment Methods
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    procurementShipmentmethodsGet(params: {
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ShipmentMethod>>;
-    /**
-     *
-     * Delete Shipment Method By Id
-     * @param id
-     */
-    procurementShipmentmethodsIdDelete(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Shipment Method By Id
-     * @param id
-     */
-    procurementShipmentmethodsIdGet(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ShipmentMethod>;
-    /**
-     *
-     * Update Shipment Method
-     * @param id
-     * @param operations
-     */
-    procurementShipmentmethodsIdPatch(params: {
-        id: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ShipmentMethod>;
-    /**
-     *
-     * Replace Shipment Method
-     * @param id
-     * @param shipmentMethod
-     */
-    procurementShipmentmethodsIdPut(params: {
-        id: number;
-        shipmentMethod: ShipmentMethod;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ShipmentMethod>;
-    /**
-     *
-     * Create Shipment Method
-     * @param shipmentMethod
-     */
-    procurementShipmentmethodsPost(params: {
-        shipmentMethod: ShipmentMethod;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ShipmentMethod>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Shipment Methods Count
+	 * @param conditions
+	 */
+	procurementShipmentmethodsCountGet(params: {
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Shipment Methods
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	procurementShipmentmethodsGet(params: {
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ShipmentMethod>>;
+	/**
+	 *
+	 * Delete Shipment Method By Id
+	 * @param id
+	 */
+	procurementShipmentmethodsIdDelete(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Shipment Method By Id
+	 * @param id
+	 */
+	procurementShipmentmethodsIdGet(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ShipmentMethod>;
+	/**
+	 *
+	 * Update Shipment Method
+	 * @param id
+	 * @param operations
+	 */
+	procurementShipmentmethodsIdPatch(params: {
+		id: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ShipmentMethod>;
+	/**
+	 *
+	 * Replace Shipment Method
+	 * @param id
+	 * @param shipmentMethod
+	 */
+	procurementShipmentmethodsIdPut(params: {
+		id: number;
+		shipmentMethod: ShipmentMethod;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ShipmentMethod>;
+	/**
+	 *
+	 * Create Shipment Method
+	 * @param shipmentMethod
+	 */
+	procurementShipmentmethodsPost(params: {
+		shipmentMethod: ShipmentMethod;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ShipmentMethod>;
 }
 export class SubCategoriesApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Sub Categories Count
-     * @param id
-     * @param conditions
-     */
-    procurementCategoriesIdSubcategoriesCountGet(params: {
-        id: number;
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Sub Categories
-     * @param id
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    procurementCategoriesIdSubcategoriesGet(params: {
-        id: number;
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<SubCategory>>;
-    /**
-     *
-     * Create Sub Category
-     * @param id
-     * @param subCategory
-     */
-    procurementCategoriesIdSubcategoriesPost(params: {
-        id: number;
-        subCategory: SubCategory;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<SubCategory>;
-    /**
-     *
-     * Delete Sub Category By Id
-     * @param id
-     * @param subcategoryID
-     */
-    procurementCategoriesIdSubcategoriesSubcategoryIDDelete(params: {
-        id: number;
-        subcategoryID: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Sub Category By Id
-     * @param id
-     * @param subcategoryID
-     */
-    procurementCategoriesIdSubcategoriesSubcategoryIDGet(params: {
-        id: number;
-        subcategoryID: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<SubCategory>;
-    /**
-     *
-     * Update Sub Category
-     * @param id
-     * @param subcategoryID
-     * @param operations
-     */
-    procurementCategoriesIdSubcategoriesSubcategoryIDPatch(params: {
-        id: number;
-        subcategoryID: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<SubCategory>;
-    /**
-     *
-     * Replace Sub Category
-     * @param id
-     * @param subcategoryID
-     * @param subCategory
-     */
-    procurementCategoriesIdSubcategoriesSubcategoryIDPut(params: {
-        id: number;
-        subcategoryID: number;
-        subCategory: SubCategory;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<SubCategory>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Sub Categories Count
+	 * @param id
+	 * @param conditions
+	 */
+	procurementCategoriesIdSubcategoriesCountGet(params: {
+		id: number;
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Sub Categories
+	 * @param id
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	procurementCategoriesIdSubcategoriesGet(params: {
+		id: number;
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<SubCategory>>;
+	/**
+	 *
+	 * Create Sub Category
+	 * @param id
+	 * @param subCategory
+	 */
+	procurementCategoriesIdSubcategoriesPost(params: {
+		id: number;
+		subCategory: SubCategory;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<SubCategory>;
+	/**
+	 *
+	 * Delete Sub Category By Id
+	 * @param id
+	 * @param subcategoryID
+	 */
+	procurementCategoriesIdSubcategoriesSubcategoryIDDelete(params: {
+		id: number;
+		subcategoryID: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Sub Category By Id
+	 * @param id
+	 * @param subcategoryID
+	 */
+	procurementCategoriesIdSubcategoriesSubcategoryIDGet(params: {
+		id: number;
+		subcategoryID: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<SubCategory>;
+	/**
+	 *
+	 * Update Sub Category
+	 * @param id
+	 * @param subcategoryID
+	 * @param operations
+	 */
+	procurementCategoriesIdSubcategoriesSubcategoryIDPatch(params: {
+		id: number;
+		subcategoryID: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<SubCategory>;
+	/**
+	 *
+	 * Replace Sub Category
+	 * @param id
+	 * @param subcategoryID
+	 * @param subCategory
+	 */
+	procurementCategoriesIdSubcategoriesSubcategoryIDPut(params: {
+		id: number;
+		subcategoryID: number;
+		subCategory: SubCategory;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<SubCategory>;
 }
 }
 declare module 'connectwise-rest-api/release/api/procurementAPI' {
@@ -7748,46 +7748,46 @@ export = alias;
 // Source: release/api/projectAPI.d.ts
 declare module '~connectwise-rest-api/release/api/projectAPI' {
 export interface AgreementReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface CompanyReference {
-    "id"?: number;
-    "identifier"?: string;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"identifier"?: string;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ContactReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface Count {
-    "value"?: number;
+	"value"?: number;
 }
 export interface Error {
-    "code"?: string;
-    "message"?: string;
-    "errors"?: Array<ValidationError>;
+	"code"?: string;
+	"message"?: string;
+	"errors"?: Array<ValidationError>;
 }
 export interface MemberReference {
-    "id"?: number;
-    "identifier"?: string;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"identifier"?: string;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 /**
  * Metadata of the entity
@@ -7795,626 +7795,626 @@ export interface MemberReference {
 export interface Metadata {
 }
 export interface NoteTypeReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface OpportunityReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface PatchOperation {
-    "op"?: string;
-    "path"?: string;
-    "value"?: string;
+	"op"?: string;
+	"path"?: string;
+	"value"?: string;
 }
 export interface PhaseStatusReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface Project {
-    "id"?: number;
-    "name": string;
-    "company": CompanyReference;
-    "site"?: SiteReference;
-    "opportunity"?: OpportunityReference;
-    "contact"?: ContactReference;
-    "manager"?: MemberReference;
-    "type"?: ProjectTypeReference;
-    "board": ProjectBoardReference;
-    "status"?: ProjectStatusReference;
-    "agreement"?: AgreementReference;
-    "billingMethod": BillingMethodEnum;
-    "billingAmount"?: number;
-    "estimatedTimeRevenue"?: number;
-    "estimatedExpenseRevenue"?: number;
-    "estimatedProductRevenue"?: number;
-    "estimatedStart": Date;
-    "estimatedEnd": Date;
-    "estimatedHours"?: number;
-    "description"?: string;
-    "timeApprover"?: MemberReference;
-    "expenseApprover"?: MemberReference;
-    "budgetAnalysis"?: BudgetAnalysisEnum;
-    "budgetFlag"?: boolean;
-    "billingRateType"?: BillingRateTypeEnum;
-    "billTime"?: BillTimeEnum;
-    "billExpenses"?: BillExpensesEnum;
-    "billProducts"?: BillProductsEnum;
-    "downpayment"?: number;
-    "restrictDownPaymentFlag"?: boolean;
-    "billingAttention"?: string;
-    "customerPO"?: string;
-    "billProjectAfterClosedFlag"?: boolean;
-    "billUnapprovedTimeAndExpense"?: boolean;
-    "scheduledHours"?: number;
-    "scheduledStart"?: string;
-    "scheduledEnd"?: string;
-    "actualHours"?: number;
-    "actualStart"?: string;
-    "actualEnd"?: string;
-    "budgetHours"?: number;
-    "projectTemplateId"?: number;
-    "locationId"?: number;
-    "businessUnitId"?: number;
-    "shipToCompany"?: CompanyReference;
-    "shipToContact"?: ContactReference;
-    "shipToSite"?: SiteReference;
-    "billToCompany"?: CompanyReference;
-    "billToContact"?: ContactReference;
-    "billToSite"?: SiteReference;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name": string;
+	"company": CompanyReference;
+	"site"?: SiteReference;
+	"opportunity"?: OpportunityReference;
+	"contact"?: ContactReference;
+	"manager"?: MemberReference;
+	"type"?: ProjectTypeReference;
+	"board": ProjectBoardReference;
+	"status"?: ProjectStatusReference;
+	"agreement"?: AgreementReference;
+	"billingMethod": BillingMethodEnum;
+	"billingAmount"?: number;
+	"estimatedTimeRevenue"?: number;
+	"estimatedExpenseRevenue"?: number;
+	"estimatedProductRevenue"?: number;
+	"estimatedStart": Date;
+	"estimatedEnd": Date;
+	"estimatedHours"?: number;
+	"description"?: string;
+	"timeApprover"?: MemberReference;
+	"expenseApprover"?: MemberReference;
+	"budgetAnalysis"?: BudgetAnalysisEnum;
+	"budgetFlag"?: boolean;
+	"billingRateType"?: BillingRateTypeEnum;
+	"billTime"?: BillTimeEnum;
+	"billExpenses"?: BillExpensesEnum;
+	"billProducts"?: BillProductsEnum;
+	"downpayment"?: number;
+	"restrictDownPaymentFlag"?: boolean;
+	"billingAttention"?: string;
+	"customerPO"?: string;
+	"billProjectAfterClosedFlag"?: boolean;
+	"billUnapprovedTimeAndExpense"?: boolean;
+	"scheduledHours"?: number;
+	"scheduledStart"?: string;
+	"scheduledEnd"?: string;
+	"actualHours"?: number;
+	"actualStart"?: string;
+	"actualEnd"?: string;
+	"budgetHours"?: number;
+	"projectTemplateId"?: number;
+	"locationId"?: number;
+	"businessUnitId"?: number;
+	"shipToCompany"?: CompanyReference;
+	"shipToContact"?: ContactReference;
+	"shipToSite"?: SiteReference;
+	"billToCompany"?: CompanyReference;
+	"billToContact"?: ContactReference;
+	"billToSite"?: SiteReference;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export enum BudgetAnalysisEnum {
-    ActualHours,
-    BillableHours,
+	ActualHours,
+	BillableHours,
 }
 export enum BillingRateTypeEnum {
-    WorkRole,
-    StaffMember,
+	WorkRole,
+	StaffMember,
 }
 export interface ProjectBoardReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ProjectContact {
-    "id"?: number;
-    "projectId"?: number;
-    "contact": ContactReference;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"projectId"?: number;
+	"contact": ContactReference;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ProjectNote {
-    "id"?: number;
-    "projectId"?: number;
-    "text": string;
-    "type"?: NoteTypeReference;
-    "flagged"?: boolean;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"projectId"?: number;
+	"text": string;
+	"type"?: NoteTypeReference;
+	"flagged"?: boolean;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ProjectPhase {
-    "id"?: number;
-    "projectId"?: number;
-    "description": string;
-    "board"?: ProjectBoardReference;
-    "status"?: PhaseStatusReference;
-    "agreement"?: AgreementReference;
-    "opportunity"?: OpportunityReference;
-    "parentPhase"?: ProjectPhaseReference;
-    "wbsCode"?: string;
-    "billTime"?: BillTimeEnum;
-    "billExpenses"?: BillExpensesEnum;
-    "billProducts"?: BillProductsEnum;
-    "markAsMilestoneFlag"?: boolean;
-    "notes"?: string;
-    "deadlineDate"?: Date;
-    "billSeparatelyFlag"?: boolean;
-    "billingMethod"?: BillingMethodEnum;
-    "scheduledHours"?: number;
-    "scheduledStart"?: string;
-    "scheduledEnd"?: string;
-    "actualHours"?: number;
-    "actualStart"?: string;
-    "actualEnd"?: string;
-    "budgetHours"?: number;
-    "locationId"?: number;
-    "businessUnitId"?: number;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"projectId"?: number;
+	"description": string;
+	"board"?: ProjectBoardReference;
+	"status"?: PhaseStatusReference;
+	"agreement"?: AgreementReference;
+	"opportunity"?: OpportunityReference;
+	"parentPhase"?: ProjectPhaseReference;
+	"wbsCode"?: string;
+	"billTime"?: BillTimeEnum;
+	"billExpenses"?: BillExpensesEnum;
+	"billProducts"?: BillProductsEnum;
+	"markAsMilestoneFlag"?: boolean;
+	"notes"?: string;
+	"deadlineDate"?: Date;
+	"billSeparatelyFlag"?: boolean;
+	"billingMethod"?: BillingMethodEnum;
+	"scheduledHours"?: number;
+	"scheduledStart"?: string;
+	"scheduledEnd"?: string;
+	"actualHours"?: number;
+	"actualStart"?: string;
+	"actualEnd"?: string;
+	"budgetHours"?: number;
+	"locationId"?: number;
+	"businessUnitId"?: number;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export enum BillTimeEnum {
-    Billable,
-    DoNotBill,
-    NoCharge,
-    NoDefault,
+	Billable,
+	DoNotBill,
+	NoCharge,
+	NoDefault,
 }
 export enum BillExpensesEnum {
-    Billable,
-    DoNotBill,
-    NoCharge,
-    NoDefault,
+	Billable,
+	DoNotBill,
+	NoCharge,
+	NoDefault,
 }
 export enum BillProductsEnum {
-    Billable,
-    DoNotBill,
-    NoCharge,
-    NoDefault,
+	Billable,
+	DoNotBill,
+	NoCharge,
+	NoDefault,
 }
 export enum BillingMethodEnum {
-    ActualRates,
-    FixedFee,
-    NotToExceed,
-    OverrideRate,
+	ActualRates,
+	FixedFee,
+	NotToExceed,
+	OverrideRate,
 }
 export interface ProjectPhaseReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ProjectRoleReference {
-    "id"?: number;
-    "identifier"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"identifier"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ProjectStatusReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ProjectTeamMember {
-    "id"?: number;
-    "projectId"?: number;
-    "hours"?: number;
-    "member": MemberReference;
-    "projectRole": ProjectRoleReference;
-    "workRole"?: WorkRoleReference;
-    "startDate"?: Date;
-    "endDate"?: Date;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"projectId"?: number;
+	"hours"?: number;
+	"member": MemberReference;
+	"projectRole": ProjectRoleReference;
+	"workRole"?: WorkRoleReference;
+	"startDate"?: Date;
+	"endDate"?: Date;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ProjectTypeReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface SiteReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ValidationError {
-    "code"?: string;
-    "message"?: string;
-    "resource"?: string;
-    "field"?: string;
+	"code"?: string;
+	"message"?: string;
+	"resource"?: string;
+	"field"?: string;
 }
 export interface WorkRoleReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export class ProjectContactsApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Delete Project Contact By Id
-     * @param id
-     * @param contactId
-     */
-    projectProjectsIdContactsContactIdDelete(params: {
-        id: number;
-        contactId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Project Contact By Id
-     * @param id
-     * @param contactId
-     */
-    projectProjectsIdContactsContactIdGet(params: {
-        id: number;
-        contactId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ProjectContact>;
-    /**
-     *
-     * Get Project Contacts
-     * @param id
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    projectProjectsIdContactsGet(params: {
-        id: number;
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ProjectContact>>;
-    /**
-     *
-     * Create Project Contact
-     * @param id
-     * @param contact
-     */
-    projectProjectsIdContactsPost(params: {
-        id: number;
-        contact: ProjectContact;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ProjectContact>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Delete Project Contact By Id
+	 * @param id
+	 * @param contactId
+	 */
+	projectProjectsIdContactsContactIdDelete(params: {
+		id: number;
+		contactId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Project Contact By Id
+	 * @param id
+	 * @param contactId
+	 */
+	projectProjectsIdContactsContactIdGet(params: {
+		id: number;
+		contactId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ProjectContact>;
+	/**
+	 *
+	 * Get Project Contacts
+	 * @param id
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	projectProjectsIdContactsGet(params: {
+		id: number;
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ProjectContact>>;
+	/**
+	 *
+	 * Create Project Contact
+	 * @param id
+	 * @param contact
+	 */
+	projectProjectsIdContactsPost(params: {
+		id: number;
+		contact: ProjectContact;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ProjectContact>;
 }
 export class ProjectNotesApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Project Notes Count
-     * @param id
-     * @param conditions
-     */
-    projectProjectsIdNotesCountGet(params: {
-        id: number;
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Project Notes
-     * @param id
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    projectProjectsIdNotesGet(params: {
-        id: number;
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ProjectNote>>;
-    /**
-     *
-     * Delete Project Note By Id
-     * @param id
-     * @param noteId
-     */
-    projectProjectsIdNotesNoteIdDelete(params: {
-        id: number;
-        noteId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Project Note By Id
-     * @param id
-     * @param noteId
-     */
-    projectProjectsIdNotesNoteIdGet(params: {
-        id: number;
-        noteId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ProjectNote>;
-    /**
-     *
-     * Update Project Note
-     * @param id
-     * @param noteId
-     * @param operations
-     */
-    projectProjectsIdNotesNoteIdPatch(params: {
-        id: number;
-        noteId: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ProjectNote>;
-    /**
-     *
-     * Replace Project Note
-     * @param id
-     * @param noteId
-     * @param note
-     */
-    projectProjectsIdNotesNoteIdPut(params: {
-        id: number;
-        noteId: number;
-        note: ProjectNote;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ProjectNote>;
-    /**
-     *
-     * Create Project Note
-     * @param id
-     * @param note
-     */
-    projectProjectsIdNotesPost(params: {
-        id: number;
-        note: ProjectNote;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ProjectNote>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Project Notes Count
+	 * @param id
+	 * @param conditions
+	 */
+	projectProjectsIdNotesCountGet(params: {
+		id: number;
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Project Notes
+	 * @param id
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	projectProjectsIdNotesGet(params: {
+		id: number;
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ProjectNote>>;
+	/**
+	 *
+	 * Delete Project Note By Id
+	 * @param id
+	 * @param noteId
+	 */
+	projectProjectsIdNotesNoteIdDelete(params: {
+		id: number;
+		noteId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Project Note By Id
+	 * @param id
+	 * @param noteId
+	 */
+	projectProjectsIdNotesNoteIdGet(params: {
+		id: number;
+		noteId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ProjectNote>;
+	/**
+	 *
+	 * Update Project Note
+	 * @param id
+	 * @param noteId
+	 * @param operations
+	 */
+	projectProjectsIdNotesNoteIdPatch(params: {
+		id: number;
+		noteId: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ProjectNote>;
+	/**
+	 *
+	 * Replace Project Note
+	 * @param id
+	 * @param noteId
+	 * @param note
+	 */
+	projectProjectsIdNotesNoteIdPut(params: {
+		id: number;
+		noteId: number;
+		note: ProjectNote;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ProjectNote>;
+	/**
+	 *
+	 * Create Project Note
+	 * @param id
+	 * @param note
+	 */
+	projectProjectsIdNotesPost(params: {
+		id: number;
+		note: ProjectNote;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ProjectNote>;
 }
 export class ProjectPhasesApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Project Phases Count
-     * @param id
-     * @param conditions
-     */
-    projectProjectsIdPhasesCountGet(params: {
-        id: number;
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Project Phases
-     * @param id
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    projectProjectsIdPhasesGet(params: {
-        id: number;
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ProjectPhase>>;
-    /**
-     *
-     * Delete Project Phase By Id
-     * @param id
-     * @param phaseId
-     */
-    projectProjectsIdPhasesPhaseIdDelete(params: {
-        id: number;
-        phaseId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Project Phase By Id
-     * @param id
-     * @param phaseId
-     */
-    projectProjectsIdPhasesPhaseIdGet(params: {
-        id: number;
-        phaseId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ProjectPhase>;
-    /**
-     *
-     * Update Project Phase
-     * @param id
-     * @param phaseId
-     * @param operations
-     */
-    projectProjectsIdPhasesPhaseIdPatch(params: {
-        id: number;
-        phaseId: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ProjectPhase>;
-    /**
-     *
-     * Replace Project Phase
-     * @param id
-     * @param phaseId
-     * @param projectPhase
-     */
-    projectProjectsIdPhasesPhaseIdPut(params: {
-        id: number;
-        phaseId: number;
-        projectPhase: ProjectPhase;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ProjectPhase>;
-    /**
-     *
-     * Create Project Phase
-     * @param id
-     * @param projectPhase
-     */
-    projectProjectsIdPhasesPost(params: {
-        id: number;
-        projectPhase: ProjectPhase;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ProjectPhase>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Project Phases Count
+	 * @param id
+	 * @param conditions
+	 */
+	projectProjectsIdPhasesCountGet(params: {
+		id: number;
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Project Phases
+	 * @param id
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	projectProjectsIdPhasesGet(params: {
+		id: number;
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ProjectPhase>>;
+	/**
+	 *
+	 * Delete Project Phase By Id
+	 * @param id
+	 * @param phaseId
+	 */
+	projectProjectsIdPhasesPhaseIdDelete(params: {
+		id: number;
+		phaseId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Project Phase By Id
+	 * @param id
+	 * @param phaseId
+	 */
+	projectProjectsIdPhasesPhaseIdGet(params: {
+		id: number;
+		phaseId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ProjectPhase>;
+	/**
+	 *
+	 * Update Project Phase
+	 * @param id
+	 * @param phaseId
+	 * @param operations
+	 */
+	projectProjectsIdPhasesPhaseIdPatch(params: {
+		id: number;
+		phaseId: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ProjectPhase>;
+	/**
+	 *
+	 * Replace Project Phase
+	 * @param id
+	 * @param phaseId
+	 * @param projectPhase
+	 */
+	projectProjectsIdPhasesPhaseIdPut(params: {
+		id: number;
+		phaseId: number;
+		projectPhase: ProjectPhase;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ProjectPhase>;
+	/**
+	 *
+	 * Create Project Phase
+	 * @param id
+	 * @param projectPhase
+	 */
+	projectProjectsIdPhasesPost(params: {
+		id: number;
+		projectPhase: ProjectPhase;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ProjectPhase>;
 }
 export class ProjectsApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Projects Count
-     * @param conditions
-     */
-    projectProjectsCountGet(params: {
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Projects
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    projectProjectsGet(params: {
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Project>>;
-    /**
-     *
-     * Delete Project By Id
-     * @param id
-     */
-    projectProjectsIdDelete(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Project By Id
-     * @param id
-     */
-    projectProjectsIdGet(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Project>;
-    /**
-     *
-     * Update Project
-     * @param id
-     * @param operations
-     */
-    projectProjectsIdPatch(params: {
-        id: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Project>;
-    /**
-     *
-     * Replace Project
-     * @param id
-     * @param project
-     */
-    projectProjectsIdPut(params: {
-        id: number;
-        project: Project;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Project>;
-    /**
-     *
-     * Create Project
-     * @param project
-     */
-    projectProjectsPost(params: {
-        project: Project;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Project>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Projects Count
+	 * @param conditions
+	 */
+	projectProjectsCountGet(params: {
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Projects
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	projectProjectsGet(params: {
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Project>>;
+	/**
+	 *
+	 * Delete Project By Id
+	 * @param id
+	 */
+	projectProjectsIdDelete(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Project By Id
+	 * @param id
+	 */
+	projectProjectsIdGet(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Project>;
+	/**
+	 *
+	 * Update Project
+	 * @param id
+	 * @param operations
+	 */
+	projectProjectsIdPatch(params: {
+		id: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Project>;
+	/**
+	 *
+	 * Replace Project
+	 * @param id
+	 * @param project
+	 */
+	projectProjectsIdPut(params: {
+		id: number;
+		project: Project;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Project>;
+	/**
+	 *
+	 * Create Project
+	 * @param project
+	 */
+	projectProjectsPost(params: {
+		project: Project;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Project>;
 }
 export class ProjectsTeamMembersApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Team Members Count
-     * @param id
-     * @param conditions
-     */
-    projectProjectsIdTeamMembersCountGet(params: {
-        id: number;
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Team Members
-     * @param id
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    projectProjectsIdTeamMembersGet(params: {
-        id: number;
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ProjectTeamMember>>;
-    /**
-     *
-     * Create Team Member
-     * @param id
-     * @param teamMember
-     */
-    projectProjectsIdTeamMembersPost(params: {
-        id: number;
-        teamMember: ProjectTeamMember;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ProjectTeamMember>;
-    /**
-     *
-     * Delete Team Member By Id
-     * @param id
-     * @param teamMemberId
-     */
-    projectProjectsIdTeamMembersTeamMemberIdDelete(params: {
-        id: number;
-        teamMemberId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Team Member By Id
-     * @param id
-     * @param teamMemberId
-     */
-    projectProjectsIdTeamMembersTeamMemberIdGet(params: {
-        id: number;
-        teamMemberId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ProjectTeamMember>;
-    /**
-     *
-     * Update Team Member
-     * @param id
-     * @param teamMemberId
-     * @param operations
-     */
-    projectProjectsIdTeamMembersTeamMemberIdPatch(params: {
-        id: number;
-        teamMemberId: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ProjectTeamMember>;
-    /**
-     *
-     * Replace Team Member
-     * @param id
-     * @param teamMemberId
-     * @param teamMember
-     */
-    projectProjectsIdTeamMembersTeamMemberIdPut(params: {
-        id: number;
-        teamMemberId: number;
-        teamMember: ProjectTeamMember;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ProjectTeamMember>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Team Members Count
+	 * @param id
+	 * @param conditions
+	 */
+	projectProjectsIdTeamMembersCountGet(params: {
+		id: number;
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Team Members
+	 * @param id
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	projectProjectsIdTeamMembersGet(params: {
+		id: number;
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ProjectTeamMember>>;
+	/**
+	 *
+	 * Create Team Member
+	 * @param id
+	 * @param teamMember
+	 */
+	projectProjectsIdTeamMembersPost(params: {
+		id: number;
+		teamMember: ProjectTeamMember;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ProjectTeamMember>;
+	/**
+	 *
+	 * Delete Team Member By Id
+	 * @param id
+	 * @param teamMemberId
+	 */
+	projectProjectsIdTeamMembersTeamMemberIdDelete(params: {
+		id: number;
+		teamMemberId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Team Member By Id
+	 * @param id
+	 * @param teamMemberId
+	 */
+	projectProjectsIdTeamMembersTeamMemberIdGet(params: {
+		id: number;
+		teamMemberId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ProjectTeamMember>;
+	/**
+	 *
+	 * Update Team Member
+	 * @param id
+	 * @param teamMemberId
+	 * @param operations
+	 */
+	projectProjectsIdTeamMembersTeamMemberIdPatch(params: {
+		id: number;
+		teamMemberId: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ProjectTeamMember>;
+	/**
+	 *
+	 * Replace Team Member
+	 * @param id
+	 * @param teamMemberId
+	 * @param teamMember
+	 */
+	projectProjectsIdTeamMembersTeamMemberIdPut(params: {
+		id: number;
+		teamMemberId: number;
+		teamMember: ProjectTeamMember;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ProjectTeamMember>;
 }
 }
 declare module 'connectwise-rest-api/release/api/projectAPI' {
@@ -8426,315 +8426,315 @@ export = alias;
 // Source: release/api/salesAPI.d.ts
 declare module '~connectwise-rest-api/release/api/salesAPI' {
 export interface Activity {
-    "id"?: number;
-    "name": string;
-    "type"?: ActivityTypeReference;
-    "company"?: CompanyReference;
-    "contact"?: ContactReference;
-    "phoneNumber"?: string;
-    "email"?: string;
-    "status": ActivityStatusReference;
-    "opportunity"?: OpportunityReference;
-    "ticket"?: TicketReference;
-    "agreement"?: AgreementReference;
-    "campaign"?: CampaignReference;
-    "notes"?: string;
-    "dateStart"?: Date;
-    "dateEnd"?: Date;
-    "assignedBy"?: MemberReference;
-    "assignTo": MemberReference;
-    "scheduleStatus"?: ScheduleStatusReference;
-    "reminder"?: ReminderReference;
-    "where"?: ServiceLocationReference;
-    "notifyFlag"?: boolean;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
-    "customFields"?: Array<CustomFieldValue>;
+	"id"?: number;
+	"name": string;
+	"type"?: ActivityTypeReference;
+	"company"?: CompanyReference;
+	"contact"?: ContactReference;
+	"phoneNumber"?: string;
+	"email"?: string;
+	"status": ActivityStatusReference;
+	"opportunity"?: OpportunityReference;
+	"ticket"?: TicketReference;
+	"agreement"?: AgreementReference;
+	"campaign"?: CampaignReference;
+	"notes"?: string;
+	"dateStart"?: Date;
+	"dateEnd"?: Date;
+	"assignedBy"?: MemberReference;
+	"assignTo": MemberReference;
+	"scheduleStatus"?: ScheduleStatusReference;
+	"reminder"?: ReminderReference;
+	"where"?: ServiceLocationReference;
+	"notifyFlag"?: boolean;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
+	"customFields"?: Array<CustomFieldValue>;
 }
 export interface ActivityStatus {
-    "id"?: number;
-    "name": string;
-    "defaultFlag"?: boolean;
-    "inactiveFlag"?: boolean;
-    "spawnFollowupFlag"?: boolean;
-    "closedFlag"?: boolean;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name": string;
+	"defaultFlag"?: boolean;
+	"inactiveFlag"?: boolean;
+	"spawnFollowupFlag"?: boolean;
+	"closedFlag"?: boolean;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ActivityStatusReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ActivityType {
-    "id"?: number;
-    "name": string;
-    "points"?: number;
-    "defaultFlag"?: boolean;
-    "inactiveFlag"?: boolean;
-    "emailFlag"?: boolean;
-    "memoFlag"?: boolean;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name": string;
+	"points"?: number;
+	"defaultFlag"?: boolean;
+	"inactiveFlag"?: boolean;
+	"emailFlag"?: boolean;
+	"memoFlag"?: boolean;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ActivityTypeReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface Agreement {
-    "id"?: number;
-    "name": string;
-    "type": AgreementTypeReference;
-    "company": CompanyReference;
-    "contact": ContactReference;
-    "subContractCompany"?: CompanyReference;
-    "subContractContact"?: ContactReference;
-    "parentAgreementId"?: number;
-    "customerPO"?: string;
-    "locationId"?: number;
-    "businessUnitId"?: number;
-    "restrictLocationFlag"?: boolean;
-    "restrictDepartmentFlag"?: boolean;
-    "startDate"?: Date;
-    "endDate"?: Date;
-    "noEndingDateFlag"?: boolean;
-    "opportunity"?: OpportunityReference;
-    "cancelledFlag"?: boolean;
-    "dateCancelled"?: Date;
-    "reasonCancelled"?: string;
-    "slaId"?: number;
-    "workOrder"?: string;
-    "internalNotes"?: string;
-    "applicationUnits"?: ApplicationUnitsEnum;
-    "applicationLimit"?: number;
-    "applicationCycle"?: ApplicationCycleEnum;
-    "applicationUnlimitedFlag"?: boolean;
-    "oneTimeFlag"?: boolean;
-    "coverAgreementTime"?: boolean;
-    "coverAgreementProduct"?: boolean;
-    "coverAgreementExpense"?: boolean;
-    "coverSalesTax"?: boolean;
-    "carryOverUnused"?: boolean;
-    "allowOverruns"?: boolean;
-    "expiredDays"?: number;
-    "limit"?: number;
-    "expireWhenZero"?: boolean;
-    "chargeToFirm"?: boolean;
-    "employeeCompRate"?: EmployeeCompRateEnum;
-    "employeeCompNotExceed"?: EmployeeCompNotExceedEnum;
-    "compHourlyRate"?: number;
-    "compLimitAmount"?: number;
-    "billCycleId"?: number;
-    "billOneTimeFlag"?: boolean;
-    "billTermsId"?: number;
-    "invoicingCycle"?: InvoicingCycleEnum;
-    "billToCompany"?: CompanyReference;
-    "billToSite"?: SiteReference;
-    "billAmount"?: number;
-    "taxable"?: boolean;
-    "prorateFirstBill"?: number;
-    "billStartDate"?: Date;
-    "taxCodeId"?: number;
-    "restrictDownPayment"?: boolean;
-    "invoiceDescription"?: string;
-    "topComment"?: boolean;
-    "bottomComment"?: boolean;
-    "workRole"?: WorkRoleReference;
-    "workType"?: WorkTypeReference;
-    "projectTypeId"?: number;
-    "invoiceTemplateSetupId"?: number;
-    "billTime"?: BillTimeEnum;
-    "billExpenses"?: BillExpensesEnum;
-    "billProducts"?: BillProductsEnum;
-    "billableTimeInvoice"?: boolean;
-    "billableExpenseInvoice"?: boolean;
-    "billableProductInvoice"?: boolean;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
-    "periodType"?: PeriodTypeEnum;
+	"id"?: number;
+	"name": string;
+	"type": AgreementTypeReference;
+	"company": CompanyReference;
+	"contact": ContactReference;
+	"subContractCompany"?: CompanyReference;
+	"subContractContact"?: ContactReference;
+	"parentAgreementId"?: number;
+	"customerPO"?: string;
+	"locationId"?: number;
+	"businessUnitId"?: number;
+	"restrictLocationFlag"?: boolean;
+	"restrictDepartmentFlag"?: boolean;
+	"startDate"?: Date;
+	"endDate"?: Date;
+	"noEndingDateFlag"?: boolean;
+	"opportunity"?: OpportunityReference;
+	"cancelledFlag"?: boolean;
+	"dateCancelled"?: Date;
+	"reasonCancelled"?: string;
+	"slaId"?: number;
+	"workOrder"?: string;
+	"internalNotes"?: string;
+	"applicationUnits"?: ApplicationUnitsEnum;
+	"applicationLimit"?: number;
+	"applicationCycle"?: ApplicationCycleEnum;
+	"applicationUnlimitedFlag"?: boolean;
+	"oneTimeFlag"?: boolean;
+	"coverAgreementTime"?: boolean;
+	"coverAgreementProduct"?: boolean;
+	"coverAgreementExpense"?: boolean;
+	"coverSalesTax"?: boolean;
+	"carryOverUnused"?: boolean;
+	"allowOverruns"?: boolean;
+	"expiredDays"?: number;
+	"limit"?: number;
+	"expireWhenZero"?: boolean;
+	"chargeToFirm"?: boolean;
+	"employeeCompRate"?: EmployeeCompRateEnum;
+	"employeeCompNotExceed"?: EmployeeCompNotExceedEnum;
+	"compHourlyRate"?: number;
+	"compLimitAmount"?: number;
+	"billCycleId"?: number;
+	"billOneTimeFlag"?: boolean;
+	"billTermsId"?: number;
+	"invoicingCycle"?: InvoicingCycleEnum;
+	"billToCompany"?: CompanyReference;
+	"billToSite"?: SiteReference;
+	"billAmount"?: number;
+	"taxable"?: boolean;
+	"prorateFirstBill"?: number;
+	"billStartDate"?: Date;
+	"taxCodeId"?: number;
+	"restrictDownPayment"?: boolean;
+	"invoiceDescription"?: string;
+	"topComment"?: boolean;
+	"bottomComment"?: boolean;
+	"workRole"?: WorkRoleReference;
+	"workType"?: WorkTypeReference;
+	"projectTypeId"?: number;
+	"invoiceTemplateSetupId"?: number;
+	"billTime"?: BillTimeEnum;
+	"billExpenses"?: BillExpensesEnum;
+	"billProducts"?: BillProductsEnum;
+	"billableTimeInvoice"?: boolean;
+	"billableExpenseInvoice"?: boolean;
+	"billableProductInvoice"?: boolean;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
+	"periodType"?: PeriodTypeEnum;
 }
 export enum ApplicationUnitsEnum {
-    Amount,
-    Hours,
-    Incidents,
+	Amount,
+	Hours,
+	Incidents,
 }
 export enum ApplicationCycleEnum {
-    Contract2Weeks,
-    Contract4Weeks,
-    ContractYear,
-    CalendarMonth,
-    CalendarQuarter,
-    CalendarWeek,
-    ContractQuarter,
-    CalendarYear,
+	Contract2Weeks,
+	Contract4Weeks,
+	ContractYear,
+	CalendarMonth,
+	CalendarQuarter,
+	CalendarWeek,
+	ContractQuarter,
+	CalendarYear,
 }
 export enum EmployeeCompRateEnum {
-    Actual,
-    Hourly,
+	Actual,
+	Hourly,
 }
 export enum EmployeeCompNotExceedEnum {
-    Billing,
-    Percent,
-    Amount,
+	Billing,
+	Percent,
+	Amount,
 }
 export enum InvoicingCycleEnum {
-    CalendarYear,
-    ContractYear,
+	CalendarYear,
+	ContractYear,
 }
 export enum PeriodTypeEnum {
-    Current,
-    Future,
-    Both,
-    Undefined,
+	Current,
+	Future,
+	Both,
+	Undefined,
 }
 export interface AgreementReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface AgreementTypeReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface BillingTermsReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface BoardReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface CampaignReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface CompanyReference {
-    "id"?: number;
-    "identifier"?: string;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"identifier"?: string;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ContactReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface Count {
-    "count"?: number;
+	"count"?: number;
 }
 export interface CountryReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface CustomFieldValue {
-    "id"?: number;
-    "caption"?: string;
-    "type"?: TypeEnum;
-    "entryMethod"?: EntryMethodEnum;
-    "numberOfDecimals"?: number;
-    "value"?: string;
+	"id"?: number;
+	"caption"?: string;
+	"type"?: TypeEnum;
+	"entryMethod"?: EntryMethodEnum;
+	"numberOfDecimals"?: number;
+	"value"?: string;
 }
 export enum TypeEnum {
-    Text,
-    Button,
-    Currency,
-    Date,
-    Hyperlink,
-    IPAddress,
-    Checkbox,
-    Number,
-    Percent,
-    TextArea,
-    Password,
+	Text,
+	Button,
+	Currency,
+	Date,
+	Hyperlink,
+	IPAddress,
+	Checkbox,
+	Number,
+	Percent,
+	TextArea,
+	Password,
 }
 export enum EntryMethodEnum {
-    EntryField,
-    List,
-    Option,
+	EntryField,
+	List,
+	Option,
 }
 export interface Error {
-    "code"?: string;
-    "message"?: string;
-    "errors"?: Array<ValidationError>;
+	"code"?: string;
+	"message"?: string;
+	"errors"?: Array<ValidationError>;
 }
 export interface Forecast {
-    "id"?: number;
-    "name"?: string;
-    "revenue"?: number;
-    "cost"?: number;
-    "type": ForecastTypeEnum;
-    "status"?: OpportunityStatusReference;
-    "includedFlag"?: boolean;
-    "recurring"?: ProductRecurring;
-    "percent"?: number;
-    "margin"?: number;
-    "opportunityId"?: number;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	"revenue"?: number;
+	"cost"?: number;
+	"type": ForecastTypeEnum;
+	"status"?: OpportunityStatusReference;
+	"includedFlag"?: boolean;
+	"recurring"?: ProductRecurring;
+	"percent"?: number;
+	"margin"?: number;
+	"opportunityId"?: number;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export enum ForecastTypeEnum {
-    Product,
-    Service,
-    Agreement,
-    Other1,
-    Other2,
+	Product,
+	Service,
+	Agreement,
+	Other1,
+	Other2,
 }
 export interface Guid {
 }
 export interface MemberReference {
-    "id"?: number;
-    "identifier"?: string;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"identifier"?: string;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 /**
  * Metadata of the entity
@@ -8742,1732 +8742,1732 @@ export interface MemberReference {
 export interface Metadata {
 }
 export interface NoteTypeReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface Opportunity {
-    "id"?: number;
-    "name": string;
-    "expectedCloseDate"?: Date;
-    "type"?: OpportunityTypeReference;
-    "stage"?: OpportunityStageReference;
-    "status"?: OpportunityStatusReference;
-    "priority"?: OpportunityPriorityReference;
-    "notes"?: string;
-    "probability"?: OpportunityProbabilityReference;
-    "source"?: string;
-    "rating"?: OpportunityRatingReference;
-    "campaign"?: CampaignReference;
-    "primarySalesRep": MemberReference;
-    "secondarySalesRep"?: MemberReference;
-    "locationId"?: number;
-    "businessUnitId"?: number;
-    "company": CompanyReference;
-    "contact": ContactReference;
-    "site": SiteReference;
-    "customerPO"?: string;
-    "pipelineChangeDate"?: Date;
-    "dateBecameLead"?: Date;
-    "closedDate"?: Date;
-    "closedBy"?: MemberReference;
-    "totalSalesTax"?: number;
-    "shipToCompany"?: CompanyReference;
-    "shipToContact"?: ContactReference;
-    "shipToSite"?: SiteReference;
-    "billToCompany"?: CompanyReference;
-    "billToContact"?: ContactReference;
-    "billToSite"?: SiteReference;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
-    "customFields"?: Array<CustomFieldValue>;
+	"id"?: number;
+	"name": string;
+	"expectedCloseDate"?: Date;
+	"type"?: OpportunityTypeReference;
+	"stage"?: OpportunityStageReference;
+	"status"?: OpportunityStatusReference;
+	"priority"?: OpportunityPriorityReference;
+	"notes"?: string;
+	"probability"?: OpportunityProbabilityReference;
+	"source"?: string;
+	"rating"?: OpportunityRatingReference;
+	"campaign"?: CampaignReference;
+	"primarySalesRep": MemberReference;
+	"secondarySalesRep"?: MemberReference;
+	"locationId"?: number;
+	"businessUnitId"?: number;
+	"company": CompanyReference;
+	"contact": ContactReference;
+	"site": SiteReference;
+	"customerPO"?: string;
+	"pipelineChangeDate"?: Date;
+	"dateBecameLead"?: Date;
+	"closedDate"?: Date;
+	"closedBy"?: MemberReference;
+	"totalSalesTax"?: number;
+	"shipToCompany"?: CompanyReference;
+	"shipToContact"?: ContactReference;
+	"shipToSite"?: SiteReference;
+	"billToCompany"?: CompanyReference;
+	"billToContact"?: ContactReference;
+	"billToSite"?: SiteReference;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
+	"customFields"?: Array<CustomFieldValue>;
 }
 export interface OpportunityContact {
-    "id"?: number;
-    "contact": ContactReference;
-    "company"?: CompanyReference;
-    "role"?: OpportunitySalesRoleReference;
-    "notes"?: string;
-    "referralFlag"?: boolean;
-    "opportunityId"?: number;
-    "phoneNumber"?: string;
-    "emailAddress"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"contact": ContactReference;
+	"company"?: CompanyReference;
+	"role"?: OpportunitySalesRoleReference;
+	"notes"?: string;
+	"referralFlag"?: boolean;
+	"opportunityId"?: number;
+	"phoneNumber"?: string;
+	"emailAddress"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface OpportunityNote {
-    "id"?: number;
-    "opportunityId"?: number;
-    "type"?: NoteTypeReference;
-    "text": string;
-    "flagged"?: boolean;
-    "enteredBy"?: string;
-    "mobileGuid"?: Guid;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"opportunityId"?: number;
+	"type"?: NoteTypeReference;
+	"text": string;
+	"flagged"?: boolean;
+	"enteredBy"?: string;
+	"mobileGuid"?: Guid;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface OpportunityPriorityReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface OpportunityProbabilityReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface OpportunityRating {
-    "id"?: number;
-    "name": string;
-    "sortOrder"?: number;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name": string;
+	"sortOrder"?: number;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface OpportunityRatingReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface OpportunityReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface OpportunitySalesRoleReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface OpportunityStageReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface OpportunityStatus {
-    "id"?: number;
-    "name": string;
-    "wonFlag"?: boolean;
-    "lostFlag"?: boolean;
-    "closedFlag"?: boolean;
-    "inactiveFlag"?: boolean;
-    "defaultFlag"?: boolean;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
-    "enteredBy"?: string;
-    "dateEntered"?: Date;
+	"id"?: number;
+	"name": string;
+	"wonFlag"?: boolean;
+	"lostFlag"?: boolean;
+	"closedFlag"?: boolean;
+	"inactiveFlag"?: boolean;
+	"defaultFlag"?: boolean;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
+	"enteredBy"?: string;
+	"dateEntered"?: Date;
 }
 export interface OpportunityStatusReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface OpportunityToAgreementConversion {
-    "agreementId"?: number;
-    "name"?: string;
-    "type"?: AgreementTypeReference;
-    "startDate"?: string;
-    "endDate"?: string;
-    "noEndingDateFlag"?: boolean;
-    "billCycleId"?: number;
-    "locationId"?: number;
-    "businessUnitId"?: number;
-    "includeAllNotesFlag"?: boolean;
-    "includeAllDocumentsFlag"?: boolean;
-    "includeAllProductsFlag"?: boolean;
-    "includeNoteIds"?: Array<number>;
-    "includeDocumentIds"?: Array<number>;
-    "includeProductIds"?: Array<number>;
+	"agreementId"?: number;
+	"name"?: string;
+	"type"?: AgreementTypeReference;
+	"startDate"?: string;
+	"endDate"?: string;
+	"noEndingDateFlag"?: boolean;
+	"billCycleId"?: number;
+	"locationId"?: number;
+	"businessUnitId"?: number;
+	"includeAllNotesFlag"?: boolean;
+	"includeAllDocumentsFlag"?: boolean;
+	"includeAllProductsFlag"?: boolean;
+	"includeNoteIds"?: Array<number>;
+	"includeDocumentIds"?: Array<number>;
+	"includeProductIds"?: Array<number>;
 }
 export interface OpportunityToProjectConversion {
-    "projectId"?: number;
-    "name"?: string;
-    "status"?: ProjectStatusReference;
-    "locationId"?: number;
-    "businessUnitId"?: number;
-    "board"?: ProjectBoardReference;
-    "manager"?: MemberReference;
-    "estimatedStart"?: string;
-    "estimatedEnd"?: string;
-    "includeAllNotesFlag"?: boolean;
-    "includeAllDocumentsFlag"?: boolean;
-    "includeAllProductsFlag"?: boolean;
-    "includeNoteIds"?: Array<number>;
-    "includeDocumentIds"?: Array<number>;
-    "includeProductIds"?: Array<number>;
+	"projectId"?: number;
+	"name"?: string;
+	"status"?: ProjectStatusReference;
+	"locationId"?: number;
+	"businessUnitId"?: number;
+	"board"?: ProjectBoardReference;
+	"manager"?: MemberReference;
+	"estimatedStart"?: string;
+	"estimatedEnd"?: string;
+	"includeAllNotesFlag"?: boolean;
+	"includeAllDocumentsFlag"?: boolean;
+	"includeAllProductsFlag"?: boolean;
+	"includeNoteIds"?: Array<number>;
+	"includeDocumentIds"?: Array<number>;
+	"includeProductIds"?: Array<number>;
 }
 export interface OpportunityToSalesOrderConversion {
-    "salesOrderId"?: number;
-    "name"?: string;
-    "includeAllNotesFlag"?: boolean;
-    "includeAllDocumentsFlag"?: boolean;
-    "includeAllProductsFlag"?: boolean;
-    "includeNoteIds"?: Array<number>;
-    "includeDocumentIds"?: Array<number>;
-    "includeProductIds"?: Array<number>;
+	"salesOrderId"?: number;
+	"name"?: string;
+	"includeAllNotesFlag"?: boolean;
+	"includeAllDocumentsFlag"?: boolean;
+	"includeAllProductsFlag"?: boolean;
+	"includeNoteIds"?: Array<number>;
+	"includeDocumentIds"?: Array<number>;
+	"includeProductIds"?: Array<number>;
 }
 export interface OpportunityToServiceTicketConversion {
-    "ticketId"?: number;
-    "summary"?: string;
-    "includeAllNotesFlag"?: boolean;
-    "includeAllDocumentsFlag"?: boolean;
-    "includeAllProductsFlag"?: boolean;
-    "includeNoteIds"?: Array<number>;
-    "includeDocumentIds"?: Array<number>;
-    "includeProductIds"?: Array<number>;
+	"ticketId"?: number;
+	"summary"?: string;
+	"includeAllNotesFlag"?: boolean;
+	"includeAllDocumentsFlag"?: boolean;
+	"includeAllProductsFlag"?: boolean;
+	"includeNoteIds"?: Array<number>;
+	"includeDocumentIds"?: Array<number>;
+	"includeProductIds"?: Array<number>;
 }
 export interface OpportunityType {
-    "id"?: number;
-    "description": string;
-    "inactiveFlag"?: boolean;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"description": string;
+	"inactiveFlag"?: boolean;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface OpportunityTypeReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface Order {
-    "id"?: number;
-    "company": CompanyReference;
-    "contact"?: ContactReference;
-    "phone"?: string;
-    "phoneExt"?: string;
-    "email"?: string;
-    "site"?: SiteReference;
-    "status": OrderStatusReference;
-    "opportunity"?: OpportunityReference;
-    "orderDate"?: Date;
-    "dueDate"?: Date;
-    "billingTerms"?: BillingTermsReference;
-    "taxCode"?: TaxCodeReference;
-    "poNumber"?: string;
-    "locationId"?: number;
-    "businessUnitId"?: number;
-    "salesRep": MemberReference;
-    "notes"?: string;
-    "billClosedFlag"?: boolean;
-    "billShippedFlag"?: boolean;
-    "restrictDownpaymentFlag"?: boolean;
-    "description"?: string;
-    "topCommentFlag"?: boolean;
-    "bottomCommentFlag"?: boolean;
-    "shipToCompany"?: CompanyReference;
-    "shipToContact"?: ContactReference;
-    "shipToSite"?: SiteReference;
-    "billToCompany"?: CompanyReference;
-    "billToContact"?: ContactReference;
-    "billToSite"?: SiteReference;
-    "productIds"?: Array<number>;
-    "documentIds"?: Array<number>;
-    "invoiceIds"?: Array<number>;
-    "configIds"?: Array<number>;
-    "total"?: number;
-    "taxTotal"?: number;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"company": CompanyReference;
+	"contact"?: ContactReference;
+	"phone"?: string;
+	"phoneExt"?: string;
+	"email"?: string;
+	"site"?: SiteReference;
+	"status": OrderStatusReference;
+	"opportunity"?: OpportunityReference;
+	"orderDate"?: Date;
+	"dueDate"?: Date;
+	"billingTerms"?: BillingTermsReference;
+	"taxCode"?: TaxCodeReference;
+	"poNumber"?: string;
+	"locationId"?: number;
+	"businessUnitId"?: number;
+	"salesRep": MemberReference;
+	"notes"?: string;
+	"billClosedFlag"?: boolean;
+	"billShippedFlag"?: boolean;
+	"restrictDownpaymentFlag"?: boolean;
+	"description"?: string;
+	"topCommentFlag"?: boolean;
+	"bottomCommentFlag"?: boolean;
+	"shipToCompany"?: CompanyReference;
+	"shipToContact"?: ContactReference;
+	"shipToSite"?: SiteReference;
+	"billToCompany"?: CompanyReference;
+	"billToContact"?: ContactReference;
+	"billToSite"?: SiteReference;
+	"productIds"?: Array<number>;
+	"documentIds"?: Array<number>;
+	"invoiceIds"?: Array<number>;
+	"configIds"?: Array<number>;
+	"total"?: number;
+	"taxTotal"?: number;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface OrderStatus {
-    "id"?: number;
-    "name": string;
-    "defaultFlag"?: boolean;
-    "inactiveFlag"?: boolean;
-    "sortOrder"?: number;
-    "closedFlag"?: boolean;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name": string;
+	"defaultFlag"?: boolean;
+	"inactiveFlag"?: boolean;
+	"sortOrder"?: number;
+	"closedFlag"?: boolean;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface OrderStatusReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface PatchOperation {
-    "op"?: string;
-    "path"?: string;
-    "value"?: string;
+	"op"?: string;
+	"path"?: string;
+	"value"?: string;
 }
 export interface PriorityReference {
-    "id"?: number;
-    "name"?: string;
-    "sort"?: number;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	"sort"?: number;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ProductRecurring {
-    "recurringRevenue": number;
-    "recurringCost": number;
-    "startDate": Date;
-    "endDate": Date;
-    "billCycleId": number;
-    "cycles": number;
-    "cycleType": CycleTypeEnum;
+	"recurringRevenue": number;
+	"recurringCost": number;
+	"startDate": Date;
+	"endDate": Date;
+	"billCycleId": number;
+	"cycles": number;
+	"cycleType": CycleTypeEnum;
 }
 export enum CycleTypeEnum {
-    CalendarYear,
-    ContractYear,
+	CalendarYear,
+	ContractYear,
 }
 export interface Project {
-    "id"?: number;
-    "name": string;
-    "company": CompanyReference;
-    "site"?: SiteReference;
-    "opportunity"?: OpportunityReference;
-    "contact"?: ContactReference;
-    "manager"?: MemberReference;
-    "type"?: ProjectTypeReference;
-    "board": ProjectBoardReference;
-    "status"?: ProjectStatusReference;
-    "agreement"?: AgreementReference;
-    "billingMethod": BillingMethodEnum;
-    "billingAmount"?: number;
-    "estimatedTimeRevenue"?: number;
-    "estimatedExpenseRevenue"?: number;
-    "estimatedProductRevenue"?: number;
-    "estimatedStart": Date;
-    "estimatedEnd": Date;
-    "estimatedHours"?: number;
-    "description"?: string;
-    "timeApprover"?: MemberReference;
-    "expenseApprover"?: MemberReference;
-    "budgetAnalysis"?: BudgetAnalysisEnum;
-    "budgetFlag"?: boolean;
-    "billingRateType"?: BillingRateTypeEnum;
-    "billTime"?: BillTimeEnum;
-    "billExpenses"?: BillExpensesEnum;
-    "billProducts"?: BillProductsEnum;
-    "downpayment"?: number;
-    "restrictDownPaymentFlag"?: boolean;
-    "billingAttention"?: string;
-    "customerPO"?: string;
-    "billProjectAfterClosedFlag"?: boolean;
-    "billUnapprovedTimeAndExpense"?: boolean;
-    "scheduledHours"?: number;
-    "scheduledStart"?: string;
-    "scheduledEnd"?: string;
-    "actualHours"?: number;
-    "actualStart"?: string;
-    "actualEnd"?: string;
-    "budgetHours"?: number;
-    "projectTemplateId"?: number;
-    "locationId"?: number;
-    "businessUnitId"?: number;
-    "shipToCompany"?: CompanyReference;
-    "shipToContact"?: ContactReference;
-    "shipToSite"?: SiteReference;
-    "billToCompany"?: CompanyReference;
-    "billToContact"?: ContactReference;
-    "billToSite"?: SiteReference;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name": string;
+	"company": CompanyReference;
+	"site"?: SiteReference;
+	"opportunity"?: OpportunityReference;
+	"contact"?: ContactReference;
+	"manager"?: MemberReference;
+	"type"?: ProjectTypeReference;
+	"board": ProjectBoardReference;
+	"status"?: ProjectStatusReference;
+	"agreement"?: AgreementReference;
+	"billingMethod": BillingMethodEnum;
+	"billingAmount"?: number;
+	"estimatedTimeRevenue"?: number;
+	"estimatedExpenseRevenue"?: number;
+	"estimatedProductRevenue"?: number;
+	"estimatedStart": Date;
+	"estimatedEnd": Date;
+	"estimatedHours"?: number;
+	"description"?: string;
+	"timeApprover"?: MemberReference;
+	"expenseApprover"?: MemberReference;
+	"budgetAnalysis"?: BudgetAnalysisEnum;
+	"budgetFlag"?: boolean;
+	"billingRateType"?: BillingRateTypeEnum;
+	"billTime"?: BillTimeEnum;
+	"billExpenses"?: BillExpensesEnum;
+	"billProducts"?: BillProductsEnum;
+	"downpayment"?: number;
+	"restrictDownPaymentFlag"?: boolean;
+	"billingAttention"?: string;
+	"customerPO"?: string;
+	"billProjectAfterClosedFlag"?: boolean;
+	"billUnapprovedTimeAndExpense"?: boolean;
+	"scheduledHours"?: number;
+	"scheduledStart"?: string;
+	"scheduledEnd"?: string;
+	"actualHours"?: number;
+	"actualStart"?: string;
+	"actualEnd"?: string;
+	"budgetHours"?: number;
+	"projectTemplateId"?: number;
+	"locationId"?: number;
+	"businessUnitId"?: number;
+	"shipToCompany"?: CompanyReference;
+	"shipToContact"?: ContactReference;
+	"shipToSite"?: SiteReference;
+	"billToCompany"?: CompanyReference;
+	"billToContact"?: ContactReference;
+	"billToSite"?: SiteReference;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export enum BillingMethodEnum {
-    ActualRates,
-    FixedFee,
-    NotToExceed,
-    OverrideRate,
+	ActualRates,
+	FixedFee,
+	NotToExceed,
+	OverrideRate,
 }
 export enum BudgetAnalysisEnum {
-    ActualHours,
-    BillableHours,
+	ActualHours,
+	BillableHours,
 }
 export enum BillingRateTypeEnum {
-    WorkRole,
-    StaffMember,
+	WorkRole,
+	StaffMember,
 }
 export interface ProjectBoardReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ProjectPhaseReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ProjectReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ProjectStatusReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ProjectTypeReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ReminderReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface SalesTeamReference {
-    "id"?: number;
-    "identifier"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"identifier"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ScheduleStatusReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ServiceItemReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ServiceLocationReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ServiceSourceReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ServiceStatusReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ServiceSubTypeReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ServiceTeamReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ServiceTypeReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface SiteReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface TaxCodeReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface Team {
-    "id"?: number;
-    "type": TeamTypeEnum;
-    "member"?: MemberReference;
-    "salesTeam"?: SalesTeamReference;
-    "commissionPercent"?: number;
-    "referralFlag"?: boolean;
-    "opportunityId"?: number;
-    "responsibleFlag"?: boolean;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"type": TeamTypeEnum;
+	"member"?: MemberReference;
+	"salesTeam"?: SalesTeamReference;
+	"commissionPercent"?: number;
+	"referralFlag"?: boolean;
+	"opportunityId"?: number;
+	"responsibleFlag"?: boolean;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export enum TeamTypeEnum {
-    Individual,
-    Team,
+	Individual,
+	Team,
 }
 export interface Ticket {
-    "id"?: number;
-    "summary": string;
-    "recordType"?: RecordTypeEnum;
-    "board"?: BoardReference;
-    "status"?: ServiceStatusReference;
-    "project"?: ProjectReference;
-    "phase"?: ProjectPhaseReference;
-    "wbsCode"?: string;
-    "company": CompanyReference;
-    "site"?: SiteReference;
-    "siteName"?: string;
-    "addressLine1"?: string;
-    "addressLine2"?: string;
-    "city"?: string;
-    "stateIdentifier"?: string;
-    "zip"?: string;
-    "country"?: CountryReference;
-    "contact"?: ContactReference;
-    "contactPhoneNumber"?: string;
-    "contactPhoneExtension"?: string;
-    "contactEmailAddress"?: string;
-    "type"?: ServiceTypeReference;
-    "subType"?: ServiceSubTypeReference;
-    "item"?: ServiceItemReference;
-    "team"?: ServiceTeamReference;
-    "owner"?: MemberReference;
-    "priority"?: PriorityReference;
-    "serviceLocation"?: ServiceLocationReference;
-    "source"?: ServiceSourceReference;
-    "requiredDate"?: Date;
-    "budgetHours"?: number;
-    "opportunity"?: OpportunityReference;
-    "agreement"?: AgreementReference;
-    "severity"?: SeverityEnum;
-    "impact"?: ImpactEnum;
-    "externalXRef"?: string;
-    "poNumber"?: string;
-    "knowledgeBaseCategoryId"?: number;
-    "knowledgeBaseSubCategoryId"?: number;
-    "allowAllClientsPortalView"?: boolean;
-    "customerUpdatedFlag"?: boolean;
-    "automaticEmailContactFlag"?: boolean;
-    "automaticEmailResourceFlag"?: boolean;
-    "automaticEmailCcFlag"?: boolean;
-    "automaticEmailCc"?: string;
-    "initialDescription"?: string;
-    "initialInternalAnalysis"?: string;
-    "initialResolution"?: string;
-    "contactEmailLookup"?: string;
-    "processNotifications"?: boolean;
-    "skipCallback"?: boolean;
-    "closedDate"?: string;
-    "closedBy"?: string;
-    "closedFlag"?: boolean;
-    "dateEntered"?: string;
-    "enteredBy"?: string;
-    "actualHours"?: number;
-    "approved"?: boolean;
-    "subBillingMethod"?: SubBillingMethodEnum;
-    "subBillingAmount"?: number;
-    "subDateAccepted"?: string;
-    "dateResolved"?: string;
-    "dateResplan"?: string;
-    "dateResponded"?: string;
-    "resolveMinutes"?: number;
-    "resPlanMinutes"?: number;
-    "respondMinutes"?: number;
-    "isInSla"?: boolean;
-    "knowledgeBaseLinkId"?: number;
-    "resources"?: string;
-    "parentTicketId"?: number;
-    "hasChildTicket"?: boolean;
-    "knowledgeBaseLinkType"?: KnowledgeBaseLinkTypeEnum;
-    "billTime"?: BillTimeEnum;
-    "billExpenses"?: BillExpensesEnum;
-    "billProducts"?: BillProductsEnum;
-    "predecessorType"?: PredecessorTypeEnum;
-    "predecessorId"?: number;
-    "predecessorClosedFlag"?: boolean;
-    "lagDays"?: number;
-    "lagNonworkingDaysFlag"?: boolean;
-    "estimatedStartDate"?: Date;
-    "duration"?: number;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
-    "customFields"?: Array<CustomFieldValue>;
+	"id"?: number;
+	"summary": string;
+	"recordType"?: RecordTypeEnum;
+	"board"?: BoardReference;
+	"status"?: ServiceStatusReference;
+	"project"?: ProjectReference;
+	"phase"?: ProjectPhaseReference;
+	"wbsCode"?: string;
+	"company": CompanyReference;
+	"site"?: SiteReference;
+	"siteName"?: string;
+	"addressLine1"?: string;
+	"addressLine2"?: string;
+	"city"?: string;
+	"stateIdentifier"?: string;
+	"zip"?: string;
+	"country"?: CountryReference;
+	"contact"?: ContactReference;
+	"contactPhoneNumber"?: string;
+	"contactPhoneExtension"?: string;
+	"contactEmailAddress"?: string;
+	"type"?: ServiceTypeReference;
+	"subType"?: ServiceSubTypeReference;
+	"item"?: ServiceItemReference;
+	"team"?: ServiceTeamReference;
+	"owner"?: MemberReference;
+	"priority"?: PriorityReference;
+	"serviceLocation"?: ServiceLocationReference;
+	"source"?: ServiceSourceReference;
+	"requiredDate"?: Date;
+	"budgetHours"?: number;
+	"opportunity"?: OpportunityReference;
+	"agreement"?: AgreementReference;
+	"severity"?: SeverityEnum;
+	"impact"?: ImpactEnum;
+	"externalXRef"?: string;
+	"poNumber"?: string;
+	"knowledgeBaseCategoryId"?: number;
+	"knowledgeBaseSubCategoryId"?: number;
+	"allowAllClientsPortalView"?: boolean;
+	"customerUpdatedFlag"?: boolean;
+	"automaticEmailContactFlag"?: boolean;
+	"automaticEmailResourceFlag"?: boolean;
+	"automaticEmailCcFlag"?: boolean;
+	"automaticEmailCc"?: string;
+	"initialDescription"?: string;
+	"initialInternalAnalysis"?: string;
+	"initialResolution"?: string;
+	"contactEmailLookup"?: string;
+	"processNotifications"?: boolean;
+	"skipCallback"?: boolean;
+	"closedDate"?: string;
+	"closedBy"?: string;
+	"closedFlag"?: boolean;
+	"dateEntered"?: string;
+	"enteredBy"?: string;
+	"actualHours"?: number;
+	"approved"?: boolean;
+	"subBillingMethod"?: SubBillingMethodEnum;
+	"subBillingAmount"?: number;
+	"subDateAccepted"?: string;
+	"dateResolved"?: string;
+	"dateResplan"?: string;
+	"dateResponded"?: string;
+	"resolveMinutes"?: number;
+	"resPlanMinutes"?: number;
+	"respondMinutes"?: number;
+	"isInSla"?: boolean;
+	"knowledgeBaseLinkId"?: number;
+	"resources"?: string;
+	"parentTicketId"?: number;
+	"hasChildTicket"?: boolean;
+	"knowledgeBaseLinkType"?: KnowledgeBaseLinkTypeEnum;
+	"billTime"?: BillTimeEnum;
+	"billExpenses"?: BillExpensesEnum;
+	"billProducts"?: BillProductsEnum;
+	"predecessorType"?: PredecessorTypeEnum;
+	"predecessorId"?: number;
+	"predecessorClosedFlag"?: boolean;
+	"lagDays"?: number;
+	"lagNonworkingDaysFlag"?: boolean;
+	"estimatedStartDate"?: Date;
+	"duration"?: number;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
+	"customFields"?: Array<CustomFieldValue>;
 }
 export enum RecordTypeEnum {
-    ServiceTicket,
-    ProjectTicket,
-    ProjectIssue,
+	ServiceTicket,
+	ProjectTicket,
+	ProjectIssue,
 }
 export enum SeverityEnum {
-    Low,
-    Medium,
-    High,
+	Low,
+	Medium,
+	High,
 }
 export enum ImpactEnum {
-    Low,
-    Medium,
-    High,
+	Low,
+	Medium,
+	High,
 }
 export enum SubBillingMethodEnum {
-    ActualRates,
-    FixedFee,
-    NotToExceed,
-    OverrideRate,
+	ActualRates,
+	FixedFee,
+	NotToExceed,
+	OverrideRate,
 }
 export enum KnowledgeBaseLinkTypeEnum {
-    ServiceTicket,
-    ProjectTicket,
-    ProjectIssue,
-    KnowledgeBaseArticle,
-    Time,
-    Activity,
+	ServiceTicket,
+	ProjectTicket,
+	ProjectIssue,
+	KnowledgeBaseArticle,
+	Time,
+	Activity,
 }
 export enum BillTimeEnum {
-    Billable,
-    DoNotBill,
-    NoCharge,
-    NoDefault,
+	Billable,
+	DoNotBill,
+	NoCharge,
+	NoDefault,
 }
 export enum BillExpensesEnum {
-    Billable,
-    DoNotBill,
-    NoCharge,
-    NoDefault,
+	Billable,
+	DoNotBill,
+	NoCharge,
+	NoDefault,
 }
 export enum BillProductsEnum {
-    Billable,
-    DoNotBill,
-    NoCharge,
-    NoDefault,
+	Billable,
+	DoNotBill,
+	NoCharge,
+	NoDefault,
 }
 export enum PredecessorTypeEnum {
-    Ticket,
-    Phase,
+	Ticket,
+	Phase,
 }
 export interface TicketReference {
-    "id"?: number;
-    "summary"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"summary"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ValidationError {
-    "code"?: string;
-    "message"?: string;
-    "resource"?: string;
-    "field"?: string;
+	"code"?: string;
+	"message"?: string;
+	"resource"?: string;
+	"field"?: string;
 }
 export interface WorkRoleReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface WorkTypeReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export class ActivitiesApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Activities Count
-     * @param conditions
-     */
-    salesActivitiesCountGet(params: {
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Activities
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    salesActivitiesGet(params: {
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Activity>>;
-    /**
-     *
-     * Delete Activity By Id
-     * @param id
-     */
-    salesActivitiesIdDelete(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Activity By Id
-     * @param id
-     */
-    salesActivitiesIdGet(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Activity>;
-    /**
-     *
-     * Update Activity
-     * @param id
-     * @param operations
-     */
-    salesActivitiesIdPatch(params: {
-        id: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Activity>;
-    /**
-     *
-     * Replace Activity
-     * @param id
-     * @param activity
-     */
-    salesActivitiesIdPut(params: {
-        id: number;
-        activity: Activity;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Activity>;
-    /**
-     *
-     * Create Activity
-     * @param activity
-     */
-    salesActivitiesPost(params: {
-        activity: Activity;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Activity>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Activities Count
+	 * @param conditions
+	 */
+	salesActivitiesCountGet(params: {
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Activities
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	salesActivitiesGet(params: {
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Activity>>;
+	/**
+	 *
+	 * Delete Activity By Id
+	 * @param id
+	 */
+	salesActivitiesIdDelete(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Activity By Id
+	 * @param id
+	 */
+	salesActivitiesIdGet(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Activity>;
+	/**
+	 *
+	 * Update Activity
+	 * @param id
+	 * @param operations
+	 */
+	salesActivitiesIdPatch(params: {
+		id: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Activity>;
+	/**
+	 *
+	 * Replace Activity
+	 * @param id
+	 * @param activity
+	 */
+	salesActivitiesIdPut(params: {
+		id: number;
+		activity: Activity;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Activity>;
+	/**
+	 *
+	 * Create Activity
+	 * @param activity
+	 */
+	salesActivitiesPost(params: {
+		activity: Activity;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Activity>;
 }
 export class ActivityStatusesApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Activity Statuses Count
-     * @param conditions
-     */
-    salesActivitiesStatusesCountGet(params: {
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Activity Statuses
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    salesActivitiesStatusesGet(params: {
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ActivityStatus>>;
-    /**
-     *
-     * Delete Activity Status By Id
-     * @param id
-     */
-    salesActivitiesStatusesIdDelete(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Activity Status By Id
-     * @param id
-     */
-    salesActivitiesStatusesIdGet(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ActivityStatus>;
-    /**
-     *
-     * Update Activity Status
-     * @param id
-     * @param operations
-     */
-    salesActivitiesStatusesIdPatch(params: {
-        id: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ActivityStatus>;
-    /**
-     *
-     * Replace Activity Status
-     * @param id
-     * @param activityStatus
-     */
-    salesActivitiesStatusesIdPut(params: {
-        id: number;
-        activityStatus: ActivityStatus;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ActivityStatus>;
-    /**
-     *
-     * Create Activity Status
-     * @param activityStatus
-     */
-    salesActivitiesStatusesPost(params: {
-        activityStatus: ActivityStatus;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ActivityStatus>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Activity Statuses Count
+	 * @param conditions
+	 */
+	salesActivitiesStatusesCountGet(params: {
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Activity Statuses
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	salesActivitiesStatusesGet(params: {
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ActivityStatus>>;
+	/**
+	 *
+	 * Delete Activity Status By Id
+	 * @param id
+	 */
+	salesActivitiesStatusesIdDelete(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Activity Status By Id
+	 * @param id
+	 */
+	salesActivitiesStatusesIdGet(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ActivityStatus>;
+	/**
+	 *
+	 * Update Activity Status
+	 * @param id
+	 * @param operations
+	 */
+	salesActivitiesStatusesIdPatch(params: {
+		id: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ActivityStatus>;
+	/**
+	 *
+	 * Replace Activity Status
+	 * @param id
+	 * @param activityStatus
+	 */
+	salesActivitiesStatusesIdPut(params: {
+		id: number;
+		activityStatus: ActivityStatus;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ActivityStatus>;
+	/**
+	 *
+	 * Create Activity Status
+	 * @param activityStatus
+	 */
+	salesActivitiesStatusesPost(params: {
+		activityStatus: ActivityStatus;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ActivityStatus>;
 }
 export class ActivityTypesApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Activity Types Count
-     * @param conditions
-     */
-    salesActivitiesTypesCountGet(params: {
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Activity Types
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    salesActivitiesTypesGet(params: {
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ActivityType>>;
-    /**
-     *
-     * Delete Activity Type By Id
-     * @param id
-     */
-    salesActivitiesTypesIdDelete(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Activity Type By Id
-     * @param id
-     */
-    salesActivitiesTypesIdGet(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ActivityType>;
-    /**
-     *
-     * Update Activity Type
-     * @param id
-     * @param operations
-     */
-    salesActivitiesTypesIdPatch(params: {
-        id: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ActivityType>;
-    /**
-     *
-     * Replace Activity Type
-     * @param id
-     * @param activityType
-     */
-    salesActivitiesTypesIdPut(params: {
-        id: number;
-        activityType: ActivityType;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ActivityType>;
-    /**
-     *
-     * Create Activity Type
-     * @param activityType
-     */
-    salesActivitiesTypesPost(params: {
-        activityType: ActivityType;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ActivityType>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Activity Types Count
+	 * @param conditions
+	 */
+	salesActivitiesTypesCountGet(params: {
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Activity Types
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	salesActivitiesTypesGet(params: {
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ActivityType>>;
+	/**
+	 *
+	 * Delete Activity Type By Id
+	 * @param id
+	 */
+	salesActivitiesTypesIdDelete(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Activity Type By Id
+	 * @param id
+	 */
+	salesActivitiesTypesIdGet(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ActivityType>;
+	/**
+	 *
+	 * Update Activity Type
+	 * @param id
+	 * @param operations
+	 */
+	salesActivitiesTypesIdPatch(params: {
+		id: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ActivityType>;
+	/**
+	 *
+	 * Replace Activity Type
+	 * @param id
+	 * @param activityType
+	 */
+	salesActivitiesTypesIdPut(params: {
+		id: number;
+		activityType: ActivityType;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ActivityType>;
+	/**
+	 *
+	 * Create Activity Type
+	 * @param activityType
+	 */
+	salesActivitiesTypesPost(params: {
+		activityType: ActivityType;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ActivityType>;
 }
 export class OpportunitiesApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Opportunities Count
-     * @param conditions
-     */
-    salesOpportunitiesCountGet(params: {
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Opportunities
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    salesOpportunitiesGet(params: {
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Opportunity>>;
-    /**
-     *
-     * Convert Opportunity To Agreement
-     * @param id
-     * @param conversion
-     */
-    salesOpportunitiesIdConvertToAgreementPost(params: {
-        id: number;
-        conversion: OpportunityToAgreementConversion;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Agreement>;
-    /**
-     *
-     * Convert Opportunity To Project
-     * @param id
-     * @param conversion
-     */
-    salesOpportunitiesIdConvertToProjectPost(params: {
-        id: number;
-        conversion: OpportunityToProjectConversion;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Project>;
-    /**
-     *
-     * Convert Opportunity To Sales Order
-     * @param id
-     * @param conversion
-     */
-    salesOpportunitiesIdConvertToSalesOrderPost(params: {
-        id: number;
-        conversion: OpportunityToSalesOrderConversion;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Order>;
-    /**
-     *
-     * Convert Opportunity To Service Ticket
-     * @param id
-     * @param conversion
-     */
-    salesOpportunitiesIdConvertToServiceTicketPost(params: {
-        id: number;
-        conversion: OpportunityToServiceTicketConversion;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Ticket>;
-    /**
-     *
-     * Delete Opportunity By Id
-     * @param id
-     */
-    salesOpportunitiesIdDelete(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Opportunity By Id
-     * @param id
-     */
-    salesOpportunitiesIdGet(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Opportunity>;
-    /**
-     *
-     * Update Opportunity
-     * @param id
-     * @param operations
-     */
-    salesOpportunitiesIdPatch(params: {
-        id: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Opportunity>;
-    /**
-     *
-     * Replace Opportunity
-     * @param id
-     * @param opportunity
-     */
-    salesOpportunitiesIdPut(params: {
-        id: number;
-        opportunity: Opportunity;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Opportunity>;
-    /**
-     *
-     * Create Opportunity
-     * @param opportunity
-     */
-    salesOpportunitiesPost(params: {
-        opportunity: Opportunity;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Opportunity>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Opportunities Count
+	 * @param conditions
+	 */
+	salesOpportunitiesCountGet(params: {
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Opportunities
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	salesOpportunitiesGet(params: {
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Opportunity>>;
+	/**
+	 *
+	 * Convert Opportunity To Agreement
+	 * @param id
+	 * @param conversion
+	 */
+	salesOpportunitiesIdConvertToAgreementPost(params: {
+		id: number;
+		conversion: OpportunityToAgreementConversion;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Agreement>;
+	/**
+	 *
+	 * Convert Opportunity To Project
+	 * @param id
+	 * @param conversion
+	 */
+	salesOpportunitiesIdConvertToProjectPost(params: {
+		id: number;
+		conversion: OpportunityToProjectConversion;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Project>;
+	/**
+	 *
+	 * Convert Opportunity To Sales Order
+	 * @param id
+	 * @param conversion
+	 */
+	salesOpportunitiesIdConvertToSalesOrderPost(params: {
+		id: number;
+		conversion: OpportunityToSalesOrderConversion;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Order>;
+	/**
+	 *
+	 * Convert Opportunity To Service Ticket
+	 * @param id
+	 * @param conversion
+	 */
+	salesOpportunitiesIdConvertToServiceTicketPost(params: {
+		id: number;
+		conversion: OpportunityToServiceTicketConversion;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Ticket>;
+	/**
+	 *
+	 * Delete Opportunity By Id
+	 * @param id
+	 */
+	salesOpportunitiesIdDelete(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Opportunity By Id
+	 * @param id
+	 */
+	salesOpportunitiesIdGet(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Opportunity>;
+	/**
+	 *
+	 * Update Opportunity
+	 * @param id
+	 * @param operations
+	 */
+	salesOpportunitiesIdPatch(params: {
+		id: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Opportunity>;
+	/**
+	 *
+	 * Replace Opportunity
+	 * @param id
+	 * @param opportunity
+	 */
+	salesOpportunitiesIdPut(params: {
+		id: number;
+		opportunity: Opportunity;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Opportunity>;
+	/**
+	 *
+	 * Create Opportunity
+	 * @param opportunity
+	 */
+	salesOpportunitiesPost(params: {
+		opportunity: Opportunity;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Opportunity>;
 }
 export class OpportunityContactsApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Delete Opportunity Contact By Id
-     * @param id
-     * @param contactId
-     */
-    salesOpportunitiesIdContactsContactIdDelete(params: {
-        id: number;
-        contactId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Opportunity Contact By Id
-     * @param id
-     * @param contactId
-     */
-    salesOpportunitiesIdContactsContactIdGet(params: {
-        id: number;
-        contactId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<OpportunityContact>;
-    /**
-     *
-     * Update Opportunity Contact
-     * @param id
-     * @param contactId
-     * @param operations
-     */
-    salesOpportunitiesIdContactsContactIdPatch(params: {
-        id: number;
-        contactId: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<OpportunityContact>;
-    /**
-     *
-     * Replace Opportunity Contact
-     * @param id
-     * @param contactId
-     * @param opportunityContact
-     */
-    salesOpportunitiesIdContactsContactIdPut(params: {
-        id: number;
-        contactId: number;
-        opportunityContact: OpportunityContact;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<OpportunityContact>;
-    /**
-     *
-     * Get Opportunity Contacts Count
-     * @param id
-     * @param conditions
-     */
-    salesOpportunitiesIdContactsCountGet(params: {
-        id: number;
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Opportunity Contacts
-     * @param id
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    salesOpportunitiesIdContactsGet(params: {
-        id: number;
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<OpportunityContact>>;
-    /**
-     *
-     * Create Opportunity Contact
-     * @param id
-     * @param opportunityContact
-     */
-    salesOpportunitiesIdContactsPost(params: {
-        id: number;
-        opportunityContact: OpportunityContact;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<OpportunityContact>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Delete Opportunity Contact By Id
+	 * @param id
+	 * @param contactId
+	 */
+	salesOpportunitiesIdContactsContactIdDelete(params: {
+		id: number;
+		contactId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Opportunity Contact By Id
+	 * @param id
+	 * @param contactId
+	 */
+	salesOpportunitiesIdContactsContactIdGet(params: {
+		id: number;
+		contactId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<OpportunityContact>;
+	/**
+	 *
+	 * Update Opportunity Contact
+	 * @param id
+	 * @param contactId
+	 * @param operations
+	 */
+	salesOpportunitiesIdContactsContactIdPatch(params: {
+		id: number;
+		contactId: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<OpportunityContact>;
+	/**
+	 *
+	 * Replace Opportunity Contact
+	 * @param id
+	 * @param contactId
+	 * @param opportunityContact
+	 */
+	salesOpportunitiesIdContactsContactIdPut(params: {
+		id: number;
+		contactId: number;
+		opportunityContact: OpportunityContact;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<OpportunityContact>;
+	/**
+	 *
+	 * Get Opportunity Contacts Count
+	 * @param id
+	 * @param conditions
+	 */
+	salesOpportunitiesIdContactsCountGet(params: {
+		id: number;
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Opportunity Contacts
+	 * @param id
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	salesOpportunitiesIdContactsGet(params: {
+		id: number;
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<OpportunityContact>>;
+	/**
+	 *
+	 * Create Opportunity Contact
+	 * @param id
+	 * @param opportunityContact
+	 */
+	salesOpportunitiesIdContactsPost(params: {
+		id: number;
+		opportunityContact: OpportunityContact;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<OpportunityContact>;
 }
 export class OpportunityForecastsApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Forecasts Count
-     * @param id
-     * @param conditions
-     */
-    salesOpportunitiesIdForecastCountGet(params: {
-        id: number;
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Delete Forecast By Id
-     * @param id
-     * @param forecastId
-     */
-    salesOpportunitiesIdForecastForecastIdDelete(params: {
-        id: number;
-        forecastId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Forecast By Id
-     * @param id
-     * @param forecastId
-     */
-    salesOpportunitiesIdForecastForecastIdGet(params: {
-        id: number;
-        forecastId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Forecast>;
-    /**
-     *
-     * Update Forecast
-     * @param id
-     * @param forecastId
-     * @param operations
-     */
-    salesOpportunitiesIdForecastForecastIdPatch(params: {
-        id: number;
-        forecastId: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Forecast>;
-    /**
-     *
-     * Replace Forecast
-     * @param id
-     * @param forecastId
-     * @param forecast
-     */
-    salesOpportunitiesIdForecastForecastIdPut(params: {
-        id: number;
-        forecastId: number;
-        forecast: Forecast;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Forecast>;
-    /**
-     *
-     * Get Forecasts
-     * @param id
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    salesOpportunitiesIdForecastGet(params: {
-        id: number;
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Forecast>>;
-    /**
-     *
-     * Create Forecast
-     * @param id
-     * @param forecast
-     */
-    salesOpportunitiesIdForecastPost(params: {
-        id: number;
-        forecast: Forecast;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Forecast>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Forecasts Count
+	 * @param id
+	 * @param conditions
+	 */
+	salesOpportunitiesIdForecastCountGet(params: {
+		id: number;
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Delete Forecast By Id
+	 * @param id
+	 * @param forecastId
+	 */
+	salesOpportunitiesIdForecastForecastIdDelete(params: {
+		id: number;
+		forecastId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Forecast By Id
+	 * @param id
+	 * @param forecastId
+	 */
+	salesOpportunitiesIdForecastForecastIdGet(params: {
+		id: number;
+		forecastId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Forecast>;
+	/**
+	 *
+	 * Update Forecast
+	 * @param id
+	 * @param forecastId
+	 * @param operations
+	 */
+	salesOpportunitiesIdForecastForecastIdPatch(params: {
+		id: number;
+		forecastId: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Forecast>;
+	/**
+	 *
+	 * Replace Forecast
+	 * @param id
+	 * @param forecastId
+	 * @param forecast
+	 */
+	salesOpportunitiesIdForecastForecastIdPut(params: {
+		id: number;
+		forecastId: number;
+		forecast: Forecast;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Forecast>;
+	/**
+	 *
+	 * Get Forecasts
+	 * @param id
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	salesOpportunitiesIdForecastGet(params: {
+		id: number;
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Forecast>>;
+	/**
+	 *
+	 * Create Forecast
+	 * @param id
+	 * @param forecast
+	 */
+	salesOpportunitiesIdForecastPost(params: {
+		id: number;
+		forecast: Forecast;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Forecast>;
 }
 export class OpportunityNotesApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Opportunity Notes Count
-     * @param id
-     * @param conditions
-     */
-    salesOpportunitiesIdNotesCountGet(params: {
-        id: number;
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<OpportunityNote>>;
-    /**
-     *
-     * Get Opportunity Notes
-     * @param id
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    salesOpportunitiesIdNotesGet(params: {
-        id: number;
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<OpportunityNote>>;
-    /**
-     *
-     * Delete Opportunity Note By Id
-     * @param id
-     * @param noteId
-     */
-    salesOpportunitiesIdNotesNoteIdDelete(params: {
-        id: number;
-        noteId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Opportunity Note By Id
-     * @param id
-     * @param noteId
-     */
-    salesOpportunitiesIdNotesNoteIdGet(params: {
-        id: number;
-        noteId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<OpportunityNote>;
-    /**
-     *
-     * Update Opportunity Note
-     * @param id
-     * @param noteId
-     * @param operations
-     */
-    salesOpportunitiesIdNotesNoteIdPatch(params: {
-        id: number;
-        noteId: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<OpportunityNote>;
-    /**
-     *
-     * Replace Opportunity Note
-     * @param id
-     * @param noteId
-     * @param note
-     */
-    salesOpportunitiesIdNotesNoteIdPut(params: {
-        id: number;
-        noteId: number;
-        note: OpportunityNote;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<OpportunityNote>;
-    /**
-     *
-     * Create Opportunity Note
-     * @param id
-     * @param note
-     */
-    salesOpportunitiesIdNotesPost(params: {
-        id: number;
-        note: OpportunityNote;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<OpportunityNote>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Opportunity Notes Count
+	 * @param id
+	 * @param conditions
+	 */
+	salesOpportunitiesIdNotesCountGet(params: {
+		id: number;
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<OpportunityNote>>;
+	/**
+	 *
+	 * Get Opportunity Notes
+	 * @param id
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	salesOpportunitiesIdNotesGet(params: {
+		id: number;
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<OpportunityNote>>;
+	/**
+	 *
+	 * Delete Opportunity Note By Id
+	 * @param id
+	 * @param noteId
+	 */
+	salesOpportunitiesIdNotesNoteIdDelete(params: {
+		id: number;
+		noteId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Opportunity Note By Id
+	 * @param id
+	 * @param noteId
+	 */
+	salesOpportunitiesIdNotesNoteIdGet(params: {
+		id: number;
+		noteId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<OpportunityNote>;
+	/**
+	 *
+	 * Update Opportunity Note
+	 * @param id
+	 * @param noteId
+	 * @param operations
+	 */
+	salesOpportunitiesIdNotesNoteIdPatch(params: {
+		id: number;
+		noteId: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<OpportunityNote>;
+	/**
+	 *
+	 * Replace Opportunity Note
+	 * @param id
+	 * @param noteId
+	 * @param note
+	 */
+	salesOpportunitiesIdNotesNoteIdPut(params: {
+		id: number;
+		noteId: number;
+		note: OpportunityNote;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<OpportunityNote>;
+	/**
+	 *
+	 * Create Opportunity Note
+	 * @param id
+	 * @param note
+	 */
+	salesOpportunitiesIdNotesPost(params: {
+		id: number;
+		note: OpportunityNote;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<OpportunityNote>;
 }
 export class OpportunityRatingsApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Opportunity Ratings Count
-     * @param conditions
-     */
-    salesOpportunitiesRatingsCountGet(params: {
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Opportunity Ratings
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    salesOpportunitiesRatingsGet(params: {
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<OpportunityRating>>;
-    /**
-     *
-     * Delete Opportunity Rating By Id
-     * @param id
-     */
-    salesOpportunitiesRatingsIdDelete(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Opportunity Rating By Id
-     * @param id
-     */
-    salesOpportunitiesRatingsIdGet(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<OpportunityRating>;
-    /**
-     *
-     * Update Opportunity Rating
-     * @param id
-     * @param operations
-     */
-    salesOpportunitiesRatingsIdPatch(params: {
-        id: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<OpportunityRating>;
-    /**
-     *
-     * Replace Opportunity Rating
-     * @param id
-     * @param opportunityRating
-     */
-    salesOpportunitiesRatingsIdPut(params: {
-        id: number;
-        opportunityRating: OpportunityRating;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<OpportunityRating>;
-    /**
-     *
-     * Create Opportunity Rating
-     * @param opportunityRating
-     */
-    salesOpportunitiesRatingsPost(params: {
-        opportunityRating: OpportunityRating;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<OpportunityRating>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Opportunity Ratings Count
+	 * @param conditions
+	 */
+	salesOpportunitiesRatingsCountGet(params: {
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Opportunity Ratings
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	salesOpportunitiesRatingsGet(params: {
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<OpportunityRating>>;
+	/**
+	 *
+	 * Delete Opportunity Rating By Id
+	 * @param id
+	 */
+	salesOpportunitiesRatingsIdDelete(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Opportunity Rating By Id
+	 * @param id
+	 */
+	salesOpportunitiesRatingsIdGet(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<OpportunityRating>;
+	/**
+	 *
+	 * Update Opportunity Rating
+	 * @param id
+	 * @param operations
+	 */
+	salesOpportunitiesRatingsIdPatch(params: {
+		id: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<OpportunityRating>;
+	/**
+	 *
+	 * Replace Opportunity Rating
+	 * @param id
+	 * @param opportunityRating
+	 */
+	salesOpportunitiesRatingsIdPut(params: {
+		id: number;
+		opportunityRating: OpportunityRating;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<OpportunityRating>;
+	/**
+	 *
+	 * Create Opportunity Rating
+	 * @param opportunityRating
+	 */
+	salesOpportunitiesRatingsPost(params: {
+		opportunityRating: OpportunityRating;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<OpportunityRating>;
 }
 export class OpportunityStatusesApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Statuses Count
-     * @param conditions
-     */
-    salesOpportunitiesStatusesCountGet(params: {
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Statuses
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    salesOpportunitiesStatusesGet(params: {
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<OpportunityStatus>>;
-    /**
-     *
-     * Delete Status By Id
-     * @param id
-     */
-    salesOpportunitiesStatusesIdDelete(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Status By Id
-     * @param id
-     */
-    salesOpportunitiesStatusesIdGet(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<OpportunityStatus>;
-    /**
-     *
-     * Update Status
-     * @param id
-     * @param operations
-     */
-    salesOpportunitiesStatusesIdPatch(params: {
-        id: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<OpportunityStatus>;
-    /**
-     *
-     * Replace Status
-     * @param id
-     * @param status
-     */
-    salesOpportunitiesStatusesIdPut(params: {
-        id: number;
-        status: OpportunityStatus;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<OpportunityStatus>;
-    /**
-     *
-     * Create Status
-     * @param status
-     */
-    salesOpportunitiesStatusesPost(params: {
-        status: OpportunityStatus;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<OpportunityStatus>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Statuses Count
+	 * @param conditions
+	 */
+	salesOpportunitiesStatusesCountGet(params: {
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Statuses
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	salesOpportunitiesStatusesGet(params: {
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<OpportunityStatus>>;
+	/**
+	 *
+	 * Delete Status By Id
+	 * @param id
+	 */
+	salesOpportunitiesStatusesIdDelete(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Status By Id
+	 * @param id
+	 */
+	salesOpportunitiesStatusesIdGet(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<OpportunityStatus>;
+	/**
+	 *
+	 * Update Status
+	 * @param id
+	 * @param operations
+	 */
+	salesOpportunitiesStatusesIdPatch(params: {
+		id: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<OpportunityStatus>;
+	/**
+	 *
+	 * Replace Status
+	 * @param id
+	 * @param status
+	 */
+	salesOpportunitiesStatusesIdPut(params: {
+		id: number;
+		status: OpportunityStatus;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<OpportunityStatus>;
+	/**
+	 *
+	 * Create Status
+	 * @param status
+	 */
+	salesOpportunitiesStatusesPost(params: {
+		status: OpportunityStatus;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<OpportunityStatus>;
 }
 export class OpportunityTeamsApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Teams Count
-     * @param id
-     * @param conditions
-     */
-    salesOpportunitiesIdTeamCountGet(params: {
-        id: number;
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Teams
-     * @param id
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    salesOpportunitiesIdTeamGet(params: {
-        id: number;
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Team>>;
-    /**
-     *
-     * Create Team
-     * @param id
-     * @param team
-     */
-    salesOpportunitiesIdTeamPost(params: {
-        id: number;
-        team: Team;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Team>;
-    /**
-     *
-     * Delete Team By Id
-     * @param id
-     * @param teamId
-     */
-    salesOpportunitiesIdTeamTeamIdDelete(params: {
-        id: number;
-        teamId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Team By Id
-     * @param id
-     * @param teamId
-     */
-    salesOpportunitiesIdTeamTeamIdGet(params: {
-        id: number;
-        teamId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Team>;
-    /**
-     *
-     * Update Team
-     * @param id
-     * @param teamId
-     * @param operations
-     */
-    salesOpportunitiesIdTeamTeamIdPatch(params: {
-        id: number;
-        teamId: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Team>;
-    /**
-     *
-     * Replace Team
-     * @param id
-     * @param teamId
-     * @param team
-     */
-    salesOpportunitiesIdTeamTeamIdPut(params: {
-        id: number;
-        teamId: number;
-        team: Team;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Team>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Teams Count
+	 * @param id
+	 * @param conditions
+	 */
+	salesOpportunitiesIdTeamCountGet(params: {
+		id: number;
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Teams
+	 * @param id
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	salesOpportunitiesIdTeamGet(params: {
+		id: number;
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Team>>;
+	/**
+	 *
+	 * Create Team
+	 * @param id
+	 * @param team
+	 */
+	salesOpportunitiesIdTeamPost(params: {
+		id: number;
+		team: Team;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Team>;
+	/**
+	 *
+	 * Delete Team By Id
+	 * @param id
+	 * @param teamId
+	 */
+	salesOpportunitiesIdTeamTeamIdDelete(params: {
+		id: number;
+		teamId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Team By Id
+	 * @param id
+	 * @param teamId
+	 */
+	salesOpportunitiesIdTeamTeamIdGet(params: {
+		id: number;
+		teamId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Team>;
+	/**
+	 *
+	 * Update Team
+	 * @param id
+	 * @param teamId
+	 * @param operations
+	 */
+	salesOpportunitiesIdTeamTeamIdPatch(params: {
+		id: number;
+		teamId: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Team>;
+	/**
+	 *
+	 * Replace Team
+	 * @param id
+	 * @param teamId
+	 * @param team
+	 */
+	salesOpportunitiesIdTeamTeamIdPut(params: {
+		id: number;
+		teamId: number;
+		team: Team;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Team>;
 }
 export class OpportunityTypesApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Opportunity Types Count
-     * @param conditions
-     */
-    salesOpportunitiesTypesCountGet(params: {
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Opportunity Types
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    salesOpportunitiesTypesGet(params: {
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<OpportunityType>>;
-    /**
-     *
-     * Delete Opportunity Type By Id
-     * @param id
-     */
-    salesOpportunitiesTypesIdDelete(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Opportunity Type By Id
-     * @param id
-     */
-    salesOpportunitiesTypesIdGet(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<OpportunityType>;
-    /**
-     *
-     * Update Opportunity Type
-     * @param id
-     * @param operations
-     */
-    salesOpportunitiesTypesIdPatch(params: {
-        id: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<OpportunityType>;
-    /**
-     *
-     * Replace Opportunity Type
-     * @param id
-     * @param opportunityType
-     */
-    salesOpportunitiesTypesIdPut(params: {
-        id: number;
-        opportunityType: OpportunityType;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<OpportunityType>;
-    /**
-     *
-     * Create Opportunity Type
-     * @param opportunityType
-     */
-    salesOpportunitiesTypesPost(params: {
-        opportunityType: OpportunityType;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<OpportunityType>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Opportunity Types Count
+	 * @param conditions
+	 */
+	salesOpportunitiesTypesCountGet(params: {
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Opportunity Types
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	salesOpportunitiesTypesGet(params: {
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<OpportunityType>>;
+	/**
+	 *
+	 * Delete Opportunity Type By Id
+	 * @param id
+	 */
+	salesOpportunitiesTypesIdDelete(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Opportunity Type By Id
+	 * @param id
+	 */
+	salesOpportunitiesTypesIdGet(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<OpportunityType>;
+	/**
+	 *
+	 * Update Opportunity Type
+	 * @param id
+	 * @param operations
+	 */
+	salesOpportunitiesTypesIdPatch(params: {
+		id: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<OpportunityType>;
+	/**
+	 *
+	 * Replace Opportunity Type
+	 * @param id
+	 * @param opportunityType
+	 */
+	salesOpportunitiesTypesIdPut(params: {
+		id: number;
+		opportunityType: OpportunityType;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<OpportunityType>;
+	/**
+	 *
+	 * Create Opportunity Type
+	 * @param opportunityType
+	 */
+	salesOpportunitiesTypesPost(params: {
+		opportunityType: OpportunityType;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<OpportunityType>;
 }
 export class OrderStatusesApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Order Statuses Count
-     * @param conditions
-     */
-    salesOrdersStatusesCountGet(params: {
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Order Statuses
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    salesOrdersStatusesGet(params: {
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<OrderStatus>>;
-    /**
-     *
-     * Delete Order Status By Id
-     * @param id
-     */
-    salesOrdersStatusesIdDelete(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Order Status By Id
-     * @param id
-     */
-    salesOrdersStatusesIdGet(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<OrderStatus>;
-    /**
-     *
-     * Update Order Status
-     * @param id
-     * @param operations
-     */
-    salesOrdersStatusesIdPatch(params: {
-        id: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<OrderStatus>;
-    /**
-     *
-     * Replace Order Status
-     * @param id
-     * @param status
-     */
-    salesOrdersStatusesIdPut(params: {
-        id: number;
-        status: OrderStatus;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<OrderStatus>;
-    /**
-     *
-     * Create Order Status
-     * @param status
-     */
-    salesOrdersStatusesPost(params: {
-        status: OrderStatus;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<OrderStatus>>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Order Statuses Count
+	 * @param conditions
+	 */
+	salesOrdersStatusesCountGet(params: {
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Order Statuses
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	salesOrdersStatusesGet(params: {
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<OrderStatus>>;
+	/**
+	 *
+	 * Delete Order Status By Id
+	 * @param id
+	 */
+	salesOrdersStatusesIdDelete(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Order Status By Id
+	 * @param id
+	 */
+	salesOrdersStatusesIdGet(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<OrderStatus>;
+	/**
+	 *
+	 * Update Order Status
+	 * @param id
+	 * @param operations
+	 */
+	salesOrdersStatusesIdPatch(params: {
+		id: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<OrderStatus>;
+	/**
+	 *
+	 * Replace Order Status
+	 * @param id
+	 * @param status
+	 */
+	salesOrdersStatusesIdPut(params: {
+		id: number;
+		status: OrderStatus;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<OrderStatus>;
+	/**
+	 *
+	 * Create Order Status
+	 * @param status
+	 */
+	salesOrdersStatusesPost(params: {
+		status: OrderStatus;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<OrderStatus>>;
 }
 export class OrdersApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Sales Orders Count
-     * @param conditions
-     */
-    salesOrdersCountGet(params: {
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Sales Orders
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    salesOrdersGet(params: {
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Order>>;
-    /**
-     *
-     * Delete Sales Order By Id
-     * @param id
-     */
-    salesOrdersIdDelete(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Sales Order By Id
-     * @param id
-     */
-    salesOrdersIdGet(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Order>;
-    /**
-     *
-     * Update Sales Order
-     * @param id
-     * @param operations
-     */
-    salesOrdersIdPatch(params: {
-        id: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Order>;
-    /**
-     *
-     * Replace Sales Order
-     * @param id
-     * @param order
-     */
-    salesOrdersIdPut(params: {
-        id: number;
-        order: Order;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Order>;
-    /**
-     *
-     * Create Sales Order
-     * @param order
-     */
-    salesOrdersPost(params: {
-        order: Order;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Order>>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Sales Orders Count
+	 * @param conditions
+	 */
+	salesOrdersCountGet(params: {
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Sales Orders
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	salesOrdersGet(params: {
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Order>>;
+	/**
+	 *
+	 * Delete Sales Order By Id
+	 * @param id
+	 */
+	salesOrdersIdDelete(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Sales Order By Id
+	 * @param id
+	 */
+	salesOrdersIdGet(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Order>;
+	/**
+	 *
+	 * Update Sales Order
+	 * @param id
+	 * @param operations
+	 */
+	salesOrdersIdPatch(params: {
+		id: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Order>;
+	/**
+	 *
+	 * Replace Sales Order
+	 * @param id
+	 * @param order
+	 */
+	salesOrdersIdPut(params: {
+		id: number;
+		order: Order;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Order>;
+	/**
+	 *
+	 * Create Sales Order
+	 * @param order
+	 */
+	salesOrdersPost(params: {
+		order: Order;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Order>>;
 }
 }
 declare module 'connectwise-rest-api/release/api/salesAPI' {
@@ -10479,29 +10479,29 @@ export = alias;
 // Source: release/api/scheduleAPI.d.ts
 declare module '~connectwise-rest-api/release/api/scheduleAPI' {
 export interface ChargeCodeReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface Count {
-    "value"?: number;
+	"value"?: number;
 }
 export interface Error {
-    "code"?: string;
-    "message"?: string;
-    "errors"?: Array<ValidationError>;
+	"code"?: string;
+	"message"?: string;
+	"errors"?: Array<ValidationError>;
 }
 export interface MemberReference {
-    "id"?: number;
-    "identifier"?: string;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"identifier"?: string;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 /**
  * Metadata of the entity
@@ -10509,315 +10509,315 @@ export interface MemberReference {
 export interface Metadata {
 }
 export interface PatchOperation {
-    "op"?: string;
-    "path"?: string;
-    "value"?: string;
+	"op"?: string;
+	"path"?: string;
+	"value"?: string;
 }
 export interface ReminderReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ScheduleEntry {
-    "id"?: number;
-    "objectId"?: number;
-    "name"?: string;
-    "member"?: MemberReference;
-    "where"?: ServiceLocationReference;
-    "dateStart"?: Date;
-    "dateEnd"?: Date;
-    "reminder"?: ReminderReference;
-    "status"?: ScheduleStatusReference;
-    "type": ScheduleTypeReference;
-    "span"?: ScheduleSpanReference;
-    "doneFlag"?: boolean;
-    "acknowledgedFlag"?: boolean;
-    "ownerFlag"?: boolean;
-    "allowScheduleConflictsFlag"?: boolean;
-    "addMemberToProjectFlag"?: boolean;
-    "projectRoleId"?: number;
-    "closeDate"?: Date;
-    "hours"?: number;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"objectId"?: number;
+	"name"?: string;
+	"member"?: MemberReference;
+	"where"?: ServiceLocationReference;
+	"dateStart"?: Date;
+	"dateEnd"?: Date;
+	"reminder"?: ReminderReference;
+	"status"?: ScheduleStatusReference;
+	"type": ScheduleTypeReference;
+	"span"?: ScheduleSpanReference;
+	"doneFlag"?: boolean;
+	"acknowledgedFlag"?: boolean;
+	"ownerFlag"?: boolean;
+	"allowScheduleConflictsFlag"?: boolean;
+	"addMemberToProjectFlag"?: boolean;
+	"projectRoleId"?: number;
+	"closeDate"?: Date;
+	"hours"?: number;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ScheduleSpanReference {
-    "id"?: number;
-    "identifier"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"identifier"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ScheduleStatus {
-    "id"?: number;
-    "name": string;
-    "defaultFlag"?: boolean;
-    "showAsTentativeFlag"?: boolean;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name": string;
+	"defaultFlag"?: boolean;
+	"showAsTentativeFlag"?: boolean;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ScheduleStatusReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ScheduleType {
-    "id"?: number;
-    "name": string;
-    "identifier": string;
-    "chargeCode"?: ChargeCodeReference;
-    "where"?: ServiceLocationReference;
-    "systemFlag"?: boolean;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name": string;
+	"identifier": string;
+	"chargeCode"?: ChargeCodeReference;
+	"where"?: ServiceLocationReference;
+	"systemFlag"?: boolean;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ScheduleTypeReference {
-    "id"?: number;
-    "identifier"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"identifier"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ServiceLocationReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ValidationError {
-    "code"?: string;
-    "message"?: string;
-    "resource"?: string;
-    "field"?: string;
+	"code"?: string;
+	"message"?: string;
+	"resource"?: string;
+	"field"?: string;
 }
 export class ScheduleEntriesApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Schedules Count
-     * @param conditions
-     */
-    scheduleEntriesCountGet(params: {
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Schedules
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    scheduleEntriesGet(params: {
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ScheduleEntry>>;
-    /**
-     *
-     * Delete Schedule By Id
-     * @param id
-     */
-    scheduleEntriesIdDelete(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Schedule By Id
-     * @param id
-     */
-    scheduleEntriesIdGet(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ScheduleEntry>;
-    /**
-     *
-     * Update Schedule
-     * @param id
-     * @param operations
-     */
-    scheduleEntriesIdPatch(params: {
-        id: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ScheduleEntry>;
-    /**
-     *
-     * Replace Schedule
-     * @param id
-     * @param scheduleEntry
-     */
-    scheduleEntriesIdPut(params: {
-        id: number;
-        scheduleEntry: ScheduleEntry;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ScheduleEntry>;
-    /**
-     *
-     * Create Schedule
-     * @param scheduleEntry
-     */
-    scheduleEntriesPost(params: {
-        scheduleEntry: ScheduleEntry;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ScheduleEntry>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Schedules Count
+	 * @param conditions
+	 */
+	scheduleEntriesCountGet(params: {
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Schedules
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	scheduleEntriesGet(params: {
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ScheduleEntry>>;
+	/**
+	 *
+	 * Delete Schedule By Id
+	 * @param id
+	 */
+	scheduleEntriesIdDelete(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Schedule By Id
+	 * @param id
+	 */
+	scheduleEntriesIdGet(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ScheduleEntry>;
+	/**
+	 *
+	 * Update Schedule
+	 * @param id
+	 * @param operations
+	 */
+	scheduleEntriesIdPatch(params: {
+		id: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ScheduleEntry>;
+	/**
+	 *
+	 * Replace Schedule
+	 * @param id
+	 * @param scheduleEntry
+	 */
+	scheduleEntriesIdPut(params: {
+		id: number;
+		scheduleEntry: ScheduleEntry;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ScheduleEntry>;
+	/**
+	 *
+	 * Create Schedule
+	 * @param scheduleEntry
+	 */
+	scheduleEntriesPost(params: {
+		scheduleEntry: ScheduleEntry;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ScheduleEntry>;
 }
 export class ScheduleStatusesApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Schedule Statuses Count
-     * @param conditions
-     */
-    scheduleStatusesCountGet(params: {
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Schedule Statuses
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    scheduleStatusesGet(params: {
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ScheduleStatus>>;
-    /**
-     *
-     * Delete Schedule Status By Id
-     * @param id
-     */
-    scheduleStatusesIdDelete(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Schedule Status By Id
-     * @param id
-     */
-    scheduleStatusesIdGet(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ScheduleStatus>;
-    /**
-     *
-     * Update Schedule Status
-     * @param id
-     * @param operations
-     */
-    scheduleStatusesIdPatch(params: {
-        id: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ScheduleStatus>;
-    /**
-     *
-     * Replace Schedule Status
-     * @param id
-     * @param scheduleStatus
-     */
-    scheduleStatusesIdPut(params: {
-        id: number;
-        scheduleStatus: ScheduleStatus;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ScheduleStatus>;
-    /**
-     *
-     * Create Schedule Status
-     * @param scheduleStatus
-     */
-    scheduleStatusesPost(params: {
-        scheduleStatus: ScheduleStatus;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ScheduleStatus>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Schedule Statuses Count
+	 * @param conditions
+	 */
+	scheduleStatusesCountGet(params: {
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Schedule Statuses
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	scheduleStatusesGet(params: {
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ScheduleStatus>>;
+	/**
+	 *
+	 * Delete Schedule Status By Id
+	 * @param id
+	 */
+	scheduleStatusesIdDelete(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Schedule Status By Id
+	 * @param id
+	 */
+	scheduleStatusesIdGet(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ScheduleStatus>;
+	/**
+	 *
+	 * Update Schedule Status
+	 * @param id
+	 * @param operations
+	 */
+	scheduleStatusesIdPatch(params: {
+		id: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ScheduleStatus>;
+	/**
+	 *
+	 * Replace Schedule Status
+	 * @param id
+	 * @param scheduleStatus
+	 */
+	scheduleStatusesIdPut(params: {
+		id: number;
+		scheduleStatus: ScheduleStatus;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ScheduleStatus>;
+	/**
+	 *
+	 * Create Schedule Status
+	 * @param scheduleStatus
+	 */
+	scheduleStatusesPost(params: {
+		scheduleStatus: ScheduleStatus;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ScheduleStatus>;
 }
 export class ScheduleTypesApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Schedule Types Count
-     * @param conditions
-     */
-    scheduleTypesCountGet(params: {
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Schedule Types
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    scheduleTypesGet(params: {
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ScheduleType>>;
-    /**
-     *
-     * Delete Schedule Type By Id
-     * @param id
-     */
-    scheduleTypesIdDelete(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Schedule Type By Id
-     * @param id
-     */
-    scheduleTypesIdGet(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ScheduleType>;
-    /**
-     *
-     * Update Schedule Type
-     * @param id
-     * @param operations
-     */
-    scheduleTypesIdPatch(params: {
-        id: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ScheduleType>;
-    /**
-     *
-     * Replace Schedule Type
-     * @param id
-     * @param scheduleType
-     */
-    scheduleTypesIdPut(params: {
-        id: number;
-        scheduleType: ScheduleType;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ScheduleType>;
-    /**
-     *
-     * Create Schedule Type
-     * @param scheduleType
-     */
-    scheduleTypesPost(params: {
-        scheduleType: ScheduleType;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ScheduleType>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Schedule Types Count
+	 * @param conditions
+	 */
+	scheduleTypesCountGet(params: {
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Schedule Types
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	scheduleTypesGet(params: {
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ScheduleType>>;
+	/**
+	 *
+	 * Delete Schedule Type By Id
+	 * @param id
+	 */
+	scheduleTypesIdDelete(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Schedule Type By Id
+	 * @param id
+	 */
+	scheduleTypesIdGet(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ScheduleType>;
+	/**
+	 *
+	 * Update Schedule Type
+	 * @param id
+	 * @param operations
+	 */
+	scheduleTypesIdPatch(params: {
+		id: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ScheduleType>;
+	/**
+	 *
+	 * Replace Schedule Type
+	 * @param id
+	 * @param scheduleType
+	 */
+	scheduleTypesIdPut(params: {
+		id: number;
+		scheduleType: ScheduleType;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ScheduleType>;
+	/**
+	 *
+	 * Create Schedule Type
+	 * @param scheduleType
+	 */
+	scheduleTypesPost(params: {
+		scheduleType: ScheduleType;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ScheduleType>;
 }
 }
 declare module 'connectwise-rest-api/release/api/scheduleAPI' {
@@ -10829,211 +10829,211 @@ export = alias;
 // Source: release/api/serviceAPI.d.ts
 declare module '~connectwise-rest-api/release/api/serviceAPI' {
 export interface ActivityReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface AgreementReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface Board {
-    "id"?: number;
-    "name": string;
-    "locationId": number;
-    "businessUnitId": number;
-    "inactive"?: boolean;
-    "signOffTemplate"?: ServiceSignoffReference;
-    "sendToContact"?: boolean;
-    "contactTemplateId"?: number;
-    "sendToResource"?: boolean;
-    "resourceTemplateId"?: number;
-    "projectFlag"?: boolean;
-    /**
-     * This field only shows if it is Project Board.
-     */
-    "showDependenciesFlag"?: boolean;
-    /**
-     * This field only shows if it is Project Board.
-     */
-    "showEstimatesFlag"?: boolean;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name": string;
+	"locationId": number;
+	"businessUnitId": number;
+	"inactive"?: boolean;
+	"signOffTemplate"?: ServiceSignoffReference;
+	"sendToContact"?: boolean;
+	"contactTemplateId"?: number;
+	"sendToResource"?: boolean;
+	"resourceTemplateId"?: number;
+	"projectFlag"?: boolean;
+	/**
+	 * This field only shows if it is Project Board.
+	 */
+	"showDependenciesFlag"?: boolean;
+	/**
+	 * This field only shows if it is Project Board.
+	 */
+	"showEstimatesFlag"?: boolean;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface BoardReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface Code {
-    "id"?: number;
-    "name": string;
-    "description": string;
-    "boardId"?: number;
-    "locationId"?: number;
-    "businessUnitId"?: number;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name": string;
+	"description": string;
+	"boardId"?: number;
+	"locationId"?: number;
+	"businessUnitId"?: number;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface CompanyReference {
-    "id"?: number;
-    "identifier"?: string;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"identifier"?: string;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ConfigurationReference {
-    "id"?: number;
-    "deviceIdentifier"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"deviceIdentifier"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ContactReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface Count {
-    "count"?: number;
+	"count"?: number;
 }
 export interface CountryReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface CustomFieldValue {
-    "id"?: number;
-    "caption"?: string;
-    "type"?: TypeEnum;
-    "entryMethod"?: EntryMethodEnum;
-    "numberOfDecimals"?: number;
-    "value"?: string;
+	"id"?: number;
+	"caption"?: string;
+	"type"?: TypeEnum;
+	"entryMethod"?: EntryMethodEnum;
+	"numberOfDecimals"?: number;
+	"value"?: string;
 }
 export enum TypeEnum {
-    Text,
-    Button,
-    Currency,
-    Date,
-    Hyperlink,
-    IPAddress,
-    Checkbox,
-    Number,
-    Percent,
-    TextArea,
-    Password,
+	Text,
+	Button,
+	Currency,
+	Date,
+	Hyperlink,
+	IPAddress,
+	Checkbox,
+	Number,
+	Percent,
+	TextArea,
+	Password,
 }
 export enum EntryMethodEnum {
-    EntryField,
-    List,
-    Option,
+	EntryField,
+	List,
+	Option,
 }
 export interface DocumentReference {
-    "id"?: number;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface Error {
-    "code"?: string;
-    "message"?: string;
-    "errors"?: Array<ValidationError>;
+	"code"?: string;
+	"message"?: string;
+	"errors"?: Array<ValidationError>;
 }
 export interface ExcludedMember {
-    "id"?: number;
-    "memberId": number;
-    "boardId"?: number;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"memberId": number;
+	"boardId"?: number;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface FilterValues {
-    "conditions"?: string;
-    "orderBy"?: string;
+	"conditions"?: string;
+	"orderBy"?: string;
 }
 export interface GenericIdIdentifierReference {
-    "id"?: number;
-    "identifier"?: string;
+	"id"?: number;
+	"identifier"?: string;
 }
 export interface Item {
-    "id"?: number;
-    "name": string;
-    "inactive"?: boolean;
-    "typeAssociations"?: Array<TypeAssociations>;
-    "addAllSubTypes"?: boolean;
-    "removeAllSubTypes"?: boolean;
-    "typeId"?: number;
-    "boardId"?: number;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name": string;
+	"inactive"?: boolean;
+	"typeAssociations"?: Array<TypeAssociations>;
+	"addAllSubTypes"?: boolean;
+	"removeAllSubTypes"?: boolean;
+	"typeId"?: number;
+	"boardId"?: number;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface KnowledgeBaseArticle {
-    "id"?: number;
-    "title": string;
-    "issue": string;
-    "resolution": string;
-    "locationId"?: number;
-    "businessUnitId"?: number;
-    "boardId"?: number;
-    "categoryId"?: number;
-    "subCategoryId"?: number;
-    "dateCreated"?: string;
-    "createdBy"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"title": string;
+	"issue": string;
+	"resolution": string;
+	"locationId"?: number;
+	"businessUnitId"?: number;
+	"boardId"?: number;
+	"categoryId"?: number;
+	"subCategoryId"?: number;
+	"dateCreated"?: string;
+	"createdBy"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface Location {
-    "id"?: number;
-    "name": string;
-    "where": WhereEnum;
-    "defaultFlag"?: boolean;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name": string;
+	"where": WhereEnum;
+	"defaultFlag"?: boolean;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export enum WhereEnum {
-    OnSite,
-    Remote,
-    InHouse,
+	OnSite,
+	Remote,
+	InHouse,
 }
 export interface MemberReference {
-    "id"?: number;
-    "identifier"?: string;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"identifier"?: string;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 /**
  * Metadata of the entity
@@ -11041,2073 +11041,2073 @@ export interface MemberReference {
 export interface Metadata {
 }
 export interface OpportunityReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface PatchOperation {
-    "op"?: string;
-    "path"?: string;
-    "value"?: string;
+	"op"?: string;
+	"path"?: string;
+	"value"?: string;
 }
 export interface Priority {
-    "id"?: number;
-    "name": string;
-    "color": string;
-    "sortOrder"?: number;
-    "defaultFlag"?: boolean;
-    "imageLink"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name": string;
+	"color": string;
+	"sortOrder"?: number;
+	"defaultFlag"?: boolean;
+	"imageLink"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface PriorityReference {
-    "id"?: number;
-    "name"?: string;
-    "sort"?: number;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	"sort"?: number;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ProductReference {
-    "id"?: number;
-    "description"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"description"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ProjectPhaseReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ProjectReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ScheduleEntryReference {
-    "id"?: number;
-    "description"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"description"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ServiceCodeReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ServiceItemReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ServiceLocationReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ServiceNote {
-    "id"?: number;
-    "ticketId"?: number;
-    "text"?: string;
-    "detailDescriptionFlag"?: boolean;
-    "internalAnalysisFlag"?: boolean;
-    "resolutionFlag"?: boolean;
-    "member"?: MemberReference;
-    "contact"?: ContactReference;
-    "customerUpdatedFlag"?: boolean;
-    "processNotifications"?: boolean;
-    "dateCreated"?: string;
-    "createdBy"?: string;
-    "internalFlag"?: boolean;
-    "externalFlag"?: boolean;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"ticketId"?: number;
+	"text"?: string;
+	"detailDescriptionFlag"?: boolean;
+	"internalAnalysisFlag"?: boolean;
+	"resolutionFlag"?: boolean;
+	"member"?: MemberReference;
+	"contact"?: ContactReference;
+	"customerUpdatedFlag"?: boolean;
+	"processNotifications"?: boolean;
+	"dateCreated"?: string;
+	"createdBy"?: string;
+	"internalFlag"?: boolean;
+	"externalFlag"?: boolean;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ServiceSignoffReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ServiceSourceReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ServiceStatusReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ServiceSubTypeReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ServiceTeamReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ServiceTypeReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface SiteReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface Source {
-    "id"?: number;
-    "name": string;
-    "defaultFlag"?: boolean;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
-    "enteredBy"?: string;
-    "dateEntered"?: Date;
+	"id"?: number;
+	"name": string;
+	"defaultFlag"?: boolean;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
+	"enteredBy"?: string;
+	"dateEntered"?: Date;
 }
 export interface Status {
-    "id"?: number;
-    "name": string;
-    "boardId"?: number;
-    "sortOrder"?: number;
-    "displayOnBoard"?: boolean;
-    "inactive"?: boolean;
-    "closedStatus"?: boolean;
-    "timeEntryNotAllowed"?: boolean;
-    "defaultFlag"?: boolean;
-    "escalationStatus"?: EscalationStatusEnum;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name": string;
+	"boardId"?: number;
+	"sortOrder"?: number;
+	"displayOnBoard"?: boolean;
+	"inactive"?: boolean;
+	"closedStatus"?: boolean;
+	"timeEntryNotAllowed"?: boolean;
+	"defaultFlag"?: boolean;
+	"escalationStatus"?: EscalationStatusEnum;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export enum EscalationStatusEnum {
-    NotResponded,
-    Responded,
-    ResolutionPlan,
-    Resolved,
-    NoEscalation,
+	NotResponded,
+	Responded,
+	ResolutionPlan,
+	Resolved,
+	NoEscalation,
 }
 export interface SubType {
-    "id"?: number;
-    "name": string;
-    "inactive"?: boolean;
-    "typeAssociationIds"?: Array<number>;
-    "addAllTypes"?: boolean;
-    "removeAllTypes"?: boolean;
-    "boardId"?: number;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name": string;
+	"inactive"?: boolean;
+	"typeAssociationIds"?: Array<number>;
+	"addAllTypes"?: boolean;
+	"removeAllTypes"?: boolean;
+	"boardId"?: number;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface Survey {
-    "id"?: number;
-    "name": string;
-    "inactiveFlag"?: boolean;
-    "headerIncludeLogoFlag"?: boolean;
-    "headerText"?: string;
-    "headerTextVisibleFlag"?: boolean;
-    "footerText"?: string;
-    "footerTextVisibleFlag"?: boolean;
-    "thankYouText"?: string;
-    "notifyWho"?: GenericIdIdentifierReference;
-    "notifyWhoVisibleFlag"?: boolean;
-    "notifyMember"?: MemberReference;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name": string;
+	"inactiveFlag"?: boolean;
+	"headerIncludeLogoFlag"?: boolean;
+	"headerText"?: string;
+	"headerTextVisibleFlag"?: boolean;
+	"footerText"?: string;
+	"footerTextVisibleFlag"?: boolean;
+	"thankYouText"?: string;
+	"notifyWho"?: GenericIdIdentifierReference;
+	"notifyWhoVisibleFlag"?: boolean;
+	"notifyMember"?: MemberReference;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface SurveyQuestion {
-    "id"?: number;
-    "sequenceNumber"?: number;
-    "type": SurveyQuestionTypeEnum;
-    "question": string;
-    "options"?: Array<SurveyQuestionOption>;
-    "includeFlag"?: boolean;
-    "requiredFlag"?: boolean;
-    "noAnswerPoints"?: number;
-    "surveyId"?: number;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"sequenceNumber"?: number;
+	"type": SurveyQuestionTypeEnum;
+	"question": string;
+	"options"?: Array<SurveyQuestionOption>;
+	"includeFlag"?: boolean;
+	"requiredFlag"?: boolean;
+	"noAnswerPoints"?: number;
+	"surveyId"?: number;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export enum SurveyQuestionTypeEnum {
-    OpenEnded,
-    Selection,
+	OpenEnded,
+	Selection,
 }
 export interface SurveyQuestionOption {
-    "includeFlag"?: boolean;
-    "caption": string;
-    "points"?: number;
+	"includeFlag"?: boolean;
+	"caption": string;
+	"points"?: number;
 }
 export interface SurveyResult {
-    "id"?: number;
-    "ticketId": number;
-    "emailAddress"?: string;
-    "footerResponse"?: string;
-    "contactMeFlag"?: boolean;
-    "contact"?: ContactReference;
-    "results"?: Array<SurveyResultDetail>;
-    "totalPoints"?: number;
-    "company"?: CompanyReference;
-    "surveyId"?: number;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"ticketId": number;
+	"emailAddress"?: string;
+	"footerResponse"?: string;
+	"contactMeFlag"?: boolean;
+	"contact"?: ContactReference;
+	"results"?: Array<SurveyResultDetail>;
+	"totalPoints"?: number;
+	"company"?: CompanyReference;
+	"surveyId"?: number;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface SurveyResultDetail {
-    "questionId": number;
-    /**
-     * If question type is Selection, this should be the option array index
-     */
-    "answer"?: string | number;
+	"questionId": number;
+	/**
+	 * If question type is Selection, this should be the option array index
+	 */
+	"answer"?: string | number;
 }
 export interface Task {
-    "id"?: number;
-    "ticketId"?: number;
-    "notes"?: string;
-    "closedFlag"?: boolean;
-    "priority"?: number;
-    "schedule"?: ScheduleEntryReference;
-    "code"?: ServiceCodeReference;
-    "resolution"?: string;
-    "childScheduleAction"?: ChildScheduleActionEnum;
-    "childTicketId"?: number;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"ticketId"?: number;
+	"notes"?: string;
+	"closedFlag"?: boolean;
+	"priority"?: number;
+	"schedule"?: ScheduleEntryReference;
+	"code"?: ServiceCodeReference;
+	"resolution"?: string;
+	"childScheduleAction"?: ChildScheduleActionEnum;
+	"childTicketId"?: number;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export enum ChildScheduleActionEnum {
-    Transfer,
-    Delete,
-    Done,
+	Transfer,
+	Delete,
+	Done,
 }
 export interface Team {
-    "id"?: number;
-    "name": string;
-    "teamLeader": MemberReference;
-    "members"?: Array<number>;
-    "defaultFlag"?: boolean;
-    "notifyOnTicketDelete"?: boolean;
-    "boardId"?: number;
-    "locationId"?: number;
-    "businessUnitId"?: number;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name": string;
+	"teamLeader": MemberReference;
+	"members"?: Array<number>;
+	"defaultFlag"?: boolean;
+	"notifyOnTicketDelete"?: boolean;
+	"boardId"?: number;
+	"locationId"?: number;
+	"businessUnitId"?: number;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface Ticket {
-    "id"?: number;
-    "summary": string;
-    "recordType"?: RecordTypeEnum;
-    "board"?: BoardReference;
-    "status"?: ServiceStatusReference;
-    "project"?: ProjectReference;
-    "phase"?: ProjectPhaseReference;
-    "wbsCode"?: string;
-    "company": CompanyReference;
-    "site"?: SiteReference;
-    "siteName"?: string;
-    "addressLine1"?: string;
-    "addressLine2"?: string;
-    "city"?: string;
-    "stateIdentifier"?: string;
-    "zip"?: string;
-    "country"?: CountryReference;
-    "contact"?: ContactReference;
-    "contactPhoneNumber"?: string;
-    "contactPhoneExtension"?: string;
-    "contactEmailAddress"?: string;
-    "type"?: ServiceTypeReference;
-    "subType"?: ServiceSubTypeReference;
-    "item"?: ServiceItemReference;
-    "team"?: ServiceTeamReference;
-    "owner"?: MemberReference;
-    "priority"?: PriorityReference;
-    "serviceLocation"?: ServiceLocationReference;
-    "source"?: ServiceSourceReference;
-    "requiredDate"?: Date;
-    "budgetHours"?: number;
-    "opportunity"?: OpportunityReference;
-    "agreement"?: AgreementReference;
-    "severity"?: SeverityEnum;
-    "impact"?: ImpactEnum;
-    "externalXRef"?: string;
-    "poNumber"?: string;
-    "knowledgeBaseCategoryId"?: number;
-    "knowledgeBaseSubCategoryId"?: number;
-    "allowAllClientsPortalView"?: boolean;
-    "customerUpdatedFlag"?: boolean;
-    "automaticEmailContactFlag"?: boolean;
-    "automaticEmailResourceFlag"?: boolean;
-    "automaticEmailCcFlag"?: boolean;
-    "automaticEmailCc"?: string;
-    "initialDescription"?: string;
-    "initialInternalAnalysis"?: string;
-    "initialResolution"?: string;
-    "contactEmailLookup"?: string;
-    "processNotifications"?: boolean;
-    "skipCallback"?: boolean;
-    "closedDate"?: string;
-    "closedBy"?: string;
-    "closedFlag"?: boolean;
-    "dateEntered"?: string;
-    "enteredBy"?: string;
-    "actualHours"?: number;
-    "approved"?: boolean;
-    "subBillingMethod"?: SubBillingMethodEnum;
-    "subBillingAmount"?: number;
-    "subDateAccepted"?: string;
-    "dateResolved"?: string;
-    "dateResplan"?: string;
-    "dateResponded"?: string;
-    "resolveMinutes"?: number;
-    "resPlanMinutes"?: number;
-    "respondMinutes"?: number;
-    "isInSla"?: boolean;
-    "knowledgeBaseLinkId"?: number;
-    "resources"?: string;
-    "parentTicketId"?: number;
-    "hasChildTicket"?: boolean;
-    "knowledgeBaseLinkType"?: KnowledgeBaseLinkTypeEnum;
-    "billTime"?: BillTimeEnum;
-    "billExpenses"?: BillExpensesEnum;
-    "billProducts"?: BillProductsEnum;
-    "predecessorType"?: PredecessorTypeEnum;
-    "predecessorId"?: number;
-    "predecessorClosedFlag"?: boolean;
-    "lagDays"?: number;
-    "lagNonworkingDaysFlag"?: boolean;
-    "estimatedStartDate"?: Date;
-    "duration"?: number;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
-    "customFields"?: Array<CustomFieldValue>;
+	"id"?: number;
+	"summary": string;
+	"recordType"?: RecordTypeEnum;
+	"board"?: BoardReference;
+	"status"?: ServiceStatusReference;
+	"project"?: ProjectReference;
+	"phase"?: ProjectPhaseReference;
+	"wbsCode"?: string;
+	"company": CompanyReference;
+	"site"?: SiteReference;
+	"siteName"?: string;
+	"addressLine1"?: string;
+	"addressLine2"?: string;
+	"city"?: string;
+	"stateIdentifier"?: string;
+	"zip"?: string;
+	"country"?: CountryReference;
+	"contact"?: ContactReference;
+	"contactPhoneNumber"?: string;
+	"contactPhoneExtension"?: string;
+	"contactEmailAddress"?: string;
+	"type"?: ServiceTypeReference;
+	"subType"?: ServiceSubTypeReference;
+	"item"?: ServiceItemReference;
+	"team"?: ServiceTeamReference;
+	"owner"?: MemberReference;
+	"priority"?: PriorityReference;
+	"serviceLocation"?: ServiceLocationReference;
+	"source"?: ServiceSourceReference;
+	"requiredDate"?: Date;
+	"budgetHours"?: number;
+	"opportunity"?: OpportunityReference;
+	"agreement"?: AgreementReference;
+	"severity"?: SeverityEnum;
+	"impact"?: ImpactEnum;
+	"externalXRef"?: string;
+	"poNumber"?: string;
+	"knowledgeBaseCategoryId"?: number;
+	"knowledgeBaseSubCategoryId"?: number;
+	"allowAllClientsPortalView"?: boolean;
+	"customerUpdatedFlag"?: boolean;
+	"automaticEmailContactFlag"?: boolean;
+	"automaticEmailResourceFlag"?: boolean;
+	"automaticEmailCcFlag"?: boolean;
+	"automaticEmailCc"?: string;
+	"initialDescription"?: string;
+	"initialInternalAnalysis"?: string;
+	"initialResolution"?: string;
+	"contactEmailLookup"?: string;
+	"processNotifications"?: boolean;
+	"skipCallback"?: boolean;
+	"closedDate"?: string;
+	"closedBy"?: string;
+	"closedFlag"?: boolean;
+	"dateEntered"?: string;
+	"enteredBy"?: string;
+	"actualHours"?: number;
+	"approved"?: boolean;
+	"subBillingMethod"?: SubBillingMethodEnum;
+	"subBillingAmount"?: number;
+	"subDateAccepted"?: string;
+	"dateResolved"?: string;
+	"dateResplan"?: string;
+	"dateResponded"?: string;
+	"resolveMinutes"?: number;
+	"resPlanMinutes"?: number;
+	"respondMinutes"?: number;
+	"isInSla"?: boolean;
+	"knowledgeBaseLinkId"?: number;
+	"resources"?: string;
+	"parentTicketId"?: number;
+	"hasChildTicket"?: boolean;
+	"knowledgeBaseLinkType"?: KnowledgeBaseLinkTypeEnum;
+	"billTime"?: BillTimeEnum;
+	"billExpenses"?: BillExpensesEnum;
+	"billProducts"?: BillProductsEnum;
+	"predecessorType"?: PredecessorTypeEnum;
+	"predecessorId"?: number;
+	"predecessorClosedFlag"?: boolean;
+	"lagDays"?: number;
+	"lagNonworkingDaysFlag"?: boolean;
+	"estimatedStartDate"?: Date;
+	"duration"?: number;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
+	"customFields"?: Array<CustomFieldValue>;
 }
 export enum RecordTypeEnum {
-    ServiceTicket,
-    ProjectTicket,
-    ProjectIssue,
+	ServiceTicket,
+	ProjectTicket,
+	ProjectIssue,
 }
 export enum SeverityEnum {
-    Low,
-    Medium,
-    High,
+	Low,
+	Medium,
+	High,
 }
 export enum ImpactEnum {
-    Low,
-    Medium,
-    High,
+	Low,
+	Medium,
+	High,
 }
 export enum SubBillingMethodEnum {
-    ActualRates,
-    FixedFee,
-    NotToExceed,
-    OverrideRate,
+	ActualRates,
+	FixedFee,
+	NotToExceed,
+	OverrideRate,
 }
 export enum KnowledgeBaseLinkTypeEnum {
-    ServiceTicket,
-    ProjectTicket,
-    ProjectIssue,
-    KnowledgeBaseArticle,
-    Time,
-    Activity,
+	ServiceTicket,
+	ProjectTicket,
+	ProjectIssue,
+	KnowledgeBaseArticle,
+	Time,
+	Activity,
 }
 export enum BillTimeEnum {
-    Billable,
-    DoNotBill,
-    NoCharge,
-    NoDefault,
+	Billable,
+	DoNotBill,
+	NoCharge,
+	NoDefault,
 }
 export enum BillExpensesEnum {
-    Billable,
-    DoNotBill,
-    NoCharge,
-    NoDefault,
+	Billable,
+	DoNotBill,
+	NoCharge,
+	NoDefault,
 }
 export enum BillProductsEnum {
-    Billable,
-    DoNotBill,
-    NoCharge,
-    NoDefault,
+	Billable,
+	DoNotBill,
+	NoCharge,
+	NoDefault,
 }
 export enum PredecessorTypeEnum {
-    Ticket,
-    Phase,
+	Ticket,
+	Phase,
 }
 export interface TimeEntryReference {
-    "id"?: number;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface Type {
-    "id"?: number;
-    "name": string;
-    "category"?: CategoryEnum;
-    "defaultFlag"?: boolean;
-    "inactive"?: boolean;
-    "requestForChange"?: boolean;
-    "boardId"?: number;
-    "locationId"?: number;
-    "businessUnitId"?: number;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name": string;
+	"category"?: CategoryEnum;
+	"defaultFlag"?: boolean;
+	"inactive"?: boolean;
+	"requestForChange"?: boolean;
+	"boardId"?: number;
+	"locationId"?: number;
+	"businessUnitId"?: number;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export enum CategoryEnum {
-    Reactive,
-    Proactive,
+	Reactive,
+	Proactive,
 }
 export interface TypeAssociations {
-    "typeId"?: number;
-    "subTypeAssociationIds"?: Array<number>;
+	"typeId"?: number;
+	"subTypeAssociationIds"?: Array<number>;
 }
 export interface ValidationError {
-    "code"?: string;
-    "message"?: string;
-    "resource"?: string;
-    "field"?: string;
+	"code"?: string;
+	"message"?: string;
+	"resource"?: string;
+	"field"?: string;
 }
 export class BoardExcludedMembersApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Excluded Members Count
-     * @param id
-     * @param conditions
-     */
-    serviceBoardsIdExcludedMembersCountGet(params: {
-        id: number;
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Delete Excluded Member By Id
-     * @param id
-     * @param excludedMemberId
-     */
-    serviceBoardsIdExcludedMembersExcludedMemberIdDelete(params: {
-        id: number;
-        excludedMemberId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Excluded Member By Id
-     * @param id
-     * @param excludedMemberId
-     */
-    serviceBoardsIdExcludedMembersExcludedMemberIdGet(params: {
-        id: number;
-        excludedMemberId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ExcludedMember>;
-    /**
-     *
-     * Get Excluded Members
-     * @param id
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    serviceBoardsIdExcludedMembersGet(params: {
-        id: number;
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ExcludedMember>>;
-    /**
-     *
-     * Create Excluded Member
-     * @param id
-     * @param excludedMember
-     */
-    serviceBoardsIdExcludedMembersPost(params: {
-        id: number;
-        excludedMember: ExcludedMember;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ExcludedMember>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Excluded Members Count
+	 * @param id
+	 * @param conditions
+	 */
+	serviceBoardsIdExcludedMembersCountGet(params: {
+		id: number;
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Delete Excluded Member By Id
+	 * @param id
+	 * @param excludedMemberId
+	 */
+	serviceBoardsIdExcludedMembersExcludedMemberIdDelete(params: {
+		id: number;
+		excludedMemberId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Excluded Member By Id
+	 * @param id
+	 * @param excludedMemberId
+	 */
+	serviceBoardsIdExcludedMembersExcludedMemberIdGet(params: {
+		id: number;
+		excludedMemberId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ExcludedMember>;
+	/**
+	 *
+	 * Get Excluded Members
+	 * @param id
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	serviceBoardsIdExcludedMembersGet(params: {
+		id: number;
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ExcludedMember>>;
+	/**
+	 *
+	 * Create Excluded Member
+	 * @param id
+	 * @param excludedMember
+	 */
+	serviceBoardsIdExcludedMembersPost(params: {
+		id: number;
+		excludedMember: ExcludedMember;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ExcludedMember>;
 }
 export class BoardItemsApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Items Count
-     * @param id
-     * @param conditions
-     */
-    serviceBoardsIdItemsCountGet(params: {
-        id: number;
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Items
-     * @param id
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    serviceBoardsIdItemsGet(params: {
-        id: number;
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Item>>;
-    /**
-     *
-     * Delete Item By Id
-     * @param id
-     * @param itemId
-     */
-    serviceBoardsIdItemsItemIdDelete(params: {
-        id: number;
-        itemId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Item By Id
-     * @param id
-     * @param itemId
-     */
-    serviceBoardsIdItemsItemIdGet(params: {
-        id: number;
-        itemId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Item>;
-    /**
-     *
-     * Update Item
-     * @param id
-     * @param itemId
-     * @param operations
-     */
-    serviceBoardsIdItemsItemIdPatch(params: {
-        id: number;
-        itemId: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Item>;
-    /**
-     *
-     * Replace Item
-     * @param id
-     * @param itemId
-     * @param item
-     */
-    serviceBoardsIdItemsItemIdPut(params: {
-        id: number;
-        itemId: number;
-        item: Item;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Item>;
-    /**
-     *
-     * Create Item
-     * @param id
-     * @param item
-     */
-    serviceBoardsIdItemsPost(params: {
-        id: number;
-        item: Item;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Item>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Items Count
+	 * @param id
+	 * @param conditions
+	 */
+	serviceBoardsIdItemsCountGet(params: {
+		id: number;
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Items
+	 * @param id
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	serviceBoardsIdItemsGet(params: {
+		id: number;
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Item>>;
+	/**
+	 *
+	 * Delete Item By Id
+	 * @param id
+	 * @param itemId
+	 */
+	serviceBoardsIdItemsItemIdDelete(params: {
+		id: number;
+		itemId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Item By Id
+	 * @param id
+	 * @param itemId
+	 */
+	serviceBoardsIdItemsItemIdGet(params: {
+		id: number;
+		itemId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Item>;
+	/**
+	 *
+	 * Update Item
+	 * @param id
+	 * @param itemId
+	 * @param operations
+	 */
+	serviceBoardsIdItemsItemIdPatch(params: {
+		id: number;
+		itemId: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Item>;
+	/**
+	 *
+	 * Replace Item
+	 * @param id
+	 * @param itemId
+	 * @param item
+	 */
+	serviceBoardsIdItemsItemIdPut(params: {
+		id: number;
+		itemId: number;
+		item: Item;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Item>;
+	/**
+	 *
+	 * Create Item
+	 * @param id
+	 * @param item
+	 */
+	serviceBoardsIdItemsPost(params: {
+		id: number;
+		item: Item;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Item>;
 }
 export class BoardStatusesApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Statuses Count
-     * @param id
-     * @param conditions
-     */
-    serviceBoardsIdStatusesCountGet(params: {
-        id: number;
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Statuses
-     * @param id
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    serviceBoardsIdStatusesGet(params: {
-        id: number;
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Status>>;
-    /**
-     *
-     * Create Statuses
-     * @param id
-     * @param status
-     */
-    serviceBoardsIdStatusesPost(params: {
-        id: number;
-        status: Status;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Status>;
-    /**
-     *
-     * Delete Status By Id
-     * @param id
-     * @param statusId
-     */
-    serviceBoardsIdStatusesStatusIdDelete(params: {
-        id: number;
-        statusId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Status By Id
-     * @param id
-     * @param statusId
-     */
-    serviceBoardsIdStatusesStatusIdGet(params: {
-        id: number;
-        statusId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Status>;
-    /**
-     *
-     * Update Status
-     * @param id
-     * @param statusId
-     * @param operations
-     */
-    serviceBoardsIdStatusesStatusIdPatch(params: {
-        id: number;
-        statusId: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Status>;
-    /**
-     *
-     * Replace Statuses
-     * @param id
-     * @param statusId
-     * @param status
-     */
-    serviceBoardsIdStatusesStatusIdPut(params: {
-        id: number;
-        statusId: number;
-        status: Status;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Status>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Statuses Count
+	 * @param id
+	 * @param conditions
+	 */
+	serviceBoardsIdStatusesCountGet(params: {
+		id: number;
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Statuses
+	 * @param id
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	serviceBoardsIdStatusesGet(params: {
+		id: number;
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Status>>;
+	/**
+	 *
+	 * Create Statuses
+	 * @param id
+	 * @param status
+	 */
+	serviceBoardsIdStatusesPost(params: {
+		id: number;
+		status: Status;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Status>;
+	/**
+	 *
+	 * Delete Status By Id
+	 * @param id
+	 * @param statusId
+	 */
+	serviceBoardsIdStatusesStatusIdDelete(params: {
+		id: number;
+		statusId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Status By Id
+	 * @param id
+	 * @param statusId
+	 */
+	serviceBoardsIdStatusesStatusIdGet(params: {
+		id: number;
+		statusId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Status>;
+	/**
+	 *
+	 * Update Status
+	 * @param id
+	 * @param statusId
+	 * @param operations
+	 */
+	serviceBoardsIdStatusesStatusIdPatch(params: {
+		id: number;
+		statusId: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Status>;
+	/**
+	 *
+	 * Replace Statuses
+	 * @param id
+	 * @param statusId
+	 * @param status
+	 */
+	serviceBoardsIdStatusesStatusIdPut(params: {
+		id: number;
+		statusId: number;
+		status: Status;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Status>;
 }
 export class BoardSubTypesApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Subtypes Count
-     * @param id
-     * @param conditions
-     */
-    serviceBoardsIdSubtypesCountGet(params: {
-        id: number;
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Subtypes
-     * @param id
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    serviceBoardsIdSubtypesGet(params: {
-        id: number;
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<SubType>>;
-    /**
-     *
-     * Create Subtype
-     * @param id
-     * @param subtype
-     */
-    serviceBoardsIdSubtypesPost(params: {
-        id: number;
-        subtype: SubType;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<SubType>;
-    /**
-     *
-     * Delete Subtype By Id
-     * @param id
-     * @param subtypeId
-     */
-    serviceBoardsIdSubtypesSubtypeIdDelete(params: {
-        id: number;
-        subtypeId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Subtype By Id
-     * @param id
-     * @param subtypeId
-     */
-    serviceBoardsIdSubtypesSubtypeIdGet(params: {
-        id: number;
-        subtypeId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<SubType>;
-    /**
-     *
-     * Update Subtype
-     * @param id
-     * @param subtypeId
-     * @param operations
-     */
-    serviceBoardsIdSubtypesSubtypeIdPatch(params: {
-        id: number;
-        subtypeId: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<SubType>;
-    /**
-     *
-     * Replace Subtype
-     * @param id
-     * @param subtypeId
-     * @param subtype
-     */
-    serviceBoardsIdSubtypesSubtypeIdPut(params: {
-        id: number;
-        subtypeId: number;
-        subtype: SubType;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<SubType>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Subtypes Count
+	 * @param id
+	 * @param conditions
+	 */
+	serviceBoardsIdSubtypesCountGet(params: {
+		id: number;
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Subtypes
+	 * @param id
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	serviceBoardsIdSubtypesGet(params: {
+		id: number;
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<SubType>>;
+	/**
+	 *
+	 * Create Subtype
+	 * @param id
+	 * @param subtype
+	 */
+	serviceBoardsIdSubtypesPost(params: {
+		id: number;
+		subtype: SubType;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<SubType>;
+	/**
+	 *
+	 * Delete Subtype By Id
+	 * @param id
+	 * @param subtypeId
+	 */
+	serviceBoardsIdSubtypesSubtypeIdDelete(params: {
+		id: number;
+		subtypeId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Subtype By Id
+	 * @param id
+	 * @param subtypeId
+	 */
+	serviceBoardsIdSubtypesSubtypeIdGet(params: {
+		id: number;
+		subtypeId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<SubType>;
+	/**
+	 *
+	 * Update Subtype
+	 * @param id
+	 * @param subtypeId
+	 * @param operations
+	 */
+	serviceBoardsIdSubtypesSubtypeIdPatch(params: {
+		id: number;
+		subtypeId: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<SubType>;
+	/**
+	 *
+	 * Replace Subtype
+	 * @param id
+	 * @param subtypeId
+	 * @param subtype
+	 */
+	serviceBoardsIdSubtypesSubtypeIdPut(params: {
+		id: number;
+		subtypeId: number;
+		subtype: SubType;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<SubType>;
 }
 export class BoardTeamsApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Teams Count
-     * @param id
-     * @param conditions
-     */
-    serviceBoardsIdTeamsCountGet(params: {
-        id: number;
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Teams
-     * @param id
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    serviceBoardsIdTeamsGet(params: {
-        id: number;
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Team>>;
-    /**
-     *
-     * Create Team
-     * @param id
-     * @param team
-     */
-    serviceBoardsIdTeamsPost(params: {
-        id: number;
-        team: Team;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Team>;
-    /**
-     *
-     * Delete Team By Id
-     * @param id
-     * @param teamId
-     */
-    serviceBoardsIdTeamsTeamIdDelete(params: {
-        id: number;
-        teamId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Team By Id
-     * @param id
-     * @param teamId
-     */
-    serviceBoardsIdTeamsTeamIdGet(params: {
-        id: number;
-        teamId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Team>;
-    /**
-     *
-     * Update Team
-     * @param id
-     * @param teamId
-     * @param operations
-     */
-    serviceBoardsIdTeamsTeamIdPatch(params: {
-        id: number;
-        teamId: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Team>;
-    /**
-     *
-     * Replace Team
-     * @param id
-     * @param teamId
-     * @param team
-     */
-    serviceBoardsIdTeamsTeamIdPut(params: {
-        id: number;
-        teamId: number;
-        team: Team;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Team>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Teams Count
+	 * @param id
+	 * @param conditions
+	 */
+	serviceBoardsIdTeamsCountGet(params: {
+		id: number;
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Teams
+	 * @param id
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	serviceBoardsIdTeamsGet(params: {
+		id: number;
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Team>>;
+	/**
+	 *
+	 * Create Team
+	 * @param id
+	 * @param team
+	 */
+	serviceBoardsIdTeamsPost(params: {
+		id: number;
+		team: Team;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Team>;
+	/**
+	 *
+	 * Delete Team By Id
+	 * @param id
+	 * @param teamId
+	 */
+	serviceBoardsIdTeamsTeamIdDelete(params: {
+		id: number;
+		teamId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Team By Id
+	 * @param id
+	 * @param teamId
+	 */
+	serviceBoardsIdTeamsTeamIdGet(params: {
+		id: number;
+		teamId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Team>;
+	/**
+	 *
+	 * Update Team
+	 * @param id
+	 * @param teamId
+	 * @param operations
+	 */
+	serviceBoardsIdTeamsTeamIdPatch(params: {
+		id: number;
+		teamId: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Team>;
+	/**
+	 *
+	 * Replace Team
+	 * @param id
+	 * @param teamId
+	 * @param team
+	 */
+	serviceBoardsIdTeamsTeamIdPut(params: {
+		id: number;
+		teamId: number;
+		team: Team;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Team>;
 }
 export class BoardTypesApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Types Count
-     * @param id
-     * @param conditions
-     */
-    serviceBoardsIdTypesCountGet(params: {
-        id: number;
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Types
-     * @param id
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    serviceBoardsIdTypesGet(params: {
-        id: number;
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Type>>;
-    /**
-     *
-     * Create Type
-     * @param id
-     * @param type
-     */
-    serviceBoardsIdTypesPost(params: {
-        id: number;
-        type: Type;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Type>;
-    /**
-     *
-     * Delete Type By Id
-     * @param id
-     * @param typeId
-     */
-    serviceBoardsIdTypesTypeIdDelete(params: {
-        id: number;
-        typeId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Type By Id
-     * @param id
-     * @param typeId
-     */
-    serviceBoardsIdTypesTypeIdGet(params: {
-        id: number;
-        typeId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Type>;
-    /**
-     *
-     * Update Types
-     * @param id
-     * @param typeId
-     * @param operations
-     */
-    serviceBoardsIdTypesTypeIdPatch(params: {
-        id: number;
-        typeId: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Type>;
-    /**
-     *
-     * Replace Types
-     * @param id
-     * @param typeId
-     * @param type
-     */
-    serviceBoardsIdTypesTypeIdPut(params: {
-        id: number;
-        typeId: number;
-        type: Type;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Type>;
-    /**
-     *
-     * Get Sub Type Association
-     * @param id
-     * @param typeId
-     */
-    serviceBoardsIdTypesTypeIdSubTypeAssociationGet(params: {
-        id: number;
-        typeId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<number>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Types Count
+	 * @param id
+	 * @param conditions
+	 */
+	serviceBoardsIdTypesCountGet(params: {
+		id: number;
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Types
+	 * @param id
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	serviceBoardsIdTypesGet(params: {
+		id: number;
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Type>>;
+	/**
+	 *
+	 * Create Type
+	 * @param id
+	 * @param type
+	 */
+	serviceBoardsIdTypesPost(params: {
+		id: number;
+		type: Type;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Type>;
+	/**
+	 *
+	 * Delete Type By Id
+	 * @param id
+	 * @param typeId
+	 */
+	serviceBoardsIdTypesTypeIdDelete(params: {
+		id: number;
+		typeId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Type By Id
+	 * @param id
+	 * @param typeId
+	 */
+	serviceBoardsIdTypesTypeIdGet(params: {
+		id: number;
+		typeId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Type>;
+	/**
+	 *
+	 * Update Types
+	 * @param id
+	 * @param typeId
+	 * @param operations
+	 */
+	serviceBoardsIdTypesTypeIdPatch(params: {
+		id: number;
+		typeId: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Type>;
+	/**
+	 *
+	 * Replace Types
+	 * @param id
+	 * @param typeId
+	 * @param type
+	 */
+	serviceBoardsIdTypesTypeIdPut(params: {
+		id: number;
+		typeId: number;
+		type: Type;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Type>;
+	/**
+	 *
+	 * Get Sub Type Association
+	 * @param id
+	 * @param typeId
+	 */
+	serviceBoardsIdTypesTypeIdSubTypeAssociationGet(params: {
+		id: number;
+		typeId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<number>;
 }
 export class BoardsApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Boards Count
-     * @param conditions
-     */
-    serviceBoardsCountGet(params: {
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Boards
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    serviceBoardsGet(params: {
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Board>>;
-    /**
-     *
-     * Delete Board By Id
-     * @param id
-     */
-    serviceBoardsIdDelete(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Board By Id
-     * @param id
-     */
-    serviceBoardsIdGet(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Board>;
-    /**
-     *
-     * Update Board
-     * @param id
-     * @param operations
-     */
-    serviceBoardsIdPatch(params: {
-        id: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Board>;
-    /**
-     *
-     * Replace Board
-     * @param id
-     * @param board
-     */
-    serviceBoardsIdPut(params: {
-        id: number;
-        board: Board;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Board>;
-    /**
-     *
-     * Create Board
-     * @param board
-     */
-    serviceBoardsPost(params: {
-        board: Board;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Board>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Boards Count
+	 * @param conditions
+	 */
+	serviceBoardsCountGet(params: {
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Boards
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	serviceBoardsGet(params: {
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Board>>;
+	/**
+	 *
+	 * Delete Board By Id
+	 * @param id
+	 */
+	serviceBoardsIdDelete(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Board By Id
+	 * @param id
+	 */
+	serviceBoardsIdGet(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Board>;
+	/**
+	 *
+	 * Update Board
+	 * @param id
+	 * @param operations
+	 */
+	serviceBoardsIdPatch(params: {
+		id: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Board>;
+	/**
+	 *
+	 * Replace Board
+	 * @param id
+	 * @param board
+	 */
+	serviceBoardsIdPut(params: {
+		id: number;
+		board: Board;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Board>;
+	/**
+	 *
+	 * Create Board
+	 * @param board
+	 */
+	serviceBoardsPost(params: {
+		board: Board;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Board>;
 }
 export class CodesApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Create Codes Count
-     * @param conditions
-     */
-    serviceCodesCountGet(params: {
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Codes
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    serviceCodesGet(params: {
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Code>>;
-    /**
-     *
-     * Delete Code By Id
-     * @param id
-     */
-    serviceCodesIdDelete(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Code By Id
-     * @param id
-     */
-    serviceCodesIdGet(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Code>;
-    /**
-     *
-     * Update Code
-     * @param id
-     * @param operations
-     */
-    serviceCodesIdPatch(params: {
-        id: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Code>;
-    /**
-     *
-     * Replace Code
-     * @param id
-     * @param code
-     */
-    serviceCodesIdPut(params: {
-        id: number;
-        code: Code;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Code>;
-    /**
-     *
-     * Create Codes
-     * @param code
-     */
-    serviceCodesPost(params: {
-        code: Code;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Code>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Create Codes Count
+	 * @param conditions
+	 */
+	serviceCodesCountGet(params: {
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Codes
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	serviceCodesGet(params: {
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Code>>;
+	/**
+	 *
+	 * Delete Code By Id
+	 * @param id
+	 */
+	serviceCodesIdDelete(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Code By Id
+	 * @param id
+	 */
+	serviceCodesIdGet(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Code>;
+	/**
+	 *
+	 * Update Code
+	 * @param id
+	 * @param operations
+	 */
+	serviceCodesIdPatch(params: {
+		id: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Code>;
+	/**
+	 *
+	 * Replace Code
+	 * @param id
+	 * @param code
+	 */
+	serviceCodesIdPut(params: {
+		id: number;
+		code: Code;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Code>;
+	/**
+	 *
+	 * Create Codes
+	 * @param code
+	 */
+	serviceCodesPost(params: {
+		code: Code;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Code>;
 }
 export class KnowledgeBaseArticlesApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Knowledge Base Articles Count
-     * @param conditions
-     */
-    serviceKnowledgeBaseArticlesCountGet(params: {
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Knowledge Base Articles
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    serviceKnowledgeBaseArticlesGet(params: {
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<KnowledgeBaseArticle>>;
-    /**
-     *
-     * Delete Knowledge Base Article By Id
-     * @param id
-     */
-    serviceKnowledgeBaseArticlesIdDelete(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Knowledge Base Article By Id
-     * @param id
-     */
-    serviceKnowledgeBaseArticlesIdGet(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<KnowledgeBaseArticle>;
-    /**
-     *
-     * Update Knowledge Base Article
-     * @param id
-     * @param operations
-     */
-    serviceKnowledgeBaseArticlesIdPatch(params: {
-        id: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<KnowledgeBaseArticle>;
-    /**
-     *
-     * Replace Knowledge Base Article
-     * @param id
-     * @param knowledgeBaseArticle
-     */
-    serviceKnowledgeBaseArticlesIdPut(params: {
-        id: number;
-        knowledgeBaseArticle: KnowledgeBaseArticle;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<KnowledgeBaseArticle>;
-    /**
-     *
-     * Create Knowledge Base Article
-     * @param knowledgeBaseArticle
-     */
-    serviceKnowledgeBaseArticlesPost(params: {
-        knowledgeBaseArticle: KnowledgeBaseArticle;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<KnowledgeBaseArticle>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Knowledge Base Articles Count
+	 * @param conditions
+	 */
+	serviceKnowledgeBaseArticlesCountGet(params: {
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Knowledge Base Articles
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	serviceKnowledgeBaseArticlesGet(params: {
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<KnowledgeBaseArticle>>;
+	/**
+	 *
+	 * Delete Knowledge Base Article By Id
+	 * @param id
+	 */
+	serviceKnowledgeBaseArticlesIdDelete(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Knowledge Base Article By Id
+	 * @param id
+	 */
+	serviceKnowledgeBaseArticlesIdGet(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<KnowledgeBaseArticle>;
+	/**
+	 *
+	 * Update Knowledge Base Article
+	 * @param id
+	 * @param operations
+	 */
+	serviceKnowledgeBaseArticlesIdPatch(params: {
+		id: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<KnowledgeBaseArticle>;
+	/**
+	 *
+	 * Replace Knowledge Base Article
+	 * @param id
+	 * @param knowledgeBaseArticle
+	 */
+	serviceKnowledgeBaseArticlesIdPut(params: {
+		id: number;
+		knowledgeBaseArticle: KnowledgeBaseArticle;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<KnowledgeBaseArticle>;
+	/**
+	 *
+	 * Create Knowledge Base Article
+	 * @param knowledgeBaseArticle
+	 */
+	serviceKnowledgeBaseArticlesPost(params: {
+		knowledgeBaseArticle: KnowledgeBaseArticle;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<KnowledgeBaseArticle>;
 }
 export class LocationsApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Create Locations Count
-     * @param conditions
-     */
-    serviceLocationsCountGet(params: {
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Locations
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    serviceLocationsGet(params: {
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Location>>;
-    /**
-     *
-     * Delete Location By Id
-     * @param id
-     */
-    serviceLocationsIdDelete(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Location By Id
-     * @param id
-     */
-    serviceLocationsIdGet(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Location>;
-    /**
-     *
-     * Update Location
-     * @param id
-     * @param operations
-     */
-    serviceLocationsIdPatch(params: {
-        id: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Location>;
-    /**
-     *
-     * Replace Location
-     * @param id
-     * @param location
-     */
-    serviceLocationsIdPut(params: {
-        id: number;
-        location: Location;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Location>;
-    /**
-     *
-     * Create Location
-     * @param location
-     */
-    serviceLocationsPost(params: {
-        location: Location;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Location>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Create Locations Count
+	 * @param conditions
+	 */
+	serviceLocationsCountGet(params: {
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Locations
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	serviceLocationsGet(params: {
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Location>>;
+	/**
+	 *
+	 * Delete Location By Id
+	 * @param id
+	 */
+	serviceLocationsIdDelete(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Location By Id
+	 * @param id
+	 */
+	serviceLocationsIdGet(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Location>;
+	/**
+	 *
+	 * Update Location
+	 * @param id
+	 * @param operations
+	 */
+	serviceLocationsIdPatch(params: {
+		id: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Location>;
+	/**
+	 *
+	 * Replace Location
+	 * @param id
+	 * @param location
+	 */
+	serviceLocationsIdPut(params: {
+		id: number;
+		location: Location;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Location>;
+	/**
+	 *
+	 * Create Location
+	 * @param location
+	 */
+	serviceLocationsPost(params: {
+		location: Location;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Location>;
 }
 export class PrioritiesApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Create Priorities Count
-     * @param conditions
-     */
-    servicePrioritiesCountGet(params: {
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Priorities
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    servicePrioritiesGet(params: {
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Priority>>;
-    /**
-     *
-     * Delete Priority By Id
-     * @param id
-     */
-    servicePrioritiesIdDelete(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Priority By Id
-     * @param id
-     */
-    servicePrioritiesIdGet(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Priority>;
-    /**
-     *
-     * Get Priority Image
-     * @param id
-     * @param useDefaultFlag
-     * @param lastModified
-     */
-    servicePrioritiesIdImageGet(params: {
-        id: number;
-        useDefaultFlag?: boolean;
-        lastModified?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Update Priority
-     * @param id
-     * @param operations
-     */
-    servicePrioritiesIdPatch(params: {
-        id: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Priority>;
-    /**
-     *
-     * Replace Priority
-     * @param id
-     * @param priority
-     */
-    servicePrioritiesIdPut(params: {
-        id: number;
-        priority: Priority;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Priority>;
-    /**
-     *
-     * Create Priority
-     * @param priority
-     */
-    servicePrioritiesPost(params: {
-        priority: Priority;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Priority>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Create Priorities Count
+	 * @param conditions
+	 */
+	servicePrioritiesCountGet(params: {
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Priorities
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	servicePrioritiesGet(params: {
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Priority>>;
+	/**
+	 *
+	 * Delete Priority By Id
+	 * @param id
+	 */
+	servicePrioritiesIdDelete(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Priority By Id
+	 * @param id
+	 */
+	servicePrioritiesIdGet(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Priority>;
+	/**
+	 *
+	 * Get Priority Image
+	 * @param id
+	 * @param useDefaultFlag
+	 * @param lastModified
+	 */
+	servicePrioritiesIdImageGet(params: {
+		id: number;
+		useDefaultFlag?: boolean;
+		lastModified?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Update Priority
+	 * @param id
+	 * @param operations
+	 */
+	servicePrioritiesIdPatch(params: {
+		id: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Priority>;
+	/**
+	 *
+	 * Replace Priority
+	 * @param id
+	 * @param priority
+	 */
+	servicePrioritiesIdPut(params: {
+		id: number;
+		priority: Priority;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Priority>;
+	/**
+	 *
+	 * Create Priority
+	 * @param priority
+	 */
+	servicePrioritiesPost(params: {
+		priority: Priority;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Priority>;
 }
 export class SourcesApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Create Sources Count
-     * @param conditions
-     */
-    serviceSourcesCountGet(params: {
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Sources
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    serviceSourcesGet(params: {
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Source>>;
-    /**
-     *
-     * Delete Source By Id
-     * @param id
-     */
-    serviceSourcesIdDelete(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Source By Id
-     * @param id
-     */
-    serviceSourcesIdGet(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Source>;
-    /**
-     *
-     * Update Source
-     * @param id
-     * @param operations
-     */
-    serviceSourcesIdPatch(params: {
-        id: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Source>;
-    /**
-     *
-     * Replace Source
-     * @param id
-     * @param source
-     */
-    serviceSourcesIdPut(params: {
-        id: number;
-        source: Source;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Source>;
-    /**
-     *
-     * Create Source
-     * @param source
-     */
-    serviceSourcesPost(params: {
-        source: Source;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Source>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Create Sources Count
+	 * @param conditions
+	 */
+	serviceSourcesCountGet(params: {
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Sources
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	serviceSourcesGet(params: {
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Source>>;
+	/**
+	 *
+	 * Delete Source By Id
+	 * @param id
+	 */
+	serviceSourcesIdDelete(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Source By Id
+	 * @param id
+	 */
+	serviceSourcesIdGet(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Source>;
+	/**
+	 *
+	 * Update Source
+	 * @param id
+	 * @param operations
+	 */
+	serviceSourcesIdPatch(params: {
+		id: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Source>;
+	/**
+	 *
+	 * Replace Source
+	 * @param id
+	 * @param source
+	 */
+	serviceSourcesIdPut(params: {
+		id: number;
+		source: Source;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Source>;
+	/**
+	 *
+	 * Create Source
+	 * @param source
+	 */
+	serviceSourcesPost(params: {
+		source: Source;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Source>;
 }
 export class SurveyQuestionsApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Survey Questions Count
-     * @param id
-     * @param conditions
-     */
-    serviceSurveysIdQuestionsCountGet(params: {
-        id: number;
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Survey Questions
-     * @param id
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    serviceSurveysIdQuestionsGet(params: {
-        id: number;
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<SurveyQuestion>>;
-    /**
-     *
-     * Create Survey Question
-     * @param id
-     * @param surveyQuestion
-     */
-    serviceSurveysIdQuestionsPost(params: {
-        id: number;
-        surveyQuestion: SurveyQuestion;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<SurveyQuestion>;
-    /**
-     *
-     * Delete Survey Question By Id
-     * @param id
-     * @param questionId
-     */
-    serviceSurveysIdQuestionsQuestionIdDelete(params: {
-        id: number;
-        questionId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Survey Question By Id
-     * @param id
-     * @param questionId
-     */
-    serviceSurveysIdQuestionsQuestionIdGet(params: {
-        id: number;
-        questionId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<SurveyQuestion>;
-    /**
-     *
-     * Update Survey Question
-     * @param id
-     * @param questionId
-     * @param operations
-     */
-    serviceSurveysIdQuestionsQuestionIdPatch(params: {
-        id: number;
-        questionId: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<SurveyQuestion>;
-    /**
-     *
-     * Replace Survey Question
-     * @param id
-     * @param questionId
-     * @param surveyQuestion
-     */
-    serviceSurveysIdQuestionsQuestionIdPut(params: {
-        id: number;
-        questionId: number;
-        surveyQuestion: SurveyQuestion;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<SurveyQuestion>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Survey Questions Count
+	 * @param id
+	 * @param conditions
+	 */
+	serviceSurveysIdQuestionsCountGet(params: {
+		id: number;
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Survey Questions
+	 * @param id
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	serviceSurveysIdQuestionsGet(params: {
+		id: number;
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<SurveyQuestion>>;
+	/**
+	 *
+	 * Create Survey Question
+	 * @param id
+	 * @param surveyQuestion
+	 */
+	serviceSurveysIdQuestionsPost(params: {
+		id: number;
+		surveyQuestion: SurveyQuestion;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<SurveyQuestion>;
+	/**
+	 *
+	 * Delete Survey Question By Id
+	 * @param id
+	 * @param questionId
+	 */
+	serviceSurveysIdQuestionsQuestionIdDelete(params: {
+		id: number;
+		questionId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Survey Question By Id
+	 * @param id
+	 * @param questionId
+	 */
+	serviceSurveysIdQuestionsQuestionIdGet(params: {
+		id: number;
+		questionId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<SurveyQuestion>;
+	/**
+	 *
+	 * Update Survey Question
+	 * @param id
+	 * @param questionId
+	 * @param operations
+	 */
+	serviceSurveysIdQuestionsQuestionIdPatch(params: {
+		id: number;
+		questionId: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<SurveyQuestion>;
+	/**
+	 *
+	 * Replace Survey Question
+	 * @param id
+	 * @param questionId
+	 * @param surveyQuestion
+	 */
+	serviceSurveysIdQuestionsQuestionIdPut(params: {
+		id: number;
+		questionId: number;
+		surveyQuestion: SurveyQuestion;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<SurveyQuestion>;
 }
 export class SurveyResultsApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Survey Results Count
-     * @param id
-     * @param conditions
-     */
-    serviceSurveysIdResultsCountGet(params: {
-        id: number;
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Survey Results
-     * @param id
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    serviceSurveysIdResultsGet(params: {
-        id: number;
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<SurveyResult>>;
-    /**
-     *
-     * Create Survey Result
-     * @param id
-     * @param surveyResult
-     */
-    serviceSurveysIdResultsPost(params: {
-        id: number;
-        surveyResult: SurveyResult;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<SurveyResult>;
-    /**
-     *
-     * Delete Survey Result By Id
-     * @param id
-     * @param resultId
-     */
-    serviceSurveysIdResultsResultIdDelete(params: {
-        id: number;
-        resultId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Survey Result By Id
-     * @param id
-     * @param resultId
-     */
-    serviceSurveysIdResultsResultIdGet(params: {
-        id: number;
-        resultId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<SurveyResult>;
-    /**
-     *
-     * Update Survey Result
-     * @param id
-     * @param resultId
-     * @param operations
-     */
-    serviceSurveysIdResultsResultIdPatch(params: {
-        id: number;
-        resultId: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<SurveyResult>;
-    /**
-     *
-     * Replace Survey Result
-     * @param id
-     * @param resultId
-     * @param surveyResult
-     */
-    serviceSurveysIdResultsResultIdPut(params: {
-        id: number;
-        resultId: number;
-        surveyResult: SurveyResult;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<SurveyResult>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Survey Results Count
+	 * @param id
+	 * @param conditions
+	 */
+	serviceSurveysIdResultsCountGet(params: {
+		id: number;
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Survey Results
+	 * @param id
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	serviceSurveysIdResultsGet(params: {
+		id: number;
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<SurveyResult>>;
+	/**
+	 *
+	 * Create Survey Result
+	 * @param id
+	 * @param surveyResult
+	 */
+	serviceSurveysIdResultsPost(params: {
+		id: number;
+		surveyResult: SurveyResult;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<SurveyResult>;
+	/**
+	 *
+	 * Delete Survey Result By Id
+	 * @param id
+	 * @param resultId
+	 */
+	serviceSurveysIdResultsResultIdDelete(params: {
+		id: number;
+		resultId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Survey Result By Id
+	 * @param id
+	 * @param resultId
+	 */
+	serviceSurveysIdResultsResultIdGet(params: {
+		id: number;
+		resultId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<SurveyResult>;
+	/**
+	 *
+	 * Update Survey Result
+	 * @param id
+	 * @param resultId
+	 * @param operations
+	 */
+	serviceSurveysIdResultsResultIdPatch(params: {
+		id: number;
+		resultId: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<SurveyResult>;
+	/**
+	 *
+	 * Replace Survey Result
+	 * @param id
+	 * @param resultId
+	 * @param surveyResult
+	 */
+	serviceSurveysIdResultsResultIdPut(params: {
+		id: number;
+		resultId: number;
+		surveyResult: SurveyResult;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<SurveyResult>;
 }
 export class SurveysApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Surveys Count
-     * @param conditions
-     */
-    serviceSurveysCountGet(params: {
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Surveys
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    serviceSurveysGet(params: {
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Survey>>;
-    /**
-     *
-     * Delete Survey By Id
-     * @param id
-     */
-    serviceSurveysIdDelete(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Survey By Id
-     * @param id
-     */
-    serviceSurveysIdGet(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Survey>;
-    /**
-     *
-     * Update Survey
-     * @param id
-     * @param operations
-     */
-    serviceSurveysIdPatch(params: {
-        id: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Survey>;
-    /**
-     *
-     * Replace Survey
-     * @param id
-     * @param survey
-     */
-    serviceSurveysIdPut(params: {
-        id: number;
-        survey: Survey;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Survey>;
-    /**
-     *
-     * Create Survey
-     * @param survey
-     */
-    serviceSurveysPost(params: {
-        survey: Survey;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Survey>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Surveys Count
+	 * @param conditions
+	 */
+	serviceSurveysCountGet(params: {
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Surveys
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	serviceSurveysGet(params: {
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Survey>>;
+	/**
+	 *
+	 * Delete Survey By Id
+	 * @param id
+	 */
+	serviceSurveysIdDelete(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Survey By Id
+	 * @param id
+	 */
+	serviceSurveysIdGet(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Survey>;
+	/**
+	 *
+	 * Update Survey
+	 * @param id
+	 * @param operations
+	 */
+	serviceSurveysIdPatch(params: {
+		id: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Survey>;
+	/**
+	 *
+	 * Replace Survey
+	 * @param id
+	 * @param survey
+	 */
+	serviceSurveysIdPut(params: {
+		id: number;
+		survey: Survey;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Survey>;
+	/**
+	 *
+	 * Create Survey
+	 * @param survey
+	 */
+	serviceSurveysPost(params: {
+		survey: Survey;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Survey>;
 }
 export class TicketNotesApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Service Notes Count
-     * @param id
-     * @param conditions
-     */
-    serviceTicketsIdNotesCountGet(params: {
-        id: number;
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Service Notes
-     * @param id
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    serviceTicketsIdNotesGet(params: {
-        id: number;
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ServiceNote>>;
-    /**
-     *
-     * Delete Service Note By Id
-     * @param id
-     * @param noteId
-     */
-    serviceTicketsIdNotesNoteIdDelete(params: {
-        id: number;
-        noteId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Service Note By Id
-     * @param id
-     * @param noteId
-     */
-    serviceTicketsIdNotesNoteIdGet(params: {
-        id: number;
-        noteId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ServiceNote>;
-    /**
-     *
-     * Update Service Note
-     * @param id
-     * @param noteId
-     * @param operations
-     */
-    serviceTicketsIdNotesNoteIdPatch(params: {
-        id: number;
-        noteId: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ServiceNote>;
-    /**
-     *
-     * Replace Service Note
-     * @param id
-     * @param noteId
-     * @param serviceNote
-     */
-    serviceTicketsIdNotesNoteIdPut(params: {
-        id: number;
-        noteId: number;
-        serviceNote: ServiceNote;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ServiceNote>;
-    /**
-     *
-     * Create Service Note
-     * @param id
-     * @param serviceNote
-     */
-    serviceTicketsIdNotesPost(params: {
-        id: number;
-        serviceNote: ServiceNote;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ServiceNote>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Service Notes Count
+	 * @param id
+	 * @param conditions
+	 */
+	serviceTicketsIdNotesCountGet(params: {
+		id: number;
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Service Notes
+	 * @param id
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	serviceTicketsIdNotesGet(params: {
+		id: number;
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ServiceNote>>;
+	/**
+	 *
+	 * Delete Service Note By Id
+	 * @param id
+	 * @param noteId
+	 */
+	serviceTicketsIdNotesNoteIdDelete(params: {
+		id: number;
+		noteId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Service Note By Id
+	 * @param id
+	 * @param noteId
+	 */
+	serviceTicketsIdNotesNoteIdGet(params: {
+		id: number;
+		noteId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ServiceNote>;
+	/**
+	 *
+	 * Update Service Note
+	 * @param id
+	 * @param noteId
+	 * @param operations
+	 */
+	serviceTicketsIdNotesNoteIdPatch(params: {
+		id: number;
+		noteId: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ServiceNote>;
+	/**
+	 *
+	 * Replace Service Note
+	 * @param id
+	 * @param noteId
+	 * @param serviceNote
+	 */
+	serviceTicketsIdNotesNoteIdPut(params: {
+		id: number;
+		noteId: number;
+		serviceNote: ServiceNote;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ServiceNote>;
+	/**
+	 *
+	 * Create Service Note
+	 * @param id
+	 * @param serviceNote
+	 */
+	serviceTicketsIdNotesPost(params: {
+		id: number;
+		serviceNote: ServiceNote;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ServiceNote>;
 }
 export class TicketTasksApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Tasks Count
-     * @param id
-     * @param conditions
-     */
-    serviceTicketsIdTasksCountGet(params: {
-        id: number;
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Tasks
-     * @param id
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    serviceTicketsIdTasksGet(params: {
-        id: number;
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Task>>;
-    /**
-     *
-     * Create Task
-     * @param id
-     * @param task
-     */
-    serviceTicketsIdTasksPost(params: {
-        id: number;
-        task: Task;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Task>;
-    /**
-     *
-     * Delete Task By Id
-     * @param id
-     * @param taskId
-     */
-    serviceTicketsIdTasksTaskIdDelete(params: {
-        id: number;
-        taskId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Task By Id
-     * @param id
-     * @param taskId
-     */
-    serviceTicketsIdTasksTaskIdGet(params: {
-        id: number;
-        taskId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Task>;
-    /**
-     *
-     * Update Task
-     * @param id
-     * @param taskId
-     * @param operations
-     */
-    serviceTicketsIdTasksTaskIdPatch(params: {
-        id: number;
-        taskId: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Task>;
-    /**
-     *
-     * Replace Task
-     * @param id
-     * @param taskId
-     * @param task
-     */
-    serviceTicketsIdTasksTaskIdPut(params: {
-        id: number;
-        taskId: number;
-        task: Task;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Task>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Tasks Count
+	 * @param id
+	 * @param conditions
+	 */
+	serviceTicketsIdTasksCountGet(params: {
+		id: number;
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Tasks
+	 * @param id
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	serviceTicketsIdTasksGet(params: {
+		id: number;
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Task>>;
+	/**
+	 *
+	 * Create Task
+	 * @param id
+	 * @param task
+	 */
+	serviceTicketsIdTasksPost(params: {
+		id: number;
+		task: Task;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Task>;
+	/**
+	 *
+	 * Delete Task By Id
+	 * @param id
+	 * @param taskId
+	 */
+	serviceTicketsIdTasksTaskIdDelete(params: {
+		id: number;
+		taskId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Task By Id
+	 * @param id
+	 * @param taskId
+	 */
+	serviceTicketsIdTasksTaskIdGet(params: {
+		id: number;
+		taskId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Task>;
+	/**
+	 *
+	 * Update Task
+	 * @param id
+	 * @param taskId
+	 * @param operations
+	 */
+	serviceTicketsIdTasksTaskIdPatch(params: {
+		id: number;
+		taskId: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Task>;
+	/**
+	 *
+	 * Replace Task
+	 * @param id
+	 * @param taskId
+	 * @param task
+	 */
+	serviceTicketsIdTasksTaskIdPut(params: {
+		id: number;
+		taskId: number;
+		task: Task;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Task>;
 }
 export class TicketsApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Tickets Count
-     * @param conditions
-     */
-    serviceTicketsCountGet(params: {
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Tickets
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    serviceTicketsGet(params: {
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Ticket>>;
-    /**
-     *
-     * Get Ticket Activities Count
-     * @param id
-     */
-    serviceTicketsIdActivitiesCountGet(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Ticket Activities
-     * @param id
-     * @param page
-     * @param pageSize
-     */
-    serviceTicketsIdActivitiesGet(params: {
-        id: number;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ActivityReference>>;
-    /**
-     *
-     * Delete Configuration Association
-     * @param id
-     * @param configId
-     */
-    serviceTicketsIdConfigurationsConfigIdDelete(params: {
-        id: number;
-        configId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Configuration Association
-     * @param id
-     * @param configId
-     */
-    serviceTicketsIdConfigurationsConfigIdGet(params: {
-        id: number;
-        configId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ConfigurationReference>;
-    /**
-     *
-     * Get Ticket Configurations Count
-     * @param id
-     */
-    serviceTicketsIdConfigurationsCountGet(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Ticket Configurations
-     * @param id
-     * @param page
-     * @param pageSize
-     */
-    serviceTicketsIdConfigurationsGet(params: {
-        id: number;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ConfigurationReference>>;
-    /**
-     *
-     * Create Configuration Association
-     * @param id
-     * @param configuration
-     */
-    serviceTicketsIdConfigurationsPost(params: {
-        id: number;
-        configuration: ConfigurationReference;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ConfigurationReference>;
-    /**
-     *
-     * Delete Ticket By Id
-     * @param id
-     */
-    serviceTicketsIdDelete(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Ticket Documents Count
-     * @param id
-     */
-    serviceTicketsIdDocumentsCountGet(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Ticket Documents
-     * @param id
-     * @param page
-     * @param pageSize
-     */
-    serviceTicketsIdDocumentsGet(params: {
-        id: number;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<DocumentReference>>;
-    /**
-     *
-     * Get Ticket By Id
-     * @param id
-     */
-    serviceTicketsIdGet(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Ticket>;
-    /**
-     *
-     * Update Ticket
-     * @param id
-     * @param operations
-     */
-    serviceTicketsIdPatch(params: {
-        id: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Ticket>;
-    /**
-     *
-     * Get Ticket Products Count
-     * @param id
-     */
-    serviceTicketsIdProductsCountGet(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Ticket Products
-     * @param id
-     * @param page
-     * @param pageSize
-     */
-    serviceTicketsIdProductsGet(params: {
-        id: number;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ProductReference>>;
-    /**
-     *
-     * Replace Ticket
-     * @param id
-     * @param ticket
-     */
-    serviceTicketsIdPut(params: {
-        id: number;
-        ticket: Ticket;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Ticket>;
-    /**
-     *
-     * Get Ticket Schedule Entries Count
-     * @param id
-     */
-    serviceTicketsIdScheduleentriesCountGet(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Ticket Schedule Entries
-     * @param id
-     * @param page
-     * @param pageSize
-     */
-    serviceTicketsIdScheduleentriesGet(params: {
-        id: number;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ScheduleEntryReference>>;
-    /**
-     *
-     * Get Ticket Time Entries Count
-     * @param id
-     */
-    serviceTicketsIdTimeentriesCountGet(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Ticket Time Entries
-     * @param id
-     * @param page
-     * @param pageSize
-     */
-    serviceTicketsIdTimeentriesGet(params: {
-        id: number;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<TimeEntryReference>>;
-    /**
-     *
-     * Create Ticket
-     * @param ticket
-     */
-    serviceTicketsPost(params: {
-        ticket: Ticket;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Ticket>;
-    /**
-     *
-     * Ticket Search
-     * @param filterValues
-     * @param page
-     * @param pageSize
-     */
-    serviceTicketsSearchPost(params: {
-        filterValues: FilterValues;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Ticket>>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Tickets Count
+	 * @param conditions
+	 */
+	serviceTicketsCountGet(params: {
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Tickets
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	serviceTicketsGet(params: {
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Ticket>>;
+	/**
+	 *
+	 * Get Ticket Activities Count
+	 * @param id
+	 */
+	serviceTicketsIdActivitiesCountGet(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Ticket Activities
+	 * @param id
+	 * @param page
+	 * @param pageSize
+	 */
+	serviceTicketsIdActivitiesGet(params: {
+		id: number;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ActivityReference>>;
+	/**
+	 *
+	 * Delete Configuration Association
+	 * @param id
+	 * @param configId
+	 */
+	serviceTicketsIdConfigurationsConfigIdDelete(params: {
+		id: number;
+		configId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Configuration Association
+	 * @param id
+	 * @param configId
+	 */
+	serviceTicketsIdConfigurationsConfigIdGet(params: {
+		id: number;
+		configId: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ConfigurationReference>;
+	/**
+	 *
+	 * Get Ticket Configurations Count
+	 * @param id
+	 */
+	serviceTicketsIdConfigurationsCountGet(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Ticket Configurations
+	 * @param id
+	 * @param page
+	 * @param pageSize
+	 */
+	serviceTicketsIdConfigurationsGet(params: {
+		id: number;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ConfigurationReference>>;
+	/**
+	 *
+	 * Create Configuration Association
+	 * @param id
+	 * @param configuration
+	 */
+	serviceTicketsIdConfigurationsPost(params: {
+		id: number;
+		configuration: ConfigurationReference;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ConfigurationReference>;
+	/**
+	 *
+	 * Delete Ticket By Id
+	 * @param id
+	 */
+	serviceTicketsIdDelete(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Ticket Documents Count
+	 * @param id
+	 */
+	serviceTicketsIdDocumentsCountGet(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Ticket Documents
+	 * @param id
+	 * @param page
+	 * @param pageSize
+	 */
+	serviceTicketsIdDocumentsGet(params: {
+		id: number;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<DocumentReference>>;
+	/**
+	 *
+	 * Get Ticket By Id
+	 * @param id
+	 */
+	serviceTicketsIdGet(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Ticket>;
+	/**
+	 *
+	 * Update Ticket
+	 * @param id
+	 * @param operations
+	 */
+	serviceTicketsIdPatch(params: {
+		id: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Ticket>;
+	/**
+	 *
+	 * Get Ticket Products Count
+	 * @param id
+	 */
+	serviceTicketsIdProductsCountGet(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Ticket Products
+	 * @param id
+	 * @param page
+	 * @param pageSize
+	 */
+	serviceTicketsIdProductsGet(params: {
+		id: number;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ProductReference>>;
+	/**
+	 *
+	 * Replace Ticket
+	 * @param id
+	 * @param ticket
+	 */
+	serviceTicketsIdPut(params: {
+		id: number;
+		ticket: Ticket;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Ticket>;
+	/**
+	 *
+	 * Get Ticket Schedule Entries Count
+	 * @param id
+	 */
+	serviceTicketsIdScheduleentriesCountGet(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Ticket Schedule Entries
+	 * @param id
+	 * @param page
+	 * @param pageSize
+	 */
+	serviceTicketsIdScheduleentriesGet(params: {
+		id: number;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ScheduleEntryReference>>;
+	/**
+	 *
+	 * Get Ticket Time Entries Count
+	 * @param id
+	 */
+	serviceTicketsIdTimeentriesCountGet(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Ticket Time Entries
+	 * @param id
+	 * @param page
+	 * @param pageSize
+	 */
+	serviceTicketsIdTimeentriesGet(params: {
+		id: number;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<TimeEntryReference>>;
+	/**
+	 *
+	 * Create Ticket
+	 * @param ticket
+	 */
+	serviceTicketsPost(params: {
+		ticket: Ticket;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Ticket>;
+	/**
+	 *
+	 * Ticket Search
+	 * @param filterValues
+	 * @param page
+	 * @param pageSize
+	 */
+	serviceTicketsSearchPost(params: {
+		filterValues: FilterValues;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Ticket>>;
 }
 }
 declare module 'connectwise-rest-api/release/api/serviceAPI' {
@@ -13119,140 +13119,140 @@ export = alias;
 // Source: release/api/systemAPI.d.ts
 declare module '~connectwise-rest-api/release/api/systemAPI' {
 export interface AuditTrailEntry {
-    "text"?: string;
-    "enteredDate"?: string;
-    "enteredBy"?: string;
-    "auditType"?: string;
-    "auditSource"?: string;
+	"text"?: string;
+	"enteredDate"?: string;
+	"enteredBy"?: string;
+	"auditType"?: string;
+	"auditSource"?: string;
 }
 export interface AuditTrailEntryInsertRequest {
-    "text": string;
-    "objects"?: Array<AuditTrailObjects>;
+	"text": string;
+	"objects"?: Array<AuditTrailObjects>;
 }
 export interface AuditTrailObjects {
-    "type": TypeEnum;
-    "ids": Array<string>;
+	"type": TypeEnum;
+	"ids": Array<string>;
 }
 export enum TypeEnum {
-    Ticket,
-    Configuration,
+	Ticket,
+	Configuration,
 }
 export interface CallbackEntry {
-    "id"?: number;
-    "url": string;
-    "objectId": number;
-    "type": string;
-    "level": string;
-    "memberId"?: number;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"url": string;
+	"objectId": number;
+	"type": string;
+	"level": string;
+	"memberId"?: number;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface ConnectWiseHostedSetup {
-    "id"?: number;
-    /**
-     * Can be obtained via ConnectWiseHostedApiScreen report
-     */
-    "screenId": number;
-    "description": string;
-    "origin"?: string;
-    "url": string;
-    "podHeight"?: number;
-    "type": ConnectWiseHostedSetupTypeEnum;
-    "disabledFlag"?: boolean;
-    "createdBy"?: string;
-    "dateCreated"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	/**
+	 * Can be obtained via ConnectWiseHostedApiScreen report
+	 */
+	"screenId": number;
+	"description": string;
+	"origin"?: string;
+	"url": string;
+	"podHeight"?: number;
+	"type": ConnectWiseHostedSetupTypeEnum;
+	"disabledFlag"?: boolean;
+	"createdBy"?: string;
+	"dateCreated"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export enum ConnectWiseHostedSetupTypeEnum {
-    Tab,
-    Pod,
+	Tab,
+	Pod,
 }
 export interface Count {
-    "count"?: number;
+	"count"?: number;
 }
 export interface DocumentInfo {
-    "id"?: number;
-    "title"?: string;
-    "fileName"?: string;
-    "serverFileName"?: string;
-    "owner"?: string;
-    "linkFlag"?: boolean;
-    "imageFlag"?: boolean;
-    "publicFlag"?: boolean;
-    "readOnlyFlag"?: boolean;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"title"?: string;
+	"fileName"?: string;
+	"serverFileName"?: string;
+	"owner"?: string;
+	"linkFlag"?: boolean;
+	"imageFlag"?: boolean;
+	"publicFlag"?: boolean;
+	"readOnlyFlag"?: boolean;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface Error {
-    "code"?: string;
-    "message"?: string;
-    "errors"?: Array<ValidationError>;
+	"code"?: string;
+	"message"?: string;
+	"errors"?: Array<ValidationError>;
 }
 export interface Info {
-    "version"?: string;
-    "isCloud"?: boolean;
-    "serverTimeZone"?: string;
+	"version"?: string;
+	"isCloud"?: boolean;
+	"serverTimeZone"?: string;
 }
 export interface IntegrationRequest {
-    "url": string;
-    "actionName": string;
-    "token"?: string;
-    "helpUrl"?: string;
-    "disabledFlag"?: boolean;
+	"url": string;
+	"actionName": string;
+	"token"?: string;
+	"helpUrl"?: string;
+	"disabledFlag"?: boolean;
 }
 export interface JObject {
 }
 export interface Link {
-    "id"?: number;
-    "name": string;
-    "tableReferenceId": number;
-    "url"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name": string;
+	"tableReferenceId": number;
+	"url"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface Member {
-    "id"?: number;
-    "identifier"?: string;
-    "emailAddress"?: string;
-    "name"?: string;
-    "calendarId"?: number;
-    "inactiveFlag"?: boolean;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"identifier"?: string;
+	"emailAddress"?: string;
+	"name"?: string;
+	"calendarId"?: number;
+	"inactiveFlag"?: boolean;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface MenuEntry {
-    "id"?: number;
-    "menuLocation": MenuLocationReference;
-    "caption": string;
-    "link": string;
-    "newWindowFlag": boolean;
-    "locationIds"?: Array<number>;
-    "origin"?: string;
-    "addAllLocations"?: boolean;
-    "removeAllLocations"?: boolean;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"menuLocation": MenuLocationReference;
+	"caption": string;
+	"link": string;
+	"newWindowFlag": boolean;
+	"locationIds"?: Array<number>;
+	"origin"?: string;
+	"addAllLocations"?: boolean;
+	"removeAllLocations"?: boolean;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface MenuLocationReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 /**
  * Metadata of the entity
@@ -13260,748 +13260,748 @@ export interface MenuLocationReference {
 export interface Metadata {
 }
 export interface PatchOperation {
-    "op"?: string;
-    "path"?: string;
-    "value"?: string;
+	"op"?: string;
+	"path"?: string;
+	"value"?: string;
 }
 export interface Report {
-    "name"?: string;
+	"name"?: string;
 }
 export interface ReportDataResponse {
-    "columnDefinitions"?: Array<JObject>;
-    "rowValues"?: Array<JObject>;
+	"columnDefinitions"?: Array<JObject>;
+	"rowValues"?: Array<JObject>;
 }
 export interface Token {
-    "publicKey"?: string;
-    "privateKey"?: string;
-    "expiration"?: string;
+	"publicKey"?: string;
+	"privateKey"?: string;
+	"expiration"?: string;
 }
 export interface UserDefinedField {
-    /**
-     * ID of the custom user defined field
-     */
-    "id"?: number;
-    /**
-     * Id of the Pod where the custom field will be placed
-     */
-    "podId": number;
-    /**
-     * Field caption
-     */
-    "caption": string;
-    /**
-     * Must be between 1 and 50.  This defines the order in which the custom fields will appear
-     */
-    "sequenceNumber": number;
-    /**
-     * Help text to accompany the custom field
-     */
-    "helpText"?: string;
-    "fieldTypeIdentifier": FieldTypeIdentifierEnum;
-    /**
-     * Only valid for Number or percent
-     */
-    "numberDecimals"?: number;
-    "entryTypeIdentifier"?: EntryTypeIdentifierEnum;
-    "requiredFlag"?: boolean;
-    "displayOnScreenFlag"?: boolean;
-    "readOnlyFlag"?: boolean;
-    /**
-     * Denotes that this custom field is included on a list view
-     */
-    "listViewFlag"?: boolean;
-    /**
-     * Only available with Button Field Type. Required when entryTypeIdentifier is button
-     */
-    "buttonUrl"?: string;
-    "options"?: Array<UserDefinedFieldOption>;
-    /**
-     * Date in UTC the custom field was created
-     */
-    "dateCreated"?: Date;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	/**
+	 * ID of the custom user defined field
+	 */
+	"id"?: number;
+	/**
+	 * Id of the Pod where the custom field will be placed
+	 */
+	"podId": number;
+	/**
+	 * Field caption
+	 */
+	"caption": string;
+	/**
+	 * Must be between 1 and 50.  This defines the order in which the custom fields will appear
+	 */
+	"sequenceNumber": number;
+	/**
+	 * Help text to accompany the custom field
+	 */
+	"helpText"?: string;
+	"fieldTypeIdentifier": FieldTypeIdentifierEnum;
+	/**
+	 * Only valid for Number or percent
+	 */
+	"numberDecimals"?: number;
+	"entryTypeIdentifier"?: EntryTypeIdentifierEnum;
+	"requiredFlag"?: boolean;
+	"displayOnScreenFlag"?: boolean;
+	"readOnlyFlag"?: boolean;
+	/**
+	 * Denotes that this custom field is included on a list view
+	 */
+	"listViewFlag"?: boolean;
+	/**
+	 * Only available with Button Field Type. Required when entryTypeIdentifier is button
+	 */
+	"buttonUrl"?: string;
+	"options"?: Array<UserDefinedFieldOption>;
+	/**
+	 * Date in UTC the custom field was created
+	 */
+	"dateCreated"?: Date;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export enum FieldTypeIdentifierEnum {
-    Text,
-    Button,
-    Date,
-    Hyperlink,
-    Checkbox,
-    Number,
-    Percent,
-    TextArea,
+	Text,
+	Button,
+	Date,
+	Hyperlink,
+	Checkbox,
+	Number,
+	Percent,
+	TextArea,
 }
 export enum EntryTypeIdentifierEnum {
-    EntryField,
-    List,
-    Option,
+	EntryField,
+	List,
+	Option,
 }
 export interface UserDefinedFieldOption {
-    "id"?: number;
-    "optionValue": string;
-    "defaultFlag"?: boolean;
-    "inactiveFlag"?: boolean;
-    "sortOrder"?: number;
+	"id"?: number;
+	"optionValue": string;
+	"defaultFlag"?: boolean;
+	"inactiveFlag"?: boolean;
+	"sortOrder"?: number;
 }
 export interface ValidationError {
-    "code"?: string;
-    "message"?: string;
-    "resource"?: string;
-    "field"?: string;
+	"code"?: string;
+	"message"?: string;
+	"resource"?: string;
+	"field"?: string;
 }
 export class AuditTrailApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Members Count
-     * @param type
-     * @param id
-     * @param deviceIdentifier
-     */
-    systemAudittrailCountGet(params: {
-        type?: string;
-        id?: number;
-        deviceIdentifier?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Audit Trail
-     * @param type
-     * @param id
-     * @param deviceIdentifier
-     * @param page
-     * @param pageSize
-     */
-    systemAudittrailGet(params: {
-        type?: string;
-        id?: number;
-        deviceIdentifier?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<AuditTrailEntry>>;
-    /**
-     *
-     * Insert Audit Trail Entries
-     * @param insertRequest
-     */
-    systemAudittrailPost(params: {
-        insertRequest: AuditTrailEntryInsertRequest;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Members Count
+	 * @param type
+	 * @param id
+	 * @param deviceIdentifier
+	 */
+	systemAudittrailCountGet(params: {
+		type?: string;
+		id?: number;
+		deviceIdentifier?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Audit Trail
+	 * @param type
+	 * @param id
+	 * @param deviceIdentifier
+	 * @param page
+	 * @param pageSize
+	 */
+	systemAudittrailGet(params: {
+		type?: string;
+		id?: number;
+		deviceIdentifier?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<AuditTrailEntry>>;
+	/**
+	 *
+	 * Insert Audit Trail Entries
+	 * @param insertRequest
+	 */
+	systemAudittrailPost(params: {
+		insertRequest: AuditTrailEntryInsertRequest;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
 }
 export class CallbackEntriesApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Callback Entries Count
-     * @param conditions
-     */
-    systemCallbacksCountGet(params: {
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Callback Entries
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    systemCallbacksGet(params: {
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<CallbackEntry>>;
-    /**
-     *
-     * Delete Callback Entry By Id
-     * @param id
-     */
-    systemCallbacksIdDelete(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Callback Entry By Id
-     * @param id
-     */
-    systemCallbacksIdGet(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CallbackEntry>;
-    /**
-     *
-     * Update Callback Entry
-     * @param id
-     * @param operations
-     */
-    systemCallbacksIdPatch(params: {
-        id: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CallbackEntry>;
-    /**
-     *
-     * Replace Callback Entry
-     * @param id
-     * @param callbackEntry
-     */
-    systemCallbacksIdPut(params: {
-        id: number;
-        callbackEntry: CallbackEntry;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CallbackEntry>;
-    /**
-     *
-     * Create Callback Entry
-     * @param callbackEntry
-     */
-    systemCallbacksPost(params: {
-        callbackEntry: CallbackEntry;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CallbackEntry>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Callback Entries Count
+	 * @param conditions
+	 */
+	systemCallbacksCountGet(params: {
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Callback Entries
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	systemCallbacksGet(params: {
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<CallbackEntry>>;
+	/**
+	 *
+	 * Delete Callback Entry By Id
+	 * @param id
+	 */
+	systemCallbacksIdDelete(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Callback Entry By Id
+	 * @param id
+	 */
+	systemCallbacksIdGet(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<CallbackEntry>;
+	/**
+	 *
+	 * Update Callback Entry
+	 * @param id
+	 * @param operations
+	 */
+	systemCallbacksIdPatch(params: {
+		id: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<CallbackEntry>;
+	/**
+	 *
+	 * Replace Callback Entry
+	 * @param id
+	 * @param callbackEntry
+	 */
+	systemCallbacksIdPut(params: {
+		id: number;
+		callbackEntry: CallbackEntry;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<CallbackEntry>;
+	/**
+	 *
+	 * Create Callback Entry
+	 * @param callbackEntry
+	 */
+	systemCallbacksPost(params: {
+		callbackEntry: CallbackEntry;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<CallbackEntry>;
 }
 export class ConnectWiseHostedSetupsApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Connect Wise Hosted Setups Count
-     * @param conditions
-     */
-    systemConnectwisehostedsetupsCountGet(params: {
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Connect Wise Hosted Setups
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    systemConnectwisehostedsetupsGet(params: {
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ConnectWiseHostedSetup>>;
-    /**
-     *
-     * Delete Connect Wise Hosted Setup By Id
-     * @param id
-     */
-    systemConnectwisehostedsetupsIdDelete(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Connect Wise Hosted Setup By Id
-     * @param id
-     */
-    systemConnectwisehostedsetupsIdGet(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ConnectWiseHostedSetup>;
-    /**
-     *
-     * Update Connect Wise Hosted Setup
-     * @param id
-     * @param operations
-     */
-    systemConnectwisehostedsetupsIdPatch(params: {
-        id: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ConnectWiseHostedSetup>;
-    /**
-     *
-     * Replace Connect Wise Hosted Setup
-     * @param id
-     * @param connectWiseHostedSetup
-     */
-    systemConnectwisehostedsetupsIdPut(params: {
-        id: number;
-        connectWiseHostedSetup: ConnectWiseHostedSetup;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ConnectWiseHostedSetup>;
-    /**
-     *
-     * Create Connect Wise Hosted Setup
-     * @param connectWiseHostedSetup
-     */
-    systemConnectwisehostedsetupsPost(params: {
-        connectWiseHostedSetup: ConnectWiseHostedSetup;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ConnectWiseHostedSetup>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Connect Wise Hosted Setups Count
+	 * @param conditions
+	 */
+	systemConnectwisehostedsetupsCountGet(params: {
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Connect Wise Hosted Setups
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	systemConnectwisehostedsetupsGet(params: {
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ConnectWiseHostedSetup>>;
+	/**
+	 *
+	 * Delete Connect Wise Hosted Setup By Id
+	 * @param id
+	 */
+	systemConnectwisehostedsetupsIdDelete(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Connect Wise Hosted Setup By Id
+	 * @param id
+	 */
+	systemConnectwisehostedsetupsIdGet(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ConnectWiseHostedSetup>;
+	/**
+	 *
+	 * Update Connect Wise Hosted Setup
+	 * @param id
+	 * @param operations
+	 */
+	systemConnectwisehostedsetupsIdPatch(params: {
+		id: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ConnectWiseHostedSetup>;
+	/**
+	 *
+	 * Replace Connect Wise Hosted Setup
+	 * @param id
+	 * @param connectWiseHostedSetup
+	 */
+	systemConnectwisehostedsetupsIdPut(params: {
+		id: number;
+		connectWiseHostedSetup: ConnectWiseHostedSetup;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ConnectWiseHostedSetup>;
+	/**
+	 *
+	 * Create Connect Wise Hosted Setup
+	 * @param connectWiseHostedSetup
+	 */
+	systemConnectwisehostedsetupsPost(params: {
+		connectWiseHostedSetup: ConnectWiseHostedSetup;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ConnectWiseHostedSetup>;
 }
 export class DocumentsApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Documents Info Count
-     * @param recordType
-     * @param recordId
-     */
-    systemDocumentsCountGet(params: {
-        recordType?: string;
-        recordId?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Documents Info
-     * @param recordType
-     * @param recordId
-     * @param page
-     * @param pageSize
-     */
-    systemDocumentsGet(params: {
-        recordType?: string;
-        recordId?: number;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<DocumentInfo>>;
-    /**
-     *
-     * Delete Document Info By Id
-     * @param id
-     */
-    systemDocumentsIdDelete(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Download Document
-     * @param id
-     * @param lastModified
-     */
-    systemDocumentsIdDownloadGet(params: {
-        id: number;
-        lastModified?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Document Info By Id
-     * @param id
-     */
-    systemDocumentsIdGet(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<DocumentInfo>;
-    /**
-     *
-     * Update Document By Id
-     * @param id
-     * @param recordId Entity id
-     * @param recordType Entity type
-     * @param title Document title
-     * @param url Document url
-     * @param file File to upload
-     * @param privateFlag Indicates if document is private
-     * @param readOnlyFlag Indicates if document is readonly
-     */
-    systemDocumentsIdPost(params: {
-        id: number;
-        recordId: number;
-        recordType: string;
-        title: string;
-        url: string;
-        file?: any;
-        privateFlag?: boolean;
-        readOnlyFlag?: boolean;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<DocumentInfo>;
-    /**
-     *
-     * Insert Document
-     * @param recordId Entity id
-     * @param recordType Entity type
-     * @param title Document title
-     * @param url Document url
-     * @param file File to upload
-     * @param privateFlag Indicates if document is private
-     * @param readOnlyFlag Indicates if document is readonly
-     */
-    systemDocumentsPost(params: {
-        recordId: number;
-        recordType: string;
-        title: string;
-        url: string;
-        file?: any;
-        privateFlag?: boolean;
-        readOnlyFlag?: boolean;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<DocumentInfo>;
-    /**
-     *
-     * Get Upload Sample Page
-     */
-    systemDocumentsUploadsampleGet(params: {}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Documents Info Count
+	 * @param recordType
+	 * @param recordId
+	 */
+	systemDocumentsCountGet(params: {
+		recordType?: string;
+		recordId?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Documents Info
+	 * @param recordType
+	 * @param recordId
+	 * @param page
+	 * @param pageSize
+	 */
+	systemDocumentsGet(params: {
+		recordType?: string;
+		recordId?: number;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<DocumentInfo>>;
+	/**
+	 *
+	 * Delete Document Info By Id
+	 * @param id
+	 */
+	systemDocumentsIdDelete(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Download Document
+	 * @param id
+	 * @param lastModified
+	 */
+	systemDocumentsIdDownloadGet(params: {
+		id: number;
+		lastModified?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Document Info By Id
+	 * @param id
+	 */
+	systemDocumentsIdGet(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<DocumentInfo>;
+	/**
+	 *
+	 * Update Document By Id
+	 * @param id
+	 * @param recordId Entity id
+	 * @param recordType Entity type
+	 * @param title Document title
+	 * @param url Document url
+	 * @param file File to upload
+	 * @param privateFlag Indicates if document is private
+	 * @param readOnlyFlag Indicates if document is readonly
+	 */
+	systemDocumentsIdPost(params: {
+		id: number;
+		recordId: number;
+		recordType: string;
+		title: string;
+		url: string;
+		file?: any;
+		privateFlag?: boolean;
+		readOnlyFlag?: boolean;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<DocumentInfo>;
+	/**
+	 *
+	 * Insert Document
+	 * @param recordId Entity id
+	 * @param recordType Entity type
+	 * @param title Document title
+	 * @param url Document url
+	 * @param file File to upload
+	 * @param privateFlag Indicates if document is private
+	 * @param readOnlyFlag Indicates if document is readonly
+	 */
+	systemDocumentsPost(params: {
+		recordId: number;
+		recordType: string;
+		title: string;
+		url: string;
+		file?: any;
+		privateFlag?: boolean;
+		readOnlyFlag?: boolean;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<DocumentInfo>;
+	/**
+	 *
+	 * Get Upload Sample Page
+	 */
+	systemDocumentsUploadsampleGet(params: {}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
 }
 export class InfoApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Infos
-     */
-    systemInfoGet(params: {}, extraQueryParams?: any, extraFetchParams?: any): Promise<Info>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Infos
+	 */
+	systemInfoGet(params: {}, extraQueryParams?: any, extraFetchParams?: any): Promise<Info>;
 }
 export class IntegrationsApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Add Or Update Integration
-     * @param integrator
-     * @param request
-     * @param type
-     */
-    systemIntegrationsIntegratorPost(params: {
-        integrator: string;
-        request: IntegrationRequest;
-        type?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Add Or Update Integration
+	 * @param integrator
+	 * @param request
+	 * @param type
+	 */
+	systemIntegrationsIntegratorPost(params: {
+		integrator: string;
+		request: IntegrationRequest;
+		type?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
 }
 export class LinksApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Links Count
-     * @param conditions
-     */
-    systemLinksCountGet(params: {
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Links
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    systemLinksGet(params: {
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Link>>;
-    /**
-     *
-     * Delete Link By Id
-     * @param id
-     */
-    systemLinksIdDelete(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Link By Id
-     * @param id
-     */
-    systemLinksIdGet(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Link>;
-    /**
-     *
-     * Update Link
-     * @param id
-     * @param operations
-     */
-    systemLinksIdPatch(params: {
-        id: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Link>;
-    /**
-     *
-     * Replace Link
-     * @param id
-     * @param link
-     */
-    systemLinksIdPut(params: {
-        id: number;
-        link: Link;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Link>;
-    /**
-     *
-     * Create Link
-     * @param link
-     */
-    systemLinksPost(params: {
-        link: Link;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Link>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Links Count
+	 * @param conditions
+	 */
+	systemLinksCountGet(params: {
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Links
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	systemLinksGet(params: {
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Link>>;
+	/**
+	 *
+	 * Delete Link By Id
+	 * @param id
+	 */
+	systemLinksIdDelete(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Link By Id
+	 * @param id
+	 */
+	systemLinksIdGet(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Link>;
+	/**
+	 *
+	 * Update Link
+	 * @param id
+	 * @param operations
+	 */
+	systemLinksIdPatch(params: {
+		id: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Link>;
+	/**
+	 *
+	 * Replace Link
+	 * @param id
+	 * @param link
+	 */
+	systemLinksIdPut(params: {
+		id: number;
+		link: Link;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Link>;
+	/**
+	 *
+	 * Create Link
+	 * @param link
+	 */
+	systemLinksPost(params: {
+		link: Link;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Link>;
 }
 export class MembersApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Members Count
-     * @param conditions
-     */
-    systemMembersCountGet(params: {
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Members
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    systemMembersGet(params: {
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Member>>;
-    /**
-     *
-     * Get Member By Id
-     * @param memberIdentifier
-     */
-    systemMembersMemberIdentifierGet(params: {
-        memberIdentifier: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Member>;
-    /**
-     *
-     * Get Member Image
-     * @param memberIdentifier
-     * @param useDefaultFlag
-     * @param lastmodified
-     */
-    systemMembersMemberIdentifierImageGet(params: {
-        memberIdentifier: string;
-        useDefaultFlag?: boolean;
-        lastmodified?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Create Token By Member Identifier
-     * @param memberIdentifier
-     */
-    systemMembersMemberIdentifierTokensPost(params: {
-        memberIdentifier: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Token>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Members Count
+	 * @param conditions
+	 */
+	systemMembersCountGet(params: {
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Members
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	systemMembersGet(params: {
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Member>>;
+	/**
+	 *
+	 * Get Member By Id
+	 * @param memberIdentifier
+	 */
+	systemMembersMemberIdentifierGet(params: {
+		memberIdentifier: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Member>;
+	/**
+	 *
+	 * Get Member Image
+	 * @param memberIdentifier
+	 * @param useDefaultFlag
+	 * @param lastmodified
+	 */
+	systemMembersMemberIdentifierImageGet(params: {
+		memberIdentifier: string;
+		useDefaultFlag?: boolean;
+		lastmodified?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Create Token By Member Identifier
+	 * @param memberIdentifier
+	 */
+	systemMembersMemberIdentifierTokensPost(params: {
+		memberIdentifier: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Token>;
 }
 export class MenuEntriesApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Menu Entries Count
-     * @param conditions
-     */
-    systemMenuentriesCountGet(params: {
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Menu Entries
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    systemMenuentriesGet(params: {
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<MenuEntry>>;
-    /**
-     *
-     * Delete Menu Entry By Id
-     * @param id
-     */
-    systemMenuentriesIdDelete(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Menu Entry By Id
-     * @param id
-     */
-    systemMenuentriesIdGet(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<MenuEntry>;
-    /**
-     *
-     * Get Menu Entry Image
-     * @param id
-     * @param lastmodified
-     * @param largeFlag
-     */
-    systemMenuentriesIdImageGet(params: {
-        id: number;
-        lastmodified?: string;
-        largeFlag?: boolean;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Upload Menu Entry Image
-     * @param id
-     */
-    systemMenuentriesIdImagePost(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Update Menu Entry
-     * @param id
-     * @param operations
-     */
-    systemMenuentriesIdPatch(params: {
-        id: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<MenuEntry>;
-    /**
-     *
-     * Replace Menu Entry
-     * @param id
-     * @param menuEntry
-     */
-    systemMenuentriesIdPut(params: {
-        id: number;
-        menuEntry: MenuEntry;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<MenuEntry>;
-    /**
-     *
-     * Create Menu Entry
-     * @param menuEntry
-     */
-    systemMenuentriesPost(params: {
-        menuEntry: MenuEntry;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<MenuEntry>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Menu Entries Count
+	 * @param conditions
+	 */
+	systemMenuentriesCountGet(params: {
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Menu Entries
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	systemMenuentriesGet(params: {
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<MenuEntry>>;
+	/**
+	 *
+	 * Delete Menu Entry By Id
+	 * @param id
+	 */
+	systemMenuentriesIdDelete(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Menu Entry By Id
+	 * @param id
+	 */
+	systemMenuentriesIdGet(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<MenuEntry>;
+	/**
+	 *
+	 * Get Menu Entry Image
+	 * @param id
+	 * @param lastmodified
+	 * @param largeFlag
+	 */
+	systemMenuentriesIdImageGet(params: {
+		id: number;
+		lastmodified?: string;
+		largeFlag?: boolean;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Upload Menu Entry Image
+	 * @param id
+	 */
+	systemMenuentriesIdImagePost(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Update Menu Entry
+	 * @param id
+	 * @param operations
+	 */
+	systemMenuentriesIdPatch(params: {
+		id: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<MenuEntry>;
+	/**
+	 *
+	 * Replace Menu Entry
+	 * @param id
+	 * @param menuEntry
+	 */
+	systemMenuentriesIdPut(params: {
+		id: number;
+		menuEntry: MenuEntry;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<MenuEntry>;
+	/**
+	 *
+	 * Create Menu Entry
+	 * @param menuEntry
+	 */
+	systemMenuentriesPost(params: {
+		menuEntry: MenuEntry;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<MenuEntry>;
 }
 export class ReportsApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Reports
-     * @param conditions
-     * @param orderBy
-     */
-    systemReportsGet(params: {
-        conditions?: string;
-        orderBy?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Report>>;
-    /**
-     *
-     * Get Column Definitions
-     * @param reportName
-     */
-    systemReportsReportNameColumnsGet(params: {
-        reportName: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<JObject>>;
-    /**
-     *
-     * Get Report Results Count
-     * @param reportName
-     * @param conditions
-     */
-    systemReportsReportNameCountGet(params: {
-        reportName: string;
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Report Results
-     * @param reportName
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     * @param columns
-     */
-    systemReportsReportNameGet(params: {
-        reportName: string;
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-        columns?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ReportDataResponse>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Reports
+	 * @param conditions
+	 * @param orderBy
+	 */
+	systemReportsGet(params: {
+		conditions?: string;
+		orderBy?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Report>>;
+	/**
+	 *
+	 * Get Column Definitions
+	 * @param reportName
+	 */
+	systemReportsReportNameColumnsGet(params: {
+		reportName: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<JObject>>;
+	/**
+	 *
+	 * Get Report Results Count
+	 * @param reportName
+	 * @param conditions
+	 */
+	systemReportsReportNameCountGet(params: {
+		reportName: string;
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Report Results
+	 * @param reportName
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 * @param columns
+	 */
+	systemReportsReportNameGet(params: {
+		reportName: string;
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+		columns?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<ReportDataResponse>;
 }
 export class UserDefinedFieldsApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get User Defined Fields Count
-     * @param conditions
-     */
-    systemUserDefinedFieldsCountGet(params: {
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get User Defined Fields
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    systemUserDefinedFieldsGet(params: {
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<UserDefinedField>>;
-    /**
-     *
-     * Delete User Defined Field By Id
-     * @param id
-     */
-    systemUserDefinedFieldsIdDelete(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get User Defined Field By Id
-     * @param id
-     */
-    systemUserDefinedFieldsIdGet(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<UserDefinedField>;
-    /**
-     *
-     * Update User Defined Field
-     * @param id
-     * @param operations
-     */
-    systemUserDefinedFieldsIdPatch(params: {
-        id: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<UserDefinedField>;
-    /**
-     *
-     * Replace User Defined Field
-     * @param id
-     * @param userDefinedField
-     */
-    systemUserDefinedFieldsIdPut(params: {
-        id: number;
-        userDefinedField: UserDefinedField;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<UserDefinedField>;
-    /**
-     *
-     * Create User Defined Field
-     * @param userDefinedField
-     */
-    systemUserDefinedFieldsPost(params: {
-        userDefinedField: UserDefinedField;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<UserDefinedField>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get User Defined Fields Count
+	 * @param conditions
+	 */
+	systemUserDefinedFieldsCountGet(params: {
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get User Defined Fields
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	systemUserDefinedFieldsGet(params: {
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<UserDefinedField>>;
+	/**
+	 *
+	 * Delete User Defined Field By Id
+	 * @param id
+	 */
+	systemUserDefinedFieldsIdDelete(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get User Defined Field By Id
+	 * @param id
+	 */
+	systemUserDefinedFieldsIdGet(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<UserDefinedField>;
+	/**
+	 *
+	 * Update User Defined Field
+	 * @param id
+	 * @param operations
+	 */
+	systemUserDefinedFieldsIdPatch(params: {
+		id: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<UserDefinedField>;
+	/**
+	 *
+	 * Replace User Defined Field
+	 * @param id
+	 * @param userDefinedField
+	 */
+	systemUserDefinedFieldsIdPut(params: {
+		id: number;
+		userDefinedField: UserDefinedField;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<UserDefinedField>;
+	/**
+	 *
+	 * Create User Defined Field
+	 * @param userDefinedField
+	 */
+	systemUserDefinedFieldsPost(params: {
+		userDefinedField: UserDefinedField;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<UserDefinedField>;
 }
 }
 declare module 'connectwise-rest-api/release/api/systemAPI' {
@@ -14013,64 +14013,64 @@ export = alias;
 // Source: release/api/timeAPI.d.ts
 declare module '~connectwise-rest-api/release/api/timeAPI' {
 export interface AgreementReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface CompanyReference {
-    "id"?: number;
-    "identifier"?: string;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"identifier"?: string;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface Count {
-    "value"?: number;
+	"value"?: number;
 }
 export interface CustomFieldValue {
-    "id"?: number;
-    "caption"?: string;
-    "type"?: TypeEnum;
-    "entryMethod"?: EntryMethodEnum;
-    "numberOfDecimals"?: number;
-    "value"?: string;
+	"id"?: number;
+	"caption"?: string;
+	"type"?: TypeEnum;
+	"entryMethod"?: EntryMethodEnum;
+	"numberOfDecimals"?: number;
+	"value"?: string;
 }
 export enum TypeEnum {
-    Text,
-    Button,
-    Currency,
-    Date,
-    Hyperlink,
-    IPAddress,
-    Checkbox,
-    Number,
-    Percent,
-    TextArea,
-    Password,
+	Text,
+	Button,
+	Currency,
+	Date,
+	Hyperlink,
+	IPAddress,
+	Checkbox,
+	Number,
+	Percent,
+	TextArea,
+	Password,
 }
 export enum EntryMethodEnum {
-    EntryField,
-    List,
-    Option,
+	EntryField,
+	List,
+	Option,
 }
 export interface Error {
-    "code"?: string;
-    "message"?: string;
-    "errors"?: Array<ValidationError>;
+	"code"?: string;
+	"message"?: string;
+	"errors"?: Array<ValidationError>;
 }
 export interface MemberReference {
-    "id"?: number;
-    "identifier"?: string;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"identifier"?: string;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 /**
  * Metadata of the entity
@@ -14078,148 +14078,148 @@ export interface MemberReference {
 export interface Metadata {
 }
 export interface PatchOperation {
-    "op"?: string;
-    "path"?: string;
-    "value"?: string;
+	"op"?: string;
+	"path"?: string;
+	"value"?: string;
 }
 export interface TimeEntry {
-    "id"?: number;
-    "company"?: CompanyReference;
-    "chargeToId"?: number;
-    "chargeToType"?: ChargeToTypeEnum;
-    "member"?: MemberReference;
-    "locationId"?: number;
-    "businessUnitId"?: number;
-    "workType"?: WorkTypeReference;
-    "workRole"?: WorkRoleReference;
-    "agreement"?: AgreementReference;
-    "timeStart": Date;
-    "timeEnd"?: Date;
-    "hoursDeduct"?: number;
-    "actualHours"?: number;
-    "billableOption": BillableOptionEnum;
-    "notes"?: string;
-    "internalNotes"?: string;
-    "addToDetailDescriptionFlag"?: boolean;
-    "addToInternalAnalysisFlag"?: boolean;
-    "addToResolutionFlag"?: boolean;
-    "emailResourceFlag"?: boolean;
-    "emailContactFlag"?: boolean;
-    "emailCcFlag"?: boolean;
-    "emailCc"?: string;
-    "hoursBilled"?: number;
-    "enteredBy"?: string;
-    "dateEntered"?: Date;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
-    "customFields"?: Array<CustomFieldValue>;
+	"id"?: number;
+	"company"?: CompanyReference;
+	"chargeToId"?: number;
+	"chargeToType"?: ChargeToTypeEnum;
+	"member"?: MemberReference;
+	"locationId"?: number;
+	"businessUnitId"?: number;
+	"workType"?: WorkTypeReference;
+	"workRole"?: WorkRoleReference;
+	"agreement"?: AgreementReference;
+	"timeStart": Date;
+	"timeEnd"?: Date;
+	"hoursDeduct"?: number;
+	"actualHours"?: number;
+	"billableOption": BillableOptionEnum;
+	"notes"?: string;
+	"internalNotes"?: string;
+	"addToDetailDescriptionFlag"?: boolean;
+	"addToInternalAnalysisFlag"?: boolean;
+	"addToResolutionFlag"?: boolean;
+	"emailResourceFlag"?: boolean;
+	"emailContactFlag"?: boolean;
+	"emailCcFlag"?: boolean;
+	"emailCc"?: string;
+	"hoursBilled"?: number;
+	"enteredBy"?: string;
+	"dateEntered"?: Date;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
+	"customFields"?: Array<CustomFieldValue>;
 }
 export enum ChargeToTypeEnum {
-    ServiceTicket,
-    ProjectTicket,
-    ChargeCode,
-    Activity,
+	ServiceTicket,
+	ProjectTicket,
+	ChargeCode,
+	Activity,
 }
 export enum BillableOptionEnum {
-    Billable,
-    DoNotBill,
-    NoCharge,
-    NoDefault,
+	Billable,
+	DoNotBill,
+	NoCharge,
+	NoDefault,
 }
 export interface ValidationError {
-    "code"?: string;
-    "message"?: string;
-    "resource"?: string;
-    "field"?: string;
+	"code"?: string;
+	"message"?: string;
+	"resource"?: string;
+	"field"?: string;
 }
 export interface WorkRoleReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export interface WorkTypeReference {
-    "id"?: number;
-    "name"?: string;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
+	"id"?: number;
+	"name"?: string;
+	/**
+	 * Metadata of the entity
+	 */
+	"info"?: Metadata;
 }
 export class TimeEntriesApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Get Time Entries Count
-     * @param conditions
-     */
-    timeEntriesCountGet(params: {
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Time Entries
-     * @param conditions
-     * @param orderBy
-     * @param page
-     * @param pageSize
-     */
-    timeEntriesGet(params: {
-        conditions?: string;
-        orderBy?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<TimeEntry>>;
-    /**
-     *
-     * Delete Time Entry By Id
-     * @param id
-     */
-    timeEntriesIdDelete(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Time Entry By Id
-     * @param id
-     */
-    timeEntriesIdGet(params: {
-        id: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<TimeEntry>;
-    /**
-     *
-     * Update Time Entry
-     * @param id
-     * @param operations
-     */
-    timeEntriesIdPatch(params: {
-        id: number;
-        operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<TimeEntry>;
-    /**
-     *
-     * Replace Time Entry
-     * @param id
-     * @param timeEntry
-     */
-    timeEntriesIdPut(params: {
-        id: number;
-        timeEntry: TimeEntry;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<TimeEntry>;
-    /**
-     *
-     * Create Time Entry
-     * @param timeEntry
-     */
-    timeEntriesPost(params: {
-        timeEntry: TimeEntry;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<TimeEntry>;
+	protected basePath: string;
+	defaultHeaders: any;
+	constructor(basePath?: string);
+	/**
+	 *
+	 * Get Time Entries Count
+	 * @param conditions
+	 */
+	timeEntriesCountGet(params: {
+		conditions?: string;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+	/**
+	 *
+	 * Get Time Entries
+	 * @param conditions
+	 * @param orderBy
+	 * @param page
+	 * @param pageSize
+	 */
+	timeEntriesGet(params: {
+		conditions?: string;
+		orderBy?: string;
+		page?: number;
+		pageSize?: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<TimeEntry>>;
+	/**
+	 *
+	 * Delete Time Entry By Id
+	 * @param id
+	 */
+	timeEntriesIdDelete(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+	/**
+	 *
+	 * Get Time Entry By Id
+	 * @param id
+	 */
+	timeEntriesIdGet(params: {
+		id: number;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<TimeEntry>;
+	/**
+	 *
+	 * Update Time Entry
+	 * @param id
+	 * @param operations
+	 */
+	timeEntriesIdPatch(params: {
+		id: number;
+		operations: Array<PatchOperation>;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<TimeEntry>;
+	/**
+	 *
+	 * Replace Time Entry
+	 * @param id
+	 * @param timeEntry
+	 */
+	timeEntriesIdPut(params: {
+		id: number;
+		timeEntry: TimeEntry;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<TimeEntry>;
+	/**
+	 *
+	 * Create Time Entry
+	 * @param timeEntry
+	 */
+	timeEntriesPost(params: {
+		timeEntry: TimeEntry;
+	}, extraQueryParams?: any, extraFetchParams?: any): Promise<TimeEntry>;
 }
 }
 declare module 'connectwise-rest-api/release/api/timeAPI' {
@@ -14242,104 +14242,104 @@ import * as srv from '~connectwise-rest-api/release/api/serviceAPI';
 import * as sys from '~connectwise-rest-api/release/api/systemAPI';
 import * as tm from '~connectwise-rest-api/release/api/timeAPI';
 export class Connectwise {
-    CompaniesApi: comp.CompaniesApi;
-    CompanyManagementSummarysApi: comp.CompanyManagementSummarysApi;
-    CompanyNotesApi: comp.CompanyNotesApi;
-    CompanySitesApi: comp.CompanySitesApi;
-    CompanyStatusesApi: comp.CompanyStatusesApi;
-    CompanyTeamsApi: comp.CompanyTeamsApi;
-    ConfigurationsApi: comp.ConfigurationsApi;
-    ConfigurationStatusesApi: comp.ConfigurationStatusesApi;
-    ConfigurationTypeQuestionsApi: comp.ConfigurationTypeQuestionsApi;
-    ConfigurationTypesApi: comp.ConfigurationTypesApi;
-    ContactCommunicationsApi: comp.ContactCommunicationsApi;
-    ContactDepartmentsApi: comp.ContactDepartmentsApi;
-    ContactNotesApi: comp.ContactNotesApi;
-    ContactRelationshipsApi: comp.ContactRelationshipsApi;
-    ContactsApi: comp.ContactsApi;
-    ContactTypesApi: comp.ContactTypesApi;
-    ExpenseEntriesApi: exp.ExpenseEntriesApi;
-    ExpenseTypesApi: exp.ExpenseTypesApi;
-    AgreementAdditionsApi: fin.AgreementAdditionsApi;
-    AgreementAdjustmentsApi: fin.AgreementAdjustmentsApi;
-    AgreementsApi: fin.AgreementsApi;
-    AgreementSitesApi: fin.AgreementSitesApi;
-    AgreementTypesApi: fin.AgreementTypesApi;
-    AccountingBatchesApi: fin.AccountingBatchesApi;
-    AgreementBoardDefaultsApi: fin.AgreementBoardDefaultsApi;
-    InvoicePaymentsApi: fin.InvoicePaymentsApi;
-    AccountingBatchTransactionsApi: fin.AccountingBatchTransactionsApi;
-    AccountingUnpostedExpensesApi: fin.AccountingUnpostedExpensesApi;
-    AccountingUnpostedInvoicesApi: fin.AccountingUnpostedinvoicesApi;
-    AccountingUnpostedProcurementsApi: fin.AccountingUnpostedProcurementsApi;
-    CampaignAuditsApi: mark.CampaignAuditsApi;
-    CampaignsApi: mark.CampaignsApi;
-    CampaignStatusesApi: mark.CampaignStatusesApi;
-    CampaignTypesApi: mark.CampaignTypesApi;
-    CampaignEmailsOpenedApi: mark.CampaignEmailsOpenedApi;
-    CampaignFormsSubmittedApi: mark.CampaignFormsSubmittedApi;
-    GroupsApi: mark.GroupsApi;
-    CampaignLinksClickedApi: mark.CampaignLinksClickedApi;
-    GroupCompaniesApi: mark.GroupCompaniesApi;
-    GroupContactsApi: mark.GroupContactsApi;
-    CatalogComponentsApi: proc.CatalogComponentsApi;
-    CatalogsItemApi: proc.CatalogsItemApi;
-    ManufacturersApi: proc.ManufacturersApi;
-    ProductComponentsApi: proc.ProductComponentsApi;
-    ProductPickingShippingDetailsApi: proc.ProductPickingShippingDetailsApi;
-    ProductsItemApi: proc.ProductsItemApi;
-    PurchaseOrdersApi: proc.PurchaseOrdersApi;
-    ProjectContactsApi: proj.ProjectContactsApi;
-    ProjectNotesApi: proj.ProjectNotesApi;
-    ProjectPhasesApi: proj.ProjectPhasesApi;
-    ProjectsApi: proj.ProjectsApi;
-    ProjectsTeamMembersApi: proj.ProjectsTeamMembersApi;
-    ActivitiesApi: sal.ActivitiesApi;
-    ActivitiesStatusesApi: sal.ActivityStatusesApi;
-    OpportunityForecastsApi: sal.OpportunityForecastsApi;
-    OpportunitiesApi: sal.OpportunitiesApi;
-    OpportunityContactsApi: sal.OpportunityContactsApi;
-    OpportunityNotesApi: sal.OpportunityNotesApi;
-    OpportunityRatingsApi: sal.OpportunityRatingsApi;
-    OpportunityStatusesApi: sal.OpportunityStatusesApi;
-    OpportunityTeamsApi: sal.OpportunityTeamsApi;
-    OpportunityTypesApi: sal.OpportunityTypesApi;
-    OrdersApi: sal.OrdersApi;
-    ScheduleEntriesApi: sch.ScheduleEntriesApi;
-    ScheduleStatuesApi: sch.ScheduleStatusesApi;
-    ScheduleTypesApi: sch.ScheduleTypesApi;
-    BoardsApi: srv.BoardsApi;
-    CodesApi: srv.CodesApi;
-    BoardExcludedMembersApi: srv.BoardExcludedMembersApi;
-    BoardItemsApi: srv.BoardItemsApi;
-    KnowledgeBaseArticlesApi: srv.KnowledgeBaseArticlesApi;
-    LocationsApi: srv.LocationsApi;
-    PrioritiesApi: srv.PrioritiesApi;
-    TicketNotesApi: srv.TicketNotesApi;
-    SourcesApi: srv.SourcesApi;
-    BoardStatusesApi: srv.BoardStatusesApi;
-    BoardSubTypesApi: srv.BoardSubTypesApi;
-    SurveyQuestionsApi: srv.SurveyQuestionsApi;
-    SurveyResultsApi: srv.SurveyResultsApi;
-    SurveysApi: srv.SurveysApi;
-    TicketTasksApi: srv.TicketTasksApi;
-    BoardTeamsApi: srv.BoardTeamsApi;
-    TicketsApi: srv.TicketsApi;
-    BoardTypesApi: srv.BoardTypesApi;
-    AuditTrailApi: sys.AuditTrailApi;
-    CallbackEntriesApi: sys.CallbackEntriesApi;
-    ConnectWiseHostedSetupsApi: sys.ConnectWiseHostedSetupsApi;
-    DocumentsApi: sys.DocumentsApi;
-    InfoApi: sys.InfoApi;
-    IntegrationsApi: sys.IntegrationsApi;
-    LinksApi: sys.LinksApi;
-    MembersApi: sys.MembersApi;
-    MenuEntriesApi: sys.MenuEntriesApi;
-    ReportsApi: sys.ReportsApi;
-    UserDefinedFieldsApi: sys.UserDefinedFieldsApi;
-    TimeEntriesApi: tm.TimeEntriesApi;
-    private authKey;
-    constructor(host: string, companyId: string, publicKey: string, privateKey: string);
+	CompaniesApi: comp.CompaniesApi;
+	CompanyManagementSummarysApi: comp.CompanyManagementSummarysApi;
+	CompanyNotesApi: comp.CompanyNotesApi;
+	CompanySitesApi: comp.CompanySitesApi;
+	CompanyStatusesApi: comp.CompanyStatusesApi;
+	CompanyTeamsApi: comp.CompanyTeamsApi;
+	ConfigurationsApi: comp.ConfigurationsApi;
+	ConfigurationStatusesApi: comp.ConfigurationStatusesApi;
+	ConfigurationTypeQuestionsApi: comp.ConfigurationTypeQuestionsApi;
+	ConfigurationTypesApi: comp.ConfigurationTypesApi;
+	ContactCommunicationsApi: comp.ContactCommunicationsApi;
+	ContactDepartmentsApi: comp.ContactDepartmentsApi;
+	ContactNotesApi: comp.ContactNotesApi;
+	ContactRelationshipsApi: comp.ContactRelationshipsApi;
+	ContactsApi: comp.ContactsApi;
+	ContactTypesApi: comp.ContactTypesApi;
+	ExpenseEntriesApi: exp.ExpenseEntriesApi;
+	ExpenseTypesApi: exp.ExpenseTypesApi;
+	AgreementAdditionsApi: fin.AgreementAdditionsApi;
+	AgreementAdjustmentsApi: fin.AgreementAdjustmentsApi;
+	AgreementsApi: fin.AgreementsApi;
+	AgreementSitesApi: fin.AgreementSitesApi;
+	AgreementTypesApi: fin.AgreementTypesApi;
+	AccountingBatchesApi: fin.AccountingBatchesApi;
+	AgreementBoardDefaultsApi: fin.AgreementBoardDefaultsApi;
+	InvoicePaymentsApi: fin.InvoicePaymentsApi;
+	AccountingBatchTransactionsApi: fin.AccountingBatchTransactionsApi;
+	AccountingUnpostedExpensesApi: fin.AccountingUnpostedExpensesApi;
+	AccountingUnpostedInvoicesApi: fin.AccountingUnpostedinvoicesApi;
+	AccountingUnpostedProcurementsApi: fin.AccountingUnpostedProcurementsApi;
+	CampaignAuditsApi: mark.CampaignAuditsApi;
+	CampaignsApi: mark.CampaignsApi;
+	CampaignStatusesApi: mark.CampaignStatusesApi;
+	CampaignTypesApi: mark.CampaignTypesApi;
+	CampaignEmailsOpenedApi: mark.CampaignEmailsOpenedApi;
+	CampaignFormsSubmittedApi: mark.CampaignFormsSubmittedApi;
+	GroupsApi: mark.GroupsApi;
+	CampaignLinksClickedApi: mark.CampaignLinksClickedApi;
+	GroupCompaniesApi: mark.GroupCompaniesApi;
+	GroupContactsApi: mark.GroupContactsApi;
+	CatalogComponentsApi: proc.CatalogComponentsApi;
+	CatalogsItemApi: proc.CatalogsItemApi;
+	ManufacturersApi: proc.ManufacturersApi;
+	ProductComponentsApi: proc.ProductComponentsApi;
+	ProductPickingShippingDetailsApi: proc.ProductPickingShippingDetailsApi;
+	ProductsItemApi: proc.ProductsItemApi;
+	PurchaseOrdersApi: proc.PurchaseOrdersApi;
+	ProjectContactsApi: proj.ProjectContactsApi;
+	ProjectNotesApi: proj.ProjectNotesApi;
+	ProjectPhasesApi: proj.ProjectPhasesApi;
+	ProjectsApi: proj.ProjectsApi;
+	ProjectsTeamMembersApi: proj.ProjectsTeamMembersApi;
+	ActivitiesApi: sal.ActivitiesApi;
+	ActivitiesStatusesApi: sal.ActivityStatusesApi;
+	OpportunityForecastsApi: sal.OpportunityForecastsApi;
+	OpportunitiesApi: sal.OpportunitiesApi;
+	OpportunityContactsApi: sal.OpportunityContactsApi;
+	OpportunityNotesApi: sal.OpportunityNotesApi;
+	OpportunityRatingsApi: sal.OpportunityRatingsApi;
+	OpportunityStatusesApi: sal.OpportunityStatusesApi;
+	OpportunityTeamsApi: sal.OpportunityTeamsApi;
+	OpportunityTypesApi: sal.OpportunityTypesApi;
+	OrdersApi: sal.OrdersApi;
+	ScheduleEntriesApi: sch.ScheduleEntriesApi;
+	ScheduleStatuesApi: sch.ScheduleStatusesApi;
+	ScheduleTypesApi: sch.ScheduleTypesApi;
+	BoardsApi: srv.BoardsApi;
+	CodesApi: srv.CodesApi;
+	BoardExcludedMembersApi: srv.BoardExcludedMembersApi;
+	BoardItemsApi: srv.BoardItemsApi;
+	KnowledgeBaseArticlesApi: srv.KnowledgeBaseArticlesApi;
+	LocationsApi: srv.LocationsApi;
+	PrioritiesApi: srv.PrioritiesApi;
+	TicketNotesApi: srv.TicketNotesApi;
+	SourcesApi: srv.SourcesApi;
+	BoardStatusesApi: srv.BoardStatusesApi;
+	BoardSubTypesApi: srv.BoardSubTypesApi;
+	SurveyQuestionsApi: srv.SurveyQuestionsApi;
+	SurveyResultsApi: srv.SurveyResultsApi;
+	SurveysApi: srv.SurveysApi;
+	TicketTasksApi: srv.TicketTasksApi;
+	BoardTeamsApi: srv.BoardTeamsApi;
+	TicketsApi: srv.TicketsApi;
+	BoardTypesApi: srv.BoardTypesApi;
+	AuditTrailApi: sys.AuditTrailApi;
+	CallbackEntriesApi: sys.CallbackEntriesApi;
+	ConnectWiseHostedSetupsApi: sys.ConnectWiseHostedSetupsApi;
+	DocumentsApi: sys.DocumentsApi;
+	InfoApi: sys.InfoApi;
+	IntegrationsApi: sys.IntegrationsApi;
+	LinksApi: sys.LinksApi;
+	MembersApi: sys.MembersApi;
+	MenuEntriesApi: sys.MenuEntriesApi;
+	ReportsApi: sys.ReportsApi;
+	UserDefinedFieldsApi: sys.UserDefinedFieldsApi;
+	TimeEntriesApi: tm.TimeEntriesApi;
+	private authKey;
+	constructor(host: string, companyId: string, publicKey: string, privateKey: string);
 }
 }
 declare module 'connectwise-rest-api/release/connectwise' {

@@ -6,8 +6,8 @@
   "typings": "./connectwise.d.ts",
   "description": "Nodejs Module to interact with Connectwise's REST API",
   "repository": {
-      "type": "git",
-      "url": "git+https://github.com/vc3/connectwise-rest-api.git"
+    "type": "git",
+    "url": "git+https://github.com/vc3/connectwise-rest-api.git"
   },
   "author": {
     "name": "Cameron Sowder",
@@ -15,16 +15,16 @@
     "url": "sowder.io"
   },
   "bugs": {
-      "url": "https://github.com/vc3/connectwise-rest-api/issues"
+    "url": "https://github.com/vc3/connectwise-rest-api/issues"
   },
   "homepage": "https://github.com/vc3/connectwise-rest-api#readme",
   "_id": "connectwise-rest-api@0.0.4",
   "keywords": [
-      "connectwise",
-      "typescript",
-      "typings",
-      "fetch",
-      "vc3"
+    "connectwise",
+    "typescript",
+    "typings",
+    "fetch",
+    "vc3"
   ],
   "scripts": {
     "test": "xo && ava"
@@ -43,8 +43,7 @@
       "max-len": [
         2,
         200,
-        4,
-        {
+        4, {
           "ignoreComments": true,
           "ignoreUrls": true,
           "ignorePattern": "^\\s*var\\s.+=\\s*require\\s*\\("
@@ -56,8 +55,7 @@
       ],
       "brace-style": [
         2,
-        "stroustrup",
-        {
+        "stroustrup", {
           "allowSingleLine": true
         }
       ],
