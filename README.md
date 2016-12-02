@@ -2,7 +2,7 @@
 
 > nodejs module for interacting with Connectwise's REST API
 
-[![npm downloads](https://img.shields.io/npm/dm/connectwise-rest-api.svg?style=flat-square)](https://www.npmjs.com/package/connectwise-rest-api)
+[![npm](https://img.shields.io/npm/dt/connectwise-rest-api.svg?style=flat-square)](https://www.npmjs.com/package/connectwise-rest-api)
 [![npm version](https://img.shields.io/npm/v/connectwise-rest-api.svg?style=flat-square)](https://www.npmjs.com/package/connectwise-rest-api)
 ## Install 
 
