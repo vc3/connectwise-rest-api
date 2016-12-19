@@ -1,4 +1,5 @@
 ///<reference path="../typings/index.d.ts"/>
+
 import * as comp from './api/companyAPI';
 import * as exp from './api/expenseAPI';
 import * as fin from './api/financeAPI';
@@ -138,6 +139,7 @@ export class Connectwise {
 		this.AccountingBatchesApi = new fin.AccountingBatchesApi(`https://${host}/v4_6_release/apis/3.0`);
 		this.AgreementBoardDefaultsApi = new fin.AgreementBoardDefaultsApi(`https://${host}/v4_6_release/apis/3.0`);
 		this.InvoicePaymentsApi = new fin.InvoicePaymentsApi(`https://${host}/v4_6_release/apis/3.0`);
+		this.InvoicesApi = new fin.InvoicesApi(`https://${host}/v4_6_release/apis/3.0`);
 		this.AccountingBatchTransactionsApi = new fin.AccountingBatchTransactionsApi(`https://${host}/v4_6_release/apis/3.0`);
 		this.AccountingUnpostedExpensesApi = new fin.AccountingUnpostedExpensesApi(`https://${host}/v4_6_release/apis/3.0`);
 		this.AccountingUnpostedInvoicesApi = new fin.AccountingUnpostedinvoicesApi(`https://${host}/v4_6_release/apis/3.0`);
@@ -402,6 +404,9 @@ export class Connectwise {
 		};
 		this.InvoicePaymentsApi.defaultHeaders = {
 			'Authorization': `Basic ${this.authKey}`
+		};
+		this.InvoicesApi.defaultHeaders = {
+			'Authorization': `Basic ${this.authKey}`;
 		};
 		this.PrioritiesApi.defaultHeaders = {
 			'Authorization': `Basic ${this.authKey}`
