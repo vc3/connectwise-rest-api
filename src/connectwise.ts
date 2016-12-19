@@ -406,7 +406,7 @@ export class Connectwise {
 			'Authorization': `Basic ${this.authKey}`
 		};
 		this.InvoicesApi.defaultHeaders = {
-			'Authorization': `Basic ${this.authKey}`;
+			'Authorization': `Basic ${this.authKey}`
 		};
 		this.PrioritiesApi.defaultHeaders = {
 			'Authorization': `Basic ${this.authKey}`
