@@ -14268,6 +14268,7 @@ export class Connectwise {
 	AccountingBatchesApi: fin.AccountingBatchesApi;
 	AgreementBoardDefaultsApi: fin.AgreementBoardDefaultsApi;
 	InvoicePaymentsApi: fin.InvoicePaymentsApi;
+	InvoicesApi: fin.InvoicesApi;
 	AccountingBatchTransactionsApi: fin.AccountingBatchTransactionsApi;
 	AccountingUnpostedExpensesApi: fin.AccountingUnpostedExpensesApi;
 	AccountingUnpostedInvoicesApi: fin.AccountingUnpostedinvoicesApi;
