@@ -1,6 +1,5 @@
 node_modules
-typings
-test
 release
 .idea
 .vscode
+.DS_Store

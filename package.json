@@ -1,10 +1,11 @@
 {
   "name": "connectwise-rest-api",
-  "version": "1.0.7",
+  "version": "1.1.0",
   "license": "MIT",
+  "private": false,
   "main": "./release/connectwise.js",
-  "typings": "./connectwise.d.ts",
-  "description": "Nodejs Module to interact with Connectwise's REST API",
+  "types": "./connectwise.d.ts",
+  "description": "Nodejs module to interact with ConnectWise's REST API",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vc3/connectwise-rest-api.git"
@@ -18,7 +19,6 @@
     "url": "https://github.com/vc3/connectwise-rest-api/issues"
   },
   "homepage": "https://github.com/vc3/connectwise-rest-api#readme",
-  "_id": "connectwise-rest-api@0.0.4",
   "keywords": [
     "connectwise",
     "typescript",
@@ -26,56 +26,20 @@
     "fetch",
     "vc3"
   ],
+  "readme": "README.md",
   "scripts": {
-    "test": "xo && ava"
+    "compile": "tsc --pretty",
+    "test": "tslint --project tsconfig.json --format stylish && tsc --pretty --noEmit && ava"
   },
-  "xo": {
-    "esnext": true,
-    "space": false,
-    "ignore": [
-      "packages/**",
-      "build/**",
-      "release/**"
-    ],
-    "rules": {
-      "no-undef": 0,
-      "indent": 0,
-      "max-len": [
-        2,
-        200,
-        4, {
-          "ignoreComments": true,
-          "ignoreUrls": true,
-          "ignorePattern": "^\\s*var\\s.+=\\s*require\\s*\\("
-        }
-      ],
-      "object-curly-spacing": [
-        2,
-        "always"
-      ],
-      "brace-style": [
-        2,
-        "stroustrup", {
-          "allowSingleLine": true
-        }
-      ],
-      "babel/object-curly-spacing": 0,
-      "prefer-arrow-callback": 0,
-      "babel/object-shorthand": 0,
-      "object-shorthand": 0,
-      "no-labels": 0,
-      "no-empty-label": 0,
-      "no-native-reassign": 0
-    }
-  },
-  "private": false,
   "dependencies": {
     "isomorphic-fetch": "^2.2.1"
   },
   "devDependencies": {
-    "ava": "^0.14.0",
-    "typescript": "^1.8.10",
-    "typings": "^0.8.1",
-    "xo": "^0.15.1"
+    "@types/es6-promise": "0.0.32",
+    "@types/isomorphic-fetch": "0.0.33",
+    "@types/node": "^7.0.8",
+    "ava": "^0.18.2",
+    "typescript": "^2.0.0",
+    "typings": "^0.8.1"
   }
 }
