@@ -4,9 +4,12 @@ collections:
   classes:
     permalink: /:collection/:path/
     output: true
+	permalink: /awesome/:path/:title.:output_ext
   modules:
     permalink: /:collection/:path/
     output: true
+	permalink: /awesome/:path/:title.:output_ext
   interfaces:
     permalink: /:collection/:path/
     output: true
+	permalink: /awesome/:path/:title.:output_ext
