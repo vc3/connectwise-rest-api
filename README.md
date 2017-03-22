@@ -4,7 +4,7 @@
 
 [![npm](https://img.shields.io/npm/dt/connectwise-rest-api.svg?style=flat-square)](https://www.npmjs.com/package/connectwise-rest-api)
 [![npm version](https://img.shields.io/npm/v/connectwise-rest-api.svg?style=flat-square)](https://www.npmjs.com/package/connectwise-rest-api)
-## Install 
+## Install
 
 ```
 $ npm install --save connectwise-rest-api
@@ -39,7 +39,7 @@ connectwise.CompaniesApi.companyCompaniesGet(params).then( response => {
 You can also import types or a specific api class
 
 ```ts
-import { Ticket, TicketsApi } from 'connectwise-rest-api/release/api/serviceAPI';
+import { Ticket, TicketsApi } from 'connectwise-rest-api/release/api/api';
 
 // Make sure you set your connectwise URL and Auth header
 

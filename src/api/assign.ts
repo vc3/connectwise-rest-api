@@ -1,14 +1,13 @@
-///<reference path="../../typings/index.d.ts"/>
-export function assign(target, ...args) {
+export function assign (target: any, ...args: any[]) {
 	'use strict';
 	if (target === undefined || target === null) {
 		throw new TypeError('Cannot convert undefined or null to object');
 	}
 
-	let output = Object(target);
+	var output = Object(target);
 	for (let source of args) {
 		if (source !== undefined && source !== null) {
-			for (let nextKey in source) {
+			for (var nextKey in source) {
 				if (source.hasOwnProperty(nextKey)) {
 					output[nextKey] = source[nextKey];
 				}

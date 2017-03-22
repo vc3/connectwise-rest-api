@@ -1,13 +1,18 @@
 {
 	"compilerOptions": {
-		"target": "es5",
 		"declaration": true,
-		"outDir": "release"
+		"module": "commonjs",
+		"pretty": true,
+		"noImplicitAny": false,
+		"noEmitOnError": false,
+		"outDir": "release",
+		"types": [
+			"node",
+			"isomorphic-fetch",
+			"es6-promise"
+		]
 	},
 	"exclude": [
-		"node_modules",
-		"typings/browser",
-		"typings/main",
-		"typings/main.d.ts"
+		"node_modules"
 	]
 }
