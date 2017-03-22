@@ -39,7 +39,7 @@ connectwise.CompaniesApi.companyCompaniesGet(params).then( response => {
 You can also import types or a specific api class
 
 ```ts
-import { Ticket, TicketsApi } from 'connectwise-rest-api/release/api/serviceAPI';
+import { Ticket, TicketsApi } from 'connectwise-rest-api/release/api/api';
 
 // Make sure you set your connectwise URL and Auth header
 
