@@ -1,14 +1,12 @@
 theme: jekyll-theme-minimal
-defaults:
-  -
-    scope:
-      path: "_docs"
-      type: "docs"
-    values:
-      layout: "docs"
-
 
 collections:
-  docs:
+  classes:
+    permalink: /:collection/:path/
+    output: true
+  modules:
+    permalink: /:collection/:path/
+    output: true
+  interfaces:
     permalink: /:collection/:path/
     output: true
