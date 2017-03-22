@@ -1,5 +1,7 @@
 release/**/*.d.ts
+docs
 src
 tsconfig.json
 tslint.json
 .DS_Store
+.vscode
