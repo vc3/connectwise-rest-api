@@ -1,5 +1,14 @@
 theme: jekyll-theme-minimal
-include:
-	- modules
-	- classses
-	- interfaces
+defaults:
+  -
+    scope:
+      path: "_docs"
+      type: "docs"
+    values:
+      layout: "docs"
+
+
+collections:
+  docs:
+    permalink: /:collection/:path/
+    output: true
