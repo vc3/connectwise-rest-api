@@ -19,7 +19,7 @@ $ typings install github:vc3/connectwise-rest-api/connectwise.d.ts -S --global
 ```
 
 
-##Usage
+Usage
 ---------
 
 ```ts
