@@ -4,6 +4,9 @@
 
 [![npm](https://img.shields.io/npm/dt/connectwise-rest-api.svg?style=flat-square)](https://www.npmjs.com/package/connectwise-rest-api)
 [![npm version](https://img.shields.io/npm/v/connectwise-rest-api.svg?style=flat-square)](https://www.npmjs.com/package/connectwise-rest-api)
+
+Documentation: http://vc3.github.io/connectwise-rest-api
+
 ## Install
 
 ```
