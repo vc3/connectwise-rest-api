@@ -3,11 +3,10 @@ export function assign (target: any, ...args: any[]) {
 	if (target === undefined || target === null) {
 		throw new TypeError('Cannot convert undefined or null to object');
 	}
-
-	var output = Object(target);
+	let output = Object(target);
 	for (let source of args) {
 		if (source !== undefined && source !== null) {
-			for (var nextKey in source) {
+			for (let nextKey in source) {
 				if (source.hasOwnProperty(nextKey)) {
 					output[nextKey] = source[nextKey];
 				}
@@ -15,4 +14,4 @@ export function assign (target: any, ...args: any[]) {
 		}
 	}
 	return output;
-};
+}

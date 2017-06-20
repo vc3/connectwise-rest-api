@@ -1,7 +1,6 @@
 'use strict';
 
 import {
-	AccountingBatchTransactionsApi,
 	AccountingBatchesApi,
 	AccountingUnpostedExpensesApi,
 	AccountingUnpostedProcurementsApi,
@@ -29,6 +28,7 @@ import {
 	BoardItemsApi,
 	BoardStatusesApi,
 	BoardSubTypesApi,
+	BoardSubtypeAssociationsApi,
 	BoardTeamsApi,
 	BoardTypesApi,
 	BoardsApi,
@@ -44,11 +44,13 @@ import {
 	CatalogComponentsApi,
 	CatalogsItemApi,
 	CategoriesApi,
+	CertificationsApi,
 	CodesApi,
 	CompaniesApi,
 	CompanyCustomNotesApi,
 	CompanyManagementSummaryReportsApi,
 	CompanyNotesApi,
+	CompanyNoteTypesApi,
 	CompanySitesApi,
 	CompanyStatusesApi,
 	CompanyTeamsApi,
@@ -73,13 +75,19 @@ import {
 	GroupsApi,
 	GroupContactsApi,
 	InfoApi,
+	InOutBoardsApi,
+	InOutTypesApi,
 	InvoicesApi,
 	InvoicePaymentsApi,
 	KnowledgeBaseArticlesApi,
 	LinksApi,
 	LocationsApi,
-	MembersApi,
+	ManagementBackupsApi,
+	ManagementEmailsApi,
+	MarketDescriptionsApi,
 	ManufacturersApi,
+	MembersApi,
+	MemberTypesApi,
 	MenuEntriesApi,
 	OpportunitiesApi,
 	OrdersApi,
@@ -90,9 +98,10 @@ import {
 	OpportunityRatingsApi,
 	OpportunityContactsApi,
 	OpportunityStatusesApi,
+	OpportunityStagesApi,
 	OpportunityForecastsApi,
+	OwnershipTypesApi,
 	PricingBreaksApi,
-	ProductsApi,
 	ProjectsApi,
 	PrioritiesApi,
 	ProductsItemApi,
@@ -108,6 +117,10 @@ import {
 	PurchaseOrderLineItemsApi,
 	ProductPickingShippingDetailsApi,
 	ReportsApi,
+	RMAActionsApi,
+	RMADispositionsApi,
+	RolesApi,
+	SalesProbabilitiesApi,
 	SourcesApi,
 	SurveysApi,
 	ScheduleTypesApi,
@@ -125,6 +138,10 @@ import {
 	TicketNotesApi,
 	TicketTasksApi,
 	TimeEntriesApi,
+	TeamRolesApi,
+	SkillsApi,
+	SkillCategoriesApi,
+	TodayPageCategoriesApi,
 	TicketStopwatchesApi,
 	UnitOfMeasureConversionsApi,
 	UnitOfMeasuresApi,
@@ -132,7 +149,6 @@ import {
 } from './api/api';
 
 export class Connectwise {
-	public readonly AccountingBatchTransactionsApi: AccountingBatchTransactionsApi;
 	public readonly AccountingBatchesApi: AccountingBatchesApi;
 	public readonly AccountingUnpostedExpensesApi: AccountingUnpostedExpensesApi;
 	public readonly AccountingUnpostedProcurementsApi: AccountingUnpostedProcurementsApi;
@@ -160,6 +176,7 @@ export class Connectwise {
 	public readonly BoardItemsApi: BoardItemsApi;
 	public readonly BoardStatusesApi: BoardStatusesApi;
 	public readonly BoardSubTypesApi: BoardSubTypesApi;
+	public readonly BoardSubtypeAssociationsApi: BoardSubtypeAssociationsApi;
 	public readonly BoardTeamsApi: BoardTeamsApi;
 	public readonly BoardTypesApi: BoardTypesApi;
 	public readonly BoardsApi: BoardsApi;
@@ -175,11 +192,13 @@ export class Connectwise {
 	public readonly CatalogComponentsApi: CatalogComponentsApi;
 	public readonly CatalogsItemApi: CatalogsItemApi;
 	public readonly CategoriesApi: CategoriesApi;
+	public readonly CertificationsApi: CertificationsApi;
 	public readonly CodesApi: CodesApi;
 	public readonly CompaniesApi: CompaniesApi;
 	public readonly CompanyCustomNotesApi: CompanyCustomNotesApi;
 	public readonly CompanyManagementSummaryReportsApi: CompanyManagementSummaryReportsApi;
 	public readonly CompanyNotesApi: CompanyNotesApi;
+	public readonly CompanyNoteTypesApi: CompanyNoteTypesApi;
 	public readonly CompanySitesApi: CompanySitesApi;
 	public readonly CompanyStatusesApi: CompanyStatusesApi;
 	public readonly CompanyTeamsApi: CompanyTeamsApi;
@@ -204,12 +223,18 @@ export class Connectwise {
 	public readonly GroupsApi: GroupsApi;
 	public readonly GroupContactsApi: GroupContactsApi;
 	public readonly InfoApi: InfoApi;
+	public readonly InOutBoardsApi: InOutBoardsApi;
+	public readonly InOutTypesApi: InOutTypesApi;
 	public readonly InvoicesApi: InvoicesApi;
 	public readonly InvoicePaymentsApi: InvoicePaymentsApi;
 	public readonly KnowledgeBaseArticlesApi: KnowledgeBaseArticlesApi;
 	public readonly LinksApi: LinksApi;
 	public readonly LocationsApi: LocationsApi;
 	public readonly MembersApi: MembersApi;
+	public readonly MemberTypesApi: MemberTypesApi;
+	public readonly ManagementBackupsApi: ManagementBackupsApi;
+	public readonly ManagementEmailsApi: ManagementEmailsApi;
+	public readonly MarketDescriptionsApi: MarketDescriptionsApi;
 	public readonly ManufacturersApi: ManufacturersApi;
 	public readonly MenuEntriesApi: MenuEntriesApi;
 	public readonly OpportunitiesApi: OpportunitiesApi;
@@ -221,9 +246,10 @@ export class Connectwise {
 	public readonly OpportunityRatingsApi: OpportunityRatingsApi;
 	public readonly OpportunityContactsApi: OpportunityContactsApi;
 	public readonly OpportunityStatusesApi: OpportunityStatusesApi;
+	public readonly OpportunityStagesApi: OpportunityStagesApi;
 	public readonly OpportunityForecastsApi: OpportunityForecastsApi;
+	public readonly OwnershipTypesApi: OwnershipTypesApi;
 	public readonly PricingBreaksApi: PricingBreaksApi;
-	public readonly ProductsApi: ProductsApi;
 	public readonly ProjectsApi: ProjectsApi;
 	public readonly PrioritiesApi: PrioritiesApi;
 	public readonly ProductsItemApi: ProductsItemApi;
@@ -239,6 +265,12 @@ export class Connectwise {
 	public readonly PurchaseOrderLineItemsApi: PurchaseOrderLineItemsApi;
 	public readonly ProductPickingShippingDetailsApi: ProductPickingShippingDetailsApi;
 	public readonly ReportsApi: ReportsApi;
+	public readonly RMAActionsApi: RMAActionsApi;
+	public readonly RMADispositionsApi: RMADispositionsApi;
+	public readonly RolesApi: RolesApi;
+	public readonly SalesProbabilitiesApi: SalesProbabilitiesApi;
+	public readonly SkillsApi: SkillsApi;
+	public readonly SkillCategoriesApi: SkillCategoriesApi;
 	public readonly SourcesApi: SourcesApi;
 	public readonly SurveysApi: SurveysApi;
 	public readonly ScheduleTypesApi: ScheduleTypesApi;
@@ -251,19 +283,20 @@ export class Connectwise {
 	public readonly ScheduleStopwatchesApi: ScheduleStopwatchesApi;
 	public readonly ScheduleReminderTimesApi: ScheduleReminderTimesApi;
 	public readonly TaxCodeXRefsApi: TaxCodeXRefsApi;
+	public readonly TeamRolesApi: TeamRolesApi;
 	public readonly TicketsApi: TicketsApi;
 	public readonly TaxCodesApi: TaxCodesApi;
 	public readonly TicketNotesApi: TicketNotesApi;
 	public readonly TicketTasksApi: TicketTasksApi;
 	public readonly TimeEntriesApi: TimeEntriesApi;
 	public readonly TicketStopwatchesApi: TicketStopwatchesApi;
+	public readonly TodayPageCategoriesApi: TodayPageCategoriesApi;
 	public readonly UnitOfMeasureConversionsApi: UnitOfMeasureConversionsApi;
 	public readonly UnitOfMeasuresApi: UnitOfMeasuresApi;
 	public readonly UserDefinedFieldsApi: UserDefinedFieldsApi;
 	private readonly authKey: string;
 	public constructor(host: string, companyId: string, publicKey: string, privateKey: string) {
 		this.authKey = new Buffer(`${companyId}+${publicKey}:${privateKey}`).toString('base64');
-		this.AccountingBatchTransactionsApi = new AccountingBatchTransactionsApi(`https://${host}/v4_6_release/apis/3.0`);
 		this.AccountingBatchesApi = new AccountingBatchesApi(`https://${host}/v4_6_release/apis/3.0`);
 		this.AccountingUnpostedExpensesApi = new AccountingUnpostedExpensesApi(`https://${host}/v4_6_release/apis/3.0`);
 		this.AccountingUnpostedProcurementsApi = new AccountingUnpostedProcurementsApi(`https://${host}/v4_6_release/apis/3.0`);
@@ -293,6 +326,7 @@ export class Connectwise {
 		this.BoardSubTypesApi = new BoardSubTypesApi(`https://${host}/v4_6_release/apis/3.0`);
 		this.BoardTeamsApi = new BoardTeamsApi(`https://${host}/v4_6_release/apis/3.0`);
 		this.BoardTypesApi = new BoardTypesApi(`https://${host}/v4_6_release/apis/3.0`);
+		this.BoardSubtypeAssociationsApi = new BoardSubtypeAssociationsApi(`https://${host}/v4_6_release/apis/3.0`);
 		this.BoardsApi = new BoardsApi(`https://${host}/v4_6_release/apis/3.0`);
 		this.CallbacksApi = new CallbacksApi(`https://${host}/v4_6_release/apis/3.0`);
 		this.CampaignAuditsApi = new CampaignAuditsApi(`https://${host}/v4_6_release/apis/3.0`);
@@ -306,11 +340,13 @@ export class Connectwise {
 		this.CatalogComponentsApi = new CatalogComponentsApi(`https://${host}/v4_6_release/apis/3.0`);
 		this.CatalogsItemApi = new CatalogsItemApi(`https://${host}/v4_6_release/apis/3.0`);
 		this.CategoriesApi = new CategoriesApi(`https://${host}/v4_6_release/apis/3.0`);
+		this.CertificationsApi = new CertificationsApi(`https://${host}/v4_6_release/apis/3.0`);
 		this.CodesApi = new CodesApi(`https://${host}/v4_6_release/apis/3.0`);
 		this.CompaniesApi = new CompaniesApi(`https://${host}/v4_6_release/apis/3.0`);
 		this.CompanyCustomNotesApi = new CompanyCustomNotesApi(`https://${host}/v4_6_release/apis/3.0`);
 		this.CompanyManagementSummaryReportsApi = new CompanyManagementSummaryReportsApi(`https://${host}/v4_6_release/apis/3.0`);
 		this.CompanyNotesApi = new CompanyNotesApi(`https://${host}/v4_6_release/apis/3.0`);
+		this.CompanyNoteTypesApi = new CompanyNoteTypesApi(`https://${host}/v4_6_release/apis/3.0`);
 		this.CompanySitesApi = new CompanySitesApi(`https://${host}/v4_6_release/apis/3.0`);
 		this.CompanyStatusesApi = new CompanyStatusesApi(`https://${host}/v4_6_release/apis/3.0`);
 		this.CompanyTeamsApi = new CompanyTeamsApi(`https://${host}/v4_6_release/apis/3.0`);
@@ -335,13 +371,19 @@ export class Connectwise {
 		this.GroupsApi = new GroupsApi(`https://${host}/v4_6_release/apis/3.0`);
 		this.GroupContactsApi = new GroupContactsApi(`https://${host}/v4_6_release/apis/3.0`);
 		this.InfoApi = new InfoApi(`https://${host}/v4_6_release/apis/3.0`);
+		this.InOutBoardsApi = new InOutBoardsApi(`https://${host}/v4_6_release/apis/3.0`);
+		this.InOutTypesApi = new InOutTypesApi(`https://${host}/v4_6_release/apis/3.0`);
 		this.InvoicesApi = new InvoicesApi(`https://${host}/v4_6_release/apis/3.0`);
 		this.InvoicePaymentsApi = new InvoicePaymentsApi(`https://${host}/v4_6_release/apis/3.0`);
 		this.KnowledgeBaseArticlesApi = new KnowledgeBaseArticlesApi(`https://${host}/v4_6_release/apis/3.0`);
 		this.LinksApi = new LinksApi(`https://${host}/v4_6_release/apis/3.0`);
 		this.LocationsApi = new LocationsApi(`https://${host}/v4_6_release/apis/3.0`);
 		this.MembersApi = new MembersApi(`https://${host}/v4_6_release/apis/3.0`);
+		this.MemberTypesApi = new MemberTypesApi(`https://${host}/v4_6_release/apis/3.0`);
 		this.ManufacturersApi = new ManufacturersApi(`https://${host}/v4_6_release/apis/3.0`);
+		this.ManagementBackupsApi = new ManagementBackupsApi(`https://${host}/v4_6_release/apis/3.0`);
+		this.ManagementEmailsApi = new ManagementEmailsApi(`https://${host}/v4_6_release/apis/3.0`);
+		this.MarketDescriptionsApi = new MarketDescriptionsApi(`https://${host}/v4_6_release/apis/3.0`);
 		this.MenuEntriesApi = new MenuEntriesApi(`https://${host}/v4_6_release/apis/3.0`);
 		this.OpportunitiesApi = new OpportunitiesApi(`https://${host}/v4_6_release/apis/3.0`);
 		this.OrdersApi = new OrdersApi(`https://${host}/v4_6_release/apis/3.0`);
@@ -352,9 +394,10 @@ export class Connectwise {
 		this.OpportunityRatingsApi = new OpportunityRatingsApi(`https://${host}/v4_6_release/apis/3.0`);
 		this.OpportunityContactsApi = new OpportunityContactsApi(`https://${host}/v4_6_release/apis/3.0`);
 		this.OpportunityStatusesApi = new OpportunityStatusesApi(`https://${host}/v4_6_release/apis/3.0`);
+		this.OpportunityStagesApi = new OpportunityStagesApi(`https://${host}/v4_6_release/3.0`);
 		this.OpportunityForecastsApi = new OpportunityForecastsApi(`https://${host}/v4_6_release/apis/3.0`);
+		this.OwnershipTypesApi = new OwnershipTypesApi(`https://${host}/v4_6_release/apis/3.0`);
 		this.PricingBreaksApi = new PricingBreaksApi(`https://${host}/v4_6_release/apis/3.0`);
-		this.ProductsApi = new ProductsApi(`https://${host}/v4_6_release/apis/3.0`);
 		this.ProjectsApi = new ProjectsApi(`https://${host}/v4_6_release/apis/3.0`);
 		this.PrioritiesApi = new PrioritiesApi(`https://${host}/v4_6_release/apis/3.0`);
 		this.ProductsItemApi = new ProductsItemApi(`https://${host}/v4_6_release/apis/3.0`);
@@ -370,6 +413,10 @@ export class Connectwise {
 		this.PurchaseOrderLineItemsApi = new PurchaseOrderLineItemsApi(`https://${host}/v4_6_release/apis/3.0`);
 		this.ProductPickingShippingDetailsApi = new ProductPickingShippingDetailsApi(`https://${host}/v4_6_release/apis/3.0`);
 		this.ReportsApi = new ReportsApi(`https://${host}/v4_6_release/apis/3.0`);
+		this.RMAActionsApi = new RMAActionsApi(`https://${host}/v4_6_release/apis/3.0`);
+		this.RMADispositionsApi = new RMADispositionsApi(`https://${host}/v4_6_release/apis/3.0`);
+		this.RolesApi = new RolesApi(`https://${host}/v4_6_release/apis/3.0`);
+		this.SalesProbabilitiesApi = new SalesProbabilitiesApi(`https://${host}/v4_6_release/apis/3.0`);
 		this.SourcesApi = new SourcesApi(`https://${host}/v4_6_release/apis/3.0`);
 		this.SurveysApi = new SurveysApi(`https://${host}/v4_6_release/apis/3.0`);
 		this.ScheduleTypesApi = new ScheduleTypesApi(`https://${host}/v4_6_release/apis/3.0`);
@@ -382,6 +429,10 @@ export class Connectwise {
 		this.ScheduleStopwatchesApi = new ScheduleStopwatchesApi(`https://${host}/v4_6_release/apis/3.0`);
 		this.ScheduleReminderTimesApi = new ScheduleReminderTimesApi(`https://${host}/v4_6_release/apis/3.0`);
 		this.TaxCodeXRefsApi = new TaxCodeXRefsApi(`https://${host}/v4_6_release/apis/3.0`);
+		this.TeamRolesApi = new TeamRolesApi(`https://${host}/v4_6_release/apis/3.0`);
+		this.SkillsApi = new SkillsApi(`https://${host}/v4_6_release/apis/3.0`);
+		this.SkillCategoriesApi = new SkillCategoriesApi(`https://${host}/v4_6_release/apis/3.0`);
+		this.TodayPageCategoriesApi = new TodayPageCategoriesApi(`https://${host}/v4_6_release/apis/3.0`);
 		this.TicketsApi = new TicketsApi(`https://${host}/v4_6_release/apis/3.0`);
 		this.TaxCodesApi = new TaxCodesApi(`https://${host}/v4_6_release/apis/3.0`);
 		this.TicketNotesApi = new TicketNotesApi(`https://${host}/v4_6_release/apis/3.0`);
@@ -391,9 +442,6 @@ export class Connectwise {
 		this.UnitOfMeasureConversionsApi = new UnitOfMeasureConversionsApi(`https://${host}/v4_6_release/apis/3.0`);
 		this.UnitOfMeasuresApi = new UnitOfMeasuresApi(`https://${host}/v4_6_release/apis/3.0`);
 		this.UserDefinedFieldsApi = new UserDefinedFieldsApi(`https://${host}/v4_6_release/apis/3.0`);
-		this.AccountingBatchTransactionsApi.defaultHeaders = {
-			'Authorization': `Basic ${this.authKey}`
-		};
 		this.AccountingBatchesApi.defaultHeaders = {
 			'Authorization': `Basic ${this.authKey}`
 		};
@@ -459,7 +507,7 @@ export class Connectwise {
 		};
 		this.AuditTrailApi.defaultHeaders = {
 			'Authorization': `Basic ${this.authKey}`
-		}
+		};
 		this.BatchApi.defaultHeaders = {
 			'Authorization': `Basic ${this.authKey}`
 		};
@@ -664,9 +712,6 @@ export class Connectwise {
 		this.PricingBreaksApi.defaultHeaders = {
 			'Authorization': `Basic ${this.authKey}`
 		};
-		this.ProductsApi.defaultHeaders = {
-			'Authorization': `Basic ${this.authKey}`
-		};
 		this.ProjectsApi.defaultHeaders = {
 			'Authorization': `Basic ${this.authKey}`
 		};
@@ -720,7 +765,7 @@ export class Connectwise {
 		};
 		this.ScheduleTypesApi.defaultHeaders = {
 			'Authorization': `Basic ${this.authKey}`
-		}
+		};
 		this.SubCategoriesApi.defaultHeaders = {
 			'Authorization': `Basic ${this.authKey}`
 		};
@@ -747,7 +792,7 @@ export class Connectwise {
 		};
 		this.TaxCodeXRefsApi.defaultHeaders = {
 			'Authorization': `Basic ${this.authKey}`
-		}
+		};
 		this.TicketsApi.defaultHeaders = {
 			'Authorization': `Basic ${this.authKey}`
 		};
@@ -775,5 +820,62 @@ export class Connectwise {
 		this.UserDefinedFieldsApi.defaultHeaders = {
 			'Authorization': `Basic ${this.authKey}`
 		};
-	};
-};
+		this.BoardSubtypeAssociationsApi.defaultHeaders = {
+			'Authorization': `Basic ${this.authKey}`
+		};
+		this.CertificationsApi.defaultHeaders = {
+			'Authorization': `Basic ${this.authKey}`
+		};
+		this.CompanyNoteTypesApi.defaultHeaders = {
+			'Authorization': `Basic ${this.authKey}`
+		};
+		this.InOutBoardsApi.defaultHeaders = {
+			'Authorization': `Basic ${this.authKey}`
+		};
+		this.InOutTypesApi.defaultHeaders = {
+			'Authorization': `Basic ${this.authKey}`
+		};
+		this.ManagementBackupsApi.defaultHeaders = {
+			'Authorization': `Basic ${this.authKey}`
+		};
+		this.ManagementEmailsApi.defaultHeaders = {
+			'Authorization': `Basic ${this.authKey}`
+		};
+		this.MarketDescriptionsApi.defaultHeaders = {
+			'Authorization': `Basic ${this.authKey}`
+		};
+		this.MemberTypesApi.defaultHeaders = {
+			'Authorization': `Basic ${this.authKey}`
+		};
+		this.OpportunityStagesApi.defaultHeaders = {
+			'Authorization': `Basic ${this.authKey}`
+		};
+		this.OwnershipTypesApi.defaultHeaders = {
+			'Authorization': `Basic ${this.authKey}`
+		};
+		this.RMAActionsApi.defaultHeaders = {
+			'Authorization': `Basic ${this.authKey}`
+		};
+		this.RMADispositionsApi.defaultHeaders = {
+			'Authorization': `Basic ${this.authKey}`
+		};
+		this.RolesApi.defaultHeaders = {
+			'Authorization': `Basic ${this.authKey}`
+		};
+		this.SalesProbabilitiesApi.defaultHeaders = {
+			'Authorization': `Basic ${this.authKey}`
+		};
+		this.TeamRolesApi.defaultHeaders = {
+			'Authorization': `Basic ${this.authKey}`
+		};
+		this.SkillsApi.defaultHeaders = {
+			'Authorization': `Basic ${this.authKey}`
+		};
+		this.SkillCategoriesApi.defaultHeaders = {
+			'Authorization': `Basic ${this.authKey}`
+		};
+		this.TodayPageCategoriesApi.defaultHeaders = {
+			'Authorization': `Basic ${this.authKey}`
+		};
+	}
+}
