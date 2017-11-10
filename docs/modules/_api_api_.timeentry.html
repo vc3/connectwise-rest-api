@@ -78,6 +78,7 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="_api_api_.timeentry.html#billableoptionenum" class="tsd-kind-icon">Billable<wbr>Option<wbr>Enum</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="_api_api_.timeentry.html#chargetotypeenum" class="tsd-kind-icon">Charge<wbr>ToType<wbr>Enum</a></li>
+								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="_api_api_.timeentry.html#statusenum" class="tsd-kind-icon">Status<wbr>Enum</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -109,8 +110,11 @@
 								<li class="tsd-kind-property tsd-parent-kind-module"><a href="_api_api_.timeentry.html#invoice" class="tsd-kind-icon">invoice</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-module"><a href="_api_api_.timeentry.html#locationid" class="tsd-kind-icon">location<wbr>Id</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-module"><a href="_api_api_.timeentry.html#member" class="tsd-kind-icon">member</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-module"><a href="_api_api_.timeentry.html#mobileguid" class="tsd-kind-icon">mobile<wbr>Guid</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-module"><a href="_api_api_.timeentry.html#notes" class="tsd-kind-icon">notes</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-module"><a href="_api_api_.timeentry.html#status" class="tsd-kind-icon">status</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-module"><a href="_api_api_.timeentry.html#timeend" class="tsd-kind-icon">time<wbr>End</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-module"><a href="_api_api_.timeentry.html#timesheet" class="tsd-kind-icon">time<wbr>Sheet</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-module"><a href="_api_api_.timeentry.html#timestart" class="tsd-kind-icon">time<wbr>Start</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-module"><a href="_api_api_.timeentry.html#workrole" class="tsd-kind-icon">work<wbr>Role</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-module"><a href="_api_api_.timeentry.html#worktype" class="tsd-kind-icon">work<wbr>Type</a></li>
@@ -127,7 +131,7 @@
 					<div class="tsd-signature tsd-kind-icon">Billable<wbr>Option<wbr>Enum<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"Billable"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"DoNotBill"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"NoCharge"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"NoDefault"</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/680cc50/src/api/api.ts#L5133">api/api.ts:5133</a></li>
+							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/8910d4b/src/api/api.ts#L9232">api/api.ts:9232</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -137,7 +141,17 @@
 					<div class="tsd-signature tsd-kind-icon">Charge<wbr>ToType<wbr>Enum<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"ServiceTicket"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"ProjectTicket"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"ChargeCode"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Activity"</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/680cc50/src/api/api.ts#L5131">api/api.ts:5131</a></li>
+							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/8910d4b/src/api/api.ts#L9230">api/api.ts:9230</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module">
+					<a name="statusenum" class="tsd-anchor"></a>
+					<h3>Status<wbr>Enum</h3>
+					<div class="tsd-signature tsd-kind-icon">Status<wbr>Enum<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"Open"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Rejected"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"PendingApproval"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"ErrorsCorrected"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"PendingProjectApproval"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"ApprovedByTierOne"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"RejectBySecondTier"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"ApprovedByTierTwo"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"ReadyToBill"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Billed"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"WrittenOff"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"BilledAgreement"</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/8910d4b/src/api/api.ts#L9234">api/api.ts:9234</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -150,7 +164,7 @@
 					<div class="tsd-signature tsd-kind-icon">actual<wbr>Hours<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/680cc50/src/api/api.ts#L5085">api/api.ts:5085</a></li>
+							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/8910d4b/src/api/api.ts#L9181">api/api.ts:9181</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -160,7 +174,7 @@
 					<div class="tsd-signature tsd-kind-icon">add<wbr>ToDetail<wbr>Description<wbr>Flag<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/680cc50/src/api/api.ts#L5089">api/api.ts:5089</a></li>
+							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/8910d4b/src/api/api.ts#L9185">api/api.ts:9185</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -170,7 +184,7 @@
 					<div class="tsd-signature tsd-kind-icon">add<wbr>ToInternal<wbr>Analysis<wbr>Flag<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/680cc50/src/api/api.ts#L5090">api/api.ts:5090</a></li>
+							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/8910d4b/src/api/api.ts#L9186">api/api.ts:9186</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -180,7 +194,7 @@
 					<div class="tsd-signature tsd-kind-icon">add<wbr>ToResolution<wbr>Flag<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/680cc50/src/api/api.ts#L5091">api/api.ts:5091</a></li>
+							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/8910d4b/src/api/api.ts#L9187">api/api.ts:9187</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -190,7 +204,7 @@
 					<div class="tsd-signature tsd-kind-icon">agreement<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_api_api_.agreementreference.html" class="tsd-signature-type">AgreementReference</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/680cc50/src/api/api.ts#L5081">api/api.ts:5081</a></li>
+							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/8910d4b/src/api/api.ts#L9177">api/api.ts:9177</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -200,7 +214,7 @@
 					<div class="tsd-signature tsd-kind-icon">billable<wbr>Option<span class="tsd-signature-symbol">:</span> <a href="_api_api_.timeentry.html#billableoptionenum" class="tsd-signature-type">BillableOptionEnum</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/680cc50/src/api/api.ts#L5086">api/api.ts:5086</a></li>
+							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/8910d4b/src/api/api.ts#L9182">api/api.ts:9182</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -210,7 +224,7 @@
 					<div class="tsd-signature tsd-kind-icon">business<wbr>Unit<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/680cc50/src/api/api.ts#L5078">api/api.ts:5078</a></li>
+							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/8910d4b/src/api/api.ts#L9174">api/api.ts:9174</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -220,7 +234,7 @@
 					<div class="tsd-signature tsd-kind-icon">charge<wbr>ToId<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/680cc50/src/api/api.ts#L5070">api/api.ts:5070</a></li>
+							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/8910d4b/src/api/api.ts#L9166">api/api.ts:9166</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -235,7 +249,7 @@
 					<div class="tsd-signature tsd-kind-icon">charge<wbr>ToType<span class="tsd-signature-symbol">:</span> <a href="_api_api_.timeentry.html#chargetotypeenum" class="tsd-signature-type">ChargeToTypeEnum</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/680cc50/src/api/api.ts#L5075">api/api.ts:5075</a></li>
+							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/8910d4b/src/api/api.ts#L9171">api/api.ts:9171</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -250,7 +264,7 @@
 					<div class="tsd-signature tsd-kind-icon">company<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_api_api_.companyreference.html" class="tsd-signature-type">CompanyReference</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/680cc50/src/api/api.ts#L5065">api/api.ts:5065</a></li>
+							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/8910d4b/src/api/api.ts#L9161">api/api.ts:9161</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -265,7 +279,7 @@
 					<div class="tsd-signature tsd-kind-icon">custom<wbr>Fields<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="_api_api_.customfieldvalue.html" class="tsd-signature-type">CustomFieldValue</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/680cc50/src/api/api.ts#L5126">api/api.ts:5126</a></li>
+							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/8910d4b/src/api/api.ts#L9225">api/api.ts:9225</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -275,7 +289,7 @@
 					<div class="tsd-signature tsd-kind-icon">date<wbr>Entered<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/680cc50/src/api/api.ts#L5114">api/api.ts:5114</a></li>
+							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/8910d4b/src/api/api.ts#L9210">api/api.ts:9210</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -285,7 +299,7 @@
 					<div class="tsd-signature tsd-kind-icon">email<wbr>Cc<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/680cc50/src/api/api.ts#L5111">api/api.ts:5111</a></li>
+							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/8910d4b/src/api/api.ts#L9207">api/api.ts:9207</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -300,7 +314,7 @@
 					<div class="tsd-signature tsd-kind-icon">email<wbr>CcFlag<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/680cc50/src/api/api.ts#L5106">api/api.ts:5106</a></li>
+							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/8910d4b/src/api/api.ts#L9202">api/api.ts:9202</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -315,7 +329,7 @@
 					<div class="tsd-signature tsd-kind-icon">email<wbr>Contact<wbr>Flag<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/680cc50/src/api/api.ts#L5101">api/api.ts:5101</a></li>
+							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/8910d4b/src/api/api.ts#L9197">api/api.ts:9197</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -330,7 +344,7 @@
 					<div class="tsd-signature tsd-kind-icon">email<wbr>Resource<wbr>Flag<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/680cc50/src/api/api.ts#L5096">api/api.ts:5096</a></li>
+							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/8910d4b/src/api/api.ts#L9192">api/api.ts:9192</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -345,7 +359,7 @@
 					<div class="tsd-signature tsd-kind-icon">entered<wbr>By<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/680cc50/src/api/api.ts#L5113">api/api.ts:5113</a></li>
+							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/8910d4b/src/api/api.ts#L9209">api/api.ts:9209</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -355,7 +369,7 @@
 					<div class="tsd-signature tsd-kind-icon">hourly<wbr>Rate<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/680cc50/src/api/api.ts#L5120">api/api.ts:5120</a></li>
+							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/8910d4b/src/api/api.ts#L9217">api/api.ts:9217</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -370,7 +384,7 @@
 					<div class="tsd-signature tsd-kind-icon">hours<wbr>Billed<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/680cc50/src/api/api.ts#L5112">api/api.ts:5112</a></li>
+							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/8910d4b/src/api/api.ts#L9208">api/api.ts:9208</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -380,7 +394,7 @@
 					<div class="tsd-signature tsd-kind-icon">hours<wbr>Deduct<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/680cc50/src/api/api.ts#L5084">api/api.ts:5084</a></li>
+							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/8910d4b/src/api/api.ts#L9180">api/api.ts:9180</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -390,7 +404,7 @@
 					<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/680cc50/src/api/api.ts#L5060">api/api.ts:5060</a></li>
+							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/8910d4b/src/api/api.ts#L9156">api/api.ts:9156</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -400,7 +414,7 @@
 					<div class="tsd-signature tsd-kind-icon">info<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_api_api_.metadata.html" class="tsd-signature-type">Metadata</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/680cc50/src/api/api.ts#L5125">api/api.ts:5125</a></li>
+							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/8910d4b/src/api/api.ts#L9224">api/api.ts:9224</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -415,7 +429,7 @@
 					<div class="tsd-signature tsd-kind-icon">internal<wbr>Notes<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/680cc50/src/api/api.ts#L5088">api/api.ts:5088</a></li>
+							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/8910d4b/src/api/api.ts#L9184">api/api.ts:9184</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -425,7 +439,7 @@
 					<div class="tsd-signature tsd-kind-icon">invoice<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_api_api_.invoicereference.html" class="tsd-signature-type">InvoiceReference</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/680cc50/src/api/api.ts#L5115">api/api.ts:5115</a></li>
+							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/8910d4b/src/api/api.ts#L9211">api/api.ts:9211</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -435,7 +449,7 @@
 					<div class="tsd-signature tsd-kind-icon">location<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/680cc50/src/api/api.ts#L5077">api/api.ts:5077</a></li>
+							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/8910d4b/src/api/api.ts#L9173">api/api.ts:9173</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -445,7 +459,17 @@
 					<div class="tsd-signature tsd-kind-icon">member<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_api_api_.memberreference.html" class="tsd-signature-type">MemberReference</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/680cc50/src/api/api.ts#L5076">api/api.ts:5076</a></li>
+							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/8910d4b/src/api/api.ts#L9172">api/api.ts:9172</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-module">
+					<a name="mobileguid" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> mobile<wbr>Guid</h3>
+					<div class="tsd-signature tsd-kind-icon">mobile<wbr>Guid<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_api_api_.guid.html" class="tsd-signature-type">Guid</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/8910d4b/src/api/api.ts#L9212">api/api.ts:9212</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -455,7 +479,17 @@
 					<div class="tsd-signature tsd-kind-icon">notes<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/680cc50/src/api/api.ts#L5087">api/api.ts:5087</a></li>
+							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/8910d4b/src/api/api.ts#L9183">api/api.ts:9183</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-module">
+					<a name="status" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> status</h3>
+					<div class="tsd-signature tsd-kind-icon">status<span class="tsd-signature-symbol">:</span> <a href="_api_api_.timeentry.html#statusenum" class="tsd-signature-type">StatusEnum</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/8910d4b/src/api/api.ts#L9219">api/api.ts:9219</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -465,7 +499,17 @@
 					<div class="tsd-signature tsd-kind-icon">time<wbr>End<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/680cc50/src/api/api.ts#L5083">api/api.ts:5083</a></li>
+							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/8910d4b/src/api/api.ts#L9179">api/api.ts:9179</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-module">
+					<a name="timesheet" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> time<wbr>Sheet</h3>
+					<div class="tsd-signature tsd-kind-icon">time<wbr>Sheet<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_api_api_.timesheetreference.html" class="tsd-signature-type">TimeSheetReference</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/8910d4b/src/api/api.ts#L9218">api/api.ts:9218</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -475,7 +519,7 @@
 					<div class="tsd-signature tsd-kind-icon">time<wbr>Start<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/680cc50/src/api/api.ts#L5082">api/api.ts:5082</a></li>
+							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/8910d4b/src/api/api.ts#L9178">api/api.ts:9178</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -485,7 +529,7 @@
 					<div class="tsd-signature tsd-kind-icon">work<wbr>Role<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_api_api_.workrolereference.html" class="tsd-signature-type">WorkRoleReference</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/680cc50/src/api/api.ts#L5080">api/api.ts:5080</a></li>
+							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/8910d4b/src/api/api.ts#L9176">api/api.ts:9176</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -495,7 +539,7 @@
 					<div class="tsd-signature tsd-kind-icon">work<wbr>Type<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_api_api_.worktypereference.html" class="tsd-signature-type">WorkTypeReference</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/680cc50/src/api/api.ts#L5079">api/api.ts:5079</a></li>
+							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/8910d4b/src/api/api.ts#L9175">api/api.ts:9175</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -516,6 +560,9 @@
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
 						<a href="_api_api_.timeentry.html#chargetotypeenum" class="tsd-kind-icon">Charge<wbr>ToType<wbr>Enum</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="_api_api_.timeentry.html#statusenum" class="tsd-kind-icon">Status<wbr>Enum</a>
 					</li>
 					<li class=" tsd-kind-property tsd-parent-kind-module">
 						<a href="_api_api_.timeentry.html#actualhours" class="tsd-kind-icon">actual<wbr>Hours</a>
@@ -596,10 +643,19 @@
 						<a href="_api_api_.timeentry.html#member" class="tsd-kind-icon">member</a>
 					</li>
 					<li class=" tsd-kind-property tsd-parent-kind-module">
+						<a href="_api_api_.timeentry.html#mobileguid" class="tsd-kind-icon">mobile<wbr>Guid</a>
+					</li>
+					<li class=" tsd-kind-property tsd-parent-kind-module">
 						<a href="_api_api_.timeentry.html#notes" class="tsd-kind-icon">notes</a>
 					</li>
 					<li class=" tsd-kind-property tsd-parent-kind-module">
+						<a href="_api_api_.timeentry.html#status" class="tsd-kind-icon">status</a>
+					</li>
+					<li class=" tsd-kind-property tsd-parent-kind-module">
 						<a href="_api_api_.timeentry.html#timeend" class="tsd-kind-icon">time<wbr>End</a>
+					</li>
+					<li class=" tsd-kind-property tsd-parent-kind-module">
+						<a href="_api_api_.timeentry.html#timesheet" class="tsd-kind-icon">time<wbr>Sheet</a>
 					</li>
 					<li class=" tsd-kind-property tsd-parent-kind-module">
 						<a href="_api_api_.timeentry.html#timestart" class="tsd-kind-icon">time<wbr>Start</a>

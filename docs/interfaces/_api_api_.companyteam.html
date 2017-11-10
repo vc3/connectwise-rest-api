@@ -69,6 +69,13 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>A list of customers for which the member holds a team role</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -88,10 +95,13 @@
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_api_api_.companyteam.html#businessunitid" class="tsd-kind-icon">business<wbr>Unit<wbr>Id</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_api_api_.companyteam.html#company" class="tsd-kind-icon">company</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_api_api_.companyteam.html#contact" class="tsd-kind-icon">contact</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_api_api_.companyteam.html#count" class="tsd-kind-icon">count</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_api_api_.companyteam.html#id" class="tsd-kind-icon">id</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_api_api_.companyteam.html#info" class="tsd-kind-icon">info</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_api_api_.companyteam.html#locationid" class="tsd-kind-icon">location<wbr>Id</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_api_api_.companyteam.html#member" class="tsd-kind-icon">member</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_api_api_.companyteam.html#reassigntocontact" class="tsd-kind-icon">re<wbr>Assign<wbr>ToContact</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_api_api_.companyteam.html#reassigntomember" class="tsd-kind-icon">re<wbr>Assign<wbr>ToMember</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_api_api_.companyteam.html#salesflag" class="tsd-kind-icon">sales<wbr>Flag</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_api_api_.companyteam.html#teamrole" class="tsd-kind-icon">team<wbr>Role</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_api_api_.companyteam.html#techflag" class="tsd-kind-icon">tech<wbr>Flag</a></li>
@@ -108,7 +118,7 @@
 					<div class="tsd-signature tsd-kind-icon">account<wbr>Manager<wbr>Flag<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/680cc50/src/api/api.ts#L1314">api/api.ts:1314</a></li>
+							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/8910d4b/src/api/api.ts#L2175">api/api.ts:2175</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -118,7 +128,7 @@
 					<div class="tsd-signature tsd-kind-icon">business<wbr>Unit<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/680cc50/src/api/api.ts#L1311">api/api.ts:1311</a></li>
+							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/8910d4b/src/api/api.ts#L2172">api/api.ts:2172</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -128,7 +138,7 @@
 					<div class="tsd-signature tsd-kind-icon">company<span class="tsd-signature-symbol">:</span> <a href="_api_api_.companyreference.html" class="tsd-signature-type">CompanyReference</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/680cc50/src/api/api.ts#L1308">api/api.ts:1308</a></li>
+							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/8910d4b/src/api/api.ts#L2169">api/api.ts:2169</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -138,7 +148,17 @@
 					<div class="tsd-signature tsd-kind-icon">contact<span class="tsd-signature-symbol">:</span> <a href="_api_api_.contactreference.html" class="tsd-signature-type">ContactReference</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/680cc50/src/api/api.ts#L1312">api/api.ts:1312</a></li>
+							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/8910d4b/src/api/api.ts#L2173">api/api.ts:2173</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="count" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> count</h3>
+					<div class="tsd-signature tsd-kind-icon">count<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/8910d4b/src/api/api.ts#L2183">api/api.ts:2183</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -148,7 +168,7 @@
 					<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/680cc50/src/api/api.ts#L1307">api/api.ts:1307</a></li>
+							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/8910d4b/src/api/api.ts#L2168">api/api.ts:2168</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -158,7 +178,7 @@
 					<div class="tsd-signature tsd-kind-icon">info<span class="tsd-signature-symbol">:</span> <a href="_api_api_.metadata.html" class="tsd-signature-type">Metadata</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/680cc50/src/api/api.ts#L1321">api/api.ts:1321</a></li>
+							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/8910d4b/src/api/api.ts#L2182">api/api.ts:2182</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -173,7 +193,7 @@
 					<div class="tsd-signature tsd-kind-icon">location<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/680cc50/src/api/api.ts#L1310">api/api.ts:1310</a></li>
+							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/8910d4b/src/api/api.ts#L2171">api/api.ts:2171</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -183,7 +203,27 @@
 					<div class="tsd-signature tsd-kind-icon">member<span class="tsd-signature-symbol">:</span> <a href="_api_api_.memberreference.html" class="tsd-signature-type">MemberReference</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/680cc50/src/api/api.ts#L1313">api/api.ts:1313</a></li>
+							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/8910d4b/src/api/api.ts#L2174">api/api.ts:2174</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="reassigntocontact" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> re<wbr>Assign<wbr>ToContact</h3>
+					<div class="tsd-signature tsd-kind-icon">re<wbr>Assign<wbr>ToContact<span class="tsd-signature-symbol">:</span> <a href="_api_api_.contactreference.html" class="tsd-signature-type">ContactReference</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/8910d4b/src/api/api.ts#L2185">api/api.ts:2185</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="reassigntomember" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> re<wbr>Assign<wbr>ToMember</h3>
+					<div class="tsd-signature tsd-kind-icon">re<wbr>Assign<wbr>ToMember<span class="tsd-signature-symbol">:</span> <a href="_api_api_.memberreference.html" class="tsd-signature-type">MemberReference</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/8910d4b/src/api/api.ts#L2184">api/api.ts:2184</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -193,7 +233,7 @@
 					<div class="tsd-signature tsd-kind-icon">sales<wbr>Flag<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/680cc50/src/api/api.ts#L1316">api/api.ts:1316</a></li>
+							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/8910d4b/src/api/api.ts#L2177">api/api.ts:2177</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -203,7 +243,7 @@
 					<div class="tsd-signature tsd-kind-icon">team<wbr>Role<span class="tsd-signature-symbol">:</span> <a href="_api_api_.teamrolereference.html" class="tsd-signature-type">TeamRoleReference</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/680cc50/src/api/api.ts#L1309">api/api.ts:1309</a></li>
+							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/8910d4b/src/api/api.ts#L2170">api/api.ts:2170</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -213,7 +253,7 @@
 					<div class="tsd-signature tsd-kind-icon">tech<wbr>Flag<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/680cc50/src/api/api.ts#L1315">api/api.ts:1315</a></li>
+							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/8910d4b/src/api/api.ts#L2176">api/api.ts:2176</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -256,6 +296,9 @@
 								<a href="_api_api_.companyteam.html#contact" class="tsd-kind-icon">contact</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_api_api_.companyteam.html#count" class="tsd-kind-icon">count</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="_api_api_.companyteam.html#id" class="tsd-kind-icon">id</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
@@ -266,6 +309,12 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="_api_api_.companyteam.html#member" class="tsd-kind-icon">member</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_api_api_.companyteam.html#reassigntocontact" class="tsd-kind-icon">re<wbr>Assign<wbr>ToContact</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_api_api_.companyteam.html#reassigntomember" class="tsd-kind-icon">re<wbr>Assign<wbr>ToMember</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="_api_api_.companyteam.html#salesflag" class="tsd-kind-icon">sales<wbr>Flag</a>

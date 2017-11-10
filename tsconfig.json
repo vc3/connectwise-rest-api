@@ -6,10 +6,12 @@
 		"noImplicitAny": false,
 		"noEmitOnError": false,
 		"outDir": "release",
+		"lib": [
+			"es6"
+		],
 		"types": [
 			"node",
-			"isomorphic-fetch",
-			"es6-promise"
+			"isomorphic-fetch"
 		]
 	},
 	"exclude": [

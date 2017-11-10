@@ -76,22 +76,23 @@
 						<section class="tsd-index-section ">
 							<h3>Type aliases</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="_api_api_.surveyquestion.html#typeenum" class="tsd-kind-icon">Type<wbr>Enum</a></li>
+								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="_api_api_.surveyquestion.html#entrytypeenum" class="tsd-kind-icon">Entry<wbr>Type<wbr>Enum</a></li>
+								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="_api_api_.surveyquestion.html#fieldtypeenum" class="tsd-kind-icon">Field<wbr>Type<wbr>Enum</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-module"><a href="_api_api_.surveyquestion.html#entrytype" class="tsd-kind-icon">entry<wbr>Type</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-module"><a href="_api_api_.surveyquestion.html#fieldtype" class="tsd-kind-icon">field<wbr>Type</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-module"><a href="_api_api_.surveyquestion.html#id" class="tsd-kind-icon">id</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-module"><a href="_api_api_.surveyquestion.html#includeflag" class="tsd-kind-icon">include<wbr>Flag</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-module"><a href="_api_api_.surveyquestion.html#inactiveflag" class="tsd-kind-icon">inactive<wbr>Flag</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-module"><a href="_api_api_.surveyquestion.html#info" class="tsd-kind-icon">info</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-module"><a href="_api_api_.surveyquestion.html#noanswerpoints" class="tsd-kind-icon">no<wbr>Answer<wbr>Points</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-module"><a href="_api_api_.surveyquestion.html#options" class="tsd-kind-icon">options</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-module"><a href="_api_api_.surveyquestion.html#numberofdecimals" class="tsd-kind-icon">number<wbr>OfDecimals</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-module"><a href="_api_api_.surveyquestion.html#question" class="tsd-kind-icon">question</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-module"><a href="_api_api_.surveyquestion.html#requiredflag" class="tsd-kind-icon">required<wbr>Flag</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-module"><a href="_api_api_.surveyquestion.html#sequencenumber" class="tsd-kind-icon">sequence<wbr>Number</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-module"><a href="_api_api_.surveyquestion.html#surveyid" class="tsd-kind-icon">survey<wbr>Id</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-module"><a href="_api_api_.surveyquestion.html#type" class="tsd-kind-icon">type</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-module"><a href="_api_api_.surveyquestion.html#survey" class="tsd-kind-icon">survey</a></li>
 							</ul>
 						</section>
 					</div>
@@ -100,12 +101,22 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Type aliases</h2>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module">
-					<a name="typeenum" class="tsd-anchor"></a>
-					<h3>Type<wbr>Enum</h3>
-					<div class="tsd-signature tsd-kind-icon">Type<wbr>Enum<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"OpenEnded"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Selection"</span></div>
+					<a name="entrytypeenum" class="tsd-anchor"></a>
+					<h3>Entry<wbr>Type<wbr>Enum</h3>
+					<div class="tsd-signature tsd-kind-icon">Entry<wbr>Type<wbr>Enum<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"EntryField"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"List"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Option"</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/680cc50/src/api/api.ts#L4636">api/api.ts:4636</a></li>
+							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/8910d4b/src/api/api.ts#L8521">api/api.ts:8521</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module">
+					<a name="fieldtypeenum" class="tsd-anchor"></a>
+					<h3>Field<wbr>Type<wbr>Enum</h3>
+					<div class="tsd-signature tsd-kind-icon">Field<wbr>Type<wbr>Enum<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"Button"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Checkbox"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Currency"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Date"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Hyperlink"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"IPAddress"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Number"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Password"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Percent"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Text"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"TextArea"</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/8910d4b/src/api/api.ts#L8519">api/api.ts:8519</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -113,22 +124,42 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-module">
+					<a name="entrytype" class="tsd-anchor"></a>
+					<h3>entry<wbr>Type</h3>
+					<div class="tsd-signature tsd-kind-icon">entry<wbr>Type<span class="tsd-signature-symbol">:</span> <a href="_api_api_.surveyquestion.html#entrytypeenum" class="tsd-signature-type">EntryTypeEnum</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/8910d4b/src/api/api.ts#L8504">api/api.ts:8504</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-module">
+					<a name="fieldtype" class="tsd-anchor"></a>
+					<h3>field<wbr>Type</h3>
+					<div class="tsd-signature tsd-kind-icon">field<wbr>Type<span class="tsd-signature-symbol">:</span> <a href="_api_api_.surveyquestion.html#fieldtypeenum" class="tsd-signature-type">FieldTypeEnum</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/8910d4b/src/api/api.ts#L8503">api/api.ts:8503</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-module">
 					<a name="id" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> id</h3>
 					<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/680cc50/src/api/api.ts#L4618">api/api.ts:4618</a></li>
+							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/8910d4b/src/api/api.ts#L8501">api/api.ts:8501</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-module">
-					<a name="includeflag" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> include<wbr>Flag</h3>
-					<div class="tsd-signature tsd-kind-icon">include<wbr>Flag<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<a name="inactiveflag" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> inactive<wbr>Flag</h3>
+					<div class="tsd-signature tsd-kind-icon">inactive<wbr>Flag<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/680cc50/src/api/api.ts#L4623">api/api.ts:4623</a></li>
+							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/8910d4b/src/api/api.ts#L8509">api/api.ts:8509</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -138,7 +169,7 @@
 					<div class="tsd-signature tsd-kind-icon">info<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_api_api_.metadata.html" class="tsd-signature-type">Metadata</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/680cc50/src/api/api.ts#L4631">api/api.ts:4631</a></li>
+							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/8910d4b/src/api/api.ts#L8514">api/api.ts:8514</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -148,22 +179,12 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-module">
-					<a name="noanswerpoints" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> no<wbr>Answer<wbr>Points</h3>
-					<div class="tsd-signature tsd-kind-icon">no<wbr>Answer<wbr>Points<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<a name="numberofdecimals" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> number<wbr>OfDecimals</h3>
+					<div class="tsd-signature tsd-kind-icon">number<wbr>OfDecimals<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/680cc50/src/api/api.ts#L4625">api/api.ts:4625</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-module">
-					<a name="options" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> options</h3>
-					<div class="tsd-signature tsd-kind-icon">options<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_api_api_.surveyquestionoption.html" class="tsd-signature-type">SurveyQuestionOption</a><span class="tsd-signature-symbol">&gt;</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/680cc50/src/api/api.ts#L4622">api/api.ts:4622</a></li>
+							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/8910d4b/src/api/api.ts#L8507">api/api.ts:8507</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -173,7 +194,7 @@
 					<div class="tsd-signature tsd-kind-icon">question<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/680cc50/src/api/api.ts#L4621">api/api.ts:4621</a></li>
+							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/8910d4b/src/api/api.ts#L8506">api/api.ts:8506</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -183,37 +204,27 @@
 					<div class="tsd-signature tsd-kind-icon">required<wbr>Flag<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/680cc50/src/api/api.ts#L4624">api/api.ts:4624</a></li>
+							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/8910d4b/src/api/api.ts#L8508">api/api.ts:8508</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-module">
 					<a name="sequencenumber" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> sequence<wbr>Number</h3>
+					<h3>sequence<wbr>Number</h3>
 					<div class="tsd-signature tsd-kind-icon">sequence<wbr>Number<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/680cc50/src/api/api.ts#L4619">api/api.ts:4619</a></li>
+							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/8910d4b/src/api/api.ts#L8505">api/api.ts:8505</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-module">
-					<a name="surveyid" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> survey<wbr>Id</h3>
-					<div class="tsd-signature tsd-kind-icon">survey<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<a name="survey" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> survey</h3>
+					<div class="tsd-signature tsd-kind-icon">survey<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_api_api_.surveyreference.html" class="tsd-signature-type">SurveyReference</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/680cc50/src/api/api.ts#L4626">api/api.ts:4626</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-module">
-					<a name="type" class="tsd-anchor"></a>
-					<h3>type</h3>
-					<div class="tsd-signature tsd-kind-icon">type<span class="tsd-signature-symbol">:</span> <a href="_api_api_.surveyquestion.html#typeenum" class="tsd-signature-type">TypeEnum</a></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/680cc50/src/api/api.ts#L4620">api/api.ts:4620</a></li>
+							<li>Defined in <a href="https://github.com/vc3/connectwise-rest-api/blob/8910d4b/src/api/api.ts#L8502">api/api.ts:8502</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -230,22 +241,28 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
-						<a href="_api_api_.surveyquestion.html#typeenum" class="tsd-kind-icon">Type<wbr>Enum</a>
+						<a href="_api_api_.surveyquestion.html#entrytypeenum" class="tsd-kind-icon">Entry<wbr>Type<wbr>Enum</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="_api_api_.surveyquestion.html#fieldtypeenum" class="tsd-kind-icon">Field<wbr>Type<wbr>Enum</a>
+					</li>
+					<li class=" tsd-kind-property tsd-parent-kind-module">
+						<a href="_api_api_.surveyquestion.html#entrytype" class="tsd-kind-icon">entry<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-property tsd-parent-kind-module">
+						<a href="_api_api_.surveyquestion.html#fieldtype" class="tsd-kind-icon">field<wbr>Type</a>
 					</li>
 					<li class=" tsd-kind-property tsd-parent-kind-module">
 						<a href="_api_api_.surveyquestion.html#id" class="tsd-kind-icon">id</a>
 					</li>
 					<li class=" tsd-kind-property tsd-parent-kind-module">
-						<a href="_api_api_.surveyquestion.html#includeflag" class="tsd-kind-icon">include<wbr>Flag</a>
+						<a href="_api_api_.surveyquestion.html#inactiveflag" class="tsd-kind-icon">inactive<wbr>Flag</a>
 					</li>
 					<li class=" tsd-kind-property tsd-parent-kind-module">
 						<a href="_api_api_.surveyquestion.html#info" class="tsd-kind-icon">info</a>
 					</li>
 					<li class=" tsd-kind-property tsd-parent-kind-module">
-						<a href="_api_api_.surveyquestion.html#noanswerpoints" class="tsd-kind-icon">no<wbr>Answer<wbr>Points</a>
-					</li>
-					<li class=" tsd-kind-property tsd-parent-kind-module">
-						<a href="_api_api_.surveyquestion.html#options" class="tsd-kind-icon">options</a>
+						<a href="_api_api_.surveyquestion.html#numberofdecimals" class="tsd-kind-icon">number<wbr>OfDecimals</a>
 					</li>
 					<li class=" tsd-kind-property tsd-parent-kind-module">
 						<a href="_api_api_.surveyquestion.html#question" class="tsd-kind-icon">question</a>
@@ -257,10 +274,7 @@
 						<a href="_api_api_.surveyquestion.html#sequencenumber" class="tsd-kind-icon">sequence<wbr>Number</a>
 					</li>
 					<li class=" tsd-kind-property tsd-parent-kind-module">
-						<a href="_api_api_.surveyquestion.html#surveyid" class="tsd-kind-icon">survey<wbr>Id</a>
-					</li>
-					<li class=" tsd-kind-property tsd-parent-kind-module">
-						<a href="_api_api_.surveyquestion.html#type" class="tsd-kind-icon">type</a>
+						<a href="_api_api_.surveyquestion.html#survey" class="tsd-kind-icon">survey</a>
 					</li>
 				</ul>
 			</nav>

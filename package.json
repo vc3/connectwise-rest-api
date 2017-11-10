@@ -1,6 +1,6 @@
 {
   "name": "connectwise-rest-api",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "license": "MIT",
   "private": false,
   "main": "./release/connectwise.js",
@@ -13,7 +13,7 @@
   "author": {
     "name": "Cameron Sowder",
     "email": "cameron@sowder.io",
-    "url": "sowder.io"
+    "url": "https://sowder.io"
   },
   "bugs": {
     "url": "https://github.com/vc3/connectwise-rest-api/issues"
@@ -28,18 +28,17 @@
   ],
   "readme": "README.md",
   "scripts": {
-    "compile": "tsc --pretty",
-    "test": "tslint --project tsconfig.json --format stylish && tsc --pretty --noEmit && ava"
+    "compile": "npx tsc --pretty",
+    "test": "npx tsc --pretty --noEmit",
+    "document": "npx typedoc . --out docs --ignoreCompilerErrors"
   },
   "dependencies": {
     "isomorphic-fetch": "^2.2.1"
   },
   "devDependencies": {
-    "@types/es6-promise": "^0.0.32",
     "@types/isomorphic-fetch": "^0.0.33",
     "@types/node": "^7.0.8",
-    "ava": "^0.18.2",
-    "tslint": "^5.4.3",
+    "typedoc": "^0.9.0",
     "typescript": "^2.0.0",
     "typings": "^0.8.1"
   }

@@ -13,6 +13,37 @@ export interface AccountingBatch {
      */
     "info"?: Metadata;
 }
+export interface AccountingPackage {
+    "id"?: number;
+    "identifier"?: string;
+    "name"?: string;
+    "directTransferFlag"?: boolean;
+    "includeInvoicesFlag"?: boolean;
+    "invoiceFormat"?: AccountingPackage.InvoiceFormatEnum;
+    "includeExpenseFlag"?: boolean;
+    "transferExpenseAsBillFlag"?: boolean;
+    "expenseFormat"?: AccountingPackage.ExpenseFormatEnum;
+    "supressMemoFlag"?: boolean;
+    "syncPaymentInfoFlag"?: boolean;
+    "includeSalesTaxFlag"?: boolean;
+    "enableTaxGroupsFlag"?: boolean;
+    "zeroDollarTaxAmountsFlag"?: boolean;
+    "includeItemsFlag"?: boolean;
+    "inventorySOHFlag"?: boolean;
+    "sendComponentAmountFlag"?: boolean;
+    "sendUomFlag"?: boolean;
+    "includeCogsEntriesFlag"?: boolean;
+    "includgeCogsDropShipFlag"?: boolean;
+    "activeFlag"?: boolean;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export namespace AccountingPackage {
+    type InvoiceFormatEnum = 'Default' | 'Condensed' | 'Detailed';
+    type ExpenseFormatEnum = 'Default' | 'Condensed' | 'Detailed';
+}
 export interface Activity {
     "id"?: number;
     "name": string;
@@ -36,6 +67,7 @@ export interface Activity {
     "where"?: ServiceLocationReference;
     "notifyFlag"?: boolean;
     "mobileGuid"?: Guid;
+    "currency"?: CurrencyReference;
     /**
      * Metadata of the entity
      */
@@ -62,6 +94,9 @@ export interface ActivityStatus {
      */
     "info"?: Metadata;
 }
+/**
+ * Required when notifyType is set to: "Create Activity"
+ */
 export interface ActivityStatusReference {
     "id"?: number;
     "name"?: string;
@@ -111,6 +146,9 @@ export interface ActivityType {
      */
     "info"?: Metadata;
 }
+/**
+ * Required when notifyType is set to: "Create Activity"
+ */
 export interface ActivityTypeReference {
     "id"?: number;
     "name"?: string;
@@ -154,6 +192,27 @@ export interface Addition {
 }
 export namespace Addition {
     type BillCustomerEnum = 'Billable' | 'DoNotBill' | 'NoCharge';
+}
+export interface AddressFormat {
+    "id"?: number;
+    "name": string;
+    "format": string;
+    "defaultFlag"?: boolean;
+    "countryIds"?: Array<number>;
+    "addAllCountries"?: boolean;
+    "removeAllCountries"?: boolean;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface AddressFormatReference {
+    "id"?: number;
+    "name"?: string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
 }
 export interface Adjustment {
     "id"?: number;
@@ -286,15 +345,16 @@ export interface Agreement {
     "billableTimeInvoice"?: boolean;
     "billableExpenseInvoice"?: boolean;
     "billableProductInvoice"?: boolean;
+    "currency"?: CurrencyReference;
+    "periodType"?: Agreement.PeriodTypeEnum;
     /**
      * Metadata of the entity
      */
     "info"?: Metadata;
-    "periodType"?: Agreement.PeriodTypeEnum;
 }
 export namespace Agreement {
     type ApplicationUnitsEnum = 'Amount' | 'Hours' | 'Incidents';
-    type ApplicationCycleEnum = 'Contract2Weeks' | 'Contract4Weeks' | 'ContractYear' | 'CalendarMonth' | 'CalendarQuarter' | 'CalendarWeek' | 'ContractQuarter' | 'CalendarYear';
+    type ApplicationCycleEnum = 'Contract2Weeks' | 'Contract4Weeks' | 'ContractYear' | 'CalendarMonth' | 'CalendarQuarter' | 'CalendarWeek' | 'ContractQuarter' | 'CalendarYear' | 'OneTimeOnly';
     type EmployeeCompRateEnum = 'Actual' | 'Hourly';
     type EmployeeCompNotExceedEnum = 'Billing' | 'Percent' | 'Amount';
     type InvoicingCycleEnum = 'CalendarYear' | 'ContractYear';
@@ -302,6 +362,15 @@ export namespace Agreement {
     type BillExpensesEnum = 'Billable' | 'DoNotBill' | 'NoCharge' | 'NoDefault';
     type BillProductsEnum = 'Billable' | 'DoNotBill' | 'NoCharge' | 'NoDefault';
     type PeriodTypeEnum = 'Current' | 'Future' | 'Both' | 'Undefined';
+}
+export interface AgreementBatchSetup {
+    "id"?: number;
+    "nextRunDate": Date;
+    "daysInAdvance": number;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
 }
 export interface AgreementReference {
     "id"?: number;
@@ -324,16 +393,16 @@ export interface AgreementSite {
 export interface AgreementType {
     "id"?: number;
     "name": string;
-    "prefixSuffixOption": AgreementType.PrefixSuffixOptionEnum;
+    "prefixSuffixOption"?: AgreementType.PrefixSuffixOptionEnum;
     "defaultFlag"?: boolean;
     "inactiveFlag"?: boolean;
     "prePaymentFlag"?: boolean;
     "invoicePreSuffix"?: string;
-    "locationId"?: number;
-    "businessUnitId"?: number;
+    "location"?: SystemLocationReference;
+    "department"?: SystemDepartmentReference;
     "restrictLocationFlag"?: boolean;
     "restrictDepartmentFlag"?: boolean;
-    "slaId"?: number;
+    "sla"?: SLAReference;
     "applicationUnits"?: AgreementType.ApplicationUnitsEnum;
     "applicationLimit"?: number;
     "applicationCycle"?: AgreementType.ApplicationCycleEnum;
@@ -353,9 +422,9 @@ export interface AgreementType {
     "employeeCompNotExceed": AgreementType.EmployeeCompNotExceedEnum;
     "compHourlyRate"?: number;
     "compLimitAmount"?: number;
-    "billCycleId"?: number;
+    "billingCycle"?: BillingCycleReference;
     "billOneTimeFlag"?: boolean;
-    "billTermsId"?: number;
+    "billingTerms"?: BillingTermsReference;
     "invoicingCycle": AgreementType.InvoicingCycleEnum;
     "billAmount"?: number;
     "taxableFlag"?: boolean;
@@ -365,8 +434,8 @@ export interface AgreementType {
     "bottomCommentFlag"?: boolean;
     "workRole"?: WorkRoleReference;
     "workType"?: WorkTypeReference;
-    "projectTypeId"?: number;
-    "invoiceTemplateSetupId"?: number;
+    "projectType"?: ProjectTypeReference;
+    "invoiceTemplate"?: InvoiceTemplateReference;
     "billTime": AgreementType.BillTimeEnum;
     "billExpenses": AgreementType.BillExpensesEnum;
     "billProducts": AgreementType.BillProductsEnum;
@@ -375,6 +444,15 @@ export interface AgreementType {
     "billableProductInvoiceFlag"?: boolean;
     "copyWorkRolesFlag"?: boolean;
     "copyWorkTypesFlag"?: boolean;
+    "exclusionWorkRoleIds"?: Array<number>;
+    "addAllWorkRoleExclusions"?: boolean;
+    "removeAllWorkRoleExclusions"?: boolean;
+    "exclusionWorkTypeIds"?: Array<number>;
+    "addAllWorkTypeExclusions"?: boolean;
+    "removeAllWorkTypeExclusions"?: boolean;
+    "integrationXRef"?: string;
+    "prorateFlag"?: boolean;
+    "emailTemplate"?: EmailTemplateReference;
     /**
      * Metadata of the entity
      */
@@ -391,9 +469,83 @@ export namespace AgreementType {
     type BillExpensesEnum = 'Billable' | 'DoNotBill' | 'NoCharge' | 'NoDefault';
     type BillProductsEnum = 'Billable' | 'DoNotBill' | 'NoCharge' | 'NoDefault';
 }
+export interface AgreementTypeBoardDefault {
+    "id"?: number;
+    "type"?: AgreementTypeReference;
+    "location": SystemLocationReference;
+    "department"?: SystemDepartmentReference;
+    "board"?: BoardReference;
+    "serviceType"?: ServiceTypeReference;
+    "defaultFlag"?: boolean;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+/**
+ * agreementType or configurationType is required
+ */
 export interface AgreementTypeReference {
     "id"?: number;
     "name"?: string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface AgreementTypeWorkRole {
+    "id"?: number;
+    "type"?: AgreementTypeReference;
+    "workRole"?: WorkRoleReference;
+    "effectiveDate"?: Date;
+    "endingDate"?: Date;
+    "rate"?: number;
+    "rateType": AgreementTypeWorkRole.RateTypeEnum;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export namespace AgreementTypeWorkRole {
+    type RateTypeEnum = 'AdjAmount' | 'Custom' | 'Multiplier';
+}
+export interface AgreementTypeWorkRoleExclusion {
+    "id"?: number;
+    "type"?: AgreementTypeReference;
+    "workRole": WorkRoleReference;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface AgreementTypeWorkType {
+    "id"?: number;
+    "type"?: AgreementTypeReference;
+    "workType"?: WorkTypeReference;
+    "effectiveDate"?: Date;
+    "endingDate"?: Date;
+    "rate"?: number;
+    "rateType": AgreementTypeWorkType.RateTypeEnum;
+    "billTime": AgreementTypeWorkType.BillTimeEnum;
+    "hoursMin"?: number;
+    "hoursMax"?: number;
+    "roundBillHours"?: number;
+    "overageRate"?: number;
+    "overageRateType": AgreementTypeWorkType.OverageRateTypeEnum;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export namespace AgreementTypeWorkType {
+    type RateTypeEnum = 'AdjAmount' | 'Custom' | 'Multiplier';
+    type BillTimeEnum = 'Billable' | 'DoNotBill' | 'NoCharge' | 'NoDefault';
+    type OverageRateTypeEnum = 'AdjAmount' | 'Custom' | 'Multiplier';
+}
+export interface AgreementTypeWorkTypeExclusion {
+    "id"?: number;
+    "type"?: AgreementTypeReference;
+    "workType": WorkTypeReference;
     /**
      * Metadata of the entity
      */
@@ -471,6 +623,26 @@ export interface AuditTrailEntry {
     "auditSubType"?: string;
     "auditSource"?: string;
 }
+export interface AuthAnvil {
+    "id"?: number;
+    "serverLocationUrl": string;
+    "siteId": number;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+/**
+ * Required when notifyType is set to: "Run Connectwise Automate Script"
+ */
+export interface AutomateScriptReference {
+    "id"?: number;
+    "name"?: string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
 export interface BatchRequest {
     "id"?: string;
     "requests"?: Array<EndpointRequest>;
@@ -483,6 +655,26 @@ export interface BatchResponse {
     "id"?: string;
     "responses"?: Array<EndpointResponse>;
 }
+export interface BillingCycle {
+    "id"?: number;
+    "identifier": string;
+    "name": string;
+    "defaultFlag": boolean;
+    "inactiveFlag"?: boolean;
+    "billingOptions"?: BillingOptionsReference;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface BillingCycleReference {
+    "id"?: number;
+    "name"?: string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
 export interface BillingDeliveryReference {
     "id"?: number;
     "name"?: string;
@@ -491,9 +683,123 @@ export interface BillingDeliveryReference {
      */
     "info"?: Metadata;
 }
+export interface BillingOptionsReference {
+    "id"?: number;
+    "name"?: string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface BillingSetup {
+    "id"?: number;
+    "remitName": string;
+    "location": SystemLocationReference;
+    "addressOne"?: string;
+    "addressTwo"?: string;
+    "city"?: string;
+    "state"?: StateReference;
+    "zip"?: string;
+    "country"?: CountryReference;
+    "phone"?: string;
+    "invoiceTitle": string;
+    "payableName": string;
+    "topcomment"?: string;
+    "invoiceFooter"?: string;
+    "quoteFooter"?: string;
+    "overallInvoiceDefault": InvoiceTemplateReference;
+    "standardInvoiceActual"?: InvoiceTemplateReference;
+    "standardInvoiceFixed"?: InvoiceTemplateReference;
+    "progressInvoice"?: InvoiceTemplateReference;
+    "agreementInvoice"?: InvoiceTemplateReference;
+    "creditMemoInvoice"?: InvoiceTemplateReference;
+    "downPaymentInvoice"?: InvoiceTemplateReference;
+    "miscInvoice"?: InvoiceTemplateReference;
+    "salesOrderInvoice"?: InvoiceTemplateReference;
+    "excludeDoNotBillTimeFlag"?: boolean;
+    "excludeDoNotBillExpenseFlag"?: boolean;
+    "excludeDoNotBillProductFlag"?: boolean;
+    "prefixSuffixFlag"?: BillingSetup.PrefixSuffixFlagEnum;
+    "prefixSuffixText"?: string;
+    "chargeAdjToFirmFlag"?: boolean;
+    "noWatermarkFlag"?: boolean;
+    "displayTaxFlag"?: boolean;
+    "allowRestrictedDeptOnRoutingFlag"?: boolean;
+    "billTicketSeparatelyFlag"?: boolean;
+    "billTicketCompleteFlag"?: boolean;
+    "billTicketUnapprovedFlag"?: boolean;
+    "billProjectCompleteFlag"?: boolean;
+    "billProjectUnapprovedFlag"?: boolean;
+    "progressTimeFlag"?: boolean;
+    "restrictProjectDownpaymentFlag"?: boolean;
+    "billSalesOrderCompleteFlag"?: boolean;
+    "billProductAfterShipFlag"?: boolean;
+    "restrictDownpaymentFlag"?: boolean;
+    "copyNonServiceProductsFlag"?: boolean;
+    "copyServiceProductsFlag"?: boolean;
+    "copyAgreementProductsFlag"?: boolean;
+    "printLogoFlag"?: boolean;
+    "readReceiptFlag"?: boolean;
+    "deliveryReceiptFlag"?: boolean;
+    "disableRoutingEmailFlag"?: boolean;
+    "emailTemplate": OrderStatusEmailTemplateReference;
+    "localizedCountry"?: CountryReference;
+    "businessNumber"?: string;
+    "currency"?: CurrencyReference;
+    "customLabel"?: string;
+    "customText"?: string;
+    "companyCode"?: string;
+    "excludeAvalaraFlag"?: boolean;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export namespace BillingSetup {
+    type PrefixSuffixFlagEnum = 'Prefix' | 'Suffix';
+}
+export interface BillingSetupRouting {
+    "id"?: number;
+    "sequenceNumber": number;
+    "invoiceRule": BillingSetupRouting.InvoiceRuleEnum;
+    "routingRule": BillingSetupRouting.RoutingRuleEnum;
+    "member"?: MemberReference;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export namespace BillingSetupRouting {
+    type InvoiceRuleEnum = 'Agreement' | 'All' | 'Project' | 'Standard';
+    type RoutingRuleEnum = 'Account' | 'Department' | 'Creator' | 'Location' | 'Project' | 'Sales' | 'Member' | 'Territory';
+}
+export interface BillingStatus {
+    "id"?: number;
+    "name": string;
+    "sortOrder"?: number;
+    "defaultFlag"?: boolean;
+    "closedFlag"?: boolean;
+    "inactiveFlag"?: boolean;
+    "sentFlag"?: boolean;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
 export interface BillingStatusReference {
     "id"?: number;
     "name"?: string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface BillingTerm {
+    "id"?: number;
+    "name": string;
+    "defaultFlag": boolean;
+    "dueDays": number;
+    "termsXref"?: string;
     /**
      * Metadata of the entity
      */
@@ -510,14 +816,14 @@ export interface BillingTermsReference {
 export interface Board {
     "id"?: number;
     "name": string;
-    "locationId": number;
-    "businessUnitId": number;
-    "inactive"?: boolean;
+    "location": SystemLocationReference;
+    "department": SystemDepartmentReference;
+    "inactiveFlag"?: boolean;
     "signOffTemplate"?: ServiceSignoffReference;
-    "sendToContact"?: boolean;
-    "contactTemplateId"?: number;
-    "sendToResource"?: boolean;
-    "resourceTemplateId"?: number;
+    "sendToContactFlag"?: boolean;
+    "contactTemplate"?: ServiceEmailTemplateReference;
+    "sendToResourceFlag"?: boolean;
+    "resourceTemplate"?: ServiceEmailTemplateReference;
     "projectFlag"?: boolean;
     /**
      * This field only shows if it is Project Board.
@@ -527,10 +833,117 @@ export interface Board {
      * This field only shows if it is Project Board.
      */
     "showEstimatesFlag"?: boolean;
+    "boardIcon"?: DocumentReference;
+    "billTicketsAfterClosedFlag"?: boolean;
+    "billTicketSeparatelyFlag"?: boolean;
+    "billUnapprovedTimeExpenseFlag"?: boolean;
+    "overrideBillingSetupFlag"?: boolean;
+    "dispatchMember"?: MemberReference;
+    "serviceManagerMember"?: MemberReference;
+    "dutyManagerMember"?: MemberReference;
+    "oncallMember"?: MemberReference;
+    "workRole"?: WorkRoleReference;
+    "workType"?: WorkTypeReference;
+    "billTime"?: Board.BillTimeEnum;
+    "billExpense"?: Board.BillExpenseEnum;
+    "billProduct"?: Board.BillProductEnum;
+    "autoCloseStatus"?: ServiceStatusReference;
+    "autoAssignNewTicketsFlag"?: boolean;
+    "autoAssignNewECTicketsFlag"?: boolean;
+    "autoAssignNewPortalTicketsFlag"?: boolean;
+    "discussionsLockedFlag"?: boolean;
+    "timeEntryLockedFlag"?: boolean;
+    "notifyEmailFrom"?: string;
+    "notifyEmailFromName"?: string;
+    "closedLoopDiscussionsFlag"?: boolean;
+    "closedLoopResolutionFlag"?: boolean;
+    "closedLoopInternalAnalysisFlag"?: boolean;
+    "timeEntryDiscussionFlag"?: boolean;
+    "timeEntryResolutionFlag"?: boolean;
+    "timeEntryInternalAnalysisFlag"?: boolean;
+    "problemSort"?: Board.ProblemSortEnum;
+    "resolutionSort"?: Board.ResolutionSortEnum;
+    "internalAnalysisSort"?: Board.InternalAnalysisSortEnum;
+    "emailConnectorAllowReopenClosedFlag"?: boolean;
+    /**
+     * This field is only required when emailConnectorAllowReopenClosed is true
+     */
+    "emailConnectorReopenStatus"?: ServiceStatusReference;
+    /**
+     * This field can only be set when emailConnectorAllowReopenClosed is true
+     */
+    "emailConnectorReopenResourcesFlag"?: boolean;
+    /**
+     * This field can only be set when emailConnectorAllowReopenClosed is true
+     */
+    "emailConnectorNewTicketNoMatchFlag"?: boolean;
+    /**
+     * This field can only be set when emailConnectorAllowReopenClosed is true
+     */
+    "emailConnectorNeverReopenByDaysFlag"?: boolean;
+    "emailConnectorReopenDaysLimit"?: number;
+    "useMemberDisplayNameFlag"?: boolean;
+    "sendToCCFlag"?: boolean;
+    "autoAssignTicketOwnerFlag"?: boolean;
+    "closedLoopAllFlag"?: boolean;
+    "allSort"?: Board.AllSortEnum;
     /**
      * Metadata of the entity
      */
     "info"?: Metadata;
+}
+export namespace Board {
+    type BillTimeEnum = 'Billable' | 'DoNotBill' | 'NoCharge' | 'NoDefault';
+    type BillExpenseEnum = 'Billable' | 'DoNotBill' | 'NoCharge' | 'NoDefault';
+    type BillProductEnum = 'Billable' | 'DoNotBill' | 'NoCharge' | 'NoDefault';
+    type ProblemSortEnum = 'Ascending' | 'Descending';
+    type ResolutionSortEnum = 'Ascending' | 'Descending';
+    type InternalAnalysisSortEnum = 'Ascending' | 'Descending';
+    type AllSortEnum = 'Ascending' | 'Descending';
+}
+export interface BoardAutoAssignResource {
+    "id"?: number;
+    "notifyWho": NotificationRecipientReference;
+    "member"?: MemberReference;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface BoardAutoTemplate {
+    "id"?: number;
+    "type": ServiceTypeReference;
+    "subtype": ServiceSubTypeReference;
+    "item": ServiceItemReference;
+    "serviceTemplate": ServiceTemplateReference;
+    "board"?: BoardReference;
+    "summarySetting"?: BoardAutoTemplate.SummarySettingEnum;
+    "discussionSetting"?: BoardAutoTemplate.DiscussionSettingEnum;
+    "internalAnalysisSetting"?: BoardAutoTemplate.InternalAnalysisSettingEnum;
+    "tasksSetting"?: BoardAutoTemplate.TasksSettingEnum;
+    "documentsSetting"?: BoardAutoTemplate.DocumentsSettingEnum;
+    "resourcesSetting"?: BoardAutoTemplate.ResourcesSettingEnum;
+    "budgetHoursSetting"?: BoardAutoTemplate.BudgetHoursSettingEnum;
+    "financeInformationSetting"?: BoardAutoTemplate.FinanceInformationSettingEnum;
+    "autoApplyFlag"?: boolean;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export namespace BoardAutoTemplate {
+    type SummarySettingEnum = 'Append' | 'Overwrite' | 'Ignore';
+    type DiscussionSettingEnum = 'Append' | 'Overwrite' | 'Ignore';
+    type InternalAnalysisSettingEnum = 'Append' | 'Overwrite' | 'Ignore';
+    type TasksSettingEnum = 'Append' | 'Overwrite' | 'Ignore';
+    type DocumentsSettingEnum = 'Append' | 'Overwrite' | 'Ignore';
+    type ResourcesSettingEnum = 'Append' | 'Overwrite' | 'Ignore';
+    type BudgetHoursSettingEnum = 'Append' | 'Overwrite' | 'Ignore';
+    type FinanceInformationSettingEnum = 'Append' | 'Overwrite' | 'Ignore';
+}
+export interface BoardCopy {
+    "id"?: number;
+    "name": string;
 }
 export interface BoardDefault {
     "id"?: number;
@@ -538,6 +951,47 @@ export interface BoardDefault {
     "serviceType"?: ServiceTypeReference;
     "defaultFlag"?: boolean;
     "agreementId"?: number;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface BoardExcludedMember {
+    "id"?: number;
+    "memberId": number;
+    "boardId"?: number;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface BoardItem {
+    "id"?: number;
+    "name": string;
+    "inactiveFlag"?: boolean;
+    "board"?: BoardReference;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface BoardItemAssociation {
+    "id": number;
+    "subTypeAssociationIds"?: Array<number>;
+    "addAllSubTypesFlag"?: boolean;
+    "removeAllSubTypesFlag"?: boolean;
+    "item"?: ServiceItemReference;
+    "board"?: BoardReference;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface BoardNotification {
+    "id"?: number;
+    "notifyWho": NotificationRecipientReference;
+    "member"?: MemberReference;
+    "email"?: string;
     /**
      * Metadata of the entity
      */
@@ -551,9 +1005,142 @@ export interface BoardReference {
      */
     "info"?: Metadata;
 }
+export interface BoardStatus {
+    "id"?: number;
+    "name": string;
+    "board"?: BoardReference;
+    "externalIntegrationXref"?: ExternalIntegrationStatusReference;
+    "sortOrder"?: number;
+    "displayOnBoard"?: boolean;
+    "inactive"?: boolean;
+    "closedStatus"?: boolean;
+    "timeEntryNotAllowed"?: boolean;
+    "defaultFlag"?: boolean;
+    "escalationStatus": BoardStatus.EscalationStatusEnum;
+    "customerPortalDescription"?: string;
+    "customerPortalFlag"?: boolean;
+    "emailTemplate"?: ServiceEmailTemplateReference;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export namespace BoardStatus {
+    type EscalationStatusEnum = 'NotResponded' | 'Responded' | 'ResolutionPlan' | 'Resolved' | 'NoEscalation';
+}
+export interface BoardStatusNotification {
+    "id"?: number;
+    "notifyWho": NotificationRecipientReference;
+    "status"?: ServiceStatusReference;
+    /**
+     * Service Status Notification member must be entered if the notify type is "Specific Member"
+     */
+    "member"?: MemberReference;
+    /**
+     * Service Status Notification email must be entered if the notify type is "Email Address"
+     */
+    "email"?: string;
+    "workflowStep"?: number;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface BoardSubType {
+    "id"?: number;
+    "name": string;
+    "inactiveFlag"?: boolean;
+    "typeAssociationIds"?: Array<number>;
+    "addAllTypesFlag"?: boolean;
+    "removeAllTypesFlag"?: boolean;
+    "board"?: BoardReference;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface BoardTeam {
+    "id"?: number;
+    "name": string;
+    "teamLeader": MemberReference;
+    "members"?: Array<number>;
+    "defaultFlag"?: boolean;
+    "notifyOnTicketDelete"?: boolean;
+    "boardId"?: number;
+    "locationId"?: number;
+    "businessUnitId"?: number;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface BoardType {
+    "id"?: number;
+    "name": string;
+    "category"?: BoardType.CategoryEnum;
+    "defaultFlag"?: boolean;
+    "inactiveFlag"?: boolean;
+    "requestForChangeFlag"?: boolean;
+    "integrationXref"?: string;
+    "board"?: BoardReference;
+    "location"?: SystemLocationReference;
+    "department"?: SystemDepartmentReference;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export namespace BoardType {
+    type CategoryEnum = 'Reactive' | 'Proactive';
+}
+export interface BoardTypeSubTypeItemAssociation {
+    "id"?: number;
+    "type"?: ServiceTypeReference;
+    "subType"?: ServiceSubTypeReference;
+    "item"?: ServiceItemReference;
+    "board"?: BoardReference;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface Calendar {
+    "id"?: number;
+    "name": string;
+    "holidayList"?: HolidayListReference;
+    "mondayStartTime"?: string;
+    "mondayEndTime"?: string;
+    "tuesdayStartTime"?: string;
+    "tuesdayEndTime"?: string;
+    "wednesdayStartTime"?: string;
+    "wednesdayEndTime"?: string;
+    "thursdayStartTime"?: string;
+    "thursdayEndTime"?: string;
+    "fridayStartTime"?: string;
+    "fridayEndTime"?: string;
+    "saturdayStartTime"?: string;
+    "saturdayEndTime"?: string;
+    "sundayStartTime"?: string;
+    "sundayEndTime"?: string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+/**
+ * customCalendar is a required reference if basedOn SLA Hours Type is Custom
+ */
 export interface CalendarReference {
     "id"?: number;
     "name"?: string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface CalendarSetupReference {
+    "id"?: number;
+    "ownerId"?: number;
     /**
      * Metadata of the entity
      */
@@ -643,7 +1230,7 @@ export interface CampaignStatusReference {
 }
 export interface CampaignSubType {
     "id"?: number;
-    "typeId"?: number;
+    "type": CampaignTypeReference;
     "name": string;
     /**
      * Metadata of the entity
@@ -684,6 +1271,7 @@ export interface CatalogComponent {
     "hideItemIdentifierFlag"?: boolean;
     "hideDescriptionFlag"?: boolean;
     "hideQuantityFlag"?: boolean;
+    "hideExtendedPriceFlag"?: boolean;
     "parentCatalogItem"?: CatalogItemReference;
     "price"?: number;
     "cost"?: number;
@@ -725,6 +1313,7 @@ export interface CatalogItem {
      * Metadata of the entity
      */
     "info"?: Metadata;
+    "customFields"?: Array<CustomFieldValue>;
 }
 export namespace CatalogItem {
     type ProductClassEnum = 'Agreement' | 'Bundle' | 'Inventory' | 'NonInventory' | 'Service';
@@ -733,6 +1322,7 @@ export namespace CatalogItem {
 export interface CatalogItemReference {
     "id"?: number;
     "identifier"?: string;
+    "name"?: string;
     /**
      * Metadata of the entity
      */
@@ -761,9 +1351,63 @@ export interface Certification {
      */
     "info"?: Metadata;
 }
+export interface CertificationReference {
+    "id"?: number;
+    "name"?: string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface ChargeCode {
+    "id"?: number;
+    "name": string;
+    "company": CompanyReference;
+    "location"?: SystemLocationReference;
+    "department"?: SystemDepartmentReference;
+    "billTime"?: ChargeCode.BillTimeEnum;
+    "expenseEntryFlag"?: boolean;
+    "allowAllExpenseTypeFlag"?: boolean;
+    "timeEntryFlag"?: boolean;
+    /**
+     * on UPDATE, if timeEntryFlag is set to true, workType will be required.
+     */
+    "workType"?: WorkTypeReference;
+    "workRole"?: WorkRoleReference;
+    "integrationXref"?: string;
+    "expenseTypeIds"?: Array<number>;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export namespace ChargeCode {
+    type BillTimeEnum = 'Billable' | 'DoNotBill' | 'NoCharge' | 'NoDefault';
+}
+export interface ChargeCodeExpenseType {
+    "id"?: number;
+    "type": ExpenseTypeReference;
+    "chargeCode"?: ChargeCodeReference;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
 export interface ChargeCodeReference {
     "id"?: number;
     "name"?: string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface Classification {
+    "id"?: number;
+    "name"?: string;
+    "multiplier"?: number;
+    "defaultFlag"?: boolean;
+    "companyFlag"?: boolean;
+    "employeeFlag"?: boolean;
     /**
      * Metadata of the entity
      */
@@ -777,6 +1421,13 @@ export interface ClassificationReference {
      */
     "info"?: Metadata;
 }
+export interface ClearPickerRequest {
+    "member"?: MemberReference;
+    "type"?: ClearPickerRequest.TypeEnum;
+}
+export namespace ClearPickerRequest {
+    type TypeEnum = 'Company' | 'Vendor';
+}
 export interface Code {
     "id"?: number;
     "name": string;
@@ -788,6 +1439,46 @@ export interface Code {
      * Metadata of the entity
      */
     "info"?: Metadata;
+}
+export interface Commission {
+    "id"?: number;
+    "member": MemberReference;
+    "commissionPercent"?: number;
+    "dateStart"?: Date;
+    "dateEnd"?: Date;
+    "location"?: SystemLocationReference;
+    "department"?: SystemDepartmentReference;
+    "company"?: CompanyReference;
+    "site"?: SiteReference;
+    "agreement"?: AgreementReference;
+    "project"?: ProjectReference;
+    "serviceBoard"?: BoardReference;
+    "ticket"?: TicketReference;
+    "territory"?: SystemLocationReference;
+    "billingMethod"?: Commission.BillingMethodEnum;
+    "serviceType"?: ServiceTypeReference;
+    "projectBoard"?: ProjectBoardReference;
+    "projectType"?: ProjectTypeReference;
+    "agreementType"?: AgreementTypeReference;
+    "numberOfMonths"?: number;
+    "productCategory"?: ProductCategoryReference;
+    "productSubCategory"?: ProductSubCategoryReference;
+    "item"?: IvItemReference;
+    "commissionBasis"?: Commission.CommissionBasisEnum;
+    "invoiceOption"?: Commission.InvoiceOptionEnum;
+    "servicesFlag"?: boolean;
+    "agreementsFlag"?: boolean;
+    "productsFlag"?: boolean;
+    "myOpportunitiesFlag"?: boolean;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export namespace Commission {
+    type BillingMethodEnum = 'Agreement' | 'CreditMemo' | 'DownPayment' | 'Miscellaneous' | 'Progress' | 'Standard';
+    type CommissionBasisEnum = 'SalesAmount' | 'GrossProfit';
+    type InvoiceOptionEnum = 'PaidInvoices' | 'AllInvoices';
 }
 export interface CommunicationTypeReference {
     "id"?: number;
@@ -840,7 +1531,10 @@ export interface Company {
     "annualRevenue"?: number;
     "numberOfEmployees"?: number;
     "ownershipType"?: OwnershipTypeReference;
-    "timeZone"?: TimeZoneReference;
+    /**
+     * The specified system time zone for the Company
+     */
+    "timeZone"?: TimeZoneSetupReference;
     "leadSource"?: string;
     "leadFlag"?: boolean;
     "unsubscribeFlag"?: boolean;
@@ -878,6 +1572,9 @@ export interface Company {
     "dateDeleted"?: Date;
     "deletedBy"?: string;
     "mobileGuid"?: Guid;
+    "facebookUrl"?: string;
+    "twitterUrl"?: string;
+    "linkedInUrl"?: string;
     "currency"?: CurrencyReference;
     "territoryManager"?: MemberReference;
     /**
@@ -891,6 +1588,20 @@ export interface CompanyCustomNote {
     "customNote": string;
     "status": CompanyStatusReference;
     "company"?: CompanyReference;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface CompanyGroup {
+    "id"?: number;
+    "group": GroupReference;
+    "company"?: CompanyReference;
+    "defaultContactFlag"?: boolean;
+    "allContactsFlag"?: boolean;
+    "removeAllContactsFlag"?: boolean;
+    "unsubscribeFlag"?: boolean;
+    "contactIds"?: Array<number>;
     /**
      * Metadata of the entity
      */
@@ -1041,8 +1752,29 @@ export interface CompanyNote {
      */
     "info"?: Metadata;
 }
+export interface CompanyPickerItem {
+    "id"?: number;
+    "member"?: MemberReference;
+    /**
+     * The company or vendor selected by member from the company/vendor picker component
+     */
+    "company": CompanyReference;
+    "companyStatus"?: CompanyStatusReference;
+    "companyType"?: CompanyTypeReference;
+    "companySite"?: SiteReference;
+    "companyLocation"?: SystemLocationReference;
+    "companyCountry"?: CountryReference;
+    /**
+     * If true, this record was created by the vendor picker component. Otherwise, the record was created by the company picker component.
+     */
+    "vendorPickerFlag"?: boolean;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
 /**
- * If chargeToId is not specified, we asume you enter time against the company specified
+ * Vendor Can be either Member or Company Reference
  */
 export interface CompanyReference {
     "id"?: number;
@@ -1062,6 +1794,7 @@ export interface CompanySite {
     "state"?: string;
     "zip"?: string;
     "country"?: CountryReference;
+    "addressFormat"?: string;
     "phoneNumber"?: string;
     "faxNumber"?: string;
     "taxCodeId"?: number;
@@ -1070,8 +1803,9 @@ export interface CompanySite {
     "defaultShippingFlag"?: boolean;
     "defaultBillingFlag"?: boolean;
     "defaultMailingFlag"?: boolean;
+    "mobileGuid"?: Guid;
     "calendar"?: CalendarReference;
-    "timeZone"?: TimeZoneReference;
+    "timeZone"?: TimeZoneSetupReference;
     "company"?: CompanyReference;
     /**
      * Metadata of the entity
@@ -1094,6 +1828,9 @@ export interface CompanyStatus {
      */
     "info"?: Metadata;
 }
+/**
+ * Required when notifyType is set to: "Change Company Status"
+ */
 export interface CompanyStatusReference {
     "id"?: number;
     "name"?: string;
@@ -1102,6 +1839,9 @@ export interface CompanyStatusReference {
      */
     "info"?: Metadata;
 }
+/**
+ * A list of customers for which the member holds a team role
+ */
 export interface CompanyTeam {
     "id"?: number;
     "company"?: CompanyReference;
@@ -1117,6 +1857,9 @@ export interface CompanyTeam {
      * Metadata of the entity
      */
     "info"?: Metadata;
+    "count"?: number;
+    "reAssignToMember"?: MemberReference;
+    "reAssignToContact"?: ContactReference;
 }
 export interface CompanyType {
     "id"?: number;
@@ -1203,7 +1946,7 @@ export interface ConfigurationQuestion {
     "requiredFlag"?: boolean;
 }
 export namespace ConfigurationQuestion {
-    type FieldTypeEnum = 'Text' | 'Button' | 'Currency' | 'Date' | 'Hyperlink' | 'IPAddress' | 'Checkbox' | 'Number' | 'Percent' | 'TextArea' | 'Password';
+    type FieldTypeEnum = 'Button' | 'Checkbox' | 'Currency' | 'Date' | 'Hyperlink' | 'IPAddress' | 'Number' | 'Password' | 'Percent' | 'Text' | 'TextArea';
 }
 export interface ConfigurationReference {
     "id"?: number;
@@ -1243,23 +1986,42 @@ export interface ConfigurationType {
 }
 export interface ConfigurationTypeQuestion {
     "id"?: number;
-    "configurationTypeId"?: number;
+    "configurationType"?: ConfigurationTypeReference;
     "fieldType": ConfigurationTypeQuestion.FieldTypeEnum;
     "entryType": ConfigurationTypeQuestion.EntryTypeEnum;
-    "sequenceNumber"?: number;
+    "sequenceNumber": number;
     "question": string;
     "numberOfDecimals"?: number;
     "requiredFlag"?: boolean;
     "inactiveFlag"?: boolean;
-    "possibleAnswers"?: Array<string>;
     /**
      * Metadata of the entity
      */
     "info"?: Metadata;
 }
 export namespace ConfigurationTypeQuestion {
-    type FieldTypeEnum = 'Text' | 'Button' | 'Currency' | 'Date' | 'Hyperlink' | 'IPAddress' | 'Checkbox' | 'Number' | 'Percent' | 'TextArea' | 'Password';
+    type FieldTypeEnum = 'Button' | 'Checkbox' | 'Currency' | 'Date' | 'Hyperlink' | 'IPAddress' | 'Number' | 'Password' | 'Percent' | 'Text' | 'TextArea';
     type EntryTypeEnum = 'EntryField' | 'List' | 'Option';
+}
+export interface ConfigurationTypeQuestionReference {
+    "id"?: number;
+    "question"?: string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface ConfigurationTypeQuestionValue {
+    "id"?: number;
+    "configurationType"?: ConfigurationTypeReference;
+    "question"?: ConfigurationTypeQuestionReference;
+    "value": string;
+    "defaultFlag"?: boolean;
+    "inactiveFlag"?: boolean;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
 }
 export interface ConfigurationTypeReference {
     "id"?: number;
@@ -1338,6 +2100,7 @@ export interface Contact {
     "twitterUrl"?: string;
     "linkedInUrl"?: string;
     "defaultBillingFlag"?: boolean;
+    "defaultFlag"?: boolean;
     "communicationItems"?: Array<ContactCommunicationItem>;
     /**
      * Metadata of the entity
@@ -1388,6 +2151,21 @@ export interface ContactDepartment {
 export interface ContactDepartmentReference {
     "id"?: number;
     "name"?: string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface ContactGroup {
+    "id"?: number;
+    "group": GroupReference;
+    "contact"?: ContactReference;
+    "description"?: string;
+    "unsubscribeFlag"?: boolean;
+    "companyUnsubcribedEmailMessage"?: string;
+    "companyGroupUnsubscribedEmailMessage"?: string;
+    "contactUnsubscribedEmailMessage"?: string;
+    "contactGroupUnsubscribedEmailMessage"?: string;
     /**
      * Metadata of the entity
      */
@@ -1448,8 +2226,66 @@ export interface Conversion {
      */
     "info"?: Metadata;
 }
+export interface CorporateStructure {
+    "id"?: number;
+    "levelCount"?: CorporateStructure.LevelCountEnum;
+    "level1Name"?: string;
+    "level2Name"?: string;
+    "level3Name"?: string;
+    "level4Name"?: string;
+    "level5Name"?: string;
+    "fiscalYearStart": CorporateStructure.FiscalYearStartEnum;
+    "locationCaption": string;
+    "groupCaption": string;
+    "baseCurrency": CurrencyReference;
+    "president"?: MemberReference;
+    "chiefOperatingOfficer"?: MemberReference;
+    "controller"?: MemberReference;
+    "dispatcher"?: MemberReference;
+    "serviceManager"?: MemberReference;
+    "dutyManager"?: MemberReference;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export namespace CorporateStructure {
+    type LevelCountEnum = 'Level1' | 'Level2' | 'Level3' | 'Level4' | 'Level5';
+    type FiscalYearStartEnum = 'January' | 'February' | 'March' | 'April' | 'May' | 'June' | 'July' | 'August' | 'September' | 'October' | 'November' | 'December';
+}
+export interface CorporateStructureLevel {
+    "id"?: number;
+    "name"?: string;
+}
+export interface CorporateStructureLevelReference {
+    "id"?: number;
+    "name"?: string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
 export interface Count {
     "count"?: number;
+}
+export interface Country {
+    "id"?: number;
+    "name": string;
+    "defaultFlag"?: boolean;
+    "currency": CurrencyReference;
+    "cityCaption"?: string;
+    "stateCaption"?: string;
+    "zipCaption"?: string;
+    "zipMinimumLength"?: number;
+    "dialingPrefix"?: string;
+    "addressFormat"?: AddressFormatReference;
+    "countryCode"?: string;
+    "localizationCaptionOne"?: string;
+    "localizationValueOne"?: string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
 }
 /**
  * At least one address field is required -- addressLine1, addressLine2, city, state, zip and/or country
@@ -1481,14 +2317,43 @@ export interface CreateAccountingBatchRequest {
     "processedRecordIds": Array<number>;
     "summarizeExpenses"?: boolean;
 }
+export interface Crm {
+    "id"?: number;
+    "companyListCount"?: number;
+    "lockProbabilityFlag"?: boolean;
+    "accountManagerRole": TeamRoleReference;
+    "technicalContactRole": TeamRoleReference;
+    "salesRepRole": TeamRoleReference;
+    "companyIdGenerationFlag"?: boolean;
+    "excludeSpacesFlag"?: boolean;
+    "field1Caption"?: string;
+    "field2Caption"?: string;
+    "field3Caption"?: string;
+    "field4Caption"?: string;
+    "field5Caption"?: string;
+    "field6Caption"?: string;
+    "field7Caption"?: string;
+    "field8Caption"?: string;
+    "field9Caption"?: string;
+    "field10Caption"?: string;
+    "primaryRepCaption"?: string;
+    "secondaryRepCaption"?: string;
+    "other1Caption"?: string;
+    "other2Caption"?: string;
+    "defaultYear"?: boolean;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
 export interface Currency {
     "id"?: number;
     "currencyIdentifier": string;
-    "name"?: string;
+    "name": string;
     "symbol"?: string;
     "displayIdFlag"?: boolean;
     "displaySymbolFlag"?: boolean;
-    "isoCode"?: string;
+    "isoCode": string;
     /**
      * Metadata of the entity
      */
@@ -1496,7 +2361,9 @@ export interface Currency {
 }
 export interface CurrencyReference {
     "id"?: number;
-    "identifier"?: string;
+    "symbol"?: string;
+    "isoCode"?: string;
+    "name"?: string;
     /**
      * Metadata of the entity
      */
@@ -1511,8 +2378,224 @@ export interface CustomFieldValue {
     "value"?: string;
 }
 export namespace CustomFieldValue {
-    type TypeEnum = 'Text' | 'Button' | 'Currency' | 'Date' | 'Hyperlink' | 'IPAddress' | 'Checkbox' | 'Number' | 'Percent' | 'TextArea' | 'Password';
+    type TypeEnum = 'Button' | 'Checkbox' | 'Currency' | 'Date' | 'Hyperlink' | 'IPAddress' | 'Number' | 'Password' | 'Percent' | 'Text' | 'TextArea';
     type EntryMethodEnum = 'EntryField' | 'List' | 'Option';
+}
+export interface CustomReport {
+    "id"?: number;
+    "reportLink": string;
+    "name": string;
+    /**
+     * The Module Name
+     */
+    "module": CustomReport.ModuleEnum;
+    "description": string;
+    "generatedFlag"?: boolean;
+    "parameterPrefix"?: string;
+    "parameterSeparator"?: string;
+    "parameterNameSeparator"?: string;
+    "parameterSuffix"?: string;
+    "locationFlag"?: boolean;
+    /**
+     * Parameter unique identifier for the Custom Report's Location parameter
+     */
+    "locationParamId"?: number;
+    "locationDefaultFlag"?: boolean;
+    "locationOverride"?: string;
+    "departmentFlag"?: boolean;
+    /**
+     * Parameter unique identifier for the Custom Report's Department parameter
+     */
+    "departmentParamId"?: number;
+    "departmentDefaultFlag"?: boolean;
+    "departmentOverride"?: string;
+    "territoryFlag"?: boolean;
+    /**
+     * Parameter unique identifier for the Custom Report's Terriroty parameter
+     */
+    "territoryParamId"?: number;
+    "territoryDefaultFlag"?: boolean;
+    "territoryOverride"?: string;
+    "companyFlag"?: boolean;
+    /**
+     * Parameter unique identifier for the Custom Report's Company parameter
+     */
+    "companyParamId"?: number;
+    "companyOverride"?: string;
+    "memberFlag"?: boolean;
+    /**
+     * Parameter unique identifier for the Custom Report's Member parameter
+     */
+    "memberParamId"?: number;
+    "memberOverride"?: string;
+    "startDateFlag"?: boolean;
+    /**
+     * Parameter unique identifier for the Custom Report's Start Date parameter
+     */
+    "startDateParamId"?: number;
+    "startDateOverride"?: string;
+    "endDateFlag"?: boolean;
+    /**
+     * Parameter unique identifier for the Custom Report's End Date parameter
+     */
+    "endDateParamId"?: number;
+    "endDateOverride"?: string;
+    "oppTypeFlag"?: boolean;
+    /**
+     * Parameter unique identifier for the Custom Report's Opportunity Type parameter
+     */
+    "oppTypeParamId"?: number;
+    "oppTypeOverride"?: string;
+    "opportunityFlag"?: boolean;
+    /**
+     * Parameter unique identifier for the Custom Report's Opportunity parameter
+     */
+    "opportunityParamId"?: number;
+    "opportunityOverride"?: string;
+    "marketingCampaignFlag"?: boolean;
+    /**
+     * Parameter unique identifier for the Custom Report's Marketing Campaign parameter
+     */
+    "marketingCampaignParamId"?: number;
+    "marketingCampaignOverride"?: string;
+    "serviceBoardFlag"?: boolean;
+    /**
+     * Parameter unique identifier for the Custom Report's Service Board parameter
+     */
+    "serviceBoardParamId"?: number;
+    "serviceBoardDefaultFlag"?: boolean;
+    "serviceBoardOverride"?: string;
+    "serviceTypeFlag"?: boolean;
+    /**
+     * Parameter unique identifier for the Custom Report's Service Type parameter
+     */
+    "serviceTypeParamId"?: number;
+    "serviceTypeOverride"?: string;
+    "serviceStatusFlag"?: boolean;
+    /**
+     * Parameter unique identifier for the Custom Report's Service Status parameter
+     */
+    "serviceStatusParamId"?: number;
+    "serviceStatusOverride"?: string;
+    "agreementTypeFlag"?: boolean;
+    /**
+     * Parameter unique identifier for the Custom Report's Agreement Type parameter
+     */
+    "agreementTypeParamId"?: number;
+    "agreementTypeOverride"?: string;
+    "agreementFlag"?: boolean;
+    /**
+     * Parameter unique identifier for the Custom Report's Agreement parameter
+     */
+    "agreementParamId"?: number;
+    "agreementOverride"?: string;
+    "projectTypeFlag"?: boolean;
+    /**
+     * Parameter unique identifier for the Custom Report's Project Type parameter
+     */
+    "projectTypeParamId"?: number;
+    "projectTypeOverride"?: string;
+    "projectFlag"?: boolean;
+    /**
+     * Parameter unique identifier for the Custom Report's Project parameter
+     */
+    "projectParamId"?: number;
+    "projectOverride"?: string;
+    "workRoleFlag"?: boolean;
+    /**
+     * Parameter unique identifier for the Custom Report's Work Role parameter
+     */
+    "workRoleParamId"?: number;
+    "workRoleOverride"?: string;
+    "workTypeFlag"?: boolean;
+    /**
+     * Parameter unique identifier for the Custom Report's Work Type parameter
+     */
+    "workTypeParamId"?: number;
+    "workTypeOverride"?: string;
+    "invoiceFlag"?: boolean;
+    /**
+     * Parameter unique identifier for the Custom Report's Invoice Type parameter
+     */
+    "invoiceParamId"?: number;
+    "invoiceOverride"?: string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export namespace CustomReport {
+    type ModuleEnum = 'Companies' | 'Finance' | 'Marketing' | 'Procurement' | 'Project' | 'Sales' | 'ServiceDesk' | 'TimeExpense';
+}
+export interface CustomReportParameter {
+    "id"?: number;
+    /**
+     * Either a caption name or parameter name is required
+     */
+    "name"?: string;
+    /**
+     * Either a caption name or parameter name is required
+     */
+    "captionName"?: string;
+    "customReport"?: CustomReportReference;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface CustomReportReference {
+    "id"?: number;
+    "name"?: string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface DeliveryMethod {
+    "id"?: number;
+    "name": string;
+    "defaultFlag"?: boolean;
+    "emailFlag"?: boolean;
+    "integrationEmailFlag"?: boolean;
+    "integrationPrintFlag"?: boolean;
+    "integrationActiveFlag"?: boolean;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface Department {
+    "id"?: number;
+    "identifier": string;
+    "name": string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface DepartmentLocation {
+    "id"?: number;
+    "location": SystemLocationReference;
+    "department": SystemDepartmentReference;
+    "departmentManager"?: MemberReference;
+    "dispatch"?: MemberReference;
+    "serviceManager"?: MemberReference;
+    "dutyManager"?: MemberReference;
+    "ldapConfig"?: LdapConfigurationReference;
+    "addAllLocations"?: boolean;
+    "removeAllLocations"?: boolean;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface DepartmentMananager {
+    "count"?: number;
+    "reAssignToMember"?: MemberReference;
+}
+export interface DispatchMember {
+    "count"?: number;
+    "reAssignToMember"?: MemberReference;
 }
 export interface DocumentInfo {
     "id"?: number;
@@ -1523,7 +2606,9 @@ export interface DocumentInfo {
     "linkFlag"?: boolean;
     "imageFlag"?: boolean;
     "publicFlag"?: boolean;
+    "htmlTemplateFlag"?: boolean;
     "readOnlyFlag"?: boolean;
+    "size"?: number;
     /**
      * Metadata of the entity
      */
@@ -1531,6 +2616,114 @@ export interface DocumentInfo {
 }
 export interface DocumentReference {
     "id"?: number;
+    "name"?: string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface DocumentSetup {
+    "id"?: number;
+    "uploadAsLinkFlag"?: boolean;
+    "isPublicFlag"?: boolean;
+    "docPath"?: string;
+    "templatePath"?: string;
+    "templateOutputPath"?: string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface DutyManager {
+    "count"?: number;
+    "reAssignToMember"?: MemberReference;
+}
+export interface EmailConnector {
+    "id"?: number;
+    "imapSetup": ImapSetupReference;
+    "serviceBoard": BoardReference;
+    "defaultCompany": CompanyReference;
+    "defaultMember": MemberReference;
+    "location"?: SystemLocationReference;
+    "department"?: SystemDepartmentReference;
+    "emailNotifyFrom"?: string;
+    "bccEmailTo"?: string;
+    "emailErrorsTo": string;
+    "setEmailToDefaultContactFlag"?: boolean;
+    "noResponseFlag"?: boolean;
+    "neverRespondFlag"?: boolean;
+    "discardDuplicatesFlag"?: boolean;
+    "postRepliesToTicketFlag"?: boolean;
+    "createContactFlag"?: boolean;
+    "responseEmailForNew"?: string;
+    "responseEmailForExisting"?: string;
+    "sourceOverride"?: ServiceSourceReference;
+    "priorityOverride"?: PriorityReference;
+    "typeOverride"?: ServiceTypeReference;
+    "subTypeOverride"?: ServiceSubTypeReference;
+    "itemOverride"?: ServiceItemReference;
+    "statusOverride"?: ServiceStatusReference;
+    "addCcFlag"?: boolean;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface EmailConnectorParsingRule {
+    "id"?: number;
+    "parsingStyle"?: EmailConnectorParsingStyleReference;
+    "priority": number;
+    "parsingVariable": EmailConnectorParsingVariableReference;
+    "searchTerm": string;
+    "servicePriority"?: PriorityReference;
+    "serviceStatus"?: ServiceStatusReference;
+    "serviceType"?: ServiceTypeReference;
+    "serviceSubType"?: ServiceSubTypeReference;
+    "serviceItem"?: ServiceItemReference;
+    "serviceBoard"?: BoardReference;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface EmailConnectorParsingStyle {
+    "id"?: number;
+    "parsingType": EmailConnectorParsingTypeReference;
+    "parseRule": string;
+    "priority": number;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface EmailConnectorParsingStyleReference {
+    "id"?: number;
+    "name"?: string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface EmailConnectorParsingTypeReference {
+    "id"?: number;
+    "name"?: string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface EmailConnectorParsingVariableReference {
+    "id"?: number;
+    "name"?: string;
+    "identifier"?: string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface EmailConnectorReference {
+    "id"?: number;
+    "name"?: string;
     /**
      * Metadata of the entity
      */
@@ -1541,6 +2734,32 @@ export interface EmailOpened {
     "campaignId"?: number;
     "contactId": number;
     "dateOpened"?: Date;
+}
+export interface EmailTemplateReference {
+    "id"?: number;
+    "name"?: string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface EmailToken {
+    "id"?: number;
+    "token"?: string;
+    "description"?: string;
+    "addressFlag"?: boolean;
+    "agreementFlag"?: boolean;
+    "companyFlag"?: boolean;
+    "configFlag"?: boolean;
+    "contactFlag"?: boolean;
+    "invoiceFlag"?: boolean;
+    "purchaseOrderFlag"?: boolean;
+    "purchaseOrderStatusFlag"?: boolean;
+    "rmaFlag"?: boolean;
+    "salesFlag"?: boolean;
+    "serviceFlag"?: boolean;
+    "tracksFlag"?: boolean;
+    "workflowFlag"?: boolean;
 }
 export interface EndpointRequest {
     "id"?: string;
@@ -1571,15 +2790,6 @@ export interface Error {
     "message"?: string;
     "errors"?: Array<ValidationError>;
 }
-export interface ExcludedMember {
-    "id"?: number;
-    "memberId": number;
-    "boardId"?: number;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
-}
 export interface ExpenseEntry {
     "id"?: number;
     /**
@@ -1603,6 +2813,7 @@ export interface ExpenseEntry {
     "notes"?: string;
     "agreement"?: AgreementReference;
     "invoiceAmount"?: number;
+    "mobileGuid"?: Guid;
     "taxes"?: Array<ExpenseTax>;
     "invoice"?: InvoiceReference;
     /**
@@ -1613,6 +2824,24 @@ export interface ExpenseEntry {
 export namespace ExpenseEntry {
     type ChargeToTypeEnum = 'ServiceTicket' | 'ProjectTicket' | 'ChargeCode' | 'Activity';
     type BillableOptionEnum = 'Billable' | 'DoNotBill' | 'NoCharge' | 'NoDefault';
+}
+export interface ExpenseReport {
+    "id"?: number;
+    "member"?: MemberReference;
+    "year"?: number;
+    "period"?: number;
+    "dateStart"?: Date;
+    "dateEnd"?: Date;
+    "status"?: ExpenseReport.StatusEnum;
+    "total"?: number;
+    "dueDate"?: Date;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export namespace ExpenseReport {
+    type StatusEnum = 'Open' | 'Rejected' | 'PendingApproval' | 'ErrorsCorrected' | 'PendingProjectApproval' | 'ApprovedByTierOne' | 'RejectBySecondTier' | 'ApprovedByTierTwo' | 'ReadyToBill' | 'Billed' | 'WrittenOff' | 'BilledAgreement';
 }
 export interface ExpenseTax {
     "id"?: number;
@@ -1640,6 +2869,8 @@ export interface ExpenseType {
     "quantityFlag"?: boolean;
     "inactiveFlag"?: boolean;
     "maxAmount"?: number;
+    "externalIntegrationXRef"?: ExternalExpenseTypeIntegrationReference;
+    "integrationXRef"?: string;
     /**
      * Metadata of the entity
      */
@@ -1648,6 +2879,44 @@ export interface ExpenseType {
 export namespace ExpenseType {
     type BillExpensesEnum = 'Billable' | 'DoNotBill' | 'NoCharge';
     type InvoiceMarkupOptionEnum = 'Percent' | 'Amount' | 'Mile';
+}
+export interface ExpenseTypeExemption {
+    "id"?: number;
+    "expenseType": ExpenseTypeReference;
+    /**
+     * At least one level flag is required -- levelOneFlag, levelTwoFlag, levelThreeFlag, levelFourFlag, and/or levelFiveFlag
+     */
+    "levelOneFlag"?: boolean;
+    /**
+     * At least one level flag is required -- levelOneFlag, levelTwoFlag, levelThreeFlag, levelFourFlag, and/or levelFiveFlag
+     */
+    "levelTwoFlag"?: boolean;
+    /**
+     * At least one level flag is required -- levelOneFlag, levelTwoFlag, levelThreeFlag, levelFourFlag, and/or levelFiveFlag
+     */
+    "levelThreeFlag"?: boolean;
+    /**
+     * At least one level flag is required -- levelOneFlag, levelTwoFlag, levelThreeFlag, levelFourFlag, and/or levelFiveFlag
+     */
+    "levelFourFlag"?: boolean;
+    /**
+     * At least one level flag is required -- levelOneFlag, levelTwoFlag, levelThreeFlag, levelFourFlag, and/or levelFiveFlag
+     */
+    "levelFiveFlag"?: boolean;
+    "taxCode"?: TaxCodeReference;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface ExpenseTypeExternalIntegrationReference {
+    "id"?: number;
+    "identifier"?: string;
+    "name"?: string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
 }
 export interface ExpenseTypeReference {
     "id"?: number;
@@ -1685,6 +2954,33 @@ export interface ExportAccountingBatchRequest {
 export namespace ExportAccountingBatchRequest {
     type SummarizeInvoicesEnum = 'Default' | 'Condensed' | 'Detailed';
 }
+export interface ExternalExpenseTypeIntegrationReference {
+    "id"?: number;
+    "identifier"?: string;
+    "name"?: string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface ExternalIntegrationStatusReference {
+    "id"?: number;
+    "identifier"?: string;
+    "name"?: string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface ExternalWorkTypeIntegrationReference {
+    "id"?: number;
+    "identifier"?: string;
+    "name"?: string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
 export interface FilterValues {
     "conditions"?: string;
     "orderBy"?: string;
@@ -1703,6 +2999,8 @@ export interface Forecast {
     "percent"?: number;
     "margin"?: number;
     "opportunityId"?: number;
+    "quoteNumber"?: string;
+    "quoteName"?: string;
     /**
      * Metadata of the entity
      */
@@ -2184,6 +3482,7 @@ export interface GLExportVendor {
 export interface GenericIdIdentifierReference {
     "id"?: number;
     "identifier"?: string;
+    "name"?: string;
 }
 export interface Group {
     "id"?: number;
@@ -2196,6 +3495,9 @@ export interface Group {
      */
     "info"?: Metadata;
 }
+/**
+ * Required when notifyType is set to: "Add to Group"
+ */
 export interface GroupReference {
     "id"?: number;
     "name"?: string;
@@ -2205,6 +3507,80 @@ export interface GroupReference {
     "info"?: Metadata;
 }
 export interface Guid {
+}
+export interface Holiday {
+    "id"?: number;
+    "name": string;
+    /**
+     * Can be set to false to set a holiday for specific hours (Defaults to True)
+     */
+    "allDayFlag"?: boolean;
+    /**
+     * If this is not a full day holiday dateStart and dateEnd must be specified
+     */
+    "dateStart": Date;
+    "dateEnd"?: Date;
+    "holidayList"?: HolidayListReference;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface HolidayList {
+    "id"?: number;
+    "name": string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface HolidayListReference {
+    "id"?: number;
+    "name"?: string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface Imap {
+    "id"?: number;
+    "name"?: string;
+    "imapName"?: string;
+    "processedName"?: string;
+    "server"?: string;
+    "userName"?: string;
+    "password"?: string;
+    "port"?: number;
+    "sslFlag"?: boolean;
+    "emailConnector"?: EmailConnectorReference;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface ImapSetupReference {
+    "id"?: number;
+    "name"?: string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface Impact {
+    "id"?: number;
+    "name"?: string;
+    "description": string;
+    "defaultFlag"?: boolean;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface ImportMassMaintenance {
+    "deletedContactCount"?: number;
+    "deletedCompanyCount"?: number;
+    "message"?: string;
+    "success"?: boolean;
 }
 export interface InOutBoard {
     "id"?: number;
@@ -2238,6 +3614,101 @@ export interface Info {
     "isCloud"?: boolean;
     "serverTimeZone"?: string;
 }
+export interface IntegratorLogin {
+    "id"?: number;
+    "username": string;
+    /**
+     * The password will never be returned in response
+     */
+    "password": string;
+    /**
+     * This flag controls whether the integrator can access only the db records it created, or all system records
+     */
+    "canAccessAllRecordsFlag"?: boolean;
+    "canAccessAllApisFlag"?: boolean;
+    "inactiveFlag"?: boolean;
+    "dateInactivated"?: Date;
+    "inactivatedBy"?: MemberReference;
+    "serviceTicketApiFlag"?: boolean;
+    /**
+     * If integrator has access to ServiceTicket API, a service board is required
+     */
+    "board"?: BoardReference;
+    "serviceBoardCallbackUrl"?: string;
+    "serviceBoardLegacyCallbackFlag"?: boolean;
+    "timeEntryApiFlag"?: boolean;
+    /**
+     * If integrator has access to TimeEntry API, a member is required
+     */
+    "member"?: MemberReference;
+    "timeEntryCallbackUrl"?: string;
+    "timeEntryLegacyCallbackFlag"?: boolean;
+    "managedServicesApiFlag"?: boolean;
+    "managedServicesAutoChildFlag"?: boolean;
+    /**
+     * True if integrator is allowed to child configurations
+     */
+    "managedServicesChildingFlag"?: boolean;
+    "contactApiFlag"?: boolean;
+    "contactCallbackUrl"?: string;
+    "contactLegacyCallbackFlag"?: boolean;
+    "companyApiFlag"?: boolean;
+    "companyCallbackUrl"?: string;
+    "companyLegacyCallbackFlag"?: boolean;
+    "activityApiFlag"?: boolean;
+    "activityCallbackUrl"?: string;
+    "activityLegacyCallbackFlag"?: boolean;
+    "ntrSupportApiFlag"?: boolean;
+    "logMeInSupportApiFlag"?: boolean;
+    "invoiceApiFlag"?: boolean;
+    "productApiFlag"?: boolean;
+    "productCallbackUrl"?: string;
+    "productLegacyCallbackFlag"?: boolean;
+    "opportunityApiFlag"?: boolean;
+    "opportunityCallbackUrl"?: string;
+    "opportunityLegacyCallbackFlag"?: boolean;
+    /**
+     * True if the member has access to the Opportunity Conversion Api
+     */
+    "opportunityConversionApiFlag"?: boolean;
+    "memberApiFlag"?: boolean;
+    "marketingApiFlag"?: boolean;
+    "purchasingApiFlag"?: boolean;
+    "purchasingCallbackUrl"?: string;
+    "purchasingLegacyCallbackFlag"?: boolean;
+    "reportingApiFlag"?: boolean;
+    "systemApiFlag"?: boolean;
+    "projectApiFlag"?: boolean;
+    "projectCallbackUrl"?: string;
+    "projectLegacyCallbackFlag"?: boolean;
+    "configurationApiFlag"?: boolean;
+    "configurationAutoChildFlag"?: boolean;
+    /**
+     * True if integrator is allowed to child configurations
+     */
+    "configurationChildlingFlag"?: boolean;
+    "configurationCallbackUrl"?: string;
+    "configurationLegacyCallbackFlag"?: boolean;
+    "scheduleApiFlag"?: boolean;
+    "scheduleCallbackUrl"?: string;
+    "scheduleLegacyCallbackFlag"?: boolean;
+    "agreementApiFlag"?: boolean;
+    "agreementCallbackUrl"?: string;
+    "agreementCallbackLegacyFlag"?: boolean;
+    "documentApiFlag"?: boolean;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface IntegratorLoginReference {
+    "id"?: number;
+    "name"?: string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
 export interface Invoice {
     "id"?: number;
     "invoiceNumber"?: string;
@@ -2266,6 +3737,9 @@ export interface Invoice {
     "date"?: Date;
     "restrictDownpaymentFlag"?: boolean;
     "locationId"?: number;
+    /**
+     * departmentId is only required for special invoices
+     */
     "departmentId"?: number;
     "territoryId"?: number;
     "topComment"?: string;
@@ -2275,6 +3749,7 @@ export interface Invoice {
     "internalNotes"?: string;
     "downpaymentPreviouslyTaxedFlag"?: boolean;
     "serviceTotal"?: number;
+    "currency"?: CurrencyReference;
     "dueDate"?: Date;
     "expenseTotal"?: number;
     "productTotal"?: number;
@@ -2301,6 +3776,32 @@ export namespace Invoice {
     type TypeEnum = 'Agreement' | 'CreditMemo' | 'DownPayment' | 'Miscellaneous' | 'Progress' | 'Standard';
     type ApplyToTypeEnum = 'All' | 'Agreement' | 'Project' | 'ProjectPhase' | 'SalesOrder' | 'Ticket';
 }
+export interface InvoiceEmailTemplate {
+    "id"?: number;
+    "name": string;
+    "serviceSurvey"?: ServiceSurveyReference;
+    "useSenderFlag"?: boolean;
+    /**
+     * From fields (first name, last name, email address) are required if useSenderFlag is false
+     */
+    "firstName"?: string;
+    /**
+     * From fields (first name, last name, email address) are required if useSenderFlag is false
+     */
+    "lastName"?: string;
+    /**
+     * From fields (first name, last name, email address) are required if useSenderFlag is false
+     */
+    "emailAddress"?: string;
+    "subject": string;
+    "body"?: string;
+    "copySenderFlag"?: boolean;
+    "invoiceStatus"?: BillingStatusReference;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
 export interface InvoiceReference {
     "id"?: number;
     "identifier"?: string;
@@ -2308,6 +3809,79 @@ export interface InvoiceReference {
      * Metadata of the entity
      */
     "info"?: Metadata;
+}
+export interface InvoiceTemplate {
+    "id"?: number;
+    "name": string;
+    "marginLeft"?: number;
+    "marginRight"?: number;
+    "marginTop"?: number;
+    "marginBottom"?: number;
+    "logoVisibleFlag"?: boolean;
+    "headerLogoPosition"?: InvoiceTemplate.HeaderLogoPositionEnum;
+    "remitToVisibileFlag"?: boolean;
+    "headerAddressPosition"?: InvoiceTemplate.HeaderAddressPositionEnum;
+    "headerTitleVisibileFlag"?: boolean;
+    "headerTitleCaption"?: string;
+    "headerTitlePosition"?: InvoiceTemplate.HeaderTitlePositionEnum;
+    "headerTitleFont"?: InvoiceTemplate.HeaderTitleFontEnum;
+    "headerTermsVisibleFlag"?: boolean;
+    "headerTermsCaption"?: string;
+    "headerDueDateVisibleFlag"?: boolean;
+    "headerDueDateCaption"?: string;
+    "headerPoNumberVisibleFlag"?: boolean;
+    "headerPoNumberCaption"?: string;
+    "headerReferenceVisibleFlag"?: boolean;
+    "headerReferenceCaption"?: string;
+    "headerAccountVisibleFlag"?: boolean;
+    "headerAccountCaption"?: string;
+    "headerTaxIdVisibleFlag"?: boolean;
+    "headerTaxIdCaption"?: string;
+    "headerShipToVisibleFlag"?: boolean;
+    "headerShipToCaption"?: string;
+    "serviceHeaderTicketNumberVisibleFlag"?: boolean;
+    "serivceHeaderTicketNumberCaption"?: string;
+    "serviceHeaderCompanyNameVisibleFlag"?: boolean;
+    "serviceHeaderCompanyNameCaption"?: string;
+    "serviceHeaderSummaryVisibleFlag"?: boolean;
+    "serviceHeaderSummaryCaption"?: string;
+    "serviceHeaderContactNameVisibleFlag"?: boolean;
+    "serviceHeaderContactNameCaption"?: string;
+    "serviceHeaderDetailDescriptionVisibleFlag"?: boolean;
+    "serviceHeaderDetailDescriptionCaption"?: string;
+    "serviceHeaderResolutionVisibleFlag"?: boolean;
+    "serviceHeaderResolutionCaption"?: string;
+    "serviceHeaderAmountVisibleFlag"?: boolean;
+    "serviceHeaderAmountCaption"?: string;
+    "serviceHeaderBillingMethodVisibleFlag"?: boolean;
+    "serviceHeaderBillingMethodCaption"?: string;
+    "serviceHeaderClosedTasksVisibleFlag"?: boolean;
+    "serviceHeaderOpenTasksVisibleFlag"?: boolean;
+    "serviceHeaderBundledTicketsVisibleFlag"?: boolean;
+    "projectHeaderProjectNameVisibleFlag"?: boolean;
+    "projectHeaderProjectNameCaption"?: string;
+    "projectHeaderCompanyNameVisibleFlag"?: boolean;
+    "projectHeaderCompanyNameCaption"?: string;
+    "projectHeaderOriginalDownpaymentVisibleFlag"?: boolean;
+    "projectHeaderOriginalDownpaymentCaption"?: string;
+    "projectHeaderContactNameVisibleFlag"?: boolean;
+    "projectHeaderContactNameCaption"?: string;
+    "projectHeaderAmountVisibleFlag"?: boolean;
+    "projectHeaderAmountCaption"?: string;
+    "projectHeaderBillingMethodVisibleFlag"?: boolean;
+    "projectHeaderBillingMethodCaption"?: string;
+    "projectHeaderBillingTypeVisibleFlag"?: boolean;
+    "projectHeaderBillingTypeCaption"?: string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export namespace InvoiceTemplate {
+    type HeaderLogoPositionEnum = 'LeftSide' | 'RightSide' | 'Center';
+    type HeaderAddressPositionEnum = 'LeftSide' | 'RightSide' | 'Center';
+    type HeaderTitlePositionEnum = 'LeftSide' | 'RightSide' | 'Center';
+    type HeaderTitleFontEnum = 'Regular' | 'RegularBold' | 'Large' | 'LargeBold' | 'ExtraLarge' | 'ExtraLargeBold';
 }
 export interface InvoiceTemplateReference {
     "id"?: number;
@@ -2317,15 +3891,10 @@ export interface InvoiceTemplateReference {
      */
     "info"?: Metadata;
 }
-export interface Item {
+export interface InvoiceTemplateSetup {
     "id"?: number;
-    "name": string;
-    "inactive"?: boolean;
-    "typeAssociations"?: Array<TypeAssociations>;
-    "addAllSubTypes"?: boolean;
-    "removeAllSubTypes"?: boolean;
-    "typeId"?: number;
-    "boardId"?: number;
+    "name"?: string;
+    "customFlag"?: boolean;
     /**
      * Metadata of the entity
      */
@@ -2339,7 +3908,38 @@ export interface IvItemReference {
      */
     "info"?: Metadata;
 }
+export interface JArray {
+}
 export interface JObject {
+}
+export interface KPI {
+    "id"?: number;
+    "name"?: string;
+    "category": KPICategoryReference;
+    "dateFilter"?: string;
+    "sortOrder"?: number;
+    "inactiveFlag"?: boolean;
+}
+export interface KPICategory {
+    "id"?: number;
+    "name"?: string;
+    "sortOrder"?: number;
+}
+export interface KPICategoryReference {
+    "id"?: number;
+    "name"?: string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface KPIReference {
+    "id"?: number;
+    "name"?: string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
 }
 export interface KnowledgeBaseArticle {
     "id"?: number;
@@ -2358,15 +3958,60 @@ export interface KnowledgeBaseArticle {
      */
     "info"?: Metadata;
 }
-export interface Link {
+/**
+ * A list of knowledge base articles that the member is the approver
+ */
+export interface KnowledgebaseArticle {
+    "count"?: number;
+    "reAssignToMember"?: MemberReference;
+}
+export interface LdapConfiguration {
     "id"?: number;
     "name": string;
-    "tableReferenceId": number;
-    "url"?: string;
+    /**
+     * FQDN of the Server.
+     */
+    "server": string;
+    /**
+     * Domain Name of the server.
+     */
+    "domain": string;
     /**
      * Metadata of the entity
      */
     "info"?: Metadata;
+}
+export interface LdapConfigurationReference {
+    "id"?: number;
+    "name"?: string;
+    "server"?: string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface LegacySubCategory {
+    "id"?: number;
+    "name": string;
+    "inactiveFlag"?: boolean;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface Link {
+    "id"?: number;
+    "name": string;
+    "tableReferenceId"?: number;
+    "url"?: string;
+    "screenLink"?: Link.ScreenLinkEnum;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export namespace Link {
+    type ScreenLinkEnum = 'Company' | 'Contact' | 'Service' | 'Invoice' | 'PurchaseOrder' | 'SalesOrder';
 }
 export interface LinkClicked {
     "id"?: number;
@@ -2378,16 +4023,163 @@ export interface LinkClicked {
 }
 export interface Location {
     "id"?: number;
+    "ownerLevelId"?: number;
+    "structureLevel": CorporateStructureLevelReference;
     "name": string;
-    "where": Location.WhereEnum;
-    "defaultFlag"?: boolean;
+    "manager"?: MemberReference;
+    "reportsTo"?: SystemLocationReference;
+    "salesRep"?: string;
+    "timeZoneSetup"?: TimeZoneSetupReference;
+    "calendar"?: CalendarReference;
+    "overrideAddressLine1"?: string;
+    "overrideAddressLine2"?: string;
+    "overrideCity"?: string;
+    "overrideState"?: string;
+    "overrideZip"?: string;
+    "overrideCountry"?: CountryReference;
+    "overridePhoneNumber"?: string;
+    "overrideFaxNumber"?: string;
+    "owaUrl"?: string;
+    "payrollXref"?: string;
+    "locationFlag"?: boolean;
+    "clientFlag"?: boolean;
+    "workRoleIds"?: Array<number>;
+    "departmentIds"?: Array<number>;
+    "topNavigationLogo"?: DocumentReference;
     /**
      * Metadata of the entity
      */
     "info"?: Metadata;
 }
-export namespace Location {
-    type WhereEnum = 'OnSite' | 'Remote' | 'InHouse';
+export interface LocationDepartment {
+    "id"?: number;
+    "location"?: SystemLocationReference;
+    "department"?: SystemDepartmentReference;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface LocationWorkRole {
+    "id"?: number;
+    "location"?: SystemLocationReference;
+    "workRole"?: WorkRoleReference;
+    "workRoleInactiveFlag"?: boolean;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface ManagedDevicesIntegration {
+    "id"?: number;
+    "name": string;
+    "solution": string;
+    "portalUrl"?: string;
+    "loginBy": ManagedDevicesIntegration.LoginByEnum;
+    /**
+     * This is only required when globalLoginFlag = true
+     */
+    "globalLoginUsername"?: string;
+    /**
+     * This is only required when globalLoginFlag = true
+     */
+    "globalLoginPassword"?: string;
+    "defaultBillingLevel": ManagedDevicesIntegration.DefaultBillingLevelEnum;
+    "managementItSetupType"?: string;
+    "defaultLocation"?: SystemLocationReference;
+    "defaultDepartment"?: SystemDepartmentReference;
+    "integratorLogin"?: IntegratorLoginReference;
+    "matchOnSerialNumberFlag"?: boolean;
+    "disableNewCrossReferencesFlag"?: boolean;
+    "configBillCustomerFlag"?: boolean;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export namespace ManagedDevicesIntegration {
+    type LoginByEnum = 'Member' | 'Global';
+    type DefaultBillingLevelEnum = 'Summary' | 'Detail';
+}
+export interface ManagedDevicesIntegrationCrossReference {
+    "id"?: number;
+    "managedDevicesIntegration"?: ManagedDevicesIntegrationReference;
+    "vendorType"?: string;
+    "vendorLevel"?: string;
+    /**
+     * agreementType or configurationType is required
+     */
+    "agreementType"?: AgreementTypeReference;
+    "product"?: IvItemReference;
+    /**
+     * agreementType or configurationType is required
+     */
+    "configurationType"?: ConfigurationTypeReference;
+    "inactiveFlag"?: boolean;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface ManagedDevicesIntegrationLogin {
+    "id"?: number;
+    "managedDevicesIntegration"?: ManagedDevicesIntegrationReference;
+    "username": string;
+    "password": string;
+    "member": MemberReference;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface ManagedDevicesIntegrationNotification {
+    "id"?: number;
+    "managedDevicesIntegration"?: ManagedDevicesIntegrationReference;
+    "notifyWho": NotificationRecipientReference;
+    /**
+     * Required if notifyWho/identifier == 'M' (Specific Member)
+     */
+    "member"?: MemberReference;
+    "logType": ManagedDevicesIntegrationNotification.LogTypeEnum;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export namespace ManagedDevicesIntegrationNotification {
+    type LogTypeEnum = 'All' | 'Error' | 'NewManagedSolution' | 'NewDeviceType' | 'NewConfiguration' | 'NewAddition' | 'Info';
+}
+export interface ManagedDevicesIntegrationReference {
+    "id"?: number;
+    "name"?: string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface Management {
+    "id"?: number;
+    "runTime"?: Date;
+    "addedConfigurationStatus": ConfigurationStatusReference;
+    "deletedConfigurationStatus": ConfigurationStatusReference;
+    "integratorLogin": IntegratorLoginReference;
+    "scheduleExecutiveSummaryReportFlag": boolean;
+    /**
+     * This is only required when scheduleExecutiveSummaryReportFlag = true
+     */
+    "executiveSummaryReportScheduleDay"?: number;
+    /**
+     * This is only required when scheduleExecutiveSummaryReportFlag = true. Input should be in 24 hour format, ie 2pm is 14
+     */
+    "executiveSummaryReportScheduleHour"?: number;
+    /**
+     * This is only required when scheduleExecutiveSummaryReportFlag = true
+     */
+    "executiveSummaryReportScheduleMinute"?: number;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
 }
 export interface ManagementBackup {
     "id"?: number;
@@ -2407,11 +4199,17 @@ export interface ManagementEmail {
     "name": string;
     "managementSolution": ManagementEmail.ManagementSolutionEnum;
     "identifier": string;
+    /**
+     * emailUsername is required when managementSolution set to Postini.
+     */
     "emailUsername"?: string;
     /**
-     * The password field can only be set on initial POST.
+     * emailPassword is required when managementSolution set to Postini. The password field can only be set on initial POST.
      */
     "emailPassword"?: string;
+    /**
+     * serverPrefix is required when managementSolution set to Postini.
+     */
     "serverPrefix"?: string;
     /**
      * Metadata of the entity
@@ -2420,6 +4218,110 @@ export interface ManagementEmail {
 }
 export namespace ManagementEmail {
     type ManagementSolutionEnum = 'DoubleCheck' | 'Postini';
+}
+export interface ManagementItSolution {
+    "id"?: number;
+    "name": string;
+    "managementItSolutionType": ManagementItSolution.ManagementItSolutionTypeEnum;
+    /**
+     * This is only required when managementItSolutionType is Custom
+     */
+    "managementSolutionName"?: string;
+    /**
+     * This is only required for Level Platforms and Kaseya
+     */
+    "managementServerUrl"?: string;
+    /**
+     * This is only required for Level Platforms and Kaseya when overrideWebServiceLocationFlag is true
+     */
+    "webserviceOverrideUrl"?: string;
+    /**
+     * This is only required for Level Platforms and Kaseya when overrideLoginLocationFlag is true
+     */
+    "portalOverrideLoginUrl"?: string;
+    "globalLoginFlag"?: boolean;
+    /**
+     * This is only required when globalLoginFlag = true
+     */
+    "globalLoginUsername"?: string;
+    /**
+     * This is only required when globalLoginFlag = true
+     */
+    "globalLoginPassword"?: string;
+    "usingSslFlag"?: boolean;
+    /**
+     * This is only required for N-Able solution
+     */
+    "nAbleUsername"?: string;
+    /**
+     * This is only required for N-Able solution
+     */
+    "nAblePassword"?: string;
+    "overrideWebServiceLocationFlag"?: boolean;
+    "overrideLoginLocationFlag"?: boolean;
+    /**
+     * This is only required for Continuum solution
+     */
+    "continuumApiUsername"?: string;
+    /**
+     * This is only required for Continuum solution
+     */
+    "continuumApiPassword"?: string;
+    /**
+     * This is only required for Level Platforms solution
+     */
+    "levelApiUsername"?: string;
+    /**
+     * This is only required for Level Platforms solution
+     */
+    "levelApiPassword"?: string;
+    /**
+     * This is only required for Level Platforms solution
+     */
+    "levelVarDomain"?: string;
+    "noDisplayFlag"?: boolean;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export namespace ManagementItSolution {
+    type ManagementItSolutionTypeEnum = 'LevelPlatforms' | 'Kaseya' | 'NAble' | 'Continuum' | 'Custom';
+}
+export interface ManagementItSolutionAgreementInterfaceParameter {
+    "id"?: number;
+    "managedDevicesIntegration"?: ManagedDevicesIntegrationReference;
+    "agreementType": AgreementTypeReference;
+    "serverProduct"?: IvItemReference;
+    "workstationProduct"?: IvItemReference;
+    "spamStatsProduct"?: IvItemReference;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface ManagementLogDocumentInfo {
+}
+export interface ManagementNetworkSecurity {
+    "id"?: number;
+    "name": string;
+    "username"?: string;
+    "password"?: string;
+    "site": string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface ManagementReportNotification {
+    "id"?: number;
+    "notifyWho": NotificationRecipientReference;
+    "member"?: MemberReference;
+    "email"?: string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
 }
 export interface ManagementSolutionReference {
     "id"?: number;
@@ -2476,107 +4378,230 @@ export interface MarketingContact {
     "info"?: Metadata;
 }
 export interface Member {
-    "adminFlag"?: boolean;
-    "allowExpensesEnteredAgainstCompaniesFlag"?: boolean;
-    "allowInCellEntryOnTimeSheet"?: boolean;
-    "billableForecast"?: number;
-    "calendar"?: CalendarReference;
-    "calendarSyncIntegrationFlag"?: boolean;
-    "country"?: CountryReference;
-    "dailyCapacity"?: number;
-    "daysTolerance"?: number;
-    "defaultDepartmentId": number;
-    "defaultEmail": Member.DefaultEmailEnum;
-    "defaultLocationId": number;
-    "defaultPhone": Member.DefaultPhoneEnum;
-    "disableOnlineFlag"?: boolean;
-    "enableLdapAuthenticationFlag"?: boolean;
-    "enableMobileFlag"?: boolean;
-    "enableMobileGpsFlag"?: boolean;
-    "enterTimeAgainstCompanyFlag"?: boolean;
-    "expenseApprover": MemberReference;
-    "firstName": string;
-    "hideMemberInDispatchPortalFlag"?: boolean;
-    "hireDate": Date;
-    "homeEmail"?: string;
-    "homeExtension"?: string;
-    "homePhone"?: string;
-    "hourlyCost"?: number;
-    "hourlyRate"?: number;
     "id"?: number;
     "identifier": string;
-    "inactiveDate"?: Date;
-    "inactiveFlag"?: boolean;
-    "includeInUtilizationReportingFlag"?: boolean;
-    "lastLogin"?: string;
-    "lastName": string;
     /**
-     * F = Regular Member, A = API Member, C = StreamlineIT Member, X = Subcontractor Member
+     * ConditionallyRequired. API Member will get random password generated
+     */
+    "password"?: string;
+    "firstName": string;
+    "middleInitial"?: string;
+    "lastName": string;
+    "title"?: string;
+    "reportCard"?: ReportCardReference;
+    /**
+     * F = Full Member, A = API Member, C = StreamlineIT Member, X = Subcontractor Member
      */
     "licenseClass": Member.LicenseClassEnum;
-    "mapiName"?: string;
-    "middleInitial"?: string;
-    "minimumHours"?: number;
-    "mobileEmail"?: string;
-    "mobileExtension"?: string;
-    "mobilePhone"?: string;
-    "notes"?: string;
-    "officeEmail"?: string;
-    "officeExtension"?: string;
-    "officePhone"?: string;
-    "projectDefaultBoard"?: ProjectBoardReference;
-    "projectDefaultDepartmentId"?: number;
-    "projectDefaultLocationId"?: number;
-    "reportsTo"?: MemberReference;
-    "requireExpenseEntryFlag"?: boolean;
-    "requireStartAndEndTimeOnTimeEntryFlag"?: boolean;
-    "requireTimeSheetEntryFlag"?: boolean;
-    "restrictDefaultSalesTerritoryFlag"?: boolean;
-    "restrictDefaultWarehouseBinFlag"?: boolean;
-    "restrictDefaultWarehouseFlag"?: boolean;
-    "restrictDepartmentFlag"?: boolean;
-    "restrictLocationFlag"?: boolean;
-    "restrictProjectDefaultDepartmentFlag"?: boolean;
-    "restrictProjectDefaultLocationFlag"?: boolean;
-    "restrictScheduleFlag"?: boolean;
-    "restrictServiceDefaultDepartmentFlag"?: boolean;
-    "restrictServiceDefaultLocationFlag"?: boolean;
-    "salesDefaultLocationId": number;
-    "scheduleCapacity"?: number;
-    "scheduleDefaultDepartmentId"?: number;
-    "scheduleDefaultLocationId"?: number;
-    "securityLevel"?: string;
-    "securityLocationId"?: number;
-    "securityRole"?: SecurityRoleReference;
-    "serviceDefaultBoard"?: BoardReference;
-    "serviceDefaultDepartmentId"?: number;
-    "serviceDefaultLocationId"?: number;
-    "serviceLocation"?: ServiceLocationReference;
-    "serviceTeams"?: Array<number>;
-    "timeApprover": MemberReference;
-    "timeReminderEmailFlag"?: boolean;
-    "timeSheetStartDate"?: Date;
-    "timeZone": TimeZoneReference;
-    "title"?: string;
+    "disableOnlineFlag"?: boolean;
+    "enableMobileFlag"?: boolean;
     "type"?: MemberTypeReference;
+    "employeeIdentifer"?: string;
     "vendorNumber"?: string;
-    "warehouse"?: WarehouseReference;
-    "warehouseBin"?: WarehouseBinReference;
+    "notes"?: string;
+    "timeZone": TimeZoneSetupReference;
+    "country"?: CountryReference;
+    "serviceBoardTeamIds"?: Array<number>;
+    "enableMobileGpsFlag"?: boolean;
+    "inactiveDate"?: Date;
+    "inactiveFlag"?: boolean;
+    "lastLogin"?: string;
+    "photo"?: DocumentReference;
+    "officeEmail"?: string;
+    "officePhone"?: string;
+    "officeExtension"?: string;
+    "mobileEmail"?: string;
+    "mobilePhone"?: string;
+    "mobileExtension"?: string;
+    "homeEmail"?: string;
+    "homePhone"?: string;
+    "homeExtension"?: string;
+    "defaultEmail": Member.DefaultEmailEnum;
+    "defaultPhone": Member.DefaultPhoneEnum;
+    "securityRole": SecurityRoleReference;
+    "adminFlag"?: boolean;
+    "structureLevel": StructureReference;
+    "securityLocation": SystemLocationReference;
+    "defaultLocation": SystemLocationReference;
+    "defaultDepartment": SystemDepartmentReference;
+    "reportsTo"?: MemberReference;
+    "restrictLocationFlag"?: boolean;
+    "restrictDepartmentFlag"?: boolean;
     "workRole": WorkRoleReference;
     "workType"?: WorkTypeReference;
+    "timeApprover": MemberReference;
+    "expenseApprover": MemberReference;
+    "billableForecast"?: number;
+    "dailyCapacity"?: number;
+    "hourlyCost"?: number;
+    "hourlyRate"?: number;
+    "includeInUtilizationReportingFlag"?: boolean;
+    "requireExpenseEntryFlag"?: boolean;
+    "requireTimeSheetEntryFlag"?: boolean;
+    "requireStartAndEndTimeOnTimeEntryFlag"?: boolean;
+    "allowInCellEntryOnTimeSheet"?: boolean;
+    "enterTimeAgainstCompanyFlag"?: boolean;
+    "allowExpensesEnteredAgainstCompaniesFlag"?: boolean;
+    "timeReminderEmailFlag"?: boolean;
+    "daysTolerance"?: number;
+    "minimumHours"?: number;
+    "timeSheetStartDate"?: Date;
+    "hireDate": Date;
+    "serviceDefaultLocation"?: SystemLocationReference;
+    "serviceDefaultDepartment"?: SystemDepartmentReference;
+    "serviceDefaultBoard"?: BoardReference;
+    "restrictServiceDefaultLocationFlag"?: boolean;
+    "restrictServiceDefaultDepartmentFlag"?: boolean;
+    "excludedServiceBoardIds"?: Array<number>;
+    "projectDefaultLocation"?: SystemLocationReference;
+    "projectDefaultDepartment"?: SystemDepartmentReference;
+    "projectDefaultBoard"?: ProjectBoardReference;
+    "restrictProjectDefaultLocationFlag"?: boolean;
+    "restrictProjectDefaultDepartmentFlag"?: boolean;
+    "excludedProjectBoardIds"?: Array<number>;
+    "scheduleDefaultLocation"?: SystemLocationReference;
+    "scheduleDefaultDepartment"?: SystemDepartmentReference;
+    "scheduleCapacity"?: number;
+    "serviceLocation"?: ServiceLocationReference;
+    "restrictScheduleFlag"?: boolean;
+    "hideMemberInDispatchPortalFlag"?: boolean;
+    "calendar"?: CalendarReference;
+    "salesDefaultLocation": SystemLocationReference;
+    "restrictDefaultSalesTerritoryFlag"?: boolean;
+    "warehouse"?: WarehouseReference;
+    "warehouseBin"?: WarehouseBinReference;
+    "restrictDefaultWarehouseFlag"?: boolean;
+    "restrictDefaultWarehouseBinFlag"?: boolean;
+    "mapiName"?: string;
+    "calendarSyncIntegrationFlag"?: boolean;
+    "enableLdapAuthenticationFlag"?: boolean;
+    "ldapConfiguration"?: LdapConfigurationReference;
+    "ldapUserName"?: string;
+    "companyActivityTabFormat": Member.CompanyActivityTabFormatEnum;
+    "invoiceTimeTabFormat": Member.InvoiceTimeTabFormatEnum;
+    "invoiceScreenDefaultTabFormat": Member.InvoiceScreenDefaultTabFormatEnum;
+    "invoicingDisplayOptions": Member.InvoicingDisplayOptionsEnum;
+    "agreementInvoicingDisplayOptions": Member.AgreementInvoicingDisplayOptionsEnum;
+    "corelyticsUsername"?: string;
+    "corelyticsPassword"?: string;
+    "remotePackage"?: Member.RemotePackageEnum;
+    "remotePackagePlatform"?: string;
+    "remotePackageUserName"?: string;
+    "remotePackagePassword"?: string;
+    "remotePackageAccount"?: string;
+    "authenticationServiceType"?: Member.AuthenticationServiceTypeEnum;
+    "timebasedOneTimePasswordActivated"?: boolean;
     /**
      * Metadata of the entity
      */
     "info"?: Metadata;
-    "systemFlag"?: boolean;
 }
 export namespace Member {
+    type LicenseClassEnum = 'F' | 'A' | 'C' | 'X';
     type DefaultEmailEnum = 'Office' | 'Mobile' | 'Home';
     type DefaultPhoneEnum = 'Office' | 'Mobile' | 'Home';
-    type LicenseClassEnum = 'F' | 'A' | 'C' | 'X';
+    type CompanyActivityTabFormatEnum = 'SummaryList' | 'DetailList';
+    type InvoiceTimeTabFormatEnum = 'SummaryList' | 'DetailList';
+    type InvoiceScreenDefaultTabFormatEnum = 'ShowInvoicingTab' | 'ShowAgreementInvoicingTab';
+    type InvoicingDisplayOptionsEnum = 'RemainOnInvoicingScreen' | 'ShowRecentInvoices';
+    type AgreementInvoicingDisplayOptionsEnum = 'RemainOnInvoicingScreen' | 'ShowRecentInvoices';
+    type RemotePackageEnum = 'LogMeIn' | 'NTR';
+    type AuthenticationServiceTypeEnum = 'AuthAnvil' | 'GoogleAuthenticator';
+}
+export interface MemberAccrual {
+    "id"?: number;
+    "accrualType": MemberAccrual.AccrualTypeEnum;
+    "year": number;
+    "hours": number;
+    "reason": string;
+    "member"?: MemberReference;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export namespace MemberAccrual {
+    type AccrualTypeEnum = 'Holiday' | 'PTO' | 'Sick' | 'Vacation';
+}
+export interface MemberCertification {
+    "id"?: number;
+    "certification": CertificationReference;
+    "percentComplete"?: number;
+    "dateReceived"?: Date;
+    "dateExpires"?: Date;
+    "certificationNumber"?: string;
+    "notes"?: string;
+    "member"?: MemberReference;
+    "company"?: CompanyReference;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface MemberDeactivation {
+    /**
+     * The List of Activities Assigned to the Member
+     */
+    "salesActivity"?: SalesActivity;
+    "serviceTeam"?: ServiceTeam;
+    /**
+     * A list of customers for which the member holds a team role
+     */
+    "companyTeam"?: CompanyTeam;
+    /**
+     * The Workflows to which the member is assigned
+     */
+    "workflow"?: Workflow;
+    "statusWorkflow"?: StatusWorkflow;
+    /**
+     * The Service (Ticket) Templates on which the Member is the assignedTo resource
+     */
+    "serviceTemplate"?: ServiceTemplate;
+    /**
+     * A list of the member's currently assigned Opportunities
+     */
+    "opportunity"?: Opportunity;
+    /**
+     * A list of Sales Teams to which the member is assigned
+     */
+    "salesTeam"?: SalesTeam;
+    /**
+     * A list of Projects that the member is the project manager
+     */
+    "projectManager"?: ProjectManager;
+    /**
+     * A list of knowledge base articles that the member is the approver
+     */
+    "knowledgeBasebArticle"?: KnowledgebaseArticle;
+    "myCompanyPresidentRole"?: MyCompanyPresidentRole;
+    "myCompanyCOORole"?: MyCompanyCOORole;
+    "myCompanyControllerRole"?: MyCompanyControllerRole;
+    "myCompanyDispatchRole"?: MyCompanyDispatchRole;
+    "myCompanyServiceManagerRole"?: MyCompanyServiceManagerRole;
+    "myCompanyDutyManagerRole"?: MyCompanyDutyManagerRole;
+    "departmentManager"?: DepartmentMananager;
+    "dispatchMember"?: DispatchMember;
+    "serviceManager"?: ServiceManger;
+    "dutyManager"?: DutyManager;
+    "deleteOpenTimeSheetsFlag"?: boolean;
+}
+export interface MemberDelegation {
+    "id"?: number;
+    "delegationType": MemberDelegation.DelegationTypeEnum;
+    "delegatedTo": MemberReference;
+    "dateStart": Date;
+    "dateEnd": Date;
+    "member"?: MemberReference;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export namespace MemberDelegation {
+    type DelegationTypeEnum = 'Approval' | 'Project';
 }
 /**
- * Activity schedule requires a member
+ * Service Status Notification member must be entered if the notify type is "Specific Member"
  */
 export interface MemberReference {
     "id"?: number;
@@ -2586,6 +4611,22 @@ export interface MemberReference {
      * Metadata of the entity
      */
     "info"?: Metadata;
+}
+export interface MemberSkill {
+    "id"?: number;
+    "skill": SkillReference;
+    "skillLevel": MemberSkill.SkillLevelEnum;
+    "certifiedFlag"?: boolean;
+    "yearsExperience"?: number;
+    "notes"?: string;
+    "member"?: MemberReference;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export namespace MemberSkill {
+    type SkillLevelEnum = 'Beginner' | 'Intermediate' | 'Advanced' | 'Expert';
 }
 export interface MemberTypeReference {
     "id"?: number;
@@ -2612,6 +4653,15 @@ export interface MenuEntry {
      */
     "info"?: Metadata;
 }
+export interface MenuEntryLocation {
+    "id"?: number;
+    "location": SystemLocationReference;
+    "menuEntry"?: SystemMenuEntryReference;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
 export interface MenuLocationReference {
     "id"?: number;
     "name"?: string;
@@ -2624,6 +4674,30 @@ export interface MenuLocationReference {
  * Metadata of the entity
  */
 export interface Metadata {
+}
+export interface MyCompanyCOORole {
+    "count"?: number;
+    "reAssignToMember"?: MemberReference;
+}
+export interface MyCompanyControllerRole {
+    "count"?: number;
+    "reAssignToMember"?: MemberReference;
+}
+export interface MyCompanyDispatchRole {
+    "count"?: number;
+    "reAssignToMember"?: MemberReference;
+}
+export interface MyCompanyDutyManagerRole {
+    "count"?: number;
+    "reAssignToMember"?: MemberReference;
+}
+export interface MyCompanyPresidentRole {
+    "count"?: number;
+    "reAssignToMember"?: MemberReference;
+}
+export interface MyCompanyServiceManagerRole {
+    "count"?: number;
+    "reAssignToMember"?: MemberReference;
 }
 export interface NoteType {
     "id"?: number;
@@ -2644,6 +4718,51 @@ export interface NoteTypeReference {
      */
     "info"?: Metadata;
 }
+export interface NotificationRecipient {
+    "id"?: number;
+    "identifier"?: string;
+    "name"?: string;
+    "externalFlag"?: boolean;
+    "serviceFlag"?: boolean;
+    "salesFlag"?: boolean;
+    "invoiceFlag"?: boolean;
+    "agreementFlag"?: boolean;
+    "memberFlag"?: boolean;
+    "configFlag"?: boolean;
+    "mspFlag"?: boolean;
+    "trackFlag"?: boolean;
+    "projectFlag"?: boolean;
+    "procurementFlag"?: boolean;
+    "knowledgeBaseFlag"?: boolean;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+/**
+ * Required when notifyType is set to: "Create Activity", "Send Email", "Add Follower", "Assign Resource", "Close Survey"
+ */
+export interface NotificationRecipientReference {
+    "id"?: number;
+    "identifier"?: string;
+    "name"?: string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface NotifyTypeReference {
+    "id"?: number;
+    "identifier"?: string;
+    "name"?: string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+/**
+ * A list of the member's currently assigned Opportunities
+ */
 export interface Opportunity {
     "id"?: number;
     "name": string;
@@ -2678,11 +4797,14 @@ export interface Opportunity {
     "billToSite"?: SiteReference;
     "billingTerms"?: BillingTermsReference;
     "taxCode"?: TaxCodeReference;
+    "currency"?: CurrencyReference;
     /**
      * Metadata of the entity
      */
     "info"?: Metadata;
     "customFields"?: Array<CustomFieldValue>;
+    "count"?: number;
+    "reAssignToMember"?: MemberReference;
 }
 export interface OpportunityContact {
     "id"?: number;
@@ -2795,6 +4917,9 @@ export interface OpportunityStatus {
     "enteredBy"?: string;
     "dateEntered"?: Date;
 }
+/**
+ * Required when acceptanceChangeStatusFlag is true
+ */
 export interface OpportunityStatusReference {
     "id"?: number;
     "name"?: string;
@@ -2912,6 +5037,7 @@ export interface Order {
     "configIds"?: Array<number>;
     "total"?: number;
     "taxTotal"?: number;
+    "currency"?: CurrencyReference;
     /**
      * Metadata of the entity
      */
@@ -2924,11 +5050,56 @@ export interface OrderStatus {
     "inactiveFlag"?: boolean;
     "sortOrder"?: number;
     "closedFlag"?: boolean;
+    "emailTemplate"?: OrderStatusEmailTemplateReference;
     /**
      * Metadata of the entity
      */
     "info"?: Metadata;
 }
+export interface OrderStatusEmailTemplate {
+    "id"?: number;
+    "status"?: OrderStatusReference;
+    "useSenderFlag"?: boolean;
+    "firstName"?: string;
+    "lastName"?: string;
+    "emailAddress"?: string;
+    "subject": string;
+    "body": string;
+    "copySenderFlag"?: boolean;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface OrderStatusEmailTemplateReference {
+    "id"?: number;
+    "name"?: string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface OrderStatusNotification {
+    "id"?: number;
+    "notifyWho": NotificationRecipientReference;
+    "status"?: OrderStatusReference;
+    /**
+     * Order Status Notification member must be entered if the notify type is "Specific Member"
+     */
+    "member"?: MemberReference;
+    /**
+     * Order Status Notification sendEmail must be entered if the notify type is "Email Address"
+     */
+    "email"?: string;
+    "workflowStep"?: number;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+/**
+ * Required when notifyType is set to: "Change Sales Order Status"
+ */
 export interface OrderStatusReference {
     "id"?: number;
     "name"?: string;
@@ -2936,6 +5107,34 @@ export interface OrderStatusReference {
      * Metadata of the entity
      */
     "info"?: Metadata;
+}
+export interface Other {
+    "id"?: number;
+    "defaultLdap"?: LdapConfigurationReference;
+    "defaultFromAddress": string;
+    "portalUrlOverride": string;
+    "siteUrl": string;
+    "logoPath"?: string;
+    "contactSync"?: Other.ContactSyncEnum;
+    "serverTimeZone": TimeZoneSetupReference;
+    "defaultCalendar": CalendarReference;
+    "defaultAddressFormat": AddressFormatReference;
+    "useSslFlag"?: boolean;
+    "syncLeadsFlag"?: boolean;
+    "includePortalLinkFlag"?: boolean;
+    "useExpandedFormatTimeFlag"?: boolean;
+    "useExpandedFormatActivityFlag"?: boolean;
+    /**
+     * If true, all Members time zone will also be set to serverTimeZone. Otherwise, only My Company time zone will be updated.
+     */
+    "updateMemberTimeZonesFlag"?: boolean;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export namespace Other {
+    type ContactSyncEnum = 'FL' | 'LF' | 'CFL' | 'CLF';
 }
 export interface OwnershipType {
     "id"?: number;
@@ -2948,6 +5147,25 @@ export interface OwnershipType {
 export interface OwnershipTypeReference {
     "id"?: number;
     "name"?: string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface ParsingType {
+    "id"?: number;
+    "name"?: string;
+    "parseRule"?: string;
+    "defaultFlag"?: boolean;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface ParsingVariable {
+    "id"?: number;
+    "name"?: string;
+    "code"?: string;
     /**
      * Metadata of the entity
      */
@@ -2978,6 +5196,17 @@ export interface PaymentMethodReference {
      */
     "info"?: Metadata;
 }
+export interface PaymentType {
+    "id"?: number;
+    "name": string;
+    "classification": ClassificationReference;
+    "defaultFlag"?: boolean;
+    "companyFlag"?: boolean;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
 export interface PhaseStatusReference {
     "id"?: number;
     "name"?: string;
@@ -2986,16 +5215,307 @@ export interface PhaseStatusReference {
      */
     "info"?: Metadata;
 }
+export interface PortalCalendar {
+    "id"?: number;
+    "weekStart": PortalCalendar.WeekStartEnum;
+    "adjust1Start"?: string;
+    "adjust1End"?: string;
+    "adjust1Hours"?: number;
+    "adjust2Start"?: string;
+    "adjust2End"?: string;
+    "adjust2Hours"?: number;
+    "adjust3Start"?: string;
+    "adjust3End"?: string;
+    "adjust3Hours"?: number;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export namespace PortalCalendar {
+    type WeekStartEnum = 'Sunday' | 'Monday' | 'Tuesday' | 'Wednesday' | 'Thursday' | 'Friday' | 'Saturday';
+}
+export interface PortalConfiguration {
+    "id"?: number;
+    "name": string;
+    "defaultFlag"?: boolean;
+    "company"?: CompanyReference;
+    "loginBackgroundColor"?: string;
+    "portalBackgroundColor"?: string;
+    "menuColor"?: string;
+    "buttonColor"?: string;
+    "headerColor"?: string;
+    "url"?: string;
+    "language"?: PortalConfiguration.LanguageEnum;
+    "welcomeText"?: string;
+    "boardIds"?: Array<number>;
+    "agreementTypeIds"?: Array<number>;
+    "configTypeIds"?: Array<number>;
+    "locationIds"?: Array<number>;
+    "displayVendorFlag"?: boolean;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export namespace PortalConfiguration {
+    type LanguageEnum = 'English' | 'Spanish' | 'French' | 'British' | 'Australian' | 'BrazilianPortuguese' | 'CanadianFrench' | 'German' | 'NewZealand';
+}
+export interface PortalConfigurationInvoiceSetup {
+    "id"?: number;
+    "portalConfiguration"?: PortalConfigurationReference;
+    "displayInvPmtFlag"?: boolean;
+    "allowInvPmtFlag"?: boolean;
+    "location"?: SystemLocationReference;
+    "paymentProcessor"?: PortalConfigurationInvoiceSetup.PaymentProcessorEnum;
+    "login"?: string;
+    "password"?: string;
+    "urlOverride"?: string;
+    "billingStatusIds"?: Array<number>;
+    "addAllStatuses"?: boolean;
+    "removeAllStatuses"?: boolean;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export namespace PortalConfigurationInvoiceSetup {
+    type PaymentProcessorEnum = 'AuthorizeNET' | 'PayPal';
+}
+export interface PortalConfigurationOpportunitySetup {
+    "id"?: number;
+    "opportunityStatusRecIDs"?: Array<number>;
+    "addAllOpportunityStatuses"?: boolean;
+    "removeAllOpportunityStatuses"?: boolean;
+    "opportunityTypeRecIDs"?: Array<number>;
+    "addAllOpportunityTypes"?: boolean;
+    "removeAllOpportunityTypes"?: boolean;
+    "restrictViewByOpportunityStatusFlag"?: boolean;
+    "restrictViewByOpportunityTypeFlag"?: boolean;
+    "acceptanceChangeStatusFlag"?: boolean;
+    "acceptanceCreateActivityFlag"?: boolean;
+    /**
+     * Required when acceptanceChangeStatusFlag is true
+     */
+    "acceptanceOpportunityStatus"?: OpportunityStatusReference;
+    "acceptanceSendEmailFlag"?: boolean;
+    "acceptanceEmailFromFirstName"?: string;
+    "acceptanceEmailFromLastName"?: string;
+    "acceptanceEmailSubject"?: string;
+    "acceptanceEmailBody"?: string;
+    /**
+     * Required when acceptanceSendEmailFlag is true
+     */
+    "acceptanceFromEmail"?: string;
+    /**
+     * Required when acceptanceCreateActivityFlag is true
+     */
+    "acceptanceEmailActivityType"?: ActivityTypeReference;
+    /**
+     * Required when acceptanceCreateActivityFlag is true
+     */
+    "acceptanceEmailAssignedByMember"?: MemberReference;
+    "rejectionChangeStatusFlag"?: boolean;
+    "rejectionCreateActivityFlag"?: boolean;
+    /**
+     * Required when rejectionChangeStatusFlag is true
+     */
+    "rejectionOpportunityStatus"?: OpportunityStatusReference;
+    "rejectionSendEmailFlag"?: boolean;
+    "rejectionEmailFromFirstName"?: string;
+    "rejectionEmailFromLastName"?: string;
+    /**
+     * Required when rejectionSendEmailFlag is true
+     */
+    "rejectionFromEmail"?: string;
+    "rejectionEmailSubject"?: string;
+    "rejectionEmailBody"?: string;
+    /**
+     * Required when rejectionCreateActivityFlag is true
+     */
+    "rejectionEmailActivityType"?: ActivityTypeReference;
+    /**
+     * Required when rejectionCreateActivityFlag is true
+     */
+    "rejectionEmailAssignedByMember"?: MemberReference;
+    "confirmationSendEmailFlag"?: boolean;
+    "confirmationEmailUseDefaultCompanyEmailAddressFlag"?: boolean;
+    "confirmationEmailFromFirstName"?: string;
+    "confirmationEmailFromLastName"?: string;
+    /**
+     * Required when confirmationSendEmailFlag is true
+     */
+    "confirmationFromEmail"?: string;
+    "confirmationEmailSubject"?: string;
+    "confirmationEmailBody"?: string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface PortalConfigurationPasswordEmailSetup {
+    "id"?: number;
+    "validPasswordEmailUseCustomEmailFlag"?: boolean;
+    "validPasswordEmailFromFirstName"?: string;
+    "validPasswordEmailFromLastName"?: string;
+    /**
+     * Required when validPasswordEmailUseCustomEmailFlag is true
+     */
+    "validPasswordEmailFromEmail"?: string;
+    "validPasswordEmailSubject"?: string;
+    "validPasswordEmailBody"?: string;
+    "invalidPasswordEmailUseCustomEmailFlag"?: boolean;
+    "invalidPasswordEmailFromFirstName"?: string;
+    "invalidPasswordEmailFromLastName"?: string;
+    /**
+     * Required when invalidPasswordEmailUseCustomEmailFlag is true
+     */
+    "invalidPasswordEmailFromEmail"?: string;
+    "invalidPasswordEmailSubject"?: string;
+    "invalidPasswordEmailBody"?: string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface PortalConfigurationProjectSetup {
+    "id"?: number;
+    "portalConfig"?: PortalConfigurationReference;
+    "projectNameFlag"?: boolean;
+    "projectTypeFlag"?: boolean;
+    "statusFlag"?: boolean;
+    "projectManagerFlag"?: boolean;
+    "billingMethodFlag"?: boolean;
+    "contactFlag"?: boolean;
+    "estimatedStartFlag"?: boolean;
+    "estimatedEndFlag"?: boolean;
+    "descriptionFlag"?: boolean;
+    "lastUpdatedFlag"?: boolean;
+    "onlyDisplay"?: PortalConfigurationProjectSetup.OnlyDisplayEnum;
+    "timeMaterialBudgetHrsFlag"?: boolean;
+    "timeMaterialScheduledStartFlag"?: boolean;
+    "timeMaterialScheduledFinishFlag"?: boolean;
+    "timeMaterialScheduledHrsFlag"?: boolean;
+    "timeMaterialActualStartFlag"?: boolean;
+    "timeMaterialActualFinishFlag"?: boolean;
+    "timeMaterialActualHrsFlag"?: boolean;
+    "timeMaterialBillFlag"?: boolean;
+    "timeMaterialStatusFlag"?: boolean;
+    "timeMaterialAssignedFlag"?: boolean;
+    "fixedFeeBudgetHrsFlag"?: boolean;
+    "fixedFeeScheduledStartFlag"?: boolean;
+    "fixedFeeScheduledFinishFlag"?: boolean;
+    "fixedFeeScheduledHrsFlag"?: boolean;
+    "fixedFeeActualStartFlag"?: boolean;
+    "fixedFeeActualFinishFlag"?: boolean;
+    "fixedFeeActualHrsFlag"?: boolean;
+    "fixedFeeBillFlag"?: boolean;
+    "fixedFeeStatusFlag"?: boolean;
+    "fixedFeeAssignedFlag"?: boolean;
+    "projectIssueBudgetHrsFlag"?: boolean;
+    "projectIssueScheduledStartFlag"?: boolean;
+    "projectIssueScheduledFinishFlag"?: boolean;
+    "projectIssueScheduledHrsFlag"?: boolean;
+    "projectIssueActualStartFlag"?: boolean;
+    "projectIssueActualFinishFlag"?: boolean;
+    "projectIssueActualHrsFlag"?: boolean;
+    "projectIssueBillFlag"?: boolean;
+    "projectIssueStatusFlag"?: boolean;
+    "projectIssueAssignedFlag"?: boolean;
+    "projectDetailTotalHoursFlag"?: boolean;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export namespace PortalConfigurationProjectSetup {
+    type OnlyDisplayEnum = 'DoNotDisplay' | 'Closed30Days' | 'Closed60Days' | 'Closed90Days' | 'Closed120Days' | 'AllClosed';
+}
+export interface PortalConfigurationReference {
+    "id"?: number;
+    "name"?: string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface PortalConfigurationServiceSetup {
+    "id"?: number;
+    "serviceTypeFlag"?: boolean;
+    "serviceSubTypeFlag"?: boolean;
+    "serviceSubTypeItemFlag"?: boolean;
+    "statusFlag"?: boolean;
+    "siteNameFlag"?: boolean;
+    "enteredDateFlag"?: boolean;
+    "lastUpdateFlag"?: boolean;
+    "requiredDateFlag"?: boolean;
+    "contactFlag"?: boolean;
+    "assignedResourcesFlag"?: boolean;
+    "slaInfoFlag"?: boolean;
+    "serviceBoardFlag"?: boolean;
+    "budgetHoursFlag"?: boolean;
+    "actualHoursFlag"?: boolean;
+    "approvalStatusFlag"?: boolean;
+    "openTasksFlag"?: boolean;
+    "closedTasksFlag"?: boolean;
+    "displayClosedTicketsOption": PortalConfigurationServiceSetup.DisplayClosedTicketsOptionEnum;
+    "timeMaterialsTicketTemplate": ServiceSignoffReference;
+    "fixedFeeTicketTemplate": ServiceSignoffReference;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export namespace PortalConfigurationServiceSetup {
+    type DisplayClosedTicketsOptionEnum = 'DoNotDisplay' | 'Closed30Days' | 'Closed60Days' | 'Closed90Days' | 'Closed120Days' | 'AllClosed';
+}
+export interface PortalReport {
+    "id"?: number;
+    "portalConfiguration"?: PortalConfigurationReference;
+    "name": string;
+    "url": string;
+    "openSameWindowFlag"?: boolean;
+    "customFlag"?: boolean;
+    "displayFlag"?: boolean;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
 export interface PortalSecurity {
     "identifier"?: string;
     "enabled"?: boolean;
+    "id"?: number;
+    "functionIdentifier"?: string;
+    "functionDescription"?: string;
+    "levelOne"?: boolean;
+    "levelTwo"?: boolean;
+    "levelThree"?: boolean;
+    "levelFour"?: boolean;
+    "levelFive"?: boolean;
+    "levelSix"?: boolean;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface PortalSecurityLevel {
+    "id"?: number;
+    "captionIdentifier"?: string;
+    "isDefaultFlag"?: boolean;
+    "caption"?: string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
 }
 export interface PricingBreak {
     "id"?: number;
     "detailId"?: number;
     "amount"?: number;
-    "quantityStart"?: number;
+    "quantityStart": number;
     "quantityEnd"?: number;
+    "unlimited"?: boolean;
     "priceMethod": PricingBreak.PriceMethodEnum;
     /**
      * Metadata of the entity
@@ -3012,6 +5532,7 @@ export interface PricingDetail {
     "subCategory"?: ProductSubCategoryReference;
     "startDate": Date;
     "endDate"?: Date;
+    "noEndDate"?: boolean;
     /**
      * Metadata of the entity
      */
@@ -3022,6 +5543,7 @@ export interface PricingSchedule {
     "name": string;
     "inactiveFlag"?: boolean;
     "defaultFlag"?: boolean;
+    "currency"?: CurrencyReference;
     "companies"?: Array<number>;
     "setAllCompaniesFlag"?: boolean;
     "removeAllCompaniesFlag"?: boolean;
@@ -3135,6 +5657,7 @@ export interface ProductItem {
      */
     "info"?: Metadata;
     "bypassForecastUpdate"?: boolean;
+    "customFields"?: Array<CustomFieldValue>;
 }
 export namespace ProductItem {
     type ChargeToTypeEnum = 'Ticket' | 'Project' | 'Invoice' | 'Opportunity' | 'SalesOrder';
@@ -3208,6 +5731,35 @@ export interface ProductType {
 export namespace ProductType {
     type TypeXrefEnum = 'InventoryPart' | 'NonInventoryPart' | 'OtherCharge' | 'Service';
 }
+export interface ProductTypeExemption {
+    "id"?: number;
+    "productType": ProductTypeReference;
+    /**
+     * At least one level flag is required -- levelOneFlag, levelTwoFlag, levelThreeFlag, levelFourFlag, and/or levelFiveFlag
+     */
+    "levelOneFlag"?: boolean;
+    /**
+     * At least one level flag is required -- levelOneFlag, levelTwoFlag, levelThreeFlag, levelFourFlag, and/or levelFiveFlag
+     */
+    "levelTwoFlag"?: boolean;
+    /**
+     * At least one level flag is required -- levelOneFlag, levelTwoFlag, levelThreeFlag, levelFourFlag, and/or levelFiveFlag
+     */
+    "levelThreeFlag"?: boolean;
+    /**
+     * At least one level flag is required -- levelOneFlag, levelTwoFlag, levelThreeFlag, levelFourFlag, and/or levelFiveFlag
+     */
+    "levelFourFlag"?: boolean;
+    /**
+     * At least one level flag is required -- levelOneFlag, levelTwoFlag, levelThreeFlag, levelFourFlag, and/or levelFiveFlag
+     */
+    "levelFiveFlag"?: boolean;
+    "taxCode"?: TaxCodeReference;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
 export interface ProductTypeReference {
     "id"?: number;
     "name"?: string;
@@ -3248,6 +5800,7 @@ export interface Project {
     "contact"?: ContactReference;
     "customerPO"?: string;
     "description"?: string;
+    "currency"?: CurrencyReference;
     "downpayment"?: number;
     "estimatedEnd": Date;
     "estimatedExpenseRevenue"?: number;
@@ -3305,6 +5858,13 @@ export interface ProjectContact {
      * Metadata of the entity
      */
     "info"?: Metadata;
+}
+/**
+ * A list of Projects that the member is the project manager
+ */
+export interface ProjectManager {
+    "count"?: number;
+    "reAssignToMember"?: MemberReference;
 }
 export interface ProjectNote {
     "id"?: number;
@@ -3366,6 +5926,13 @@ export interface ProjectPhase {
     "estimatedTimeRevenue"?: number;
     "estimatedExpenseRevenue"?: number;
     "estimatedProductRevenue"?: number;
+    "currency"?: CurrencyReference;
+    "billToCompany"?: CompanyReference;
+    "billToContact"?: ContactReference;
+    "billToSite"?: SiteReference;
+    "shipToCompany"?: CompanyReference;
+    "shipToContact"?: ContactReference;
+    "shipToSite"?: SiteReference;
     /**
      * Metadata of the entity
      */
@@ -3401,6 +5968,50 @@ export interface ProjectRoleReference {
      */
     "info"?: Metadata;
 }
+export interface ProjectSecurityRole {
+    "id"?: number;
+    "name": string;
+    "managerRoleFlag"?: boolean;
+    "defaultContactFlag"?: boolean;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface ProjectSecurityRoleSetting {
+    "id"?: number;
+    "addLevel"?: ProjectSecurityRoleSetting.AddLevelEnum;
+    "editLevel"?: ProjectSecurityRoleSetting.EditLevelEnum;
+    "deleteLevel"?: ProjectSecurityRoleSetting.DeleteLevelEnum;
+    "inquireLevel"?: ProjectSecurityRoleSetting.InquireLevelEnum;
+    "moduleIdentifier"?: string;
+    "myFlag"?: boolean;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export namespace ProjectSecurityRoleSetting {
+    type AddLevelEnum = 'All' | 'My' | 'None';
+    type EditLevelEnum = 'All' | 'My' | 'None';
+    type DeleteLevelEnum = 'All' | 'My' | 'None';
+    type InquireLevelEnum = 'All' | 'My' | 'None';
+}
+export interface ProjectStatus {
+    "id"?: number;
+    "name": string;
+    "defaultFlag"?: boolean;
+    "inactiveFlag"?: boolean;
+    "noTimeFlag"?: boolean;
+    "closedFlag"?: boolean;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+/**
+ * Required when notifyType is set to: "Change Project Status"
+ */
 export interface ProjectStatusReference {
     "id"?: number;
     "name"?: string;
@@ -3418,6 +6029,17 @@ export interface ProjectTeammember {
     "workRole"?: WorkRoleReference;
     "startDate"?: Date;
     "endDate"?: Date;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface ProjectType {
+    "id"?: number;
+    "name"?: string;
+    "defaultFlag"?: boolean;
+    "inactiveFlag"?: boolean;
+    "integrationXref"?: string;
     /**
      * Metadata of the entity
      */
@@ -3490,6 +6112,7 @@ export interface PurchaseOrder {
     "vendorOrderNumber"?: string;
     "vendorSite"?: SiteReference;
     "warehouse"?: WarehouseReference;
+    "currency"?: CurrencyReference;
 }
 export interface PurchaseOrderLineItem {
     "id"?: number;
@@ -3533,6 +6156,61 @@ export interface PurchaseOrderReference {
      */
     "info"?: Metadata;
 }
+export interface PurchaseOrderStatus {
+    "id"?: number;
+    "name": string;
+    "defaultFlag"?: boolean;
+    "closedFlag"?: boolean;
+    "inactiveFlag"?: boolean;
+    "defaultClosedFlag"?: boolean;
+    "sortOrder"?: number;
+    "emailTemplate"?: PurchaseOrderStatusEmailTemplateReference;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface PurchaseOrderStatusEmailTemplate {
+    "id"?: number;
+    "status"?: PurchaseOrderStatusReference;
+    "useSenderFlag"?: boolean;
+    "firstName"?: string;
+    "lastName"?: string;
+    "emailAddress"?: string;
+    "subject": string;
+    "body"?: string;
+    "copySenderFlag"?: boolean;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface PurchaseOrderStatusEmailTemplateReference {
+    "id"?: number;
+    "name"?: string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface PurchaseOrderStatusNotification {
+    "id"?: number;
+    "notifyWho": NotificationRecipientReference;
+    "status"?: PurchaseOrderStatusReference;
+    /**
+     * Purchase Order Status Notification member must be entered if the notify type is "Specific Member"
+     */
+    "member"?: MemberReference;
+    /**
+     * Purchase Order Status Notification email must be entered if the notify type is "Email Address"
+     */
+    "email"?: string;
+    "workflowStep"?: number;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
 export interface PurchaseOrderStatusReference {
     "id"?: number;
     "name"?: string;
@@ -3540,6 +6218,31 @@ export interface PurchaseOrderStatusReference {
      * Metadata of the entity
      */
     "info"?: Metadata;
+}
+export interface Purchasing {
+    "id"?: number;
+    "startingPurchaseOrderNum": number;
+    "purchaseOrderPrefix"?: string;
+    "purchaseOrderSuffix"?: string;
+    "prefixSuffixType"?: Purchasing.PrefixSuffixTypeEnum;
+    "disableCostUpdatesFlag"?: boolean;
+    "disableNegativeInventoryFlag"?: boolean;
+    "costingMethod": Purchasing.CostingMethodEnum;
+    "autoClosePurchaseOrderFlag"?: boolean;
+    "autoClosePurchaseOrderItemFlag"?: boolean;
+    "autoApprovePurchaseOrderFlag"?: boolean;
+    "taxPurchaseOrderFlag"?: boolean;
+    "taxFreightFlag"?: boolean;
+    "useVendorTaxCodeFlag"?: boolean;
+    "numDecimalPlaces"?: number;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export namespace Purchasing {
+    type PrefixSuffixTypeEnum = 'Prefix' | 'Suffix';
+    type CostingMethodEnum = 'FIFO' | 'LIFO' | 'AverageCosting';
 }
 export interface RMAAction {
     "id"?: number;
@@ -3578,16 +6281,165 @@ export interface ReminderReference {
 export interface Report {
     "name"?: string;
 }
+export interface ReportCard {
+    "id"?: number;
+    "name": string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface ReportCardDetail {
+    "id"?: number;
+    "kpi": KPIReference;
+    "sortOrder"?: number;
+    "reportCard"?: ReportCardReference;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface ReportCardReference {
+    "id"?: number;
+    "name"?: string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
 export interface ReportDataResponse {
     "columnDefinitions"?: Array<JObject>;
     "rowValues"?: Array<JObject>;
 }
+export interface ReportingService {
+    "id"?: number;
+    "reportingUserName"?: string;
+    /**
+     * To blank out the password, enter an empty string here.
+     */
+    "reportingPassword"?: string;
+    "reportingDomain"?: string;
+    "reportingUrl"?: string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
 export interface RequestPasswordRequest {
     "email": string;
+}
+export interface RmaStatus {
+    "id"?: number;
+    "name": string;
+    "defaultFlag"?: boolean;
+    "sortOrder"?: number;
+    "closedFlag"?: boolean;
+    "emailTemplate"?: RmaStatusEmailTemplateReference;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface RmaStatusEmailTemplate {
+    "id"?: number;
+    "status"?: RmaStatusReference;
+    "useSenderFlag"?: boolean;
+    "firstName"?: string;
+    "lastName"?: string;
+    "emailAddress"?: string;
+    "subject": string;
+    "body": string;
+    "copySenderFlag"?: boolean;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface RmaStatusEmailTemplateReference {
+    "id"?: number;
+    "name"?: string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface RmaStatusNotification {
+    "id"?: number;
+    "notifyWho": NotificationRecipientReference;
+    "status"?: RmaStatusReference;
+    /**
+     * RMA Status Notification member must be entered if the notify type is "Specific Member"
+     */
+    "member"?: MemberReference;
+    /**
+     * RMA Status Notification sendEmail must be entered if the notify type is "Email Address"
+     */
+    "email"?: string;
+    "workflowStep"?: number;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface RmaStatusReference {
+    "id"?: number;
+    "name"?: string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
 }
 export interface Role {
     "id"?: number;
     "name": string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface SLA {
+    "id"?: number;
+    "name": string;
+    "basedOn": SLA.BasedOnEnum;
+    /**
+     * customCalendar is a required reference if basedOn SLA Hours Type is Custom
+     */
+    "customCalendar"?: CalendarReference;
+    "defaultFlag"?: boolean;
+    "applicationOrder"?: number;
+    "hiImpactHiUrgency"?: PriorityReference;
+    "hiImpactMedUrgency"?: PriorityReference;
+    "hiImpactLowUrgency"?: PriorityReference;
+    "medImpactHiUrgency"?: PriorityReference;
+    "medImpactMedUrgency"?: PriorityReference;
+    "medImpactLowUrgency"?: PriorityReference;
+    "lowImpactHiUrgency"?: PriorityReference;
+    "lowImpactMedUrgency"?: PriorityReference;
+    "lowImpactLowUrgency"?: PriorityReference;
+    "respondHours"?: number;
+    "respondPercent"?: number;
+    "planWithin"?: number;
+    "planWithinPercent"?: number;
+    "resolutionHours"?: number;
+    "resolutionPercent"?: number;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export namespace SLA {
+    type BasedOnEnum = 'MyCalendar' | 'Customer' | 'AllHours' | 'Custom';
+}
+export interface SLAPriority {
+    "id"?: number;
+    "priority": PriorityReference;
+    "respondHours"?: number;
+    "respondPercent"?: number;
+    "planWithin"?: number;
+    "planWithinPercent"?: number;
+    "resolutionHours"?: number;
+    "resolutionPercent"?: number;
+    "sla"?: SLAReference;
     /**
      * Metadata of the entity
      */
@@ -3601,6 +6453,13 @@ export interface SLAReference {
      */
     "info"?: Metadata;
 }
+/**
+ * The List of Activities Assigned to the Member
+ */
+export interface SalesActivity {
+    "count"?: number;
+    "reAssignToMember"?: MemberReference;
+}
 export interface SalesProbability {
     "id"?: number;
     "probability": number;
@@ -3609,9 +6468,99 @@ export interface SalesProbability {
      */
     "info"?: Metadata;
 }
+export interface SalesQuota {
+    "id"?: number;
+    "member": MemberReference;
+    "forecastYear"?: number;
+    "location": SystemLocationReference;
+    "department"?: SystemDepartmentReference;
+    "category"?: ProductCategoryReference;
+    "subCategory"?: ProductSubCategoryReference;
+    "januaryRevenue"?: number;
+    "januaryMargin"?: number;
+    "februaryRevenue"?: number;
+    "februaryMargin"?: number;
+    "marchRevenue"?: number;
+    "marchMargin"?: number;
+    "aprilRevenue"?: number;
+    "aprilMargin"?: number;
+    "mayRevenue"?: number;
+    "mayMargin"?: number;
+    "juneRevenue"?: number;
+    "juneMargin"?: number;
+    "julyRevenue"?: number;
+    "julyMargin"?: number;
+    "augustRevenue"?: number;
+    "augustMargin"?: number;
+    "septemberRevenue"?: number;
+    "septemberMargin"?: number;
+    "octoberRevenue"?: number;
+    "octoberMargin"?: number;
+    "novemberRevenue"?: number;
+    "novemberMargin"?: number;
+    "decemberRevenue"?: number;
+    "decemberMargin"?: number;
+    "currency"?: CurrencyReference;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface SalesTeam {
+    "id"?: number;
+    "salesTeamIdentifier": string;
+    "salesTeamDescription": string;
+    "salesTeamLocation": SystemLocationReference;
+    "inactiveFlag"?: boolean;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface SalesTeamMember {
+    "id"?: number;
+    "member": MemberReference;
+    "location"?: SystemLocationReference;
+    "department"?: SystemDepartmentReference;
+    "allowAccessFlag"?: boolean;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
 export interface SalesTeamReference {
     "id"?: number;
     "identifier"?: string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface ScheduleColor {
+    "id"?: number;
+    /**
+     * A startPercent (0 or higher) is required if endPercent has value
+     */
+    "startPercent"?: number;
+    /**
+     * A endPercent is required if startPercent has value
+     */
+    "endPercent"?: number;
+    /**
+     * Must be a valid Hexadecimal Color Code
+     */
+    "color": string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface ScheduleDetail {
+    "id"?: number;
+    "scheduleEntry"?: ScheduleEntryReference;
+    "dateStart"?: Date;
+    "dateEnd"?: Date;
+    "member"?: MemberReference;
     /**
      * Metadata of the entity
      */
@@ -3660,7 +6609,7 @@ export interface ScheduleReminderTime {
      * Time is calculated in minutes
      */
     "time"?: number;
-    "description"?: string;
+    "name"?: string;
     "defaultFlag"?: boolean;
     /**
      * Metadata of the entity
@@ -3741,6 +6690,16 @@ export interface ScheduleTypeReference {
      */
     "info"?: Metadata;
 }
+export interface SecurityRole {
+    "id"?: number;
+    "name": string;
+    "adminFlag"?: boolean;
+    "inactiveFlag"?: boolean;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
 export interface SecurityRoleReference {
     "id"?: number;
     "name"?: string;
@@ -3749,8 +6708,106 @@ export interface SecurityRoleReference {
      */
     "info"?: Metadata;
 }
+export interface SecurityRoleSetting {
+    "id"?: number;
+    "addLevel"?: SecurityRoleSetting.AddLevelEnum;
+    "editLevel"?: SecurityRoleSetting.EditLevelEnum;
+    "deleteLevel"?: SecurityRoleSetting.DeleteLevelEnum;
+    "inquireLevel"?: SecurityRoleSetting.InquireLevelEnum;
+    "moduleFunctionName"?: string;
+    "moduleFunctionDescription"?: string;
+    "myAllFlag"?: boolean;
+    "moduleFunctionIdentifier"?: string;
+    "reportFlag"?: boolean;
+    "restrictFlag"?: boolean;
+    "customFlag"?: boolean;
+    "moduleDescription"?: string;
+    "moduleIdentifier"?: string;
+    "moduleName"?: string;
+    "sortOrder"?: number;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export namespace SecurityRoleSetting {
+    type AddLevelEnum = 'All' | 'My' | 'None';
+    type EditLevelEnum = 'All' | 'My' | 'None';
+    type DeleteLevelEnum = 'All' | 'My' | 'None';
+    type InquireLevelEnum = 'All' | 'My' | 'None';
+}
+export interface Service {
+    "id"?: number;
+    "srNotify": Service.SrNotifyEnum;
+    "scheduleSpan": Service.ScheduleSpanEnum;
+    "hideDelimiterFlag"?: boolean;
+    "allowCCFlag"?: boolean;
+    "headerColor"?: string;
+    "memberColor"?: string;
+    "contactColor"?: string;
+    "unknownColor"?: string;
+    "calendarSetup"?: CalendarSetupReference;
+    "headerColorDisableFlag"?: boolean;
+    "memberColorDisableFlag"?: boolean;
+    "contactColorDisableFlag"?: boolean;
+    "unknownColorDisableFlag"?: boolean;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export namespace Service {
+    type SrNotifyEnum = 'None' | 'All' | 'NewRequestsOnly' | 'ClosedRequestsOnly' | 'NewAndClosedRequests';
+    type ScheduleSpanEnum = 'Standard' | 'OfficeHours' | 'Overnight';
+}
 export interface ServiceCodeReference {
     "id"?: number;
+    "name"?: string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface ServiceEmailTemplate {
+    "id"?: number;
+    "type": ServiceEmailTemplate.TypeEnum;
+    "serviceSurvey"?: ServiceSurveyReference;
+    "serviceBoard"?: BoardReference;
+    "useSenderFlag"?: boolean;
+    /**
+     * From fields (first name, last name, email address) are required if useSenderFlag is false.
+     */
+    "firstName"?: string;
+    /**
+     * From fields (first name, last name, email address) are required if useSenderFlag is false.
+     */
+    "lastName"?: string;
+    /**
+     * From fields (first name, last name, email address) are required if useSenderFlag is false.
+     */
+    "emailAddress"?: string;
+    "subject"?: string;
+    "body"?: string;
+    "copySenderFlag"?: boolean;
+    "tasksFlag"?: boolean;
+    "resourceRecordsFlag"?: boolean;
+    "externalContactNotifications"?: boolean;
+    "internalContactNotifications"?: boolean;
+    /**
+     * serviceStatus is required if the email template type is "Specific".
+     */
+    "serviceStatus"?: ServiceStatusReference;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export namespace ServiceEmailTemplate {
+    type TypeEnum = 'New' | 'Closed' | 'Other' | 'Specific' | 'RMA' | 'Invoice' | 'SalesOrder' | 'PurchaseOrder';
+}
+export interface ServiceEmailTemplateReference {
+    "id"?: number;
+    "identifier"?: string;
     "name"?: string;
     /**
      * Metadata of the entity
@@ -3765,6 +6822,19 @@ export interface ServiceItemReference {
      */
     "info"?: Metadata;
 }
+export interface ServiceLocation {
+    "id"?: number;
+    "name": string;
+    "where": ServiceLocation.WhereEnum;
+    "defaultFlag"?: boolean;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export namespace ServiceLocation {
+    type WhereEnum = 'OnSite' | 'Remote' | 'InHouse';
+}
 export interface ServiceLocationReference {
     "id"?: number;
     "name"?: string;
@@ -3772,6 +6842,10 @@ export interface ServiceLocationReference {
      * Metadata of the entity
      */
     "info"?: Metadata;
+}
+export interface ServiceManger {
+    "count"?: number;
+    "reAssignToMember"?: MemberReference;
 }
 export interface ServiceNote {
     "id"?: number;
@@ -3792,6 +6866,92 @@ export interface ServiceNote {
      * Metadata of the entity
      */
     "info"?: Metadata;
+}
+export interface ServiceSignoff {
+    "id"?: number;
+    "name": string;
+    "defaultFlag"?: boolean;
+    "visibleLogoFlag"?: boolean;
+    "companyInfoFlag"?: boolean;
+    "billingTermsFlag"?: boolean;
+    "summaryFlag"?: boolean;
+    "discussionFlag"?: boolean;
+    /**
+     * On add/post, if this is set to true but no value is set for task, task is defaulted to ServiceTasks.All
+     */
+    "taskFlag"?: boolean;
+    /**
+     * On add/post, if this is set but no value is set for taskFlag, taskFlag is set to true
+     */
+    "task"?: ServiceSignoff.TaskEnum;
+    "configurationsFlag"?: boolean;
+    "internalNotesFlag"?: boolean;
+    "resolutionFlag"?: boolean;
+    /**
+     * On add/post, if any time related flag is set to true, this is also set to true
+     */
+    "timeFlag"?: boolean;
+    "timeMemberFlag"?: boolean;
+    "timeDateFlag"?: boolean;
+    "timeStartEndFlag"?: boolean;
+    "timeBillFlag"?: boolean;
+    "timeHoursFlag"?: boolean;
+    "timeRateFlag"?: boolean;
+    "timeExtendedAmountFlag"?: boolean;
+    "timeWorkTypeFlag"?: boolean;
+    "timeAgreementFlag"?: boolean;
+    "timeNotesFlag"?: boolean;
+    "timeManualFlag"?: boolean;
+    "timeManualEntry"?: number;
+    "timeTaxFlag"?: boolean;
+    /**
+     * On add/post, if any expense related flag is set to true, this is also set to true
+     */
+    "expenseFlag"?: boolean;
+    "expenseDateFlag"?: boolean;
+    "expenseMemberFlag"?: boolean;
+    "expenseTypeFlag"?: boolean;
+    "expenseBillFlag"?: boolean;
+    "expenseAmountFlag"?: boolean;
+    "expenseAgreementFlag"?: boolean;
+    "expenseNotesFlag"?: boolean;
+    "expenseTaxFlag"?: boolean;
+    "expenseManualFlag"?: boolean;
+    "expenseManualEntry"?: number;
+    /**
+     * On add/post, if any product related flag is set to true, this is also set to true
+     */
+    "productFlag"?: boolean;
+    "productDescriptionFlag"?: boolean;
+    "productBillFlag"?: boolean;
+    "productQuantityFlag"?: boolean;
+    "productPriceFlag"?: boolean;
+    "productExtendedAmountFlag"?: boolean;
+    "productAgreementFlag"?: boolean;
+    "productManualFlag"?: boolean;
+    "productManualEntry"?: number;
+    "productTaxFlag"?: boolean;
+    "technicianSignoffFlag"?: boolean;
+    /**
+     * On add/post, if customerSignoffText.Length > 0, this is set to true
+     */
+    "customerSignoffTextFlag"?: boolean;
+    "customerSignoffText"?: string;
+    "customerSignoffFieldsFlag"?: boolean;
+    /**
+     * On add/post, if billingMethodsText.Length > 0, this is set to true
+     */
+    "billingMethodsTextFlag"?: boolean;
+    "billingMethodsText"?: string;
+    "creditCardFieldsFlag"?: boolean;
+    "defaultFFFlag"?: boolean;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export namespace ServiceSignoff {
+    type TaskEnum = 'All' | 'Closed' | 'Open';
 }
 export interface ServiceSignoffReference {
     "id"?: number;
@@ -3825,6 +6985,69 @@ export interface ServiceSubTypeReference {
      */
     "info"?: Metadata;
 }
+export interface ServiceSurvey {
+    "id"?: number;
+    "name": string;
+    "inactiveFlag"?: boolean;
+    "headerIncludeLogoFlag"?: boolean;
+    "headerText"?: string;
+    "headerTextVisibleFlag"?: boolean;
+    "footerText"?: string;
+    "footerTextVisibleFlag"?: boolean;
+    "thankYouText"?: string;
+    "notifyWho"?: GenericIdIdentifierReference;
+    "notifyWhoVisibleFlag"?: boolean;
+    "notifyMember"?: MemberReference;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface ServiceSurveyQuestion {
+    "id"?: number;
+    "sequenceNumber"?: number;
+    "type": ServiceSurveyQuestion.TypeEnum;
+    "question": string;
+    "options"?: Array<ServiceSurveyQuestionOption>;
+    "includeFlag"?: boolean;
+    "requiredFlag"?: boolean;
+    "noAnswerPoints"?: number;
+    "surveyId"?: number;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export namespace ServiceSurveyQuestion {
+    type TypeEnum = 'OpenEnded' | 'Selection';
+}
+export interface ServiceSurveyQuestionOption {
+    "includeFlag"?: boolean;
+    "caption": string;
+    "points"?: number;
+}
+export interface ServiceSurveyReference {
+    "id"?: number;
+    "name"?: string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface ServiceTeam {
+    "id"?: number;
+    "name"?: string;
+    "leader"?: MemberReference;
+    "location"?: SystemLocationReference;
+    "department"?: SystemDepartmentReference;
+    "deleteNotifyFlag"?: boolean;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+    "count"?: number;
+    "reAssignToMember"?: MemberReference;
+}
 export interface ServiceTeamReference {
     "id"?: number;
     "name"?: string;
@@ -3833,9 +7056,107 @@ export interface ServiceTeamReference {
      */
     "info"?: Metadata;
 }
+/**
+ * The Service (Ticket) Templates on which the Member is the assignedTo resource
+ */
+export interface ServiceTemplate {
+    "id"?: number;
+    "name": string;
+    "board": BoardReference;
+    "type"?: ServiceTypeReference;
+    "item"?: ServiceItemReference;
+    "subtype"?: ServiceSubTypeReference;
+    "serviceLocation"?: ServiceLocationReference;
+    "status": ServiceStatusReference;
+    "source": ServiceSourceReference;
+    "priority": PriorityReference;
+    "team": ServiceTeamReference;
+    "company"?: CompanyReference;
+    "contact"?: ContactReference;
+    "site"?: SiteReference;
+    "assignedNotifyFlag"?: boolean;
+    "location": SystemLocationReference;
+    "department": SystemDepartmentReference;
+    "summary": string;
+    "problem"?: string;
+    "hoursBudget"?: number;
+    "internalAnalysis"?: string;
+    "timeBillableFlag"?: boolean;
+    "expenseBillableFlag"?: boolean;
+    "purchaseOrderNumber"?: string;
+    "reference"?: string;
+    "billCompleteFlag"?: boolean;
+    "billServiceSeparatelyFlag"?: boolean;
+    "billingAmount"?: number;
+    "billUnapprovedTimeAndExpensesFlag"?: boolean;
+    "overrideFlag"?: boolean;
+    "timeInvoiceFlag"?: boolean;
+    "expenseInvoiceFlag"?: boolean;
+    "productInvoiceFlag"?: boolean;
+    "agreement"?: AgreementReference;
+    "billingMethod": ServiceTemplate.BillingMethodEnum;
+    "severity": ServiceTemplate.SeverityEnum;
+    "impact": ServiceTemplate.ImpactEnum;
+    "assignedBy": MemberReference;
+    "scheduleDaysBefore"?: number;
+    "serviceDaysBefore"?: number;
+    "attachScheduleToNewServiceFlag"?: boolean;
+    "templateFlag"?: boolean;
+    "emailContactFlag"?: boolean;
+    "emailResourceFlag"?: boolean;
+    "emailCCFlag"?: boolean;
+    "emailCC"?: string;
+    "restrictDownpaymentFlag"?: boolean;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+    "count"?: number;
+    "reAssignToMember"?: MemberReference;
+}
+export namespace ServiceTemplate {
+    type BillingMethodEnum = 'ActualRates' | 'FixedFee' | 'NotToExceed' | 'OverrideRate';
+    type SeverityEnum = 'Low' | 'Medium' | 'High';
+    type ImpactEnum = 'Low' | 'Medium' | 'High';
+}
+/**
+ * Required when notifyType is set to: "Create a Service Ticket"
+ */
+export interface ServiceTemplateReference {
+    "id"?: number;
+    "name"?: string;
+    "summary"?: string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
 export interface ServiceTypeReference {
     "id"?: number;
     "name"?: string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface SetupScreen {
+    "id"?: number;
+    "category"?: string;
+    "name"?: string;
+    "description"?: string;
+    "moduleDescription"?: string;
+    "moduleIdentifier"?: string;
+    "moduleName"?: string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface Severity {
+    "id"?: number;
+    "name"?: string;
+    "description": string;
+    "defaultFlag"?: boolean;
     /**
      * Metadata of the entity
      */
@@ -3904,6 +7225,14 @@ export interface SkillCategoryReference {
      */
     "info"?: Metadata;
 }
+export interface SkillReference {
+    "id"?: number;
+    "name"?: string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
 export interface Source {
     "id"?: number;
     "name": string;
@@ -3915,52 +7244,52 @@ export interface Source {
     "enteredBy"?: string;
     "dateEntered"?: Date;
 }
-export interface Status {
+export interface State {
     "id"?: number;
+    "identifier": string;
     "name": string;
-    "boardId"?: number;
-    "sortOrder"?: number;
-    "displayOnBoard"?: boolean;
-    "inactive"?: boolean;
-    "closedStatus"?: boolean;
-    "timeEntryNotAllowed"?: boolean;
-    "defaultFlag"?: boolean;
-    "escalationStatus"?: Status.EscalationStatusEnum;
+    "country"?: CountryReference;
     /**
      * Metadata of the entity
      */
     "info"?: Metadata;
 }
-export namespace Status {
-    type EscalationStatusEnum = 'NotResponded' | 'Responded' | 'ResolutionPlan' | 'Resolved' | 'NoEscalation';
+export interface StateReference {
+    "id"?: number;
+    "identifier"?: string;
+    "name"?: string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface StatusExternalIntegrationReference {
+    "id"?: number;
+    "identifier": string;
+    "name": string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface StatusWorkflow {
+    "count"?: number;
+    "reAssignToMember"?: MemberReference;
+}
+export interface StructureReference {
+    "id"?: number;
+    "name"?: string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
 }
 export interface SubCategory {
     "id"?: number;
     "name": string;
     "inactiveFlag"?: boolean;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
-}
-export interface SubType {
-    "id"?: number;
-    "name": string;
-    "inactive"?: boolean;
-    "typeAssociationIds"?: Array<number>;
-    "addAllTypes"?: boolean;
-    "removeAllTypes"?: boolean;
-    "boardId"?: number;
-    /**
-     * Metadata of the entity
-     */
-    "info"?: Metadata;
-}
-export interface SubtypeAssociation {
-    "id"?: number;
-    "type": ServiceTypeReference;
-    "subType"?: ServiceSubTypeReference;
-    "board"?: BoardReference;
+    "integrationXref"?: string;
+    "category": ProductCategoryReference;
     /**
      * Metadata of the entity
      */
@@ -3973,16 +7302,18 @@ export interface SuccessResponse {
 export interface Survey {
     "id"?: number;
     "name": string;
+    "instructions"?: string;
     "inactiveFlag"?: boolean;
-    "headerIncludeLogoFlag"?: boolean;
-    "headerText"?: string;
-    "headerTextVisibleFlag"?: boolean;
-    "footerText"?: string;
-    "footerTextVisibleFlag"?: boolean;
-    "thankYouText"?: string;
-    "notifyWho"?: GenericIdIdentifierReference;
-    "notifyWhoVisibleFlag"?: boolean;
-    "notifyMember"?: MemberReference;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface SurveyOption {
+    "id"?: number;
+    "caption": string;
+    "points": number;
+    "visibleflag"?: boolean;
     /**
      * Metadata of the entity
      */
@@ -3990,26 +7321,51 @@ export interface Survey {
 }
 export interface SurveyQuestion {
     "id"?: number;
-    "sequenceNumber"?: number;
-    "type": SurveyQuestion.TypeEnum;
+    "survey"?: SurveyReference;
+    "fieldType": SurveyQuestion.FieldTypeEnum;
+    "entryType": SurveyQuestion.EntryTypeEnum;
+    "sequenceNumber": number;
     "question": string;
-    "options"?: Array<SurveyQuestionOption>;
-    "includeFlag"?: boolean;
+    "numberOfDecimals"?: number;
     "requiredFlag"?: boolean;
-    "noAnswerPoints"?: number;
-    "surveyId"?: number;
+    "inactiveFlag"?: boolean;
     /**
      * Metadata of the entity
      */
     "info"?: Metadata;
 }
 export namespace SurveyQuestion {
-    type TypeEnum = 'OpenEnded' | 'Selection';
+    type FieldTypeEnum = 'Button' | 'Checkbox' | 'Currency' | 'Date' | 'Hyperlink' | 'IPAddress' | 'Number' | 'Password' | 'Percent' | 'Text' | 'TextArea';
+    type EntryTypeEnum = 'EntryField' | 'List' | 'Option';
 }
-export interface SurveyQuestionOption {
-    "includeFlag"?: boolean;
-    "caption": string;
-    "points"?: number;
+export interface SurveyQuestionReference {
+    "id"?: number;
+    "question"?: string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface SurveyQuestionValue {
+    "id"?: number;
+    "survey"?: SurveyReference;
+    "question"?: SurveyQuestionReference;
+    "value": string;
+    "defaultFlag"?: boolean;
+    "pointValue"?: number;
+    "inactiveFlag"?: boolean;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface SurveyReference {
+    "id"?: number;
+    "name"?: string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
 }
 export interface SurveyResult {
     "id"?: number;
@@ -4033,6 +7389,31 @@ export interface SurveyResultDetail {
      * If question type is Selection, this should be the option array index
      */
     "answer"?: string;
+}
+export interface SystemDepartmentReference {
+    "id"?: number;
+    "identifier"?: string;
+    "name"?: string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface SystemLocationReference {
+    "id"?: number;
+    "name"?: string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface SystemMenuEntryReference {
+    "id"?: number;
+    "name"?: string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
 }
 export interface Task {
     "id"?: number;
@@ -4124,6 +7505,15 @@ export interface TaxCode {
     "levelFiveApplySingleUnitFlag"?: boolean;
     "levelFiveApplySingleUnitMin"?: number;
     "levelFiveApplySingleUnitMax"?: number;
+    "workRoleIds"?: Array<number>;
+    "addAllWorkRoles"?: boolean;
+    "removeAllWorkRoles"?: boolean;
+    "expenseTypeIds"?: Array<number>;
+    "addAllExpenseTypes"?: boolean;
+    "removeAllExpenseTypes"?: boolean;
+    "productTypeIds"?: Array<number>;
+    "addAllProductTypes"?: boolean;
+    "removeAllProductTypes"?: boolean;
     /**
      * Metadata of the entity
      */
@@ -4169,9 +7559,34 @@ export namespace TaxCodeXRef {
     type LevelFourEnum = 'NonTaxable' | 'Taxable';
     type LevelFiveEnum = 'NonTaxable' | 'Taxable';
 }
+export interface TaxIntegration {
+    "taxIntegrationType"?: TaxIntegration.TaxIntegrationTypeEnum;
+    "id"?: number;
+    "accountNumber"?: string;
+    "licenseKey"?: string;
+    "serviceUrl"?: string;
+    "companyCode"?: string;
+    "timeTaxCode"?: string;
+    "expenseTaxCode"?: string;
+    "productTaxCode"?: string;
+    "invoiceAmountTaxCode"?: string;
+    "enabledFlag"?: boolean;
+    "commitTransactionsFlag"?: boolean;
+    "salesInvoiceFlag"?: boolean;
+    "freightTaxCode"?: string;
+    "accountingIntegrationFlag"?: boolean;
+    "taxLineFlag"?: boolean;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export namespace TaxIntegration {
+    type TaxIntegrationTypeEnum = 'Avalara';
+}
 export interface Team {
     "id"?: number;
-    "type"?: Team.TypeEnum;
+    "type": Team.TypeEnum;
     "member"?: MemberReference;
     "salesTeam"?: SalesTeamReference;
     "commissionPercent"?: number;
@@ -4182,17 +7597,20 @@ export interface Team {
      * Metadata of the entity
      */
     "info"?: Metadata;
-    "name": string;
-    "teamLeader": MemberReference;
-    "members"?: Array<number>;
-    "defaultFlag"?: boolean;
-    "notifyOnTicketDelete"?: boolean;
-    "boardId"?: number;
-    "locationId"?: number;
-    "businessUnitId"?: number;
 }
 export namespace Team {
     type TypeEnum = 'Individual' | 'Team';
+}
+export interface TeamMember {
+    "id"?: number;
+    "board"?: BoardReference;
+    "team": ServiceTeamReference;
+    "member": MemberReference;
+    "teamLeaderFlag"?: boolean;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
 }
 export interface TeamRole {
     "id"?: number;
@@ -4311,6 +7729,7 @@ export interface Ticket {
     "businessUnitId"?: number;
     "mobileGuid"?: Guid;
     "sla"?: SLAReference;
+    "currency"?: CurrencyReference;
     /**
      * Metadata of the entity
      */
@@ -4374,6 +7793,95 @@ export namespace TicketStopwatch {
     type BillableOptionEnum = 'Billable' | 'DoNotBill' | 'NoCharge' | 'NoDefault';
     type StatusEnum = 'Reset' | 'Running' | 'Paused' | 'Stopped';
 }
+export interface TicketSync {
+    "id"?: number;
+    "name": string;
+    "vendorType": TicketSync.VendorTypeEnum;
+    "integratorLogin": IntegratorLoginReference;
+    "company": CompanyReference;
+    "url": string;
+    "userName"?: string;
+    "password"?: string;
+    "psg"?: string;
+    "problemDescription"?: boolean;
+    "internalAnalysis"?: boolean;
+    "resolution"?: boolean;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export namespace TicketSync {
+    type VendorTypeEnum = 'Zenith' | 'Kaseya';
+}
+export interface TimeAccrual {
+    "id"?: number;
+    "location"?: SystemLocationReference;
+    /**
+     * if vacationFlag is set to false, system will clear out or ingore the values of vacationAvailableType, vacationCarryoverAllowedFlag, vacationCarryoverLimit
+     */
+    "vacationFlag"?: boolean;
+    "vacationAvailableType"?: TimeAccrual.VacationAvailableTypeEnum;
+    "vacationCarryoverAllowedFlag"?: boolean;
+    "vacationCarryoverLimit"?: number;
+    /**
+     * if sickFlag is set to false, system will clear out or ignore the values of sickAvailableType, sickCarryoverAllowedFlag, sickCarryoverLimit
+     */
+    "sickFlag"?: boolean;
+    "sickAvailableType"?: TimeAccrual.SickAvailableTypeEnum;
+    "sickCarryoverAllowedFlag"?: boolean;
+    "sickCarryoverLimit"?: number;
+    /**
+     * if ptoFlag is set to false, system will clear out or ignore the values of ptoAvailableType, ptoCarryoverAllowedFlag, ptoCarryoverLimit
+     */
+    "ptoFlag"?: boolean;
+    "ptoAvailableType"?: TimeAccrual.PtoAvailableTypeEnum;
+    "ptoCarryoverAllowedFlag"?: boolean;
+    "ptoCarryoverLimit"?: number;
+    /**
+     * if holidayFlag is set to false, system will clear out or ignore the values of holidayAvailableType, holidayCarryoverAllowedFlag, holidayCarryoverLimit
+     */
+    "holidayFlag"?: boolean;
+    "holidayAvailableType"?: TimeAccrual.HolidayAvailableTypeEnum;
+    "holidayCarryoverAllowedFlag"?: boolean;
+    "holidayCarryoverLimit"?: number;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export namespace TimeAccrual {
+    type VacationAvailableTypeEnum = 'AnniversaryYear' | 'CalendarYear';
+    type SickAvailableTypeEnum = 'AnniversaryYear' | 'CalendarYear';
+    type PtoAvailableTypeEnum = 'AnniversaryYear' | 'CalendarYear';
+    type HolidayAvailableTypeEnum = 'AnniversaryYear' | 'CalendarYear';
+}
+export interface TimeAccrualDetail {
+    "id"?: number;
+    /**
+     * Available types are: Holiday, PTO, Sick and Vacation.
+     */
+    "accrualType": TimeAccrualDetail.AccrualTypeEnum;
+    "startYear": number;
+    "endYear": number;
+    "hours": number;
+    "timeAccrual"?: TimeAccrualReference;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export namespace TimeAccrualDetail {
+    type AccrualTypeEnum = 'Holiday' | 'PTO' | 'Sick' | 'Vacation';
+}
+export interface TimeAccrualReference {
+    "id"?: number;
+    "name"?: string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
 export interface TimeEntry {
     "id"?: number;
     /**
@@ -4424,10 +7932,13 @@ export interface TimeEntry {
     "enteredBy"?: string;
     "dateEntered"?: Date;
     "invoice"?: InvoiceReference;
+    "mobileGuid"?: Guid;
     /**
      * This field may only be Updated, it is defaulted on Create
      */
     "hourlyRate"?: number;
+    "timeSheet"?: TimeSheetReference;
+    "status"?: TimeEntry.StatusEnum;
     /**
      * Metadata of the entity
      */
@@ -4437,6 +7948,7 @@ export interface TimeEntry {
 export namespace TimeEntry {
     type ChargeToTypeEnum = 'ServiceTicket' | 'ProjectTicket' | 'ChargeCode' | 'Activity';
     type BillableOptionEnum = 'Billable' | 'DoNotBill' | 'NoCharge' | 'NoDefault';
+    type StatusEnum = 'Open' | 'Rejected' | 'PendingApproval' | 'ErrorsCorrected' | 'PendingProjectApproval' | 'ApprovedByTierOne' | 'RejectBySecondTier' | 'ApprovedByTierTwo' | 'ReadyToBill' | 'Billed' | 'WrittenOff' | 'BilledAgreement';
 }
 export interface TimeEntryReference {
     "id"?: number;
@@ -4445,7 +7957,154 @@ export interface TimeEntryReference {
      */
     "info"?: Metadata;
 }
+export interface TimeExpense {
+    "id"?: number;
+    "tier1ApprovalFlag"?: boolean;
+    "tier2ApprovalFlag"?: boolean;
+    "disableTimeEntryFlag"?: boolean;
+    "requireTimeNoteFlag"?: boolean;
+    "requireExpenseNoteFlag"?: boolean;
+    "roundingFactor"?: number;
+    "invoiceStart"?: number;
+    "internalCompany": CompanyReference;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface TimePeriod {
+    "id"?: number;
+    "timePeriodSetup": TimePeriodSetupReference;
+    "period"?: number;
+    "startDate"?: string;
+    "endDate"?: string;
+    "deadlineDate"?: string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface TimePeriodSetup {
+    "id"?: number;
+    "periodApplyTo": TimePeriodSetup.PeriodApplyToEnum;
+    "year": number;
+    "numberFuturePeriods": number;
+    "type": TimePeriodSetup.TypeEnum;
+    "description"?: string;
+    "firstPeriodEndDate": string;
+    /**
+     * Only needed when type is monthly
+     */
+    "monthlyPeriodEnds"?: number;
+    /**
+     * Only needed when type is semi-monthly
+     */
+    "semiMonthlyFirstPeriod"?: number;
+    /**
+     * Only needed when type is semi-monthly
+     */
+    "semiMonthlySecondPeriod"?: number;
+    "semiMonthlyLastDayFlag"?: boolean;
+    /**
+     * Only needed when type is monthly
+     */
+    "lastDayFlag"?: boolean;
+    "daysPastEndDate": number;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export namespace TimePeriodSetup {
+    type PeriodApplyToEnum = 'Time' | 'Expense' | 'Both';
+    type TypeEnum = 'Weekly' | 'BiWeekly' | 'SemiMonthly' | 'Monthly';
+}
+export interface TimePeriodSetupDefaults {
+}
+export interface TimePeriodSetupReference {
+    "id"?: number;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface TimeSheet {
+    "id"?: number;
+    "member"?: MemberReference;
+    "year"?: number;
+    "period"?: number;
+    "dateStart"?: Date;
+    "dateEnd"?: Date;
+    "status"?: TimeSheet.StatusEnum;
+    "hours"?: number;
+    "deadline"?: Date;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export namespace TimeSheet {
+    type StatusEnum = 'Open' | 'Rejected' | 'PendingApproval' | 'ErrorsCorrected' | 'PendingProjectApproval' | 'ApprovedByTierOne' | 'RejectBySecondTier' | 'ApprovedByTierTwo' | 'ReadyToBill' | 'Billed' | 'WrittenOff' | 'BilledAgreement';
+}
+export interface TimeSheetReference {
+    "id"?: number;
+    "name"?: string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface TimeZone {
+    "id"?: number;
+    "name"?: string;
+    /**
+     * The hours offset (+/-)
+     */
+    "offset"?: number;
+    "startDate"?: Date;
+    "endDate"?: Date;
+    "daylightSavingsFlag"?: boolean;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+/**
+ * The system level time zone to which this setup is associated
+ */
 export interface TimeZoneReference {
+    "id"?: number;
+    "name"?: string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface TimeZoneSetup {
+    "id"?: number;
+    "name": string;
+    /**
+     * The system level time zone to which this setup is associated
+     */
+    "timeZone": TimeZoneReference;
+    /**
+     * The hours offset from UTC (+/-)
+     */
+    "offset"?: number;
+    /**
+     * Identifies the default system time zone setup
+     */
+    "defaultFlag"?: boolean;
+    "daylightSavingsFlag"?: boolean;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+/**
+ * The specified system time zone for the Company
+ */
+export interface TimeZoneSetupReference {
     "id"?: number;
     "name"?: string;
     /**
@@ -4456,8 +8115,8 @@ export interface TimeZoneReference {
 export interface TodayPageCategory {
     "id"?: number;
     "name": string;
-    "sortOrder"?: number;
-    "locationId"?: number;
+    "sortOrder": number;
+    "location"?: SystemLocationReference;
     /**
      * Metadata of the entity
      */
@@ -4470,8 +8129,8 @@ export interface Token {
 }
 export interface Track {
     "id"?: number;
-    "trackId": number;
-    "name"?: string;
+    "trackId"?: number;
+    "name": string;
     "startDate"?: string;
     "endDate"?: string;
     "actionTaken"?: number;
@@ -4483,7 +8142,40 @@ export interface Track {
      * Metadata of the entity
      */
     "info"?: Metadata;
+    "inactiveFlag"?: boolean;
+    "notifyActionIds"?: Array<number>;
 }
+export interface TrackAction {
+    "id"?: number;
+    "notifyType": TrackAction.NotifyTypeEnum;
+    "serviceTemplate"?: ServiceTemplateReference;
+    "specificMemberTo"?: MemberReference;
+    "emailRecipient"?: string;
+    "specificMemberFrom"?: MemberReference;
+    "emailFrom"?: string;
+    "subject"?: string;
+    "notes"?: string;
+    "activityType"?: ActivityTypeReference;
+    "activityStatus"?: ActivityStatusReference;
+    "companyStatus"?: CompanyStatusReference;
+    "track"?: TrackReference;
+    "group"?: GroupReference;
+    "ccContact"?: ContactReference;
+    "bccContact"?: ContactReference;
+    "daysToExecute"?: number;
+    "notifyWho"?: NotificationRecipientReference;
+    "notifyFrom"?: NotificationRecipientReference;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export namespace TrackAction {
+    type NotifyTypeEnum = 'AddToGroup' | 'ChangeCompanyStatus' | 'CreateActivity' | 'CreateServiceTicket' | 'SendEmail';
+}
+/**
+ * Required when notifyType is set to: "Attach Track"
+ */
 export interface TrackReference {
     "id"?: number;
     "name"?: string;
@@ -4495,25 +8187,11 @@ export interface TrackReference {
 export interface Type {
     "id"?: number;
     "name": string;
-    "category"?: Type.CategoryEnum;
-    "defaultFlag"?: boolean;
-    "inactive"?: boolean;
-    "requestForChange"?: boolean;
-    "boardId"?: number;
-    "locationId"?: number;
-    "businessUnitId"?: number;
+    "inactiveFlag"?: boolean;
     /**
      * Metadata of the entity
      */
     "info"?: Metadata;
-    "inactiveFlag"?: boolean;
-}
-export namespace Type {
-    type CategoryEnum = 'Reactive' | 'Proactive';
-}
-export interface TypeAssociations {
-    "typeId"?: number;
-    "subTypeAssociationIds"?: Array<number>;
 }
 export interface UnitOfMeasure {
     "id"?: number;
@@ -4798,7 +8476,7 @@ export interface UserDefinedField {
     "info"?: Metadata;
 }
 export namespace UserDefinedField {
-    type FieldTypeIdentifierEnum = 'Text' | 'Button' | 'Date' | 'Hyperlink' | 'Checkbox' | 'Number' | 'Percent' | 'TextArea';
+    type FieldTypeIdentifierEnum = 'Button' | 'Checkbox' | 'Date' | 'Hyperlink' | 'Number' | 'Percent' | 'Text' | 'TextArea';
     type EntryTypeIdentifierEnum = 'EntryField' | 'List' | 'Option';
 }
 export interface UserDefinedFieldOption {
@@ -4807,6 +8485,17 @@ export interface UserDefinedFieldOption {
     "defaultFlag"?: boolean;
     "inactiveFlag"?: boolean;
     "sortOrder"?: number;
+}
+/**
+ * If your trigger is for custom fields, this will populate with the custom field associated with the option
+ */
+export interface UserDefinedFieldReference {
+    "id"?: number;
+    "name"?: string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
 }
 export interface ValidatePortalRequest {
     "email": string;
@@ -4821,6 +8510,47 @@ export interface ValidationError {
     "message"?: string;
     "resource"?: string;
     "field"?: string;
+    "details"?: string;
+}
+export interface Warehouse {
+    "id"?: number;
+    "name": string;
+    "company"?: CompanyReference;
+    "location": SystemLocationReference;
+    "department"?: SystemDepartmentReference;
+    "manager"?: MemberReference;
+    "site"?: SiteReference;
+    "locationXref"?: string;
+    "locationDefaultFlag"?: boolean;
+    "overallDefaultFlag"?: boolean;
+    "inactiveFlag"?: boolean;
+    "currency"?: CurrencyReference;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface WarehouseBin {
+    "id"?: number;
+    "name": string;
+    "warehouse": WarehouseReference;
+    "location"?: SystemLocationReference;
+    "department"?: SystemDepartmentReference;
+    "minQuantity"?: number;
+    "maxQuantity"?: number;
+    "overflowBin"?: WarehouseBinReference;
+    "manager"?: MemberReference;
+    "length"?: number;
+    "width"?: number;
+    "height"?: number;
+    "weight"?: number;
+    "defaultFlag"?: boolean;
+    "inactiveFlag"?: boolean;
+    "transferBin"?: WarehouseBinReference;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
 }
 export interface WarehouseBinReference {
     "id"?: number;
@@ -4838,8 +8568,105 @@ export interface WarehouseReference {
      */
     "info"?: Metadata;
 }
+export interface WorkRole {
+    "id"?: number;
+    "name": string;
+    "hourlyRate"?: number;
+    "integrationXref"?: string;
+    "inactiveFlag"?: boolean;
+    "addAllLocations"?: boolean;
+    "removeAllLocations"?: boolean;
+    /**
+     * Used only on create to add the work role to all agreement and agreement type exclusion lists
+     */
+    "addAllAgreementExclusions"?: boolean;
+    "locationIds"?: Array<number>;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface WorkRoleExemption {
+    "id"?: number;
+    "workRole": WorkRoleReference;
+    /**
+     * At least one level flag is required -- levelOneFlag, levelTwoFlag, levelThreeFlag, levelFourFlag, and/or levelFiveFlag
+     */
+    "levelOneFlag"?: boolean;
+    /**
+     * At least one level flag is required -- levelOneFlag, levelTwoFlag, levelThreeFlag, levelFourFlag, and/or levelFiveFlag
+     */
+    "levelTwoFlag"?: boolean;
+    /**
+     * At least one level flag is required -- levelOneFlag, levelTwoFlag, levelThreeFlag, levelFourFlag, and/or levelFiveFlag
+     */
+    "levelThreeFlag"?: boolean;
+    /**
+     * At least one level flag is required -- levelOneFlag, levelTwoFlag, levelThreeFlag, levelFourFlag, and/or levelFiveFlag
+     */
+    "levelFourFlag"?: boolean;
+    /**
+     * At least one level flag is required -- levelOneFlag, levelTwoFlag, levelThreeFlag, levelFourFlag, and/or levelFiveFlag
+     */
+    "levelFiveFlag"?: boolean;
+    "taxCode"?: TaxCodeReference;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface WorkRoleLocation {
+    "id"?: number;
+    "location": SystemLocationReference;
+    "hourlyRate"?: number;
+    "workRole"?: WorkRoleReference;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
 export interface WorkRoleReference {
     "id"?: number;
+    "name"?: string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface WorkType {
+    "id"?: number;
+    "name": string;
+    "billTime": WorkType.BillTimeEnum;
+    "rateType": WorkType.RateTypeEnum;
+    "rate": number;
+    "hoursMin"?: number;
+    "hoursMax"?: number;
+    "roundBillHoursTo"?: number;
+    "externalIntegrationXRef"?: ExternalWorkTypeIntegrationReference;
+    "accrualType"?: WorkType.AccrualTypeEnum;
+    "inactiveFlag"?: boolean;
+    "overallDefaultFlag"?: boolean;
+    "activityDefaultFlag"?: boolean;
+    "utilizationFlag"?: boolean;
+    "costMultiplier"?: number;
+    "integrationXRef"?: string;
+    /**
+     * Used only on create to add the work type to all agreement and agreement type exclusion lists
+     */
+    "addAllAgreementExclusions"?: boolean;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export namespace WorkType {
+    type BillTimeEnum = 'Billable' | 'DoNotBill' | 'NoCharge';
+    type RateTypeEnum = 'AdjAmount' | 'Custom' | 'Multiplier';
+    type AccrualTypeEnum = 'Holiday' | 'PTO' | 'Sick' | 'Vacation';
+}
+export interface WorkTypeExternalIntegrationReference {
+    "id"?: number;
+    "identifier"?: string;
     "name"?: string;
     /**
      * Metadata of the entity
@@ -4849,6 +8676,234 @@ export interface WorkRoleReference {
 export interface WorkTypeReference {
     "id"?: number;
     "name"?: string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface Workflow {
+    "id"?: number;
+    "name": string;
+    "tableType": WorkflowTableTypeReference;
+    /**
+     * If a department is set, a location that contains it must be set
+     */
+    "location"?: SystemLocationReference;
+    /**
+     * Must belong to the specified location
+     */
+    "department"?: SystemDepartmentReference;
+    /**
+     * Batches can not be turned on until after the workflow is created and it has atleast one event associated with it
+     */
+    "activateFlag"?: boolean;
+    "batchInterval"?: number;
+    /**
+     * If not specified, defaults to Minutes. Months is not supported as month length varies
+     */
+    "batchFrequencyUnit"?: Workflow.BatchFrequencyUnitEnum;
+    "batchLastRan"?: Date;
+    /**
+     * If activateFlag is true, batchSchedule is required
+     */
+    "batchSchedule"?: Workflow.BatchScheduleEnum;
+    "board"?: BoardReference;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export namespace Workflow {
+    type BatchFrequencyUnitEnum = 'Minutes' | 'Hours' | 'Days';
+    type BatchScheduleEnum = 'AnyTime' | 'MyCompanyOfficeHours' | 'SlaHours';
+}
+export interface WorkflowAction {
+    "id"?: number;
+    "notifyType": NotifyTypeReference;
+    /**
+     * Required when notifyType is set to: "Create Activity", "Send Email", "Add Follower", "Assign Resource", "Close Survey"
+     */
+    "notifyWho"?: NotificationRecipientReference;
+    /**
+     * Required when notifyWho is set to: "Specific Member", "
+     */
+    "specificMemberTo"?: MemberReference;
+    /**
+     * Required when notifyWho is set to: "Email Address"
+     */
+    "emailRecipient"?: string;
+    /**
+     * Required when notifyType is set to: "Create Activity", "Send Email", "Assign Resource"
+     */
+    "notifyFrom"?: NotificationRecipientReference;
+    /**
+     * Required when notifyFrom is set to: "Specific Member"
+     */
+    "specificMemberFrom"?: MemberReference;
+    /**
+     * Required when notifyFrom is set to: "Email Address"
+     */
+    "emailFrom"?: string;
+    "ccContact"?: ContactReference;
+    "bccContact"?: ContactReference;
+    /**
+     * Required when notifyType is set to: "Create Activity", "Send Email", "Assign Resource"
+     */
+    "subject"?: string;
+    "notes"?: string;
+    /**
+     * Required when notifyType is set to: "Create Activity"
+     */
+    "activityStatus"?: ActivityStatusReference;
+    /**
+     * Required when notifyType is set to: "Create Activity"
+     */
+    "activityType"?: ActivityTypeReference;
+    /**
+     * Required when notifyType is set to: "Attach Track"
+     */
+    "attachedTrack"?: TrackReference;
+    "daysToExecute"?: number;
+    /**
+     * Required when notifyType is set to: "Change Board"
+     */
+    "board"?: BoardReference;
+    /**
+     * Required when notifyType is set to: "Change Board", "Change Ticket Status"
+     */
+    "boardStatus"?: ServiceStatusReference;
+    "serviceType"?: ServiceTypeReference;
+    /**
+     * Required when notifyType is set to: "Add to Group"
+     */
+    "group"?: GroupReference;
+    /**
+     * Required when notifyType is set to: "Create a Service Ticket"
+     */
+    "serviceTemplate"?: ServiceTemplateReference;
+    "invoiceMinDays"?: number;
+    /**
+     * Required when notifyType is set to: "Run Connectwise Automate Script"
+     */
+    "automateScript"?: AutomateScriptReference;
+    /**
+     * Required when notifyType is set to: "Run Connectwise Automate Script"
+     */
+    "scriptSuccessStatus"?: ServiceStatusReference;
+    /**
+     * Required when notifyType is set to: "Run Connectwise Automate Script"
+     */
+    "scriptFailStatus"?: ServiceStatusReference;
+    "detailNotesFlag"?: boolean;
+    "internalNotesFlag"?: boolean;
+    "auditNotesFlag"?: boolean;
+    /**
+     * Required when notifyType is set to: "Change Ticket Priority"
+     */
+    "servicePriority"?: PriorityReference;
+    "updateOwnerFlag"?: boolean;
+    /**
+     * Required when notifyType is set to: "Change Sales Order Status"
+     */
+    "salesOrderStatus"?: OrderStatusReference;
+    /**
+     * Required when notifyType is set to: "Change Project Status"
+     */
+    "projectStatus"?: ProjectStatusReference;
+    /**
+     * Required when notifyType is set to: "Change Company Status"
+     */
+    "companyStatus"?: CompanyStatusReference;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface WorkflowActionAutomateParameter {
+    "id"?: number;
+    "name": string;
+    "value"?: string;
+}
+export interface WorkflowEvent {
+    "id"?: number;
+    "name"?: string;
+    "eventCondition": string;
+    /**
+     * Required when exectionTimes is set to MultipleTimes or Continuously
+     */
+    "frequencyUnit"?: WorkflowEvent.FrequencyUnitEnum;
+    /**
+     * Required when exectionTimes is set to MultipleTimes or Continuously
+     */
+    "frequencyOfExecution"?: number;
+    /**
+     * Required when exectionTimes is set to MultipleTimes
+     */
+    "maxNumberOfExecution"?: number;
+    /**
+     * Defaults to Once when not specified
+     */
+    "executionTime"?: WorkflowEvent.ExecutionTimeEnum;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export namespace WorkflowEvent {
+    type FrequencyUnitEnum = 'Minutes' | 'Hours' | 'Days' | 'Months';
+    type ExecutionTimeEnum = 'Once' | 'MultipleTimes' | 'Continuously';
+}
+export interface WorkflowNotifyType {
+    "id"?: number;
+    "identifier"?: string;
+    "name"?: string;
+    /**
+     * If the current action is available because it is already set up. Pertains to integrations such as Automate
+     */
+    "isSetupFlag"?: boolean;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface WorkflowTableType {
+    "id"?: number;
+    "identifier"?: string;
+    "name"?: string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface WorkflowTableTypeReference {
+    "id"?: number;
+    "identifier"?: string;
+    "name"?: string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface WorkflowTrigger {
+    "id"?: number;
+    "name"?: string;
+    "description"?: string;
+    "hasOptionsFlag"?: boolean;
+    "hasOperatorFlag"?: boolean;
+    "customField"?: UserDefinedFieldReference;
+    "expectedType"?: string;
+    /**
+     * Metadata of the entity
+     */
+    "info"?: Metadata;
+}
+export interface WorkflowTriggerOption {
+    "value"?: string;
+    "name"?: string;
+    /**
+     * If your trigger is for custom fields, this will populate with the custom field associated with the option
+     */
+    "customField"?: UserDefinedFieldReference;
     /**
      * Metadata of the entity
      */
@@ -4926,6 +8981,45 @@ export class AccountingBatchesApi {
     financeAccountingExportPost(params: {
         batchExportParameters: ExportAccountingBatchRequest;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<GLExport>;
+}
+export class AccountingPackagesApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Accounting Packages Count
+     * @param conditions
+     */
+    systemAccountingPackagesCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Accounting Packages
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemAccountingPackagesGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<AccountingPackage>>;
+    /**
+     *
+     * Get Accounting Package By Id
+     * @param id
+     */
+    systemAccountingPackagesIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<AccountingPackage>;
 }
 export class AccountingUnpostedExpensesApi {
     protected basePath: string;
@@ -5346,6 +9440,81 @@ export class ActivityTypesApi {
         activityType: ActivityType;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<ActivityType>;
 }
+export class AddressFormatsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Address Formats Count
+     * @param conditions
+     */
+    companyAddressFormatsCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Address Formats
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    companyAddressFormatsGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<AddressFormat>>;
+    /**
+     *
+     * Delete Address Format By Id
+     * @param id
+     */
+    companyAddressFormatsIdDelete(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Address Format By Id
+     * @param id
+     */
+    companyAddressFormatsIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<AddressFormat>;
+    /**
+     *
+     * Update Address Format
+     * @param id
+     * @param operations
+     */
+    companyAddressFormatsIdPatch(params: {
+        id: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<AddressFormat>;
+    /**
+     *
+     * Replace Address Format
+     * @param id
+     * @param addressFormat
+     */
+    companyAddressFormatsIdPut(params: {
+        id: number;
+        addressFormat: AddressFormat;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<AddressFormat>;
+    /**
+     *
+     * Create Address Format
+     * @param addressFormat
+     */
+    companyAddressFormatsPost(params: {
+        addressFormat: AddressFormat;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<AddressFormat>;
+}
 export class AdjustmentDetailsApi {
     protected basePath: string;
     defaultHeaders: any;
@@ -5743,6 +9912,65 @@ export class AgreementAdjustmentsApi {
         adjustment: Adjustment;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<Adjustment>;
 }
+export class AgreementBatchSetupsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Batch Setup Count
+     * @param conditions
+     */
+    financeBatchSetupsCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Batch Setup
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    financeBatchSetupsGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<AgreementBatchSetup>>;
+    /**
+     *
+     * Get Batch Setup By Id
+     * @param id
+     */
+    financeBatchSetupsIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<AgreementBatchSetup>;
+    /**
+     *
+     * Update Batch Setup
+     * @param id
+     * @param operations
+     */
+    financeBatchSetupsIdPatch(params: {
+        id: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<AgreementBatchSetup>;
+    /**
+     *
+     * Replace Batch Setup
+     * @param id
+     * @param batchSetup
+     */
+    financeBatchSetupsIdPut(params: {
+        id: number;
+        batchSetup: AgreementBatchSetup;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<AgreementBatchSetup>;
+}
 export class AgreementBoardDefaultsApi {
     protected basePath: string;
     defaultHeaders: any;
@@ -5920,6 +10148,403 @@ export class AgreementSitesApi {
         siteId: number;
         site: AgreementSite;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<AgreementSite>;
+}
+export class AgreementTypeBoardDefaultsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Delete Agreement Type Board Default By Id
+     * @param id
+     * @param boardDefaultId
+     */
+    financeAgreementTypesIdBoardDefaultsBoardDefaultIdDelete(params: {
+        id: number;
+        boardDefaultId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Agreement Type Board Default By Id
+     * @param id
+     * @param boardDefaultId
+     */
+    financeAgreementTypesIdBoardDefaultsBoardDefaultIdGet(params: {
+        id: number;
+        boardDefaultId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<AgreementTypeBoardDefault>;
+    /**
+     *
+     * Update Agreement Type Board Default
+     * @param id
+     * @param boardDefaultId
+     * @param operations
+     */
+    financeAgreementTypesIdBoardDefaultsBoardDefaultIdPatch(params: {
+        id: number;
+        boardDefaultId: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<AgreementTypeBoardDefault>;
+    /**
+     *
+     * Replace Agreement Type Board Default
+     * @param id
+     * @param boardDefaultId
+     * @param boardDefault
+     */
+    financeAgreementTypesIdBoardDefaultsBoardDefaultIdPut(params: {
+        id: number;
+        boardDefaultId: number;
+        boardDefault: AgreementTypeBoardDefault;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<AgreementTypeBoardDefault>;
+    /**
+     *
+     * Get Agreement Type Board Defaults Count
+     * @param id
+     * @param conditions
+     */
+    financeAgreementTypesIdBoardDefaultsCountGet(params: {
+        id: number;
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Agreement Type Board Defaults
+     * @param id
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    financeAgreementTypesIdBoardDefaultsGet(params: {
+        id: number;
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<AgreementTypeBoardDefault>>;
+    /**
+     *
+     * Create Agreement Type Board Default
+     * @param id
+     * @param boardDefault
+     */
+    financeAgreementTypesIdBoardDefaultsPost(params: {
+        id: number;
+        boardDefault: AgreementTypeBoardDefault;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<AgreementTypeBoardDefault>;
+}
+export class AgreementTypeWorkRoleExclusionsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Work Role Exclusions Count
+     * @param id
+     * @param conditions
+     */
+    financeAgreementTypesIdWorkRoleExclusionsCountGet(params: {
+        id: number;
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Work Role Exclusions
+     * @param id
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    financeAgreementTypesIdWorkRoleExclusionsGet(params: {
+        id: number;
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<AgreementTypeWorkRoleExclusion>>;
+    /**
+     *
+     * Create Work Role Exclusion
+     * @param id
+     * @param workRoleExclusion
+     */
+    financeAgreementTypesIdWorkRoleExclusionsPost(params: {
+        id: number;
+        workRoleExclusion: AgreementTypeWorkRoleExclusion;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<AgreementTypeWorkRoleExclusion>;
+    /**
+     *
+     * Delete Work Role Exclusion By Id
+     * @param id
+     * @param workRoleExclusionId
+     */
+    financeAgreementTypesIdWorkRoleExclusionsWorkRoleExclusionIdDelete(params: {
+        id: number;
+        workRoleExclusionId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Work Role Exclusion By Id
+     * @param id
+     * @param workRoleExclusionId
+     */
+    financeAgreementTypesIdWorkRoleExclusionsWorkRoleExclusionIdGet(params: {
+        id: number;
+        workRoleExclusionId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<AgreementTypeWorkRoleExclusion>;
+}
+export class AgreementTypeWorkRolesApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Work Roles Count
+     * @param id
+     * @param conditions
+     */
+    financeAgreementTypesIdWorkrolesCountGet(params: {
+        id: number;
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Work Roles
+     * @param id
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    financeAgreementTypesIdWorkrolesGet(params: {
+        id: number;
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<AgreementTypeWorkRole>>;
+    /**
+     *
+     * Create Work Role
+     * @param id
+     * @param workRole
+     */
+    financeAgreementTypesIdWorkrolesPost(params: {
+        id: number;
+        workRole: AgreementTypeWorkRole;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<AgreementTypeWorkRole>;
+    /**
+     *
+     * Delete Work Role By Id
+     * @param id
+     * @param workRoleId
+     */
+    financeAgreementTypesIdWorkrolesWorkRoleIdDelete(params: {
+        id: number;
+        workRoleId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Work Role By Id
+     * @param id
+     * @param workRoleId
+     */
+    financeAgreementTypesIdWorkrolesWorkRoleIdGet(params: {
+        id: number;
+        workRoleId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<AgreementTypeWorkRole>;
+    /**
+     *
+     * Update Work Role
+     * @param id
+     * @param workRoleId
+     * @param operations
+     */
+    financeAgreementTypesIdWorkrolesWorkRoleIdPatch(params: {
+        id: number;
+        workRoleId: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<AgreementTypeWorkRole>;
+    /**
+     *
+     * Replace Work Role
+     * @param id
+     * @param workRoleId
+     * @param workRole
+     */
+    financeAgreementTypesIdWorkrolesWorkRoleIdPut(params: {
+        id: number;
+        workRoleId: number;
+        workRole: AgreementTypeWorkRole;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<AgreementTypeWorkRole>;
+}
+export class AgreementTypeWorkTypeExclusionsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Work Type Exclusions Count
+     * @param id
+     * @param conditions
+     */
+    financeAgreementTypesIdWorkTypeExclusionsCountGet(params: {
+        id: number;
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Work Type Exclusions
+     * @param id
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    financeAgreementTypesIdWorkTypeExclusionsGet(params: {
+        id: number;
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<AgreementTypeWorkTypeExclusion>>;
+    /**
+     *
+     * Create Work Type Exclusion
+     * @param id
+     * @param workTypeExclusion
+     */
+    financeAgreementTypesIdWorkTypeExclusionsPost(params: {
+        id: number;
+        workTypeExclusion: AgreementTypeWorkTypeExclusion;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<AgreementTypeWorkTypeExclusion>;
+    /**
+     *
+     * Delete Work Type Exclusion By Id
+     * @param id
+     * @param workTypeExclusionId
+     */
+    financeAgreementTypesIdWorkTypeExclusionsWorkTypeExclusionIdDelete(params: {
+        id: number;
+        workTypeExclusionId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Work Type Exclusion By Id
+     * @param id
+     * @param workTypeExclusionId
+     */
+    financeAgreementTypesIdWorkTypeExclusionsWorkTypeExclusionIdGet(params: {
+        id: number;
+        workTypeExclusionId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<AgreementTypeWorkTypeExclusion>;
+}
+export class AgreementTypeWorkTypesApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Work Types Count
+     * @param id
+     * @param conditions
+     */
+    financeAgreementTypesIdWorktypesCountGet(params: {
+        id: number;
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Work Types
+     * @param id
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    financeAgreementTypesIdWorktypesGet(params: {
+        id: number;
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<AgreementTypeWorkType>>;
+    /**
+     *
+     * Create Work Type
+     * @param id
+     * @param workType
+     */
+    financeAgreementTypesIdWorktypesPost(params: {
+        id: number;
+        workType: AgreementTypeWorkType;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<AgreementTypeWorkType>;
+    /**
+     *
+     * Delete Work Type By Id
+     * @param id
+     * @param worktypeId
+     */
+    financeAgreementTypesIdWorktypesWorktypeIdDelete(params: {
+        id: number;
+        worktypeId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Work Type By Id
+     * @param id
+     * @param worktypeId
+     */
+    financeAgreementTypesIdWorktypesWorktypeIdGet(params: {
+        id: number;
+        worktypeId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<AgreementTypeWorkType>;
+    /**
+     *
+     * Update Work Type
+     * @param id
+     * @param worktypeId
+     * @param operations
+     */
+    financeAgreementTypesIdWorktypesWorktypeIdPatch(params: {
+        id: number;
+        worktypeId: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<AgreementTypeWorkType>;
+    /**
+     *
+     * Replace Work Type
+     * @param id
+     * @param worktypeId
+     * @param workType
+     */
+    financeAgreementTypesIdWorktypesWorktypeIdPut(params: {
+        id: number;
+        worktypeId: number;
+        workType: AgreementTypeWorkType;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<AgreementTypeWorkType>;
 }
 export class AgreementTypesApi {
     protected basePath: string;
@@ -6444,6 +11069,70 @@ export class AuditTrailApi {
         pageSize?: number;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<AuditTrailEntry>>;
 }
+export class AuthAnvilsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Auth Anvil Count
+     * @param conditions
+     */
+    systemAuthAnvilsCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Auth Anvils
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemAuthAnvilsGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<AuthAnvil>>;
+    /**
+     *
+     * Get Auth Anvil By Id
+     * @param id
+     */
+    systemAuthAnvilsIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<AuthAnvil>;
+    /**
+     *
+     * Update Auth Anvil
+     * @param id
+     * @param operations
+     */
+    systemAuthAnvilsIdPatch(params: {
+        id: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<AuthAnvil>;
+    /**
+     *
+     * Replace Auth Anvil
+     * @param id
+     * @param authAnvil
+     */
+    systemAuthAnvilsIdPut(params: {
+        id: number;
+        authAnvil: AuthAnvil;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<AuthAnvil>;
+    /**
+     *
+     * Validate Auth Anvil Url Connectivity
+     */
+    systemAuthAnvilsTestConnectionGet(params: {}, extraQueryParams?: any, extraFetchParams?: any): Promise<SuccessResponse>;
+}
 export class BatchApi {
     protected basePath: string;
     defaultHeaders: any;
@@ -6456,6 +11145,465 @@ export class BatchApi {
     systemBatchPost(params: {
         request: BatchRequest;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<BatchResponse>;
+}
+export class BillingCyclesApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Billing Cycles Count
+     * @param conditions
+     */
+    financeBillingCyclesCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Billing Cycles
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    financeBillingCyclesGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<BillingCycle>>;
+    /**
+     *
+     * Get Billing Cycle By Id
+     * @param id
+     */
+    financeBillingCyclesIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<BillingCycle>;
+}
+export class BillingSetupRoutingsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Billing Setup Routings Count
+     * @param id
+     * @param conditions
+     */
+    financeBillingSetupsIdRoutingsCountGet(params: {
+        id: number;
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Billing Setup Routings
+     * @param id
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    financeBillingSetupsIdRoutingsGet(params: {
+        id: number;
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<BillingSetupRouting>>;
+    /**
+     *
+     * Create Billing Setup Routing
+     * @param id
+     * @param billingSetupRouting
+     */
+    financeBillingSetupsIdRoutingsPost(params: {
+        id: number;
+        billingSetupRouting: BillingSetupRouting;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<BillingSetupRouting>;
+    /**
+     *
+     * Delete Billing Setup Routing By Id
+     * @param id
+     * @param routingId
+     */
+    financeBillingSetupsIdRoutingsRoutingIdDelete(params: {
+        id: number;
+        routingId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Billing Setup Routing By Id
+     * @param id
+     * @param routingId
+     */
+    financeBillingSetupsIdRoutingsRoutingIdGet(params: {
+        id: number;
+        routingId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<BillingSetupRouting>;
+    /**
+     *
+     * Update Billing Setup Routing
+     * @param id
+     * @param routingId
+     * @param operations
+     */
+    financeBillingSetupsIdRoutingsRoutingIdPatch(params: {
+        id: number;
+        routingId: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<BillingSetupRouting>;
+    /**
+     *
+     * Replace Billing Setup Routing
+     * @param id
+     * @param routingId
+     * @param billingSetupRouting
+     */
+    financeBillingSetupsIdRoutingsRoutingIdPut(params: {
+        id: number;
+        routingId: number;
+        billingSetupRouting: BillingSetupRouting;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<BillingSetupRouting>;
+}
+export class BillingSetupsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Billing Setups Count
+     * @param conditions
+     */
+    financeBillingSetupsCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Billing Setups
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    financeBillingSetupsGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<BillingSetup>>;
+    /**
+     *
+     * Delete Billing Setup By Id
+     * @param id
+     */
+    financeBillingSetupsIdDelete(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Billing Setup By Id
+     * @param id
+     */
+    financeBillingSetupsIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<BillingSetup>;
+    /**
+     *
+     * Update Billing Setup
+     * @param id
+     * @param operations
+     */
+    financeBillingSetupsIdPatch(params: {
+        id: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<BillingSetup>;
+    /**
+     *
+     * Replace Billing Setup
+     * @param id
+     * @param billingSetup
+     */
+    financeBillingSetupsIdPut(params: {
+        id: number;
+        billingSetup: BillingSetup;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<BillingSetup>;
+    /**
+     *
+     * Create Billing Setup
+     * @param billingSetup
+     */
+    financeBillingSetupsPost(params: {
+        billingSetup: BillingSetup;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<BillingSetup>;
+}
+export class BillingStatusesApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Billing Statuses Count
+     * @param conditions
+     */
+    systemBillingStatusesCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Billing Statuses
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemBillingStatusesGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<BillingStatus>>;
+    /**
+     *
+     * Get Billing Status By Id
+     * @param id
+     */
+    systemBillingStatusesIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<BillingStatus>;
+}
+export class BillingTermsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Billing Terms Count
+     * @param conditions
+     */
+    financeBillingTermsCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Billing Terms
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    financeBillingTermsGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<BillingTerm>>;
+    /**
+     *
+     * Get Billing Term By Id
+     * @param id
+     */
+    financeBillingTermsIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<BillingTerm>;
+}
+export class BoardAutoAssignResourcesApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Delete Board Auto Assign Resource By Id
+     * @param id
+     * @param autoAssignResourceId
+     */
+    serviceBoardsIdAutoAssignResourcesAutoAssignResourceIdDelete(params: {
+        id: number;
+        autoAssignResourceId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Board Auto Assign Resource By Id
+     * @param id
+     * @param autoAssignResourceId
+     */
+    serviceBoardsIdAutoAssignResourcesAutoAssignResourceIdGet(params: {
+        id: number;
+        autoAssignResourceId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<BoardAutoAssignResource>;
+    /**
+     *
+     * Update Board Auto Assign Resource
+     * @param id
+     * @param autoAssignResourceId
+     * @param operations
+     */
+    serviceBoardsIdAutoAssignResourcesAutoAssignResourceIdPatch(params: {
+        id: number;
+        autoAssignResourceId: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<BoardAutoAssignResource>;
+    /**
+     *
+     * Replace Board Auto Assign Resource
+     * @param id
+     * @param autoAssignResourceId
+     * @param boardAutoAssignResource
+     */
+    serviceBoardsIdAutoAssignResourcesAutoAssignResourceIdPut(params: {
+        id: number;
+        autoAssignResourceId: number;
+        boardAutoAssignResource: BoardAutoAssignResource;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<BoardAutoAssignResource>;
+    /**
+     *
+     * Get Board Auto Assign Resources Count
+     * @param id
+     * @param conditions
+     */
+    serviceBoardsIdAutoAssignResourcesCountGet(params: {
+        id: number;
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Board Auto Assign Resources
+     * @param id
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    serviceBoardsIdAutoAssignResourcesGet(params: {
+        id: number;
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<BoardAutoAssignResource>>;
+    /**
+     *
+     * Create Board Auto Assign Resource
+     * @param id
+     * @param boardAutoAssignResource
+     */
+    serviceBoardsIdAutoAssignResourcesPost(params: {
+        id: number;
+        boardAutoAssignResource: BoardAutoAssignResource;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<BoardAutoAssignResource>;
+}
+export class BoardAutoTemplatesApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Delete Auto Template By Id
+     * @param id
+     * @param autoTemplateId
+     */
+    serviceBoardsIdAutoTemplatesAutoTemplateIdDelete(params: {
+        id: number;
+        autoTemplateId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Auto Template By Id
+     * @param id
+     * @param autoTemplateId
+     */
+    serviceBoardsIdAutoTemplatesAutoTemplateIdGet(params: {
+        id: number;
+        autoTemplateId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<BoardAutoTemplate>;
+    /**
+     *
+     * Update Auto Template
+     * @param id
+     * @param autoTemplateId
+     * @param operations
+     */
+    serviceBoardsIdAutoTemplatesAutoTemplateIdPatch(params: {
+        id: number;
+        autoTemplateId: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<BoardAutoTemplate>;
+    /**
+     *
+     * Replace Auto Template
+     * @param id
+     * @param autoTemplateId
+     * @param boardAutoTemplate
+     */
+    serviceBoardsIdAutoTemplatesAutoTemplateIdPut(params: {
+        id: number;
+        autoTemplateId: number;
+        boardAutoTemplate: BoardAutoTemplate;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<BoardAutoTemplate>;
+    /**
+     *
+     * Get Auto Templates Count
+     * @param id
+     * @param conditions
+     */
+    serviceBoardsIdAutoTemplatesCountGet(params: {
+        id: number;
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Auto Templates
+     * @param id
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    serviceBoardsIdAutoTemplatesGet(params: {
+        id: number;
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<BoardAutoTemplate>>;
+    /**
+     *
+     * Create Auto Templates
+     * @param id
+     * @param boardAutoTemplate
+     */
+    serviceBoardsIdAutoTemplatesPost(params: {
+        id: number;
+        boardAutoTemplate: BoardAutoTemplate;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<BoardAutoTemplate>;
 }
 export class BoardExcludedMembersApi {
     protected basePath: string;
@@ -6490,7 +11638,7 @@ export class BoardExcludedMembersApi {
     serviceBoardsIdExcludedMembersExcludedMemberIdGet(params: {
         id: number;
         excludedMemberId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ExcludedMember>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<BoardExcludedMember>;
     /**
      *
      * Get Excluded Members
@@ -6510,17 +11658,96 @@ export class BoardExcludedMembersApi {
         customfieldconditions?: string;
         page?: number;
         pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ExcludedMember>>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<BoardExcludedMember>>;
     /**
      *
      * Create Excluded Member
      * @param id
-     * @param excludedMember
+     * @param boardExcludedMember
      */
     serviceBoardsIdExcludedMembersPost(params: {
         id: number;
-        excludedMember: ExcludedMember;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ExcludedMember>;
+        boardExcludedMember: BoardExcludedMember;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<BoardExcludedMember>;
+}
+export class BoardItemAssociationsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Board Item Association By Id
+     * @param boardId
+     * @param itemId
+     * @param associationId
+     */
+    serviceBoardsBoardIdItemsItemIdAssociationsAssociationIdGet(params: {
+        boardId: number;
+        itemId: number;
+        associationId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<BoardItemAssociation>;
+    /**
+     *
+     * Get Board Item Association Count
+     * @param boardId
+     * @param itemId
+     * @param conditions
+     */
+    serviceBoardsBoardIdItemsItemIdAssociationsCountGet(params: {
+        boardId: number;
+        itemId: number;
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Board Item Association
+     * @param boardId
+     * @param itemId
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    serviceBoardsBoardIdItemsItemIdAssociationsGet(params: {
+        boardId: number;
+        itemId: number;
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<BoardItemAssociation>>;
+    /**
+     *
+     * Replace Board Item Association
+     * @param boardId
+     * @param itemId
+     * @param id
+     * @param itemAssociation
+     */
+    serviceBoardsBoardIdItemsItemIdAssociationsIdPut(params: {
+        boardId: number;
+        itemId: number;
+        id: number;
+        itemAssociation: BoardItemAssociation;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<BoardItemAssociation>;
+    /**
+     *
+     * Update Board Item Association
+     * @param boardId The recid of the Service/Project Board
+     * @param itemId
+     * @param typeId
+     * @param operations
+     */
+    serviceBoardsBoardIdItemsItemIdAssociationsTypeIdPatch(params: {
+        boardId: number;
+        itemId: number;
+        typeId: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<BoardItemAssociation>;
 }
 export class BoardItemsApi {
     protected basePath: string;
@@ -6555,7 +11782,7 @@ export class BoardItemsApi {
         customfieldconditions?: string;
         page?: number;
         pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Item>>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<BoardItem>>;
     /**
      *
      * Delete Item By Id
@@ -6575,7 +11802,7 @@ export class BoardItemsApi {
     serviceBoardsIdItemsItemIdGet(params: {
         id: number;
         itemId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Item>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<BoardItem>;
     /**
      *
      * Update Item
@@ -6587,29 +11814,221 @@ export class BoardItemsApi {
         id: number;
         itemId: number;
         operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Item>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<BoardItem>;
     /**
      *
      * Replace Item
      * @param id
      * @param itemId
-     * @param item
+     * @param boardItem
      */
     serviceBoardsIdItemsItemIdPut(params: {
         id: number;
         itemId: number;
-        item: Item;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Item>;
+        boardItem: BoardItem;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<BoardItem>;
     /**
      *
      * Create Item
      * @param id
-     * @param item
+     * @param boardItem
      */
     serviceBoardsIdItemsPost(params: {
         id: number;
-        item: Item;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Item>;
+        boardItem: BoardItem;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<BoardItem>;
+}
+export class BoardNotificationsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Board Notifications Count
+     * @param id
+     * @param conditions
+     */
+    serviceBoardsIdNotificationsCountGet(params: {
+        id: number;
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Board Notifications
+     * @param id
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    serviceBoardsIdNotificationsGet(params: {
+        id: number;
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<BoardNotification>>;
+    /**
+     *
+     * Delete Board Notification By Id
+     * @param id
+     * @param notificationId
+     */
+    serviceBoardsIdNotificationsNotificationIdDelete(params: {
+        id: number;
+        notificationId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Board Notification By Id
+     * @param id
+     * @param notificationId
+     */
+    serviceBoardsIdNotificationsNotificationIdGet(params: {
+        id: number;
+        notificationId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<BoardNotification>;
+    /**
+     *
+     * Update Board Notification
+     * @param id
+     * @param notificationId
+     * @param operations
+     */
+    serviceBoardsIdNotificationsNotificationIdPatch(params: {
+        id: number;
+        notificationId: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<BoardNotification>;
+    /**
+     *
+     * Replace Board Notification
+     * @param id
+     * @param notificationId
+     * @param boardNotification
+     */
+    serviceBoardsIdNotificationsNotificationIdPut(params: {
+        id: number;
+        notificationId: number;
+        boardNotification: BoardNotification;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<BoardNotification>;
+    /**
+     *
+     * Create Board Notification
+     * @param id
+     * @param boardNotification
+     */
+    serviceBoardsIdNotificationsPost(params: {
+        id: number;
+        boardNotification: BoardNotification;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<BoardNotification>;
+}
+export class BoardStatusNotificationsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Board Status Notifications Count
+     * @param boardId
+     * @param statusId
+     * @param conditions
+     */
+    serviceBoardsBoardIdStatusesStatusIdNotificationsCountGet(params: {
+        boardId: number;
+        statusId: number;
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Board Status Notifications
+     * @param boardId
+     * @param statusId
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    serviceBoardsBoardIdStatusesStatusIdNotificationsGet(params: {
+        boardId: number;
+        statusId: number;
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<BoardStatusNotification>>;
+    /**
+     *
+     * Delete Board Status Notification By Id
+     * @param boardId
+     * @param statusId
+     * @param id
+     */
+    serviceBoardsBoardIdStatusesStatusIdNotificationsIdDelete(params: {
+        boardId: number;
+        statusId: number;
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Board Status Notification By Id
+     * @param boardId
+     * @param statusId
+     * @param id
+     */
+    serviceBoardsBoardIdStatusesStatusIdNotificationsIdGet(params: {
+        boardId: number;
+        statusId: number;
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<BoardStatusNotification>;
+    /**
+     *
+     * Update Board Status Notification
+     * @param boardId
+     * @param statusId
+     * @param id
+     * @param operations
+     */
+    serviceBoardsBoardIdStatusesStatusIdNotificationsIdPatch(params: {
+        boardId: number;
+        statusId: number;
+        id: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<BoardStatusNotification>;
+    /**
+     *
+     * Replace Board Status Notification
+     * @param boardId
+     * @param statusId
+     * @param id
+     * @param boardStatusNotification
+     */
+    serviceBoardsBoardIdStatusesStatusIdNotificationsIdPut(params: {
+        boardId: number;
+        statusId: number;
+        id: number;
+        boardStatusNotification: BoardStatusNotification;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<BoardStatusNotification>;
+    /**
+     *
+     * Create Board Status Notification
+     * @param boardId
+     * @param statusId
+     * @param boardStatusNotification
+     */
+    serviceBoardsBoardIdStatusesStatusIdNotificationsPost(params: {
+        boardId: number;
+        statusId: number;
+        boardStatusNotification: BoardStatusNotification;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<BoardStatusNotification>;
 }
 export class BoardStatusesApi {
     protected basePath: string;
@@ -6644,17 +12063,17 @@ export class BoardStatusesApi {
         customfieldconditions?: string;
         page?: number;
         pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Status>>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<BoardStatus>>;
     /**
      *
      * Create Statuses
      * @param id
-     * @param status
+     * @param boardStatus
      */
     serviceBoardsIdStatusesPost(params: {
         id: number;
-        status: Status;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Status>;
+        boardStatus: BoardStatus;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<BoardStatus>;
     /**
      *
      * Delete Status By Id
@@ -6674,7 +12093,7 @@ export class BoardStatusesApi {
     serviceBoardsIdStatusesStatusIdGet(params: {
         id: number;
         statusId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Status>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<BoardStatus>;
     /**
      *
      * Update Status
@@ -6686,19 +12105,19 @@ export class BoardStatusesApi {
         id: number;
         statusId: number;
         operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Status>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<BoardStatus>;
     /**
      *
      * Replace Statuses
      * @param id
      * @param statusId
-     * @param status
+     * @param boardStatus
      */
     serviceBoardsIdStatusesStatusIdPut(params: {
         id: number;
         statusId: number;
-        status: Status;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Status>;
+        boardStatus: BoardStatus;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<BoardStatus>;
 }
 export class BoardSubTypesApi {
     protected basePath: string;
@@ -6733,17 +12152,17 @@ export class BoardSubTypesApi {
         customfieldconditions?: string;
         page?: number;
         pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<SubType>>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<BoardSubType>>;
     /**
      *
      * Create Subtype
      * @param id
-     * @param subType
+     * @param boardSubType
      */
     serviceBoardsIdSubtypesPost(params: {
         id: number;
-        subType: SubType;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<SubType>;
+        boardSubType: BoardSubType;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<BoardSubType>;
     /**
      *
      * Delete Subtype By Id
@@ -6763,7 +12182,7 @@ export class BoardSubTypesApi {
     serviceBoardsIdSubtypesSubtypeIdGet(params: {
         id: number;
         subtypeId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<SubType>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<BoardSubType>;
     /**
      *
      * Update Subtype
@@ -6775,94 +12194,19 @@ export class BoardSubTypesApi {
         id: number;
         subtypeId: number;
         operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<SubType>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<BoardSubType>;
     /**
      *
      * Replace Subtype
      * @param id
      * @param subtypeId
-     * @param subType
+     * @param boardSubType
      */
     serviceBoardsIdSubtypesSubtypeIdPut(params: {
         id: number;
         subtypeId: number;
-        subType: SubType;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<SubType>;
-}
-export class BoardSubtypeAssociationsApi {
-    protected basePath: string;
-    defaultHeaders: any;
-    constructor(basePath?: string);
-    /**
-     *
-     * Delete Subtype Association By Id
-     * @param boardId
-     * @param subtypeId
-     * @param associationId
-     */
-    serviceBoardsBoardIdSubTypesSubtypeIdAssociationsAssociationIdDelete(params: {
-        boardId: number;
-        subtypeId: number;
-        associationId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
-    /**
-     *
-     * Get Subtype Association By Id
-     * @param boardId
-     * @param subtypeId
-     * @param associationId
-     */
-    serviceBoardsBoardIdSubTypesSubtypeIdAssociationsAssociationIdGet(params: {
-        boardId: number;
-        subtypeId: number;
-        associationId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<SubtypeAssociation>;
-    /**
-     *
-     * Get Subtype Association Count
-     * @param boardId
-     * @param subtypeId
-     * @param conditions
-     */
-    serviceBoardsBoardIdSubTypesSubtypeIdAssociationsCountGet(params: {
-        boardId: number;
-        subtypeId: number;
-        conditions?: string;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Subtype Association
-     * @param boardId
-     * @param subtypeId
-     * @param conditions
-     * @param orderBy
-     * @param childconditions
-     * @param customfieldconditions
-     * @param page
-     * @param pageSize
-     */
-    serviceBoardsBoardIdSubTypesSubtypeIdAssociationsGet(params: {
-        boardId: number;
-        subtypeId: number;
-        conditions?: string;
-        orderBy?: string;
-        childconditions?: string;
-        customfieldconditions?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<SubtypeAssociation>>;
-    /**
-     *
-     * Create Subtype Association
-     * @param boardId
-     * @param subtypeId
-     * @param subtypeAssociation
-     */
-    serviceBoardsBoardIdSubTypesSubtypeIdAssociationsPost(params: {
-        boardId: number;
-        subtypeId: number;
-        subtypeAssociation: SubtypeAssociation;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<SubtypeAssociation>;
+        boardSubType: BoardSubType;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<BoardSubType>;
 }
 export class BoardTeamsApi {
     protected basePath: string;
@@ -6897,17 +12241,17 @@ export class BoardTeamsApi {
         customfieldconditions?: string;
         page?: number;
         pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Team>>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<BoardTeam>>;
     /**
      *
      * Create Team
      * @param id
-     * @param team
+     * @param boardTeam
      */
     serviceBoardsIdTeamsPost(params: {
         id: number;
-        team: Team;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Team>;
+        boardTeam: BoardTeam;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<BoardTeam>;
     /**
      *
      * Delete Team By Id
@@ -6927,7 +12271,7 @@ export class BoardTeamsApi {
     serviceBoardsIdTeamsTeamIdGet(params: {
         id: number;
         teamId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Team>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<BoardTeam>;
     /**
      *
      * Update Team
@@ -6939,19 +12283,64 @@ export class BoardTeamsApi {
         id: number;
         teamId: number;
         operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Team>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<BoardTeam>;
     /**
      *
      * Replace Team
      * @param id
      * @param teamId
-     * @param team
+     * @param boardTeam
      */
     serviceBoardsIdTeamsTeamIdPut(params: {
         id: number;
         teamId: number;
-        team: Team;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Team>;
+        boardTeam: BoardTeam;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<BoardTeam>;
+}
+export class BoardTypeSubTypeItemAssociationsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Board Type Sub Type Item Associations Count
+     * @param id
+     * @param conditions
+     */
+    serviceBoardsIdTypeSubTypeItemAssociationsCountGet(params: {
+        id: number;
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Board Type Sub Type Item Associations
+     * @param id
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    serviceBoardsIdTypeSubTypeItemAssociationsGet(params: {
+        id: number;
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<BoardTypeSubTypeItemAssociation>>;
+    /**
+     *
+     * Get Board Type Sub Type Item Association By Id
+     * @param id
+     * @param typeSubTypeItemAssociationId
+     */
+    serviceBoardsIdTypeSubTypeItemAssociationsTypeSubTypeItemAssociationIdGet(params: {
+        id: number;
+        typeSubTypeItemAssociationId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<BoardTypeSubTypeItemAssociation>;
 }
 export class BoardTypesApi {
     protected basePath: string;
@@ -6986,17 +12375,17 @@ export class BoardTypesApi {
         customfieldconditions?: string;
         page?: number;
         pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Type>>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<BoardType>>;
     /**
      *
      * Create Type
      * @param id
-     * @param type
+     * @param boardType
      */
     serviceBoardsIdTypesPost(params: {
         id: number;
-        type: Type;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Type>;
+        boardType: BoardType;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<BoardType>;
     /**
      *
      * Delete Type By Id
@@ -7016,7 +12405,7 @@ export class BoardTypesApi {
     serviceBoardsIdTypesTypeIdGet(params: {
         id: number;
         typeId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Type>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<BoardType>;
     /**
      *
      * Update Types
@@ -7028,34 +12417,32 @@ export class BoardTypesApi {
         id: number;
         typeId: number;
         operations: Array<PatchOperation>;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Type>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<BoardType>;
     /**
      *
      * Replace Types
      * @param id
      * @param typeId
-     * @param type
+     * @param boardType
      */
     serviceBoardsIdTypesTypeIdPut(params: {
         id: number;
         typeId: number;
-        type: Type;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Type>;
-    /**
-     *
-     * Get Sub Type Association
-     * @param id
-     * @param typeId
-     */
-    serviceBoardsIdTypesTypeIdSubTypeAssociationGet(params: {
-        id: number;
-        typeId: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<number>;
+        boardType: BoardType;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<BoardType>;
 }
 export class BoardsApi {
     protected basePath: string;
     defaultHeaders: any;
     constructor(basePath?: string);
+    /**
+     *
+     * Copy Board
+     * @param copy
+     */
+    serviceBoardsCopyPost(params: {
+        copy: BoardCopy;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Board>;
     /**
      *
      * Get Boards Count
@@ -7126,6 +12513,45 @@ export class BoardsApi {
     serviceBoardsPost(params: {
         board: Board;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<Board>;
+}
+export class CalendarsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Calendars Count
+     * @param conditions
+     */
+    systemCalendarsCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Calendar>;
+    /**
+     *
+     * Get Calendars
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemCalendarsGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Calendar>>;
+    /**
+     *
+     * Get Calendar By Id
+     * @param id
+     */
+    systemCalendarsIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Calendar>;
 }
 export class CallbacksApi {
     protected basePath: string;
@@ -7640,17 +13066,14 @@ export class CampaignSubTypesApi {
     /**
      *
      * Get Campaign Sub Types Count
-     * @param id
      * @param conditions
      */
-    marketingCampaignsTypesIdSubTypesCountGet(params: {
-        id: number;
+    marketingCampaignsSubTypesCountGet(params: {
         conditions?: string;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
     /**
      *
      * Get Campaign Sub Types
-     * @param id
      * @param conditions
      * @param orderBy
      * @param childconditions
@@ -7658,8 +13081,7 @@ export class CampaignSubTypesApi {
      * @param page
      * @param pageSize
      */
-    marketingCampaignsTypesIdSubTypesGet(params: {
-        id: number;
+    marketingCampaignsSubTypesGet(params: {
         conditions?: string;
         orderBy?: string;
         childconditions?: string;
@@ -7669,56 +13091,46 @@ export class CampaignSubTypesApi {
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<CampaignSubType>>;
     /**
      *
-     * Create Campaign Sub Type
-     * @param id
-     * @param campaignSubType
-     */
-    marketingCampaignsTypesIdSubTypesPost(params: {
-        id: number;
-        campaignSubType: CampaignSubType;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CampaignSubType>;
-    /**
-     *
      * Delete Campaign Sub Type By Id
      * @param id
-     * @param subTypeId
      */
-    marketingCampaignsTypesIdSubTypesSubTypeIdDelete(params: {
+    marketingCampaignsSubTypesIdDelete(params: {
         id: number;
-        subTypeId: number;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
     /**
      *
      * Get Campaign Sub Type By Id
      * @param id
-     * @param subTypeId
      */
-    marketingCampaignsTypesIdSubTypesSubTypeIdGet(params: {
+    marketingCampaignsSubTypesIdGet(params: {
         id: number;
-        subTypeId: number;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<CampaignSubType>;
     /**
      *
      * Update Campaign Sub Type
      * @param id
-     * @param subTypeId
      * @param operations
      */
-    marketingCampaignsTypesIdSubTypesSubTypeIdPatch(params: {
+    marketingCampaignsSubTypesIdPatch(params: {
         id: number;
-        subTypeId: number;
         operations: Array<PatchOperation>;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<CampaignSubType>;
     /**
      *
      * Replace Campaign Sub Type
      * @param id
-     * @param subTypeId
      * @param campaignSubType
      */
-    marketingCampaignsTypesIdSubTypesSubTypeIdPut(params: {
+    marketingCampaignsSubTypesIdPut(params: {
         id: number;
-        subTypeId: number;
+        campaignSubType: CampaignSubType;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CampaignSubType>;
+    /**
+     *
+     * Create Campaign Sub Type
+     * @param campaignSubType
+     */
+    marketingCampaignsSubTypesPost(params: {
         campaignSubType: CampaignSubType;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<CampaignSubType>;
 }
@@ -8236,6 +13648,209 @@ export class CertificationsApi {
         certification: Certification;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<Certification>;
 }
+export class ChargeCodeExpenseTypesApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Charge Code Expense Entries Count
+     * @param id
+     * @param conditions
+     */
+    timeChargeCodesIdExpenseTypesCountGet(params: {
+        id: number;
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Delete Charge Code Expense Type By Id
+     * @param id
+     * @param expenseTypeId
+     */
+    timeChargeCodesIdExpenseTypesExpenseTypeIdDelete(params: {
+        id: number;
+        expenseTypeId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Charge Code Expense Type By Id
+     * @param id
+     * @param expenseTypeId
+     */
+    timeChargeCodesIdExpenseTypesExpenseTypeIdGet(params: {
+        id: number;
+        expenseTypeId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ChargeCodeExpenseType>;
+    /**
+     *
+     * Update Charge Code Expense Type
+     * @param id
+     * @param expenseTypeId
+     * @param operations
+     */
+    timeChargeCodesIdExpenseTypesExpenseTypeIdPatch(params: {
+        id: number;
+        expenseTypeId: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ChargeCodeExpenseType>;
+    /**
+     *
+     * Replace Charge Code Expense Type
+     * @param id
+     * @param expenseTypeId
+     * @param chargeCodeExpenseType
+     */
+    timeChargeCodesIdExpenseTypesExpenseTypeIdPut(params: {
+        id: number;
+        expenseTypeId: number;
+        chargeCodeExpenseType: ChargeCodeExpenseType;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ChargeCodeExpenseType>;
+    /**
+     *
+     * Get Charge Code Expense Entries
+     * @param id
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    timeChargeCodesIdExpenseTypesGet(params: {
+        id: number;
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ChargeCodeExpenseType>>;
+    /**
+     *
+     * Create Charge Code Expense Type
+     * @param id
+     * @param chargeCodeExpenseType
+     */
+    timeChargeCodesIdExpenseTypesPost(params: {
+        id: number;
+        chargeCodeExpenseType: ChargeCodeExpenseType;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ChargeCodeExpenseType>;
+}
+export class ChargeCodesApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Charge Code Count
+     * @param conditions
+     */
+    timeChargeCodesCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Charge Code
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    timeChargeCodesGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ChargeCode>>;
+    /**
+     *
+     * Delete Charge Code By Id
+     * @param id
+     */
+    timeChargeCodesIdDelete(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Charge Code By Id
+     * @param id
+     */
+    timeChargeCodesIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ChargeCode>;
+    /**
+     *
+     * Update Charge Code
+     * @param id
+     * @param operations
+     */
+    timeChargeCodesIdPatch(params: {
+        id: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ChargeCode>;
+    /**
+     *
+     * Replace Charge Code
+     * @param id
+     * @param chargeCode
+     */
+    timeChargeCodesIdPut(params: {
+        id: number;
+        chargeCode: ChargeCode;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ChargeCode>;
+    /**
+     *
+     * Create Charge Code
+     * @param chargeCode
+     */
+    timeChargeCodesPost(params: {
+        chargeCode: ChargeCode;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ChargeCode>;
+}
+export class ClassificationsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Classification Count
+     * @param conditions
+     */
+    expenseClassificationsCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Expense Classification
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    expenseClassificationsGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Classification>>;
+    /**
+     *
+     * Get Classification By Id
+     * @param id
+     */
+    expenseClassificationsIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Classification>;
+}
 export class CodesApi {
     protected basePath: string;
     defaultHeaders: any;
@@ -8310,6 +13925,81 @@ export class CodesApi {
     serviceCodesPost(params: {
         code: Code;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<Code>;
+}
+export class CommissionsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Commissions Count
+     * @param conditions
+     */
+    salesCommissionsCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Commissions
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    salesCommissionsGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Commission>>;
+    /**
+     *
+     * Delete Commission By Id
+     * @param id
+     */
+    salesCommissionsIdDelete(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Commission By Id
+     * @param id
+     */
+    salesCommissionsIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Commission>;
+    /**
+     *
+     * Update Commission
+     * @param id
+     * @param operations
+     */
+    salesCommissionsIdPatch(params: {
+        id: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Commission>;
+    /**
+     *
+     * Replace Commission
+     * @param id
+     * @param commission
+     */
+    salesCommissionsIdPut(params: {
+        id: number;
+        commission: Commission;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Commission>;
+    /**
+     *
+     * Create Commission
+     * @param commission
+     */
+    salesCommissionsPost(params: {
+        commission: Commission;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Commission>;
 }
 export class CompaniesApi {
     protected basePath: string;
@@ -8486,6 +14176,95 @@ export class CompanyCustomNotesApi {
         id: number;
         customNote: CompanyCustomNote;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<CompanyCustomNote>;
+}
+export class CompanyGroupsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Company Groups Count
+     * @param id
+     * @param conditions
+     */
+    companyCompaniesIdGroupsCountGet(params: {
+        id: number;
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Company Groups
+     * @param id
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    companyCompaniesIdGroupsGet(params: {
+        id: number;
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<CompanyGroup>>;
+    /**
+     *
+     * Delete Company Group By Id
+     * @param id
+     * @param groupid
+     */
+    companyCompaniesIdGroupsGroupidDelete(params: {
+        id: number;
+        groupid: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Company Group By Id
+     * @param id
+     * @param groupid
+     */
+    companyCompaniesIdGroupsGroupidGet(params: {
+        id: number;
+        groupid: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CompanyGroup>;
+    /**
+     *
+     * Update Company Group
+     * @param id
+     * @param groupid
+     * @param operations
+     */
+    companyCompaniesIdGroupsGroupidPatch(params: {
+        id: number;
+        groupid: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CompanyGroup>;
+    /**
+     *
+     * Replace Company Group
+     * @param id
+     * @param groupid
+     * @param companyGroup
+     */
+    companyCompaniesIdGroupsGroupidPut(params: {
+        id: number;
+        groupid: number;
+        companyGroup: CompanyGroup;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CompanyGroup>;
+    /**
+     *
+     * Create Company Group
+     * @param id
+     * @param companyGroup
+     */
+    companyCompaniesIdGroupsPost(params: {
+        id: number;
+        companyGroup: CompanyGroup;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CompanyGroup>;
 }
 export class CompanyManagementSummaryReportsApi {
     protected basePath: string;
@@ -8739,6 +14518,71 @@ export class CompanyNotesApi {
         id: number;
         companyNote: CompanyNote;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<CompanyNote>;
+}
+export class CompanyPickerItemsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Clear All Picker Items By Member
+     * @param member
+     * @param type
+     */
+    companyCompanyPickerItemsClearPost(params: {
+        member?: string;
+        type?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ClearPickerRequest>;
+    /**
+     *
+     * Get Company Picker Items Count
+     * @param conditions
+     */
+    companyCompanyPickerItemsCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Company Picker Items
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    companyCompanyPickerItemsGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<CompanyPickerItem>>;
+    /**
+     *
+     * Delete Company Picker Item
+     * @param id
+     */
+    companyCompanyPickerItemsIdDelete(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Company Picker Item By Id
+     * @param id
+     */
+    companyCompanyPickerItemsIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CompanyPickerItem>;
+    /**
+     *
+     * Add Company Picker Item
+     * @param companyPickerItem
+     */
+    companyCompanyPickerItemsPost(params: {
+        companyPickerItem: CompanyPickerItem;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CompanyPickerItem>;
 }
 export class CompanySitesApi {
     protected basePath: string;
@@ -9142,6 +14986,101 @@ export class ConfigurationStatusesApi {
     companyConfigurationsStatusesPost(params: {
         configurationStatus: ConfigurationStatus;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<ConfigurationStatus>;
+}
+export class ConfigurationTypeQuestionValuesApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Configuration Type Question Values Count
+     * @param questionId
+     * @param conditions
+     */
+    companyConfigurationsTypesConfigurationTypeIdintQuestionsQuestionIdintValuesCountGet(params: {
+        questionId: number;
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Configuration Type Question Values
+     * @param questionId
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    companyConfigurationsTypesConfigurationTypeIdintQuestionsQuestionIdintValuesGet(params: {
+        questionId: number;
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ConfigurationTypeQuestionValue>>;
+    /**
+     *
+     * Delete Configuration Type Question Value By Id
+     * @param questionId
+     * @param id
+     */
+    companyConfigurationsTypesConfigurationTypeIdintQuestionsQuestionIdintValuesIdDelete(params: {
+        questionId: number;
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Configuration Type Question Value By Id
+     * @param questionId
+     * @param id
+     */
+    companyConfigurationsTypesConfigurationTypeIdintQuestionsQuestionIdintValuesIdGet(params: {
+        questionId: number;
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ConfigurationTypeQuestionValue>;
+    /**
+     *
+     * Update Configuration Type Question Value
+     * @param configurationTypeId
+     * @param questionId
+     * @param id
+     * @param operations
+     */
+    companyConfigurationsTypesConfigurationTypeIdintQuestionsQuestionIdintValuesIdPatch(params: {
+        configurationTypeId: number;
+        questionId: number;
+        id: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ConfigurationTypeQuestionValue>;
+    /**
+     *
+     * Replace Configuration Type Question Value
+     * @param configurationTypeId
+     * @param questionId
+     * @param id
+     * @param configurationTypeQuestionValue
+     */
+    companyConfigurationsTypesConfigurationTypeIdintQuestionsQuestionIdintValuesIdPut(params: {
+        configurationTypeId: number;
+        questionId: number;
+        id: number;
+        configurationTypeQuestionValue: ConfigurationTypeQuestionValue;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ConfigurationTypeQuestionValue>;
+    /**
+     *
+     * Create Configuration Type Question Value
+     * @param configurationTypeId
+     * @param questionId
+     * @param configurationTypeQuestionValue
+     */
+    companyConfigurationsTypesConfigurationTypeIdintQuestionsQuestionIdintValuesPost(params: {
+        configurationTypeId: number;
+        questionId: number;
+        configurationTypeQuestionValue: ConfigurationTypeQuestionValue;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ConfigurationTypeQuestionValue>;
 }
 export class ConfigurationTypeQuestionsApi {
     protected basePath: string;
@@ -9667,6 +15606,95 @@ export class ContactDepartmentsApi {
         contactDepartment: ContactDepartment;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<ContactDepartment>;
 }
+export class ContactGroupsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Contact Groups Count
+     * @param id
+     * @param conditions
+     */
+    companyContactsIdGroupsCountGet(params: {
+        id: number;
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Contact Groups
+     * @param id
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    companyContactsIdGroupsGet(params: {
+        id: number;
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ContactGroup>>;
+    /**
+     *
+     * Delete Contact Group By Id
+     * @param id
+     * @param groupid
+     */
+    companyContactsIdGroupsGroupidDelete(params: {
+        id: number;
+        groupid: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Contact Group By Id
+     * @param id
+     * @param groupid
+     */
+    companyContactsIdGroupsGroupidGet(params: {
+        id: number;
+        groupid: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ContactGroup>;
+    /**
+     *
+     * Update Contact Group
+     * @param id
+     * @param groupid
+     * @param operations
+     */
+    companyContactsIdGroupsGroupidPatch(params: {
+        id: number;
+        groupid: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ContactGroup>;
+    /**
+     *
+     * Replace Contact Group
+     * @param id
+     * @param groupid
+     * @param contactGroup
+     */
+    companyContactsIdGroupsGroupidPut(params: {
+        id: number;
+        groupid: number;
+        contactGroup: ContactGroup;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ContactGroup>;
+    /**
+     *
+     * Create Contact Group
+     * @param id
+     * @param contactGroup
+     */
+    companyContactsIdGroupsPost(params: {
+        id: number;
+        contactGroup: ContactGroup;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ContactGroup>;
+}
 export class ContactNotesApi {
     protected basePath: string;
     defaultHeaders: any;
@@ -10088,6 +16116,238 @@ export class ContactsApi {
         request: ValidatePortalRequest;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<ValidatePortalResponse>;
 }
+export class CorporateStructureLevelsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Corporate Structure Levels Count
+     * @param conditions
+     */
+    systemMyCompanyCorporateStructureLevelsCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Corporate Structure Levels
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemMyCompanyCorporateStructureLevelsGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<CorporateStructureLevel>>;
+    /**
+     *
+     * Get Corporate Structure Level By Id
+     * @param id
+     */
+    systemMyCompanyCorporateStructureLevelsIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CorporateStructureLevel>;
+}
+export class CorporateStructuresApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Corporate Structures Count
+     * @param conditions
+     */
+    systemMyCompanyCorporateStructureCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Corporate Structures
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemMyCompanyCorporateStructureGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<CorporateStructure>>;
+    /**
+     *
+     * Get Corporate Structure By Id
+     * @param id
+     */
+    systemMyCompanyCorporateStructureIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CorporateStructure>;
+    /**
+     *
+     * Update Corporate Structure
+     * @param id
+     * @param operations
+     */
+    systemMyCompanyCorporateStructureIdPatch(params: {
+        id: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CorporateStructure>;
+    /**
+     *
+     * Replace Corporate Structure
+     * @param id
+     * @param corporateStructure
+     */
+    systemMyCompanyCorporateStructureIdPut(params: {
+        id: number;
+        corporateStructure: CorporateStructure;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CorporateStructure>;
+}
+export class CountriesApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Countries Count
+     * @param conditions
+     */
+    companyCountriesCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Countries
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    companyCountriesGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Country>>;
+    /**
+     *
+     * Delete Country By Id
+     * @param id
+     */
+    companyCountriesIdDelete(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Country By Id
+     * @param id
+     */
+    companyCountriesIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Country>;
+    /**
+     *
+     * Update Country
+     * @param id
+     * @param operations
+     */
+    companyCountriesIdPatch(params: {
+        id: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Country>;
+    /**
+     *
+     * Replace Country
+     * @param id
+     * @param country
+     */
+    companyCountriesIdPut(params: {
+        id: number;
+        country: Country;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Country>;
+    /**
+     *
+     * Create Country
+     * @param country
+     */
+    companyCountriesPost(params: {
+        country: Country;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Country>;
+}
+export class CrmsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Crms Count
+     * @param conditions
+     */
+    systemMyCompanyCrmCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Crms
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemMyCompanyCrmGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Crm>>;
+    /**
+     *
+     * Get Crm By Id
+     * @param id
+     */
+    systemMyCompanyCrmIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Crm>;
+    /**
+     *
+     * Update Crm
+     * @param id
+     * @param operations
+     */
+    systemMyCompanyCrmIdPatch(params: {
+        id: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Crm>;
+    /**
+     *
+     * Replace Crm
+     * @param id
+     * @param crm
+     */
+    systemMyCompanyCrmIdPut(params: {
+        id: number;
+        crm: Crm;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Crm>;
+}
 export class CurrenciesApi {
     protected basePath: string;
     defaultHeaders: any;
@@ -10163,6 +16423,409 @@ export class CurrenciesApi {
         currency: Currency;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<Currency>;
 }
+export class CustomReportParametersApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Custom Report Parameters Count
+     * @param id
+     * @param conditions
+     */
+    systemCustomReportsIdParametersCountGet(params: {
+        id: number;
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Custom Report Parameters
+     * @param id
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemCustomReportsIdParametersGet(params: {
+        id: number;
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<CustomReportParameter>>;
+    /**
+     *
+     * Delete Custom Report Parameter By Id
+     * @param id
+     * @param parameterId
+     */
+    systemCustomReportsIdParametersParameterIdDelete(params: {
+        id: number;
+        parameterId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Custom Report Parameter By Id
+     * @param id
+     * @param parameterId
+     */
+    systemCustomReportsIdParametersParameterIdGet(params: {
+        id: number;
+        parameterId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CustomReportParameter>;
+    /**
+     *
+     * Update Custom Report Parameter
+     * @param id
+     * @param parameterId
+     * @param operations
+     */
+    systemCustomReportsIdParametersParameterIdPatch(params: {
+        id: number;
+        parameterId: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CustomReportParameter>;
+    /**
+     *
+     * Replace Custom Report Parameter
+     * @param id
+     * @param parameterId
+     * @param customReportParameter
+     */
+    systemCustomReportsIdParametersParameterIdPut(params: {
+        id: number;
+        parameterId: number;
+        customReportParameter: CustomReportParameter;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CustomReportParameter>;
+    /**
+     *
+     * Create Custom Report Parameter
+     * @param id
+     * @param customReportParameter
+     */
+    systemCustomReportsIdParametersPost(params: {
+        id: number;
+        customReportParameter: CustomReportParameter;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CustomReportParameter>;
+}
+export class CustomReportsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Custom Report Count
+     * @param conditions
+     */
+    systemCustomReportsCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Custom Report
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemCustomReportsGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<CustomReport>>;
+    /**
+     *
+     * Delete Custom Report By Id
+     * @param id
+     */
+    systemCustomReportsIdDelete(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Custom Report By Id
+     * @param id
+     */
+    systemCustomReportsIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CustomReport>;
+    /**
+     *
+     * Update Custom Report
+     * @param id
+     * @param operations
+     */
+    systemCustomReportsIdPatch(params: {
+        id: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CustomReport>;
+    /**
+     *
+     * Replace Custom Report
+     * @param id
+     * @param customReport
+     */
+    systemCustomReportsIdPut(params: {
+        id: number;
+        customReport: CustomReport;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CustomReport>;
+    /**
+     *
+     * Create Custom Report
+     * @param customReport
+     */
+    systemCustomReportsPost(params: {
+        customReport: CustomReport;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CustomReport>;
+}
+export class DeliveryMethodsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Delivery Method Count
+     * @param conditions
+     */
+    financeDeliveryMethodsCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Delivery Method
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    financeDeliveryMethodsGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<DeliveryMethod>>;
+    /**
+     *
+     * Delete Delivery Method By Id
+     * @param id
+     */
+    financeDeliveryMethodsIdDelete(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Delivery Method By Id
+     * @param id
+     */
+    financeDeliveryMethodsIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<DeliveryMethod>;
+    /**
+     *
+     * Update Delivery Method
+     * @param id
+     * @param operations
+     */
+    financeDeliveryMethodsIdPatch(params: {
+        id: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<DeliveryMethod>;
+    /**
+     *
+     * Replace Delivery Method
+     * @param id
+     * @param deliveryMethod
+     */
+    financeDeliveryMethodsIdPut(params: {
+        id: number;
+        deliveryMethod: DeliveryMethod;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<DeliveryMethod>;
+    /**
+     *
+     * Create Delivery Method
+     * @param deliveryMethod
+     */
+    financeDeliveryMethodsPost(params: {
+        deliveryMethod: DeliveryMethod;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<DeliveryMethod>;
+}
+export class DepartmentLocationsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Department Location Count
+     * @param id
+     * @param conditions
+     */
+    systemDepartmentsIdLocationsCountGet(params: {
+        id: number;
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Department Location
+     * @param id
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemDepartmentsIdLocationsGet(params: {
+        id: number;
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<DepartmentLocation>>;
+    /**
+     *
+     * Delete Department Location By Id
+     * @param id
+     * @param locationId
+     */
+    systemDepartmentsIdLocationsLocationIdDelete(params: {
+        id: number;
+        locationId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Department Location By Id
+     * @param id
+     * @param locationId
+     */
+    systemDepartmentsIdLocationsLocationIdGet(params: {
+        id: number;
+        locationId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<DepartmentLocation>;
+    /**
+     *
+     * Update Department Location
+     * @param id
+     * @param locationId
+     * @param operations
+     */
+    systemDepartmentsIdLocationsLocationIdPatch(params: {
+        id: number;
+        locationId: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<DepartmentLocation>;
+    /**
+     *
+     * Replace Company Team
+     * @param id
+     * @param locationId
+     * @param departmentLocation
+     */
+    systemDepartmentsIdLocationsLocationIdPut(params: {
+        id: number;
+        locationId: number;
+        departmentLocation: DepartmentLocation;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<DepartmentLocation>;
+    /**
+     *
+     * Create Department Location
+     * @param id
+     * @param departmentLocation
+     */
+    systemDepartmentsIdLocationsPost(params: {
+        id: number;
+        departmentLocation: DepartmentLocation;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<DepartmentLocation>;
+}
+export class DepartmentsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Department Count
+     * @param conditions
+     */
+    systemDepartmentsCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Department
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemDepartmentsGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Department>>;
+    /**
+     *
+     * Delete Department By Id
+     * @param id
+     */
+    systemDepartmentsIdDelete(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Department By Id
+     * @param id
+     */
+    systemDepartmentsIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Department>;
+    /**
+     *
+     * Update Department
+     * @param id
+     * @param operations
+     */
+    systemDepartmentsIdPatch(params: {
+        id: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Department>;
+    /**
+     *
+     * Replace Department
+     * @param id
+     * @param department
+     */
+    systemDepartmentsIdPut(params: {
+        id: number;
+        department: Department;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Department>;
+    /**
+     *
+     * Create Department
+     * @param department
+     */
+    systemDepartmentsPost(params: {
+        department: Department;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Department>;
+}
 export class DocumentsApi {
     protected basePath: string;
     defaultHeaders: any;
@@ -10228,6 +16891,7 @@ export class DocumentsApi {
      * @param file File to upload
      * @param privateFlag Indicates if document is private
      * @param readOnlyFlag Indicates if document is readonly
+     * @param isAvatar Indicates if document contains an avatar
      */
     systemDocumentsIdPost(params: {
         id: number;
@@ -10238,6 +16902,7 @@ export class DocumentsApi {
         file?: any;
         privateFlag?: boolean;
         readOnlyFlag?: boolean;
+        isAvatar?: boolean;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<DocumentInfo>;
     /**
      *
@@ -10249,6 +16914,7 @@ export class DocumentsApi {
      * @param recordId Entity id
      * @param privateFlag Indicates if document is private
      * @param readOnlyFlag Indicates if document is readonly
+     * @param isAvatar Indicates if document contains an avatar
      */
     systemDocumentsPost(params: {
         recordType: string;
@@ -10258,12 +16924,370 @@ export class DocumentsApi {
         recordId?: number;
         privateFlag?: boolean;
         readOnlyFlag?: boolean;
+        isAvatar?: boolean;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<DocumentInfo>;
     /**
      *
      * Get Upload Sample Page
      */
     systemDocumentsUploadsampleGet(params: {}, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+}
+export class DocumentsSetupApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Documents
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemMycompanyDocumentsGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<DocumentSetup>>;
+    /**
+     *
+     * Get Document By Id
+     * @param id
+     */
+    systemMycompanyDocumentsIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<DocumentSetup>;
+    /**
+     *
+     * Update Document
+     * @param id
+     * @param operations
+     */
+    systemMycompanyDocumentsIdPatch(params: {
+        id: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<DocumentSetup>;
+    /**
+     *
+     * Replace Document
+     * @param id
+     * @param document
+     */
+    systemMycompanyDocumentsIdPut(params: {
+        id: number;
+        document: DocumentSetup;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<DocumentSetup>;
+}
+export class EmailConnectorParsingRulesApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Email Connector Parsing Rule Count
+     * @param id
+     * @param styleId
+     * @param conditions
+     */
+    systemEmailConnectorsIdParsingStylesStyleIdParsingRulesCountGet(params: {
+        id: number;
+        styleId: number;
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Email Connector Parsing Rules
+     * @param id
+     * @param styleId
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemEmailConnectorsIdParsingStylesStyleIdParsingRulesGet(params: {
+        id: number;
+        styleId: number;
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<EmailConnectorParsingRule>>;
+    /**
+     *
+     * Create Email Connector Parsing Rule
+     * @param id
+     * @param styleId
+     * @param emailConnectorParsingRule
+     */
+    systemEmailConnectorsIdParsingStylesStyleIdParsingRulesPost(params: {
+        id: number;
+        styleId: number;
+        emailConnectorParsingRule: EmailConnectorParsingRule;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<EmailConnectorParsingRule>;
+    /**
+     *
+     * Delete Email Connector Parsing Rule By Id
+     * @param id
+     * @param styleId
+     * @param ruleId
+     */
+    systemEmailConnectorsIdParsingStylesStyleIdParsingRulesRuleIdDelete(params: {
+        id: number;
+        styleId: number;
+        ruleId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Email Connector Parsing Rule By Id
+     * @param id
+     * @param styleId
+     * @param ruleId
+     */
+    systemEmailConnectorsIdParsingStylesStyleIdParsingRulesRuleIdGet(params: {
+        id: number;
+        styleId: number;
+        ruleId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<EmailConnectorParsingRule>;
+    /**
+     *
+     * Update Email Connector Parsing Rule
+     * @param id
+     * @param styleId
+     * @param ruleId
+     * @param operations
+     */
+    systemEmailConnectorsIdParsingStylesStyleIdParsingRulesRuleIdPatch(params: {
+        id: number;
+        styleId: number;
+        ruleId: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<EmailConnectorParsingRule>;
+    /**
+     *
+     * Replace Email Connector Parsing Rule
+     * @param id
+     * @param styleId
+     * @param ruleId
+     * @param emailConnectorParsingRule
+     */
+    systemEmailConnectorsIdParsingStylesStyleIdParsingRulesRuleIdPut(params: {
+        id: number;
+        styleId: number;
+        ruleId: number;
+        emailConnectorParsingRule: EmailConnectorParsingRule;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<EmailConnectorParsingRule>;
+}
+export class EmailConnectorParsingStylesApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Email Connector Parsing Style Count
+     * @param id
+     * @param conditions
+     */
+    systemEmailConnectorsIdParsingStylesCountGet(params: {
+        id: number;
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Email Connector Parsing Styles
+     * @param id
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemEmailConnectorsIdParsingStylesGet(params: {
+        id: number;
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<EmailConnectorParsingStyle>>;
+    /**
+     *
+     * Create Email Connector Parsing Style
+     * @param id
+     * @param emailConnectorParsingStyle
+     */
+    systemEmailConnectorsIdParsingStylesPost(params: {
+        id: number;
+        emailConnectorParsingStyle: EmailConnectorParsingStyle;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<EmailConnectorParsingStyle>;
+    /**
+     *
+     * Delete Email Connector Parsing Style By Id
+     * @param id
+     * @param styleId
+     */
+    systemEmailConnectorsIdParsingStylesStyleIdDelete(params: {
+        id: number;
+        styleId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Email Connector Parsing Style By Id
+     * @param id
+     * @param styleId
+     */
+    systemEmailConnectorsIdParsingStylesStyleIdGet(params: {
+        id: number;
+        styleId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<EmailConnectorParsingStyle>;
+    /**
+     *
+     * Update Email Connector Parsing Style
+     * @param id
+     * @param styleId
+     * @param operations
+     */
+    systemEmailConnectorsIdParsingStylesStyleIdPatch(params: {
+        id: number;
+        styleId: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<EmailConnectorParsingStyle>;
+    /**
+     *
+     * Replace Email Connector Parsing Style
+     * @param id
+     * @param styleId
+     * @param emailConnectorParsingStyle
+     */
+    systemEmailConnectorsIdParsingStylesStyleIdPut(params: {
+        id: number;
+        styleId: number;
+        emailConnectorParsingStyle: EmailConnectorParsingStyle;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<EmailConnectorParsingStyle>;
+}
+export class EmailConnectorsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Email Connectors Count
+     * @param conditions
+     */
+    systemEmailConnectorsCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Email Connectors
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemEmailConnectorsGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<EmailConnector>>;
+    /**
+     *
+     * Delete Email Connector By Id
+     * @param id
+     */
+    systemEmailConnectorsIdDelete(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Email Connector By Id
+     * @param id
+     */
+    systemEmailConnectorsIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<EmailConnector>;
+    /**
+     *
+     * Update Email Connector
+     * @param id
+     * @param operations
+     */
+    systemEmailConnectorsIdPatch(params: {
+        id: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<EmailConnector>;
+    /**
+     *
+     * Replace Email Connector
+     * @param id
+     * @param emailConnector
+     */
+    systemEmailConnectorsIdPut(params: {
+        id: number;
+        emailConnector: EmailConnector;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<EmailConnector>;
+    /**
+     *
+     * Create Email Connector
+     * @param emailConnector
+     */
+    systemEmailConnectorsPost(params: {
+        emailConnector: EmailConnector;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<EmailConnector>;
+}
+export class EmailTokensApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Email Tokens Count
+     * @param conditions
+     */
+    systemEmailTokensCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Email Tokens
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemEmailTokensGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<EmailToken>>;
+    /**
+     *
+     * Get Email Token By Id
+     * @param id
+     */
+    systemEmailTokensIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<EmailToken>;
 }
 export class ExpenseEntriesApi {
     protected basePath: string;
@@ -10343,6 +17367,100 @@ export class ExpenseEntriesApi {
     expenseEntriesPost(params: {
         expenseEntry: ExpenseEntry;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<ExpenseEntry>;
+}
+export class ExpenseReportsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Expense Reports Count
+     * @param conditions
+     */
+    expenseReportsCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Expense Reports
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    expenseReportsGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ExpenseReport>>;
+    /**
+     *
+     * Get Expense Report By Id
+     * @param id
+     */
+    expenseReportsIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ExpenseReport>;
+    /**
+     *
+     * Reverse Expense Report
+     * @param id
+     */
+    expenseReportsIdReversePost(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<SuccessResponse>;
+    /**
+     *
+     * Submit Expense Report
+     * @param id
+     */
+    expenseReportsIdSubmitPost(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<SuccessResponse>;
+}
+export class ExpenseTypeExternalIntegrationReferencesApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get External Integration Reference Count
+     * @param conditions
+     */
+    expenseExpenseTypeExternalIntegrationReferencesCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get External Integration Referencet
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    expenseExpenseTypeExternalIntegrationReferencesGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ExpenseTypeExternalIntegrationReference>>;
+    /**
+     *
+     * Get External Integration Reference By Id
+     * @param id
+     */
+    expenseExpenseTypeExternalIntegrationReferencesIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ExpenseTypeExternalIntegrationReference>;
 }
 export class ExpenseTypesApi {
     protected basePath: string;
@@ -10672,6 +17790,281 @@ export class GroupsApi {
         group: Group;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<Group>;
 }
+export class HolidayListsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Holiday List Count
+     * @param conditions
+     */
+    systemHolidayListsCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Holiday List
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemHolidayListsGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<HolidayList>>;
+    /**
+     *
+     * Delete Holiday List By Id
+     * @param id
+     */
+    systemHolidayListsIdDelete(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Holiday List By Id
+     * @param id
+     */
+    systemHolidayListsIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<HolidayList>;
+    /**
+     *
+     * Update Holiday List
+     * @param id
+     * @param operations
+     */
+    systemHolidayListsIdPatch(params: {
+        id: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<HolidayList>;
+    /**
+     *
+     * Replace Holiday List
+     * @param id
+     * @param holidayList
+     */
+    systemHolidayListsIdPut(params: {
+        id: number;
+        holidayList: HolidayList;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<HolidayList>;
+    /**
+     *
+     * Create Holiday List
+     * @param holidayList
+     */
+    systemHolidayListsPost(params: {
+        holidayList: HolidayList;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<HolidayList>;
+}
+export class HolidaysApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Holidays Count
+     * @param id
+     * @param conditions
+     */
+    systemHolidayListsIdHolidaysCountGet(params: {
+        id: number;
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Holidays
+     * @param id
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemHolidayListsIdHolidaysGet(params: {
+        id: number;
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Holiday>>;
+    /**
+     *
+     * Delete Holiday By Id
+     * @param id
+     * @param holidayId
+     */
+    systemHolidayListsIdHolidaysHolidayIdDelete(params: {
+        id: number;
+        holidayId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Holiday By Id
+     * @param id
+     * @param holidayId
+     */
+    systemHolidayListsIdHolidaysHolidayIdGet(params: {
+        id: number;
+        holidayId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Holiday>;
+    /**
+     *
+     * Update Holiday
+     * @param id
+     * @param holidayId
+     * @param operations
+     */
+    systemHolidayListsIdHolidaysHolidayIdPatch(params: {
+        id: number;
+        holidayId: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Holiday>;
+    /**
+     *
+     * Replace Holiday
+     * @param id
+     * @param holidayId
+     * @param holiday
+     */
+    systemHolidayListsIdHolidaysHolidayIdPut(params: {
+        id: number;
+        holidayId: number;
+        holiday: Holiday;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Holiday>;
+    /**
+     *
+     * Create Holiday
+     * @param id
+     * @param holiday
+     */
+    systemHolidayListsIdHolidaysPost(params: {
+        id: number;
+        holiday: Holiday;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Holiday>;
+}
+export class ImapsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Imap Count
+     * @param conditions
+     */
+    systemImapsCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Imaps
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemImapsGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Imap>>;
+    /**
+     *
+     * Get Imap By Id
+     * @param id
+     */
+    systemImapsIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Imap>;
+}
+export class ImpactsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Impact Count
+     * @param conditions
+     */
+    serviceImpactsCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Impact
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    serviceImpactsGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Impact>>;
+    /**
+     *
+     * Get Impact By Id
+     * @param id
+     */
+    serviceImpactsIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Impact>;
+    /**
+     *
+     * Update Impact
+     * @param id
+     * @param operations
+     */
+    serviceImpactsIdPatch(params: {
+        id: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Impact>;
+    /**
+     *
+     * Replace Impact
+     * @param id
+     * @param impact
+     */
+    serviceImpactsIdPut(params: {
+        id: number;
+        impact: Impact;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Impact>;
+}
+export class ImportsMassMaintenanceApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Delete Import Mass Maintenance By Id
+     * @param id
+     */
+    systemImportMassMaintenanceIdPost(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ImportMassMaintenance>;
+}
 export class InOutBoardsApi {
     protected basePath: string;
     defaultHeaders: any;
@@ -10832,6 +18225,156 @@ export class InfoApi {
      */
     systemInfoGet(params: {}, extraQueryParams?: any, extraFetchParams?: any): Promise<Info>;
 }
+export class IntegratorLoginsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Integrator Login Count
+     * @param conditions
+     */
+    systemIntegratorloginsCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Integrator Login
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemIntegratorloginsGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<IntegratorLogin>>;
+    /**
+     *
+     * Delete Integrator Login By Id
+     * @param id
+     */
+    systemIntegratorloginsIdDelete(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Integrator Login By Id
+     * @param id
+     */
+    systemIntegratorloginsIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<IntegratorLogin>;
+    /**
+     *
+     * Update Integrator Login
+     * @param id
+     * @param operations
+     */
+    systemIntegratorloginsIdPatch(params: {
+        id: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<IntegratorLogin>;
+    /**
+     *
+     * Replace Integrator Login
+     * @param id
+     * @param integratorLogin
+     */
+    systemIntegratorloginsIdPut(params: {
+        id: number;
+        integratorLogin: IntegratorLogin;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<IntegratorLogin>;
+    /**
+     *
+     * Create Integrator Login
+     * @param integratorLogin
+     */
+    systemIntegratorloginsPost(params: {
+        integratorLogin: IntegratorLogin;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<IntegratorLogin>;
+}
+export class InvoiceEmailTemplatesApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Invoice Email Templates Count
+     * @param conditions
+     */
+    financeInvoiceEmailTemplatesCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Invoice Email Templates
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    financeInvoiceEmailTemplatesGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<InvoiceEmailTemplate>>;
+    /**
+     *
+     * Delete Invoice Email Template By Id
+     * @param id
+     */
+    financeInvoiceEmailTemplatesIdDelete(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Invoice Email Template By Id
+     * @param id
+     */
+    financeInvoiceEmailTemplatesIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<InvoiceEmailTemplate>;
+    /**
+     *
+     * Update Invoice Email Template
+     * @param id
+     * @param operations
+     */
+    financeInvoiceEmailTemplatesIdPatch(params: {
+        id: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<InvoiceEmailTemplate>;
+    /**
+     *
+     * Replace Invoice Email Template
+     * @param id
+     * @param invoiceEmailTemplate
+     */
+    financeInvoiceEmailTemplatesIdPut(params: {
+        id: number;
+        invoiceEmailTemplate: InvoiceEmailTemplate;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<InvoiceEmailTemplate>;
+    /**
+     *
+     * Create Invoice Email Template
+     * @param invoiceEmailTemplate
+     */
+    financeInvoiceEmailTemplatesPost(params: {
+        invoiceEmailTemplate: InvoiceEmailTemplate;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<InvoiceEmailTemplate>;
+}
 export class InvoicePaymentsApi {
     protected basePath: string;
     defaultHeaders: any;
@@ -10910,6 +18453,84 @@ export class InvoicePaymentsApi {
         id: number;
         payment: Payment;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<Payment>;
+}
+export class InvoiceTemplateSetupsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Invoice Template Setups Count
+     * @param conditions
+     */
+    financeInvoiceTemplateSetupsCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Retrieves a list of standard and custom invoice templates
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    financeInvoiceTemplateSetupsGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<InvoiceTemplateSetup>>;
+    /**
+     *
+     * Get Invoice Template Setup By Id
+     * @param id
+     */
+    financeInvoiceTemplateSetupsIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<InvoiceTemplateSetup>;
+}
+export class InvoiceTemplatesApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Invoice Templates Count
+     * @param conditions
+     */
+    financeInvoiceTemplatesCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Invoice Templates
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    financeInvoiceTemplatesGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<InvoiceTemplate>>;
+    /**
+     *
+     * Get Invoice Template By Id
+     * @param id
+     */
+    financeInvoiceTemplatesIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<InvoiceTemplate>;
 }
 export class InvoicesApi {
     protected basePath: string;
@@ -10996,6 +18617,84 @@ export class InvoicesApi {
         invoice: Invoice;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<Invoice>;
 }
+export class KPICategoriesApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get K P I Categories Count
+     * @param conditions
+     */
+    systemKpiCategoriesCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get K P I Categories
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemKpiCategoriesGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<KPICategory>>;
+    /**
+     *
+     * Get K P I Category By Id
+     * @param id
+     */
+    systemKpiCategoriesIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<KPICategory>;
+}
+export class KPIsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get K P I Count
+     * @param conditions
+     */
+    systemKpisCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get K P I
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemKpisGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<KPI>>;
+    /**
+     *
+     * Get K P I By Id
+     * @param id
+     */
+    systemKpisIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<KPI>;
+}
 export class KnowledgeBaseArticlesApi {
     protected basePath: string;
     defaultHeaders: any;
@@ -11073,6 +18772,215 @@ export class KnowledgeBaseArticlesApi {
         knowledgeBaseArticle: KnowledgeBaseArticle;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<KnowledgeBaseArticle>;
 }
+export class LdapConfigurationsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Ldap Configurations Count
+     * @param conditions
+     */
+    systemLdapConfigurationsCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Ldap Configurations
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemLdapConfigurationsGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<LdapConfiguration>>;
+    /**
+     *
+     * Delete Ldap Configuration By Id
+     * @param id
+     */
+    systemLdapConfigurationsIdDelete(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Ldap Configuration By Id
+     * @param id
+     */
+    systemLdapConfigurationsIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<LdapConfiguration>;
+    /**
+     *
+     * Update Ldap Configuration
+     * @param id
+     * @param operations
+     */
+    systemLdapConfigurationsIdPatch(params: {
+        id: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<LdapConfiguration>;
+    /**
+     *
+     * Replace Ldap Configuration
+     * @param id
+     * @param ldapConfiguration
+     */
+    systemLdapConfigurationsIdPut(params: {
+        id: number;
+        ldapConfiguration: LdapConfiguration;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<LdapConfiguration>;
+    /**
+     *
+     * Create Ldap Configuration
+     * @param ldapConfiguration
+     */
+    systemLdapConfigurationsPost(params: {
+        ldapConfiguration: LdapConfiguration;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<LdapConfiguration>;
+}
+export class LegacyCampaignSubTypesApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Campaign Sub Types Count
+     * @param id
+     * @param conditions
+     */
+    marketingCampaignsTypesIdSubTypesCountGet(params: {
+        id: number;
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Campaign Sub Types
+     * @param id
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    marketingCampaignsTypesIdSubTypesGet(params: {
+        id: number;
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<CampaignSubType>>;
+    /**
+     *
+     * Get Campaign Sub Type By Id
+     * @param id
+     * @param subTypeId
+     */
+    marketingCampaignsTypesIdSubTypesSubTypeIdGet(params: {
+        id: number;
+        subTypeId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<CampaignSubType>;
+}
+export class LegacySubCategoriesApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Legacy Sub Categories Count
+     * @param id
+     * @param conditions
+     */
+    procurementCategoriesIdSubcategoriesCountGet(params: {
+        id: number;
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Legacy Sub Categories
+     * @param id
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    procurementCategoriesIdSubcategoriesGet(params: {
+        id: number;
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<LegacySubCategory>>;
+    /**
+     *
+     * Create Legacy Sub Category
+     * @param id
+     * @param subCategory
+     */
+    procurementCategoriesIdSubcategoriesPost(params: {
+        id: number;
+        subCategory: LegacySubCategory;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<LegacySubCategory>;
+    /**
+     *
+     * Delete Legacy Sub Category By Id
+     * @param id
+     * @param subcategoryID
+     */
+    procurementCategoriesIdSubcategoriesSubcategoryIDDelete(params: {
+        id: number;
+        subcategoryID: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Legacy Sub Category By Id
+     * @param id
+     * @param subcategoryID
+     */
+    procurementCategoriesIdSubcategoriesSubcategoryIDGet(params: {
+        id: number;
+        subcategoryID: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<LegacySubCategory>;
+    /**
+     *
+     * Update Legacy Sub Category
+     * @param id
+     * @param subcategoryID
+     * @param operations
+     */
+    procurementCategoriesIdSubcategoriesSubcategoryIDPatch(params: {
+        id: number;
+        subcategoryID: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<LegacySubCategory>;
+    /**
+     *
+     * Replace Legacy Sub Category
+     * @param id
+     * @param subcategoryID
+     * @param subCategory
+     */
+    procurementCategoriesIdSubcategoriesSubcategoryIDPut(params: {
+        id: number;
+        subcategoryID: number;
+        subCategory: LegacySubCategory;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<LegacySubCategory>;
+}
 export class LinksApi {
     protected basePath: string;
     defaultHeaders: any;
@@ -11148,21 +19056,24 @@ export class LinksApi {
         link: Link;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<Link>;
 }
-export class LocationsApi {
+export class LocationDepartmentsApi {
     protected basePath: string;
     defaultHeaders: any;
     constructor(basePath?: string);
     /**
      *
-     * Create Locations Count
+     * Get Location Department Count
+     * @param id
      * @param conditions
      */
-    serviceLocationsCountGet(params: {
+    systemLocationsIdDepartmentsCountGet(params: {
+        id: number;
         conditions?: string;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
     /**
      *
-     * Get Locations
+     * Get Location Department
+     * @param id
      * @param conditions
      * @param orderBy
      * @param childconditions
@@ -11170,7 +19081,94 @@ export class LocationsApi {
      * @param page
      * @param pageSize
      */
-    serviceLocationsGet(params: {
+    systemLocationsIdDepartmentsGet(params: {
+        id: number;
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<LocationDepartment>>;
+    /**
+     *
+     * Get Location Department By Id
+     * @param parentId
+     * @param id
+     */
+    systemLocationsParentIdDepartmentsIdGet(params: {
+        parentId: number;
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<LocationDepartment>;
+}
+export class LocationWorkRolesApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Location Work Role Count
+     * @param id
+     * @param conditions
+     */
+    systemLocationsIdWorkRolesCountGet(params: {
+        id: number;
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Location Work Role
+     * @param id
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemLocationsIdWorkRolesGet(params: {
+        id: number;
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<LocationWorkRole>>;
+    /**
+     *
+     * Get Location Work Role By Id
+     * @param parentId
+     * @param id
+     */
+    systemLocationsParentIdWorkRolesIdGet(params: {
+        parentId: number;
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<LocationWorkRole>;
+}
+export class LocationsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Location Count
+     * @param conditions
+     */
+    systemLocationsCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Location
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemLocationsGet(params: {
         conditions?: string;
         orderBy?: string;
         childconditions?: string;
@@ -11183,7 +19181,7 @@ export class LocationsApi {
      * Delete Location By Id
      * @param id
      */
-    serviceLocationsIdDelete(params: {
+    systemLocationsIdDelete(params: {
         id: number;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
     /**
@@ -11191,7 +19189,7 @@ export class LocationsApi {
      * Get Location By Id
      * @param id
      */
-    serviceLocationsIdGet(params: {
+    systemLocationsIdGet(params: {
         id: number;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<Location>;
     /**
@@ -11200,7 +19198,7 @@ export class LocationsApi {
      * @param id
      * @param operations
      */
-    serviceLocationsIdPatch(params: {
+    systemLocationsIdPatch(params: {
         id: number;
         operations: Array<PatchOperation>;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<Location>;
@@ -11210,7 +19208,7 @@ export class LocationsApi {
      * @param id
      * @param location
      */
-    serviceLocationsIdPut(params: {
+    systemLocationsIdPut(params: {
         id: number;
         location: Location;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<Location>;
@@ -11219,9 +19217,351 @@ export class LocationsApi {
      * Create Location
      * @param location
      */
-    serviceLocationsPost(params: {
+    systemLocationsPost(params: {
         location: Location;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<Location>;
+}
+export class ManagedDevicesIntegrationCrossReferencesApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Cross Reference Count
+     * @param id
+     * @param conditions
+     */
+    companyManagedDevicesIntegrationsIdCrossReferencesCountGet(params: {
+        id: number;
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Delete Cross Reference
+     * @param id
+     * @param crossReferenceID
+     */
+    companyManagedDevicesIntegrationsIdCrossReferencesCrossReferenceIDDelete(params: {
+        id: number;
+        crossReferenceID: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ManagedDevicesIntegrationCrossReference>;
+    /**
+     *
+     * Get Cross Reference By Id
+     * @param id
+     * @param crossReferenceID
+     */
+    companyManagedDevicesIntegrationsIdCrossReferencesCrossReferenceIDGet(params: {
+        id: number;
+        crossReferenceID: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ManagedDevicesIntegrationCrossReference>;
+    /**
+     *
+     * Update Cross Reference
+     * @param id
+     * @param crossReferenceID
+     * @param operations
+     */
+    companyManagedDevicesIntegrationsIdCrossReferencesCrossReferenceIDPatch(params: {
+        id: number;
+        crossReferenceID: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ManagedDevicesIntegrationCrossReference>;
+    /**
+     *
+     * Replace Cross Reference
+     * @param id
+     * @param crossReferenceID
+     * @param crossReference
+     */
+    companyManagedDevicesIntegrationsIdCrossReferencesCrossReferenceIDPut(params: {
+        id: number;
+        crossReferenceID: number;
+        crossReference: ManagedDevicesIntegrationCrossReference;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ManagedDevicesIntegrationCrossReference>;
+    /**
+     *
+     * Get Cross Reference
+     * @param id
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    companyManagedDevicesIntegrationsIdCrossReferencesGet(params: {
+        id: number;
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ManagedDevicesIntegrationCrossReference>>;
+    /**
+     *
+     * Create Cross Reference
+     * @param id
+     * @param crossReference
+     */
+    companyManagedDevicesIntegrationsIdCrossReferencesPost(params: {
+        id: number;
+        crossReference: ManagedDevicesIntegrationCrossReference;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ManagedDevicesIntegrationCrossReference>;
+}
+export class ManagedDevicesIntegrationLoginsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Login Count
+     * @param id
+     * @param conditions
+     */
+    companyManagedDevicesIntegrationsIdLoginsCountGet(params: {
+        id: number;
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Login
+     * @param id
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    companyManagedDevicesIntegrationsIdLoginsGet(params: {
+        id: number;
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ManagedDevicesIntegrationLogin>>;
+    /**
+     *
+     * Delete Login
+     * @param id
+     * @param loginID
+     */
+    companyManagedDevicesIntegrationsIdLoginsLoginIDDelete(params: {
+        id: number;
+        loginID: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ManagedDevicesIntegrationLogin>;
+    /**
+     *
+     * Get Login By Id
+     * @param id
+     * @param loginID
+     */
+    companyManagedDevicesIntegrationsIdLoginsLoginIDGet(params: {
+        id: number;
+        loginID: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ManagedDevicesIntegrationLogin>;
+    /**
+     *
+     * Update Login
+     * @param id
+     * @param loginID
+     * @param operations
+     */
+    companyManagedDevicesIntegrationsIdLoginsLoginIDPatch(params: {
+        id: number;
+        loginID: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ManagedDevicesIntegrationLogin>;
+    /**
+     *
+     * Replace Login
+     * @param id
+     * @param loginID
+     * @param login
+     */
+    companyManagedDevicesIntegrationsIdLoginsLoginIDPut(params: {
+        id: number;
+        loginID: number;
+        login: ManagedDevicesIntegrationLogin;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ManagedDevicesIntegrationLogin>;
+    /**
+     *
+     * Create Login
+     * @param id
+     * @param login
+     */
+    companyManagedDevicesIntegrationsIdLoginsPost(params: {
+        id: number;
+        login: ManagedDevicesIntegrationLogin;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ManagedDevicesIntegrationLogin>;
+}
+export class ManagedDevicesIntegrationNotificationsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Notification Count
+     * @param id
+     * @param conditions
+     */
+    companyManagedDevicesIntegrationsIdNotificationsCountGet(params: {
+        id: number;
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Notification
+     * @param id
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    companyManagedDevicesIntegrationsIdNotificationsGet(params: {
+        id: number;
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ManagedDevicesIntegrationNotification>>;
+    /**
+     *
+     * Delete Notification
+     * @param id
+     * @param notificationID
+     */
+    companyManagedDevicesIntegrationsIdNotificationsNotificationIDDelete(params: {
+        id: number;
+        notificationID: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ManagedDevicesIntegrationNotification>;
+    /**
+     *
+     * Get Notification By Id
+     * @param id
+     * @param notificationID
+     */
+    companyManagedDevicesIntegrationsIdNotificationsNotificationIDGet(params: {
+        id: number;
+        notificationID: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ManagedDevicesIntegrationNotification>;
+    /**
+     *
+     * Update Notification
+     * @param id
+     * @param notificationID
+     * @param operations
+     */
+    companyManagedDevicesIntegrationsIdNotificationsNotificationIDPatch(params: {
+        id: number;
+        notificationID: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ManagedDevicesIntegrationNotification>;
+    /**
+     *
+     * Replace Notification
+     * @param id
+     * @param notificationID
+     * @param notification
+     */
+    companyManagedDevicesIntegrationsIdNotificationsNotificationIDPut(params: {
+        id: number;
+        notificationID: number;
+        notification: ManagedDevicesIntegrationNotification;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ManagedDevicesIntegrationNotification>;
+    /**
+     *
+     * Create Notification
+     * @param id
+     * @param notification
+     */
+    companyManagedDevicesIntegrationsIdNotificationsPost(params: {
+        id: number;
+        notification: ManagedDevicesIntegrationNotification;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ManagedDevicesIntegrationNotification>;
+}
+export class ManagedDevicesIntegrationsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Managed Devices Integrations Count
+     * @param conditions
+     */
+    companyManagedDevicesIntegrationsCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Managed Devices Integrations
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    companyManagedDevicesIntegrationsGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ManagedDevicesIntegration>>;
+    /**
+     *
+     * Delete Managed Devices Integration By Id
+     * @param id
+     */
+    companyManagedDevicesIntegrationsIdDelete(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Managed Devices Integration By Id
+     * @param id
+     */
+    companyManagedDevicesIntegrationsIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ManagedDevicesIntegration>;
+    /**
+     *
+     * Update Managed Devices Integration
+     * @param id
+     * @param operations
+     */
+    companyManagedDevicesIntegrationsIdPatch(params: {
+        id: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ManagedDevicesIntegration>;
+    /**
+     *
+     * Replace Managed Devices Integration
+     * @param id
+     * @param managedDevicesIntegration
+     */
+    companyManagedDevicesIntegrationsIdPut(params: {
+        id: number;
+        managedDevicesIntegration: ManagedDevicesIntegration;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ManagedDevicesIntegration>;
+    /**
+     *
+     * Create Managed Devices Integration
+     * @param managedDevicesIntegration
+     */
+    companyManagedDevicesIntegrationsPost(params: {
+        managedDevicesIntegration: ManagedDevicesIntegration;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ManagedDevicesIntegration>;
 }
 export class ManagementBackupsApi {
     protected basePath: string;
@@ -11373,6 +19713,455 @@ export class ManagementEmailsApi {
         managementEmail: ManagementEmail;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<ManagementEmail>;
 }
+export class ManagementExecuteManagedItSyncsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Execute Managed It Sync
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    companyManagementIdExecuteManagedItSyncPost(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<SuccessResponse>;
+}
+export class ManagementItSolutionAgreementInterfaceParametersApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Management Product Count
+     * @param id
+     * @param conditions
+     */
+    companyManagementItSolutionsIdManagementProductsCountGet(params: {
+        id: number;
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Management Product
+     * @param id
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    companyManagementItSolutionsIdManagementProductsGet(params: {
+        id: number;
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ManagementItSolutionAgreementInterfaceParameter>>;
+    /**
+     *
+     * Delete Management Product
+     * @param id
+     * @param managementProductID
+     */
+    companyManagementItSolutionsIdManagementProductsManagementProductIDDelete(params: {
+        id: number;
+        managementProductID: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ManagementItSolutionAgreementInterfaceParameter>;
+    /**
+     *
+     * Get Management Product By Id
+     * @param id
+     * @param managementProductID
+     */
+    companyManagementItSolutionsIdManagementProductsManagementProductIDGet(params: {
+        id: number;
+        managementProductID: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ManagementItSolutionAgreementInterfaceParameter>;
+    /**
+     *
+     * Management Product
+     * @param id
+     * @param managementProductID
+     * @param operations
+     */
+    companyManagementItSolutionsIdManagementProductsManagementProductIDPatch(params: {
+        id: number;
+        managementProductID: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ManagementItSolutionAgreementInterfaceParameter>;
+    /**
+     *
+     * Replace Management Product
+     * @param id
+     * @param managementProductID
+     * @param managementProduct
+     */
+    companyManagementItSolutionsIdManagementProductsManagementProductIDPut(params: {
+        id: number;
+        managementProductID: number;
+        managementProduct: ManagementItSolutionAgreementInterfaceParameter;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ManagementItSolutionAgreementInterfaceParameter>;
+    /**
+     *
+     * Create Management Product
+     * @param id
+     * @param managementProduct
+     */
+    companyManagementItSolutionsIdManagementProductsPost(params: {
+        id: number;
+        managementProduct: ManagementItSolutionAgreementInterfaceParameter;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ManagementItSolutionAgreementInterfaceParameter>;
+}
+export class ManagementItSolutionsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Management It Solutions Count
+     * @param conditions
+     */
+    companyManagementItSolutionsCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Management It Solutions
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    companyManagementItSolutionsGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ManagementItSolution>>;
+    /**
+     *
+     * Delete Management It Solution By Id
+     * @param id
+     */
+    companyManagementItSolutionsIdDelete(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Management It Solution By Id
+     * @param id
+     */
+    companyManagementItSolutionsIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ManagementItSolution>;
+    /**
+     *
+     * Update Management It Solution
+     * @param id
+     * @param operations
+     */
+    companyManagementItSolutionsIdPatch(params: {
+        id: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ManagementItSolution>;
+    /**
+     *
+     * Replace Management It Solution
+     * @param id
+     * @param managementItSolution
+     */
+    companyManagementItSolutionsIdPut(params: {
+        id: number;
+        managementItSolution: ManagementItSolution;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ManagementItSolution>;
+    /**
+     *
+     * Create Management It Solution
+     * @param managementItSolution
+     */
+    companyManagementItSolutionsPost(params: {
+        managementItSolution: ManagementItSolution;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ManagementItSolution>;
+}
+export class ManagementLogsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Download Document
+     * @param filePath
+     */
+    companyManagementIdLogDownloadGet(params: {
+        filePath?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Management Execute Managed It Syncs
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    companyManagementIdLogsGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ManagementLogDocumentInfo>>;
+}
+export class ManagementNetworksSecurityApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Management Network Security Count
+     * @param conditions
+     */
+    systemManagementNetworkSecuritiesCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Management Networks Security
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemManagementNetworkSecuritiesGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ManagementNetworkSecurity>>;
+    /**
+     *
+     * Delete Management Network Security By Id
+     * @param id
+     */
+    systemManagementNetworkSecuritiesIdDelete(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Management Network Security By Id
+     * @param id
+     */
+    systemManagementNetworkSecuritiesIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ManagementNetworkSecurity>;
+    /**
+     *
+     * Update Management Network Security
+     * @param id
+     * @param operations
+     */
+    systemManagementNetworkSecuritiesIdPatch(params: {
+        id: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ManagementNetworkSecurity>;
+    /**
+     *
+     * Replace Management Network Security
+     * @param id
+     * @param managementNetworkSecurity
+     */
+    systemManagementNetworkSecuritiesIdPut(params: {
+        id: number;
+        managementNetworkSecurity: ManagementNetworkSecurity;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ManagementNetworkSecurity>;
+    /**
+     *
+     * Create Management Network Security
+     * @param managementNetworkSecurity
+     */
+    systemManagementNetworkSecuritiesPost(params: {
+        managementNetworkSecurity: ManagementNetworkSecurity;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ManagementNetworkSecurity>;
+    /**
+     *
+     * Test Credentials
+     * @param id
+     */
+    systemManagementNetworkSecuritiesTestCredentialsGet(params: {
+        id?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<SuccessResponse>;
+}
+export class ManagementReportNotificationsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Management Report Notifications Count
+     * @param id
+     * @param conditions
+     */
+    companyManagementIdManagementReportNotificationsCountGet(params: {
+        id: number;
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Management Report Notifications
+     * @param id
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    companyManagementIdManagementReportNotificationsGet(params: {
+        id: number;
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ManagementReportNotification>>;
+    /**
+     *
+     * Delete Management Report Notification By Id
+     * @param id
+     * @param managementReportNotificationId
+     */
+    companyManagementIdManagementReportNotificationsManagementReportNotificationIdDelete(params: {
+        id: number;
+        managementReportNotificationId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Management Report Notification By Id
+     * @param id
+     * @param managementReportNotificationId
+     */
+    companyManagementIdManagementReportNotificationsManagementReportNotificationIdGet(params: {
+        id: number;
+        managementReportNotificationId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ManagementReportNotification>;
+    /**
+     *
+     * Update Management Report Notification
+     * @param id
+     * @param managementReportNotificationId
+     * @param operations
+     */
+    companyManagementIdManagementReportNotificationsManagementReportNotificationIdPatch(params: {
+        id: number;
+        managementReportNotificationId: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ManagementReportNotification>;
+    /**
+     *
+     * Replace Management Report Notification
+     * @param id
+     * @param managementReportNotificationId
+     * @param managementReportNotification
+     */
+    companyManagementIdManagementReportNotificationsManagementReportNotificationIdPut(params: {
+        id: number;
+        managementReportNotificationId: number;
+        managementReportNotification: ManagementReportNotification;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ManagementReportNotification>;
+    /**
+     *
+     * Create Management Report Notification
+     * @param id
+     * @param managementReportNotification
+     */
+    companyManagementIdManagementReportNotificationsPost(params: {
+        id: number;
+        managementReportNotification: ManagementReportNotification;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ManagementReportNotification>;
+}
+export class ManagementsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Managements Count
+     * @param conditions
+     */
+    companyManagementCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Managements
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    companyManagementGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Management>>;
+    /**
+     *
+     * Get Management By Id
+     * @param id
+     */
+    companyManagementIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Management>;
+    /**
+     *
+     * Update Management
+     * @param id
+     * @param operations
+     */
+    companyManagementIdPatch(params: {
+        id: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Management>;
+    /**
+     *
+     * Replace Management
+     * @param id
+     * @param management
+     */
+    companyManagementIdPut(params: {
+        id: number;
+        management: Management;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Management>;
+}
 export class ManufacturersApi {
     protected basePath: string;
     defaultHeaders: any;
@@ -11523,6 +20312,362 @@ export class MarketDescriptionsApi {
         marketDescription: MarketDescription;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<MarketDescription>;
 }
+export class MemberAccrualsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Delete Member Accrual By Id
+     * @param id
+     * @param accrualId
+     */
+    systemMembersIdAccrualsAccrualIdDelete(params: {
+        id: number;
+        accrualId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Member Accrual By Id
+     * @param id
+     * @param accrualId
+     */
+    systemMembersIdAccrualsAccrualIdGet(params: {
+        id: number;
+        accrualId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<MemberAccrual>;
+    /**
+     *
+     * Update Member Accrual
+     * @param id
+     * @param accrualId
+     * @param operations
+     */
+    systemMembersIdAccrualsAccrualIdPatch(params: {
+        id: number;
+        accrualId: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<MemberAccrual>;
+    /**
+     *
+     * Replace Member Accrual
+     * @param id
+     * @param accrualId
+     * @param memberAccrual
+     */
+    systemMembersIdAccrualsAccrualIdPut(params: {
+        id: number;
+        accrualId: number;
+        memberAccrual: MemberAccrual;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<MemberAccrual>;
+    /**
+     *
+     * Get Member Accruals Count
+     * @param id
+     * @param conditions
+     */
+    systemMembersIdAccrualsCountGet(params: {
+        id: number;
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Member Accruals
+     * @param id
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemMembersIdAccrualsGet(params: {
+        id: number;
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<MemberAccrual>>;
+    /**
+     *
+     * Create Member Accrual
+     * @param id
+     * @param memberAccrual
+     */
+    systemMembersIdAccrualsPost(params: {
+        id: number;
+        memberAccrual: MemberAccrual;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<MemberAccrual>;
+}
+export class MemberCertificationsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Delete Member Certification By Id
+     * @param id
+     * @param certId
+     */
+    systemMembersIdCertificationsCertIdDelete(params: {
+        id: number;
+        certId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Member Certification By Id
+     * @param id
+     * @param certId
+     */
+    systemMembersIdCertificationsCertIdGet(params: {
+        id: number;
+        certId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<MemberCertification>;
+    /**
+     *
+     * Update Member Certification
+     * @param id
+     * @param certId
+     * @param operations
+     */
+    systemMembersIdCertificationsCertIdPatch(params: {
+        id: number;
+        certId: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<MemberCertification>;
+    /**
+     *
+     * Replace Member Certification
+     * @param id
+     * @param certId
+     * @param memberCertification
+     */
+    systemMembersIdCertificationsCertIdPut(params: {
+        id: number;
+        certId: number;
+        memberCertification: MemberCertification;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<MemberCertification>;
+    /**
+     *
+     * Get Member Certifications Count
+     * @param id
+     * @param conditions
+     */
+    systemMembersIdCertificationsCountGet(params: {
+        id: number;
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Member Certifications
+     * @param id
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemMembersIdCertificationsGet(params: {
+        id: number;
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<MemberCertification>>;
+    /**
+     *
+     * Create Member Certification
+     * @param id
+     * @param memberCertification
+     */
+    systemMembersIdCertificationsPost(params: {
+        id: number;
+        memberCertification: MemberCertification;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<MemberCertification>;
+}
+export class MemberDelegationsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Member Delegations Count
+     * @param id
+     * @param conditions
+     */
+    systemMembersIdDelegationsCountGet(params: {
+        id: number;
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Delete Member Delegation By Id
+     * @param id
+     * @param delegationId
+     */
+    systemMembersIdDelegationsDelegationIdDelete(params: {
+        id: number;
+        delegationId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Member Delegation By Id
+     * @param id
+     * @param delegationId
+     */
+    systemMembersIdDelegationsDelegationIdGet(params: {
+        id: number;
+        delegationId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<MemberDelegation>;
+    /**
+     *
+     * Update Member Delegation
+     * @param id
+     * @param delegationId
+     * @param operations
+     */
+    systemMembersIdDelegationsDelegationIdPatch(params: {
+        id: number;
+        delegationId: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<MemberDelegation>;
+    /**
+     *
+     * Replace Member Delegation
+     * @param id
+     * @param delegationId
+     * @param memberDelegation
+     */
+    systemMembersIdDelegationsDelegationIdPut(params: {
+        id: number;
+        delegationId: number;
+        memberDelegation: MemberDelegation;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<MemberDelegation>;
+    /**
+     *
+     * Get Member Delegations
+     * @param id
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemMembersIdDelegationsGet(params: {
+        id: number;
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<MemberDelegation>>;
+    /**
+     *
+     * Create Member Delegation
+     * @param id
+     * @param memberDelegation
+     */
+    systemMembersIdDelegationsPost(params: {
+        id: number;
+        memberDelegation: MemberDelegation;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<MemberDelegation>;
+}
+export class MemberSkillsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Member Skill Count
+     * @param id
+     * @param conditions
+     */
+    systemMembersIdSkillsCountGet(params: {
+        id: number;
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Member Skill
+     * @param id
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemMembersIdSkillsGet(params: {
+        id: number;
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<MemberSkill>>;
+    /**
+     *
+     * Create Member Skill
+     * @param id
+     * @param memberSkill
+     */
+    systemMembersIdSkillsPost(params: {
+        id: number;
+        memberSkill: MemberSkill;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<MemberSkill>;
+    /**
+     *
+     * Delete Member Skill By Id
+     * @param id
+     * @param skillId
+     */
+    systemMembersIdSkillsSkillIdDelete(params: {
+        id: number;
+        skillId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Member Skill By Id
+     * @param id
+     * @param skillId
+     */
+    systemMembersIdSkillsSkillIdGet(params: {
+        id: number;
+        skillId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<MemberSkill>;
+    /**
+     *
+     * Update Member Skill
+     * @param id
+     * @param skillId
+     * @param operations
+     */
+    systemMembersIdSkillsSkillIdPatch(params: {
+        id: number;
+        skillId: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<MemberSkill>;
+    /**
+     *
+     * Replace Member Skill
+     * @param id
+     * @param skillId
+     * @param memberSkill
+     */
+    systemMembersIdSkillsSkillIdPut(params: {
+        id: number;
+        skillId: number;
+        memberSkill: MemberSkill;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<MemberSkill>;
+}
 export class MemberTypesApi {
     protected basePath: string;
     defaultHeaders: any;
@@ -11630,23 +20775,49 @@ export class MembersApi {
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Member>>;
     /**
      *
-     * Get Member By Id
-     * @param memberIdentifier
+     * Deactivatemember
+     * @param id
+     * @param item
      */
-    systemMembersMemberIdentifierGet(params: {
-        memberIdentifier: string;
+    systemMembersIdDeactivatePost(params: {
+        id: number;
+        item: MemberDeactivation;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<MemberDeactivation>;
+    /**
+     *
+     * Get Member By Id
+     * @param id
+     */
+    systemMembersIdGet(params: {
+        id: number;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<Member>;
     /**
      *
-     * Get Member Image
-     * @param memberIdentifier
-     * @param useDefaultFlag
-     * @param lastmodified
+     * Update Member
+     * @param id
+     * @param operations
      */
-    systemMembersMemberIdentifierImageGet(params: {
-        memberIdentifier: string;
-        useDefaultFlag?: boolean;
-        lastmodified?: string;
+    systemMembersIdPatch(params: {
+        id: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Member>;
+    /**
+     *
+     * Replace Member
+     * @param id
+     * @param member
+     */
+    systemMembersIdPut(params: {
+        id: number;
+        member: Member;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Member>;
+    /**
+     *
+     * Delete Member Unused Time Sheets
+     * @param id
+     */
+    systemMembersIdUnusedTimeSheetsDelete(params: {
+        id: number;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
     /**
      *
@@ -11656,6 +20827,14 @@ export class MembersApi {
     systemMembersMemberIdentifierTokensPost(params: {
         memberIdentifier: string;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<Token>;
+    /**
+     *
+     * Create Member
+     * @param member
+     */
+    systemMembersPost(params: {
+        member: Member;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Member>;
 }
 export class MenuEntriesApi {
     protected basePath: string;
@@ -11753,6 +20932,169 @@ export class MenuEntriesApi {
     systemMenuentriesPost(params: {
         menuEntry: MenuEntry;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<MenuEntry>;
+}
+export class MenuEntryLocationsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Menu Entry Location Count
+     * @param id
+     * @param conditions
+     */
+    systemMenuEntriesIdLocationsCountGet(params: {
+        id: number;
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Menu Entry Location
+     * @param id
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemMenuEntriesIdLocationsGet(params: {
+        id: number;
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<MenuEntryLocation>>;
+    /**
+     *
+     * Delete Menu Entry Location By Id
+     * @param id
+     * @param locationId
+     */
+    systemMenuEntriesIdLocationsLocationIdDelete(params: {
+        id: number;
+        locationId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Menu Entry Location By Id
+     * @param id
+     * @param locationId
+     */
+    systemMenuEntriesIdLocationsLocationIdGet(params: {
+        id: number;
+        locationId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<MenuEntryLocation>;
+    /**
+     *
+     * Create Menu Entry Location
+     * @param id
+     * @param menuEntryLocation
+     */
+    systemMenuEntriesIdLocationsPost(params: {
+        id: number;
+        menuEntryLocation: MenuEntryLocation;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<MenuEntryLocation>;
+}
+export class MyCompanyPurchasingsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get My Company Purchasings Count
+     * @param conditions
+     */
+    systemMycompanyPurchasingCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get My Company Purchasings
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemMycompanyPurchasingGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Purchasing>>;
+    /**
+     *
+     * Get My Company Purchasing By Id
+     * @param id
+     */
+    systemMycompanyPurchasingIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Purchasing>;
+    /**
+     *
+     * Update My Company Purchasing
+     * @param id
+     * @param operations
+     */
+    systemMycompanyPurchasingIdPatch(params: {
+        id: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Purchasing>;
+    /**
+     *
+     * Replace My Company Purchasing
+     * @param id
+     * @param purchasing
+     */
+    systemMycompanyPurchasingIdPut(params: {
+        id: number;
+        purchasing: Purchasing;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Purchasing>;
+}
+export class NotificationRecipientsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Notification Recipients Count
+     * @param conditions
+     */
+    systemNotificationRecipientsCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Notification Recipients
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemNotificationRecipientsGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<NotificationRecipient>>;
+    /**
+     *
+     * Get Notification Recipient By Id
+     * @param id
+     */
+    systemNotificationRecipientsIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<NotificationRecipient>;
 }
 export class OpportunitiesApi {
     protected basePath: string;
@@ -12527,6 +21869,95 @@ export class OpportunityTypesApi {
         opportunityType: OpportunityType;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<OpportunityType>;
 }
+export class OrderStatusNotificationsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Order Status Notifications Count
+     * @param id
+     * @param conditions
+     */
+    salesOrdersStatusesIdNotificationsCountGet(params: {
+        id: number;
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Order Status Notifications
+     * @param id
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    salesOrdersStatusesIdNotificationsGet(params: {
+        id: number;
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<OrderStatusNotification>>;
+    /**
+     *
+     * Delete Order Status Notification By Id
+     * @param id
+     * @param notificationId
+     */
+    salesOrdersStatusesIdNotificationsNotificationIdDelete(params: {
+        id: number;
+        notificationId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Order Status Notification By Id
+     * @param id
+     * @param notificationId
+     */
+    salesOrdersStatusesIdNotificationsNotificationIdGet(params: {
+        id: number;
+        notificationId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<OrderStatusNotification>;
+    /**
+     *
+     * Update Order Status Notification
+     * @param id
+     * @param notificationId
+     * @param operations
+     */
+    salesOrdersStatusesIdNotificationsNotificationIdPatch(params: {
+        id: number;
+        notificationId: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<OrderStatusNotification>;
+    /**
+     *
+     * Replace Order Status Notification
+     * @param id
+     * @param notificationId
+     * @param orderStatusNotification
+     */
+    salesOrdersStatusesIdNotificationsNotificationIdPut(params: {
+        id: number;
+        notificationId: number;
+        orderStatusNotification: OrderStatusNotification;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<OrderStatusNotification>;
+    /**
+     *
+     * Create Order Status Notification
+     * @param id
+     * @param orderStatusNotification
+     */
+    salesOrdersStatusesIdNotificationsPost(params: {
+        id: number;
+        orderStatusNotification: OrderStatusNotification;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<OrderStatusNotification>;
+}
 export class OrderStatusesApi {
     protected basePath: string;
     defaultHeaders: any;
@@ -12601,6 +22032,95 @@ export class OrderStatusesApi {
     salesOrdersStatusesPost(params: {
         status: OrderStatus;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<OrderStatus>>;
+}
+export class OrderStatusesEmailTemplateApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Order Status Email Template Count
+     * @param orderStatus
+     * @param conditions
+     */
+    salesOrdersStatusesIdEmailtemplatesCountGet(params: {
+        orderStatus: number;
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Delete Order Status Email Template By Id
+     * @param id
+     * @param emailTemplateId
+     */
+    salesOrdersStatusesIdEmailtemplatesEmailTemplateIdDelete(params: {
+        id: number;
+        emailTemplateId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Order Status Email Template By Id
+     * @param id
+     * @param emailTemplateId
+     */
+    salesOrdersStatusesIdEmailtemplatesEmailTemplateIdGet(params: {
+        id: number;
+        emailTemplateId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<OrderStatusEmailTemplate>;
+    /**
+     *
+     * Update Order Status Email Template
+     * @param id
+     * @param emailTemplateId
+     * @param operations
+     */
+    salesOrdersStatusesIdEmailtemplatesEmailTemplateIdPatch(params: {
+        id: number;
+        emailTemplateId: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<OrderStatusEmailTemplate>;
+    /**
+     *
+     * Replace Order Status Email Template
+     * @param id
+     * @param emailTemplateId
+     * @param orderStatusEmailTemplate
+     */
+    salesOrdersStatusesIdEmailtemplatesEmailTemplateIdPut(params: {
+        id: number;
+        emailTemplateId: number;
+        orderStatusEmailTemplate: OrderStatusEmailTemplate;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<OrderStatusEmailTemplate>;
+    /**
+     *
+     * Get Order Status Email Template
+     * @param id
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    salesOrdersStatusesIdEmailtemplatesGet(params: {
+        id: number;
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<OrderStatusEmailTemplate>>;
+    /**
+     *
+     * Create Order Status Email Template
+     * @param id
+     * @param orderStatusEmailTemplate
+     */
+    salesOrdersStatusesIdEmailtemplatesPost(params: {
+        id: number;
+        orderStatusEmailTemplate: OrderStatusEmailTemplate;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<OrderStatusEmailTemplate>;
 }
 export class OrdersApi {
     protected basePath: string;
@@ -12679,6 +22199,65 @@ export class OrdersApi {
         order: Order;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Order>>;
 }
+export class OthersApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Others Count
+     * @param conditions
+     */
+    systemMyCompanyOtherCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Others
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemMyCompanyOtherGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Other>>;
+    /**
+     *
+     * Get Other By Id
+     * @param id
+     */
+    systemMyCompanyOtherIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Other>;
+    /**
+     *
+     * Update Other
+     * @param id
+     * @param operations
+     */
+    systemMyCompanyOtherIdPatch(params: {
+        id: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Other>;
+    /**
+     *
+     * Replace Other
+     * @param id
+     * @param other
+     */
+    systemMyCompanyOtherIdPut(params: {
+        id: number;
+        other: Other;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Other>;
+}
 export class OwnershipTypesApi {
     protected basePath: string;
     defaultHeaders: any;
@@ -12753,6 +22332,851 @@ export class OwnershipTypesApi {
     companyOwnershipTypesPost(params: {
         ownershipType: OwnershipType;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<OwnershipType>;
+}
+export class ParsingTypesApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Parsing Type Count
+     * @param conditions
+     */
+    systemParsingTypesCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Parsing Parsing Types
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemParsingTypesGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ParsingType>>;
+    /**
+     *
+     * Get Parsing Type By Id
+     * @param id
+     */
+    systemParsingTypesIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ParsingType>;
+}
+export class ParsingVariablesApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Parsing Variable Count
+     * @param conditions
+     */
+    systemParsingVariablesCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Parsing Variables
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemParsingVariablesGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ParsingVariable>>;
+    /**
+     *
+     * Get Parsing Variable By Id
+     * @param id
+     */
+    systemParsingVariablesIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ParsingVariable>;
+}
+export class PaymentTypesApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Payment Type Count
+     * @param conditions
+     */
+    expensePaymentTypesCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Payment Type
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    expensePaymentTypesGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<PaymentType>>;
+    /**
+     *
+     * Delete Payment Type By Id
+     * @param id
+     */
+    expensePaymentTypesIdDelete(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Payment Type By Id
+     * @param id
+     */
+    expensePaymentTypesIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<PaymentType>;
+    /**
+     *
+     * Update Payment Type
+     * @param id
+     * @param operations
+     */
+    expensePaymentTypesIdPatch(params: {
+        id: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<PaymentType>;
+    /**
+     *
+     * Replace Payment Type
+     * @param id
+     * @param paymentType
+     */
+    expensePaymentTypesIdPut(params: {
+        id: number;
+        paymentType: PaymentType;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<PaymentType>;
+    /**
+     *
+     * Create Payment Type
+     * @param paymentType
+     */
+    expensePaymentTypesPost(params: {
+        paymentType: PaymentType;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<PaymentType>;
+}
+export class PortalCalendarsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Portal Calendars Count
+     * @param conditions
+     */
+    systemMycompanyPortalcalendarsCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Portal Calendars
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemMycompanyPortalcalendarsGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<PortalCalendar>>;
+    /**
+     *
+     * Get Portal Calendar By Id
+     * @param id
+     */
+    systemMycompanyPortalcalendarsIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<PortalCalendar>;
+    /**
+     *
+     * Update Portal Calendar
+     * @param id
+     * @param operations
+     */
+    systemMycompanyPortalcalendarsIdPatch(params: {
+        id: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<PortalCalendar>;
+    /**
+     *
+     * Replace Portal Calendar
+     * @param id
+     * @param portalCalendar
+     */
+    systemMycompanyPortalcalendarsIdPut(params: {
+        id: number;
+        portalCalendar: PortalCalendar;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<PortalCalendar>;
+}
+export class PortalConfigurationInvoiceSetupsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Portal Configuration Invoice Setup Count
+     * @param id
+     * @param conditions
+     */
+    systemPortalConfigurationsIdInvoiceSetupsCountGet(params: {
+        id: number;
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Portal Configuration Invoice Setup
+     * @param id
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemPortalConfigurationsIdInvoiceSetupsGet(params: {
+        id: number;
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<PortalConfigurationInvoiceSetup>>;
+    /**
+     *
+     * Get Portal Configuration Invoice Setup By Id
+     * @param id
+     * @param invoiceSetupId
+     */
+    systemPortalConfigurationsIdInvoiceSetupsInvoiceSetupIdGet(params: {
+        id: number;
+        invoiceSetupId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<PortalConfigurationInvoiceSetup>;
+    /**
+     *
+     * Update Portal Configuration Invoice Setup
+     * @param id
+     * @param invoiceSetupId
+     * @param operations
+     */
+    systemPortalConfigurationsIdInvoiceSetupsInvoiceSetupIdPatch(params: {
+        id: number;
+        invoiceSetupId: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<PortalConfigurationInvoiceSetup>;
+    /**
+     *
+     * Replace Portal Configuration Invoice Setup
+     * @param id
+     * @param invoiceSetupId
+     * @param portalConfigurationInvoiceSetup
+     */
+    systemPortalConfigurationsIdInvoiceSetupsInvoiceSetupIdPut(params: {
+        id: number;
+        invoiceSetupId: number;
+        portalConfigurationInvoiceSetup: PortalConfigurationInvoiceSetup;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<PortalConfigurationInvoiceSetup>;
+    /**
+     *
+     * Test Transaction
+     * @param id
+     * @param invoiceSetupId
+     * @param portalConfigurationInvoiceSetup
+     */
+    systemPortalConfigurationsIdInvoiceSetupsInvoiceSetupIdTestTransactionPost(params: {
+        id: number;
+        invoiceSetupId: number;
+        portalConfigurationInvoiceSetup: PortalConfigurationInvoiceSetup;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<SuccessResponse>;
+}
+export class PortalConfigurationOpportunitySetupsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Portal Configuration Opportunity Setup
+     * @param id
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemPortalConfigurationsIdOpportunitySetupsGet(params: {
+        id: number;
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<PortalConfigurationOpportunitySetup>>;
+    /**
+     *
+     * Update Portal Configuration Opportunity Setup
+     * @param id
+     * @param operations
+     */
+    systemPortalConfigurationsIdOpportunitySetupsPatch(params: {
+        id: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<PortalConfigurationOpportunitySetup>;
+    /**
+     *
+     * Get Portal Configuration Opportunity Setup By Id
+     * @param id
+     * @param portalConfigurationId
+     */
+    systemPortalConfigurationsIdOpportunitySetupsPortalConfigurationIdGet(params: {
+        id: number;
+        portalConfigurationId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<PortalConfigurationOpportunitySetup>;
+    /**
+     *
+     * Update Portal Configuration Opportunity Setup By Id
+     * @param id
+     * @param portalConfigurationId
+     * @param operations
+     */
+    systemPortalConfigurationsIdOpportunitySetupsPortalConfigurationIdPatch(params: {
+        id: number;
+        portalConfigurationId: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<PortalConfigurationOpportunitySetup>;
+    /**
+     *
+     * Replace Portal Configuration Opportunity Setup
+     * @param id
+     * @param opportunitySetup
+     */
+    systemPortalConfigurationsIdOpportunitySetupsPut(params: {
+        id: number;
+        opportunitySetup: PortalConfigurationOpportunitySetup;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<PortalConfigurationOpportunitySetup>;
+}
+export class PortalConfigurationPasswordEmailSetupsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Portal Configuration Password Email Setup
+     * @param id
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemPortalConfigurationsIdPasswordEmailSetupsGet(params: {
+        id: number;
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<PortalConfigurationPasswordEmailSetup>>;
+    /**
+     *
+     * Get Portal Configuration Password Email Setup
+     * @param id
+     * @param passwordEmailSetupId
+     */
+    systemPortalConfigurationsIdPasswordEmailSetupsPasswordEmailSetupIdGet(params: {
+        id: number;
+        passwordEmailSetupId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<PortalConfigurationPasswordEmailSetup>;
+    /**
+     *
+     * Update Portal Configuration Password Email Setup
+     * @param id
+     * @param passwordEmailSetupId
+     * @param operations
+     */
+    systemPortalConfigurationsIdPasswordEmailSetupsPasswordEmailSetupIdPatch(params: {
+        id: number;
+        passwordEmailSetupId: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<PortalConfigurationPasswordEmailSetup>;
+    /**
+     *
+     * Replace Portal Configuration Password Email Setup
+     * @param id
+     * @param passwordEmailSetupId
+     * @param passwordEmailSetup
+     */
+    systemPortalConfigurationsIdPasswordEmailSetupsPasswordEmailSetupIdPut(params: {
+        id: number;
+        passwordEmailSetupId: number;
+        passwordEmailSetup: PortalConfigurationPasswordEmailSetup;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<PortalConfigurationPasswordEmailSetup>;
+}
+export class PortalConfigurationProjectSetupsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Portal Configuration Project Setups Count
+     * @param id
+     * @param conditions
+     */
+    systemPortalConfigurationsIdProjectSetupsCountGet(params: {
+        id: number;
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Portal Configuration Project Setups
+     * @param id
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemPortalConfigurationsIdProjectSetupsGet(params: {
+        id: number;
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<PortalConfigurationProjectSetup>>;
+    /**
+     *
+     * Get Portal Configuration Project Setup By Id
+     * @param id
+     * @param portalConfigurationId
+     */
+    systemPortalConfigurationsIdProjectSetupsPortalConfigurationIdGet(params: {
+        id: number;
+        portalConfigurationId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<PortalConfigurationProjectSetup>;
+    /**
+     *
+     * Update Portal Configuration Project Setup
+     * @param id
+     * @param portalConfigurationId
+     * @param operations
+     */
+    systemPortalConfigurationsIdProjectSetupsPortalConfigurationIdPatch(params: {
+        id: number;
+        portalConfigurationId: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<PortalConfigurationProjectSetup>;
+    /**
+     *
+     * Replace Portal Configuration Project Setup
+     * @param id
+     * @param portalConfigurationId
+     * @param portalConfigurationProjectSetup
+     */
+    systemPortalConfigurationsIdProjectSetupsPortalConfigurationIdPut(params: {
+        id: number;
+        portalConfigurationId: number;
+        portalConfigurationProjectSetup: PortalConfigurationProjectSetup;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<PortalConfigurationProjectSetup>;
+}
+export class PortalConfigurationServiceSetupsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Service Setups Count
+     * @param id
+     * @param conditions
+     */
+    systemPortalConfigurationsIdServiceSetupsCountGet(params: {
+        id: number;
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Service Setups
+     * @param id
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemPortalConfigurationsIdServiceSetupsGet(params: {
+        id: number;
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<PortalConfigurationServiceSetup>>;
+    /**
+     *
+     * Get Service Setup By Id
+     * @param id
+     * @param serviceSetupId
+     */
+    systemPortalConfigurationsIdServiceSetupsServiceSetupIdGet(params: {
+        id: number;
+        serviceSetupId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<PortalConfigurationServiceSetup>;
+    /**
+     *
+     * Update Service Setup
+     * @param id
+     * @param serviceSetupId
+     * @param operations
+     */
+    systemPortalConfigurationsIdServiceSetupsServiceSetupIdPatch(params: {
+        id: number;
+        serviceSetupId: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<PortalConfigurationServiceSetup>;
+    /**
+     *
+     * Replace Service Setup
+     * @param id
+     * @param serviceSetupId
+     * @param portalConfigurationServiceSetup
+     */
+    systemPortalConfigurationsIdServiceSetupsServiceSetupIdPut(params: {
+        id: number;
+        serviceSetupId: number;
+        portalConfigurationServiceSetup: PortalConfigurationServiceSetup;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<PortalConfigurationServiceSetup>;
+}
+export class PortalConfigurationsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Portal Configurations Count
+     * @param conditions
+     */
+    systemPortalConfigurationsCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Portal Configurations
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemPortalConfigurationsGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<PortalConfiguration>>;
+    /**
+     *
+     * Delete Portal Configuration By Id
+     * @param id
+     */
+    systemPortalConfigurationsIdDelete(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Portal Configuration By Id
+     * @param id
+     */
+    systemPortalConfigurationsIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<PortalConfiguration>;
+    /**
+     *
+     * Update Portal Configuration
+     * @param id
+     * @param operations
+     */
+    systemPortalConfigurationsIdPatch(params: {
+        id: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<PortalConfiguration>;
+    /**
+     *
+     * Get Portal Image
+     * @param id
+     * @param lastUpdated
+     */
+    systemPortalConfigurationsIdPortalImageGet(params: {
+        id: number;
+        lastUpdated?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Replace Portal Configuration
+     * @param id
+     * @param portalConfiguration
+     */
+    systemPortalConfigurationsIdPut(params: {
+        id: number;
+        portalConfiguration: PortalConfiguration;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<PortalConfiguration>;
+    /**
+     *
+     * Get Report Image
+     * @param id
+     * @param lastUpdated
+     */
+    systemPortalConfigurationsIdReportImageGet(params: {
+        id: number;
+        lastUpdated?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Create Portal Configuration
+     * @param portalConfiguration
+     */
+    systemPortalConfigurationsPost(params: {
+        portalConfiguration: PortalConfiguration;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<PortalConfiguration>;
+}
+export class PortalReportsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Portal Reports Count
+     * @param conditions
+     */
+    systemPortalReportsCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Portal Reports
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemPortalReportsGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<PortalReport>>;
+    /**
+     *
+     * Delete Portal Report By Id
+     * @param id
+     */
+    systemPortalReportsIdDelete(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Portal Report By Id
+     * @param id
+     */
+    systemPortalReportsIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<PortalReport>;
+    /**
+     *
+     * Update Portal Report
+     * @param id
+     * @param operations
+     */
+    systemPortalReportsIdPatch(params: {
+        id: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<PortalReport>;
+    /**
+     *
+     * Replace Portal Report
+     * @param id
+     * @param portalReport
+     */
+    systemPortalReportsIdPut(params: {
+        id: number;
+        portalReport: PortalReport;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<PortalReport>;
+    /**
+     *
+     * Create Portal Report
+     * @param portalReport
+     */
+    systemPortalReportsPost(params: {
+        portalReport: PortalReport;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<PortalReport>;
+}
+export class PortalSecuritiesApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Portal Securities Count
+     * @param conditions
+     */
+    systemPortalSecuritiesCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Portal Securities
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemPortalSecuritiesGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<PortalSecurity>>;
+    /**
+     *
+     * Get Portal Security By Id
+     * @param id
+     */
+    systemPortalSecuritiesIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<PortalSecurity>;
+    /**
+     *
+     * Update Portal Security
+     * @param id
+     * @param operations
+     */
+    systemPortalSecuritiesIdPatch(params: {
+        id: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<PortalSecurity>;
+    /**
+     *
+     * Replace Portal Security
+     * @param id
+     * @param portalSecurity
+     */
+    systemPortalSecuritiesIdPut(params: {
+        id: number;
+        portalSecurity: PortalSecurity;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<PortalSecurity>;
+}
+export class PortalSecurityLevelsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Portal Security Level Captions Count
+     * @param conditions
+     */
+    systemPortalSecurityLevelsCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Portal Security Level Captions
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemPortalSecurityLevelsGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<PortalSecurityLevel>>;
+    /**
+     *
+     * Get Portal Security Level Caption By Id
+     * @param id
+     */
+    systemPortalSecurityLevelsIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<PortalSecurityLevel>;
+    /**
+     *
+     * Update Portal Security Level Caption
+     * @param id
+     * @param operations
+     */
+    systemPortalSecurityLevelsIdPatch(params: {
+        id: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<PortalSecurityLevel>;
+    /**
+     *
+     * Replace Portal Security Level Caption
+     * @param id
+     * @param portalSecurityLevel
+     */
+    systemPortalSecurityLevelsIdPut(params: {
+        id: number;
+        portalSecurityLevel: PortalSecurityLevel;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<PortalSecurityLevel>;
 }
 export class PricingBreaksApi {
     protected basePath: string;
@@ -13669,6 +24093,264 @@ export class ProjectPhasesApi {
         projectPhase: ProjectPhase;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<ProjectPhase>;
 }
+export class ProjectSecurityRoleSettingsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Project Security Role Setting Count
+     * @param id
+     * @param conditions
+     */
+    systemProjectSecurityRolesIdSettingsCountGet(params: {
+        id: number;
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Project Security Role Settings
+     * @param id
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemProjectSecurityRolesIdSettingsGet(params: {
+        id: number;
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ProjectSecurityRoleSetting>>;
+    /**
+     *
+     * Get Project Security Role Setting By Id
+     * @param id
+     * @param settingId
+     */
+    systemProjectSecurityRolesIdSettingsSettingIdGet(params: {
+        id: number;
+        settingId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ProjectSecurityRoleSetting>;
+    /**
+     *
+     * Update Project Security Role Setting
+     * @param id
+     * @param settingId
+     * @param operations
+     */
+    systemProjectSecurityRolesIdSettingsSettingIdPatch(params: {
+        id: number;
+        settingId: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ProjectSecurityRoleSetting>;
+    /**
+     *
+     * Replace Project Security Role Setting
+     * @param id
+     * @param settingId
+     * @param projectSecurityRoleSetting
+     */
+    systemProjectSecurityRolesIdSettingsSettingIdPut(params: {
+        id: number;
+        settingId: number;
+        projectSecurityRoleSetting: ProjectSecurityRoleSetting;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ProjectSecurityRoleSetting>;
+}
+export class ProjectSecurityRolesApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Project Security Role Count
+     * @param conditions
+     */
+    systemProjectSecurityRolesCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Project Security Roles
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemProjectSecurityRolesGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ProjectSecurityRole>>;
+    /**
+     *
+     * Delete Project Security Roley By Id
+     * @param id
+     */
+    systemProjectSecurityRolesIdDelete(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Project Security Role By Id
+     * @param id
+     */
+    systemProjectSecurityRolesIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ProjectSecurityRole>;
+    /**
+     *
+     * Update Project Security Role
+     * @param id
+     * @param operations
+     */
+    systemProjectSecurityRolesIdPatch(params: {
+        id: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ProjectSecurityRole>;
+    /**
+     *
+     * Replace Project Security Role
+     * @param id
+     * @param projectSecurityRole
+     */
+    systemProjectSecurityRolesIdPut(params: {
+        id: number;
+        projectSecurityRole: ProjectSecurityRole;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ProjectSecurityRole>;
+    /**
+     *
+     * Create Project Security Role
+     * @param projectSecurityRole
+     */
+    systemProjectSecurityRolesPost(params: {
+        projectSecurityRole: ProjectSecurityRole;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ProjectSecurityRole>;
+}
+export class ProjectStatusesApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Project Statuses Count
+     * @param conditions
+     */
+    projectStatusesCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Project Statuses
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    projectStatusesGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ProjectStatus>>;
+    /**
+     *
+     * Delete Project Status By Id
+     * @param id
+     */
+    projectStatusesIdDelete(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Project Status By Id
+     * @param id
+     */
+    projectStatusesIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ProjectStatus>;
+    /**
+     *
+     * Update Project Status
+     * @param id
+     * @param operations
+     */
+    projectStatusesIdPatch(params: {
+        id: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ProjectStatus>;
+    /**
+     *
+     * Replace Project Status
+     * @param id
+     * @param projectStatus
+     */
+    projectStatusesIdPut(params: {
+        id: number;
+        projectStatus: ProjectStatus;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ProjectStatus>;
+    /**
+     *
+     * Create Project Status
+     * @param projectStatus
+     */
+    projectStatusesPost(params: {
+        projectStatus: ProjectStatus;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ProjectStatus>;
+}
+export class ProjectTypesApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Project Type Count
+     * @param conditions
+     */
+    systemProjectTypesCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Project Type
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemProjectTypesGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ProjectType>>;
+    /**
+     *
+     * Get Project Type By Id
+     * @param id
+     */
+    systemProjectTypesIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ProjectType>;
+}
 export class ProjectsApi {
     protected basePath: string;
     defaultHeaders: any;
@@ -13924,6 +24606,259 @@ export class PurchaseOrderLineItemsApi {
         purchaseOrderLineItem: PurchaseOrderLineItem;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<PurchaseOrderLineItem>;
 }
+export class PurchaseOrderStatusEmailTemplatesApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Purchase Order Status Email Templates Count
+     * @param id
+     * @param conditions
+     */
+    procurementPurchaseorderstatusesIdEmailtemplatesCountGet(params: {
+        id: number;
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Delete Purchase Order Status Email Template By Id
+     * @param id
+     * @param emailTemplateId
+     */
+    procurementPurchaseorderstatusesIdEmailtemplatesEmailTemplateIdDelete(params: {
+        id: number;
+        emailTemplateId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Purchase Order Status Email Template By Id
+     * @param id
+     * @param emailTemplateId
+     */
+    procurementPurchaseorderstatusesIdEmailtemplatesEmailTemplateIdGet(params: {
+        id: number;
+        emailTemplateId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<PurchaseOrderStatusEmailTemplate>;
+    /**
+     *
+     * Update Purchase Order Status Email Template
+     * @param id
+     * @param emailTemplateId
+     * @param operations
+     */
+    procurementPurchaseorderstatusesIdEmailtemplatesEmailTemplateIdPatch(params: {
+        id: number;
+        emailTemplateId: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<PurchaseOrderStatusEmailTemplate>;
+    /**
+     *
+     * Replace Purchase Order Status Email Template
+     * @param id
+     * @param emailTemplateId
+     * @param purchaseOrderStatusEmailTemplate
+     */
+    procurementPurchaseorderstatusesIdEmailtemplatesEmailTemplateIdPut(params: {
+        id: number;
+        emailTemplateId: number;
+        purchaseOrderStatusEmailTemplate: PurchaseOrderStatusEmailTemplate;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<PurchaseOrderStatusEmailTemplate>;
+    /**
+     *
+     * Get Purchase Order Status Email Templates
+     * @param id
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    procurementPurchaseorderstatusesIdEmailtemplatesGet(params: {
+        id: number;
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<PurchaseOrderStatusEmailTemplate>>;
+    /**
+     *
+     * Create Purchase Order Status Email Template
+     * @param id
+     * @param purchaseOrderStatusEmailTemplate
+     */
+    procurementPurchaseorderstatusesIdEmailtemplatesPost(params: {
+        id: number;
+        purchaseOrderStatusEmailTemplate: PurchaseOrderStatusEmailTemplate;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<PurchaseOrderStatusEmailTemplate>;
+}
+export class PurchaseOrderStatusNotificationsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Purchase Order Status Notifications Count
+     * @param id
+     * @param conditions
+     */
+    procurementPurchaseorderstatusesIdNotificationsCountGet(params: {
+        id: number;
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Purchase Order Status Notifications
+     * @param id
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    procurementPurchaseorderstatusesIdNotificationsGet(params: {
+        id: number;
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<PurchaseOrderStatusNotification>>;
+    /**
+     *
+     * Delete Purchase Order Status Notification By Id
+     * @param id
+     * @param notificationId
+     */
+    procurementPurchaseorderstatusesIdNotificationsNotificationIdDelete(params: {
+        id: number;
+        notificationId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Purchase Order Status Notification By Id
+     * @param id
+     * @param notificationId
+     */
+    procurementPurchaseorderstatusesIdNotificationsNotificationIdGet(params: {
+        id: number;
+        notificationId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<PurchaseOrderStatusNotification>;
+    /**
+     *
+     * Update Purchase Order Status Notification
+     * @param id
+     * @param notificationId
+     * @param operations
+     */
+    procurementPurchaseorderstatusesIdNotificationsNotificationIdPatch(params: {
+        id: number;
+        notificationId: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<PurchaseOrderStatusNotification>;
+    /**
+     *
+     * Replace Purchase Order Status Notification
+     * @param id
+     * @param notificationId
+     * @param purchaseOrderStatusNotification
+     */
+    procurementPurchaseorderstatusesIdNotificationsNotificationIdPut(params: {
+        id: number;
+        notificationId: number;
+        purchaseOrderStatusNotification: PurchaseOrderStatusNotification;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<PurchaseOrderStatusNotification>;
+    /**
+     *
+     * Create Purchase Order Status Notification
+     * @param id
+     * @param purchaseOrderStatusNotification
+     */
+    procurementPurchaseorderstatusesIdNotificationsPost(params: {
+        id: number;
+        purchaseOrderStatusNotification: PurchaseOrderStatusNotification;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<PurchaseOrderStatusNotification>;
+}
+export class PurchaseOrderStatusesApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Purchase Orders Statuses Count
+     * @param conditions
+     */
+    procurementPurchaseorderstatusesCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Purchase Order Statuses
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    procurementPurchaseorderstatusesGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<PurchaseOrderStatus>>;
+    /**
+     *
+     * Delete Purchase Order Status
+     * @param id
+     */
+    procurementPurchaseorderstatusesIdDelete(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Purchase Order Status By Id
+     * @param id
+     */
+    procurementPurchaseorderstatusesIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<PurchaseOrderStatus>;
+    /**
+     *
+     * Update Purchase Order Status
+     * @param id
+     * @param operations
+     */
+    procurementPurchaseorderstatusesIdPatch(params: {
+        id: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<PurchaseOrderStatus>;
+    /**
+     *
+     * Replace Purchase Order Status
+     * @param id
+     * @param purchaseOrderStatus
+     */
+    procurementPurchaseorderstatusesIdPut(params: {
+        id: number;
+        purchaseOrderStatus: PurchaseOrderStatus;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<PurchaseOrderStatus>;
+    /**
+     *
+     * Create Purchase Order Status
+     * @param poStatus
+     */
+    procurementPurchaseorderstatusesPost(params: {
+        poStatus: PurchaseOrderStatus;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<PurchaseOrderStatus>;
+}
 export class PurchaseOrdersApi {
     protected basePath: string;
     defaultHeaders: any;
@@ -14134,20 +25069,243 @@ export class RMADispositionsApi {
      *
      * Replace R M A Disposition
      * @param id
-     * @param rMADisposition
+     * @param rmaDisposition
      */
     procurementRMADispositionsIdPut(params: {
         id: number;
-        rMADisposition: RMADisposition;
+        rmaDisposition: RMADisposition;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<RMADisposition>;
     /**
      *
      * Create R M A Disposition
-     * @param rMADisposition
+     * @param rmaDisposition
      */
     procurementRMADispositionsPost(params: {
-        rMADisposition: RMADisposition;
+        rmaDisposition: RMADisposition;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<RMADisposition>;
+}
+export class ReportCardDetailsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Report Card Detail Count
+     * @param id
+     * @param conditions
+     */
+    systemReportCardsIdDetailsCountGet(params: {
+        id: number;
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Delete Report Card Detail By Id
+     * @param id
+     * @param detailId
+     */
+    systemReportCardsIdDetailsDetailIdDelete(params: {
+        id: number;
+        detailId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Report Card Detail By Id
+     * @param id
+     * @param detailId
+     */
+    systemReportCardsIdDetailsDetailIdGet(params: {
+        id: number;
+        detailId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ReportCardDetail>;
+    /**
+     *
+     * Update Report Card Detail
+     * @param id
+     * @param detailId
+     * @param operations
+     */
+    systemReportCardsIdDetailsDetailIdPatch(params: {
+        id: number;
+        detailId: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ReportCardDetail>;
+    /**
+     *
+     * Replace Report Card Detail
+     * @param id
+     * @param detailId
+     * @param reportCardDetail
+     */
+    systemReportCardsIdDetailsDetailIdPut(params: {
+        id: number;
+        detailId: number;
+        reportCardDetail: ReportCardDetail;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ReportCardDetail>;
+    /**
+     *
+     * Get Report Card Detail
+     * @param id
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemReportCardsIdDetailsGet(params: {
+        id: number;
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ReportCardDetail>>;
+    /**
+     *
+     * Create Report Card Detail
+     * @param id
+     * @param reportCardDetail
+     */
+    systemReportCardsIdDetailsPost(params: {
+        id: number;
+        reportCardDetail: ReportCardDetail;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ReportCardDetail>;
+}
+export class ReportCardsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Report Card Count
+     * @param conditions
+     */
+    systemReportCardsCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Report Card
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemReportCardsGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ReportCard>>;
+    /**
+     *
+     * Delete Report Card By Id
+     * @param id
+     */
+    systemReportCardsIdDelete(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Report Card By Id
+     * @param id
+     */
+    systemReportCardsIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ReportCard>;
+    /**
+     *
+     * Update Report Card
+     * @param id
+     * @param operations
+     */
+    systemReportCardsIdPatch(params: {
+        id: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ReportCard>;
+    /**
+     *
+     * Replace Report Card
+     * @param id
+     * @param reportCard
+     */
+    systemReportCardsIdPut(params: {
+        id: number;
+        reportCard: ReportCard;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ReportCard>;
+    /**
+     *
+     * Create Report Card
+     * @param reportCard
+     */
+    systemReportCardsPost(params: {
+        reportCard: ReportCard;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ReportCard>;
+}
+export class ReportingServicesApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Reporting Services
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemMycompanyReportingServicesGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ReportingService>>;
+    /**
+     *
+     * Get Reporting Service By Id
+     * @param id
+     */
+    systemMycompanyReportingServicesIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ReportingService>;
+    /**
+     *
+     * Update Reporting Service
+     * @param id
+     * @param operations
+     */
+    systemMycompanyReportingServicesIdPatch(params: {
+        id: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ReportingService>;
+    /**
+     *
+     * Replace Reporting Service
+     * @param id
+     * @param service
+     */
+    systemMycompanyReportingServicesIdPut(params: {
+        id: number;
+        service: ReportingService;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ReportingService>;
+    /**
+     *
+     * Test Reporting Service Connection
+     * @param id
+     */
+    systemMycompanyReportingServicesIdTestConnectionPost(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<SuccessResponse>;
 }
 export class ReportsApi {
     protected basePath: string;
@@ -14207,6 +25365,259 @@ export class ReportsApi {
         pageSize?: number;
         columns?: string;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<ReportDataResponse>;
+}
+export class RmaStatusEmailTemplatesApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Rma Status Email Templates
+     * @param id
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    procurementRmaStatusesIdEmailTemplatesGet(params: {
+        id: number;
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<RmaStatusEmailTemplate>>;
+    /**
+     *
+     * Get Rma Status Email Templates Count
+     * @param id
+     * @param conditions
+     */
+    procurementRmaStatusesIdEmailtemplatesCountGet(params: {
+        id: number;
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Delete Rma Status Email Template By Id
+     * @param id
+     * @param emailTemplateId
+     */
+    procurementRmaStatusesIdEmailtemplatesEmailTemplateIdDelete(params: {
+        id: number;
+        emailTemplateId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Rma Status Email Template By Id
+     * @param id
+     * @param emailTemplateId
+     */
+    procurementRmaStatusesIdEmailtemplatesEmailTemplateIdGet(params: {
+        id: number;
+        emailTemplateId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<RmaStatusEmailTemplate>;
+    /**
+     *
+     * Update Rma Status Email Template
+     * @param id
+     * @param emailTemplateId
+     * @param operations
+     */
+    procurementRmaStatusesIdEmailtemplatesEmailTemplateIdPatch(params: {
+        id: number;
+        emailTemplateId: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<RmaStatusEmailTemplate>;
+    /**
+     *
+     * Replace Rma Status Email Template
+     * @param id
+     * @param emailTemplateId
+     * @param rmaStatusEmailTemplate
+     */
+    procurementRmaStatusesIdEmailtemplatesEmailTemplateIdPut(params: {
+        id: number;
+        emailTemplateId: number;
+        rmaStatusEmailTemplate: RmaStatusEmailTemplate;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<RmaStatusEmailTemplate>;
+    /**
+     *
+     * Create Rma Status Email Template
+     * @param id
+     * @param rmaStatusEmailTemplate
+     */
+    procurementRmaStatusesIdEmailtemplatesPost(params: {
+        id: number;
+        rmaStatusEmailTemplate: RmaStatusEmailTemplate;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<RmaStatusEmailTemplate>;
+}
+export class RmaStatusNotificationsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Rma Status Notifications Count
+     * @param id
+     * @param conditions
+     */
+    procurementRmaStatusesIdNotificationsCountGet(params: {
+        id: number;
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Rma Status Notifications
+     * @param id
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    procurementRmaStatusesIdNotificationsGet(params: {
+        id: number;
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<RmaStatusNotification>>;
+    /**
+     *
+     * Delete Rma Status Notification By Id
+     * @param id
+     * @param notificationId
+     */
+    procurementRmaStatusesIdNotificationsNotificationIdDelete(params: {
+        id: number;
+        notificationId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Rma Status Notification By Id
+     * @param id
+     * @param notificationId
+     */
+    procurementRmaStatusesIdNotificationsNotificationIdGet(params: {
+        id: number;
+        notificationId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<RmaStatusNotification>;
+    /**
+     *
+     * Update Rma Status Notification
+     * @param id
+     * @param notificationId
+     * @param operations
+     */
+    procurementRmaStatusesIdNotificationsNotificationIdPatch(params: {
+        id: number;
+        notificationId: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<RmaStatusNotification>;
+    /**
+     *
+     * Replace Rma Status Notification
+     * @param id
+     * @param notificationId
+     * @param rmaStatusNotification
+     */
+    procurementRmaStatusesIdNotificationsNotificationIdPut(params: {
+        id: number;
+        notificationId: number;
+        rmaStatusNotification: RmaStatusNotification;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<RmaStatusNotification>;
+    /**
+     *
+     * Create Rma Status Notification
+     * @param id
+     * @param rmaStatusNotification
+     */
+    procurementRmaStatusesIdNotificationsPost(params: {
+        id: number;
+        rmaStatusNotification: RmaStatusNotification;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<RmaStatusNotification>;
+}
+export class RmaStatusesApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Rma Statuses Count
+     * @param conditions
+     */
+    procurementRmaStatusesCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Rma Statuses
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    procurementRmaStatusesGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<RmaStatus>>;
+    /**
+     *
+     * Delete Rma Status By Id
+     * @param id
+     */
+    procurementRmaStatusesIdDelete(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Rma Status By Id
+     * @param id
+     */
+    procurementRmaStatusesIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<RmaStatus>;
+    /**
+     *
+     * Update Rma Status
+     * @param id
+     * @param operations
+     */
+    procurementRmaStatusesIdPatch(params: {
+        id: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<RmaStatus>;
+    /**
+     *
+     * Replace Rma Status
+     * @param id
+     * @param rmaStatus
+     */
+    procurementRmaStatusesIdPut(params: {
+        id: number;
+        rmaStatus: RmaStatus;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<RmaStatus>;
+    /**
+     *
+     * Create Rma Status
+     * @param rmaStatus
+     */
+    procurementRmaStatusesPost(params: {
+        rmaStatus: RmaStatus;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<RmaStatus>;
 }
 export class RolesApi {
     protected basePath: string;
@@ -14283,6 +25694,170 @@ export class RolesApi {
         role: Role;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<Role>;
 }
+export class SLAPrioritiesApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get S L A Priority Count
+     * @param id
+     * @param conditions
+     */
+    serviceSLAsIdPrioritiesCountGet(params: {
+        id: number;
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get S L A Priority
+     * @param id
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    serviceSLAsIdPrioritiesGet(params: {
+        id: number;
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<SLAPriority>>;
+    /**
+     *
+     * Create S L A Priority
+     * @param id
+     * @param slaPriority
+     */
+    serviceSLAsIdPrioritiesPost(params: {
+        id: number;
+        slaPriority: SLAPriority;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<SLAPriority>;
+    /**
+     *
+     * Delete S L A Priority By Id
+     * @param id
+     * @param priorityId
+     */
+    serviceSLAsIdPrioritiesPriorityIdDelete(params: {
+        id: number;
+        priorityId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get S L A Priority By Id
+     * @param id
+     * @param priorityId
+     */
+    serviceSLAsIdPrioritiesPriorityIdGet(params: {
+        id: number;
+        priorityId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<SLAPriority>;
+    /**
+     *
+     * Update S L A Priority
+     * @param id
+     * @param priorityId
+     * @param operations
+     */
+    serviceSLAsIdPrioritiesPriorityIdPatch(params: {
+        id: number;
+        priorityId: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<SLAPriority>;
+    /**
+     *
+     * Replace S L A Priority
+     * @param id
+     * @param priorityId
+     * @param slaPriority
+     */
+    serviceSLAsIdPrioritiesPriorityIdPut(params: {
+        id: number;
+        priorityId: number;
+        slaPriority: SLAPriority;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<SLAPriority>;
+}
+export class SLAsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get S L A Count
+     * @param conditions
+     */
+    serviceSLAsCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get S L A
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    serviceSLAsGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<SLA>>;
+    /**
+     *
+     * Delete S L A By Id
+     * @param id
+     */
+    serviceSLAsIdDelete(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get S L A By Id
+     * @param id
+     */
+    serviceSLAsIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<SLA>;
+    /**
+     *
+     * Update S L A
+     * @param id
+     * @param operations
+     */
+    serviceSLAsIdPatch(params: {
+        id: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<SLA>;
+    /**
+     *
+     * Replace S L A
+     * @param id
+     * @param sLA
+     */
+    serviceSLAsIdPut(params: {
+        id: number;
+        sLA: SLA;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<SLA>;
+    /**
+     *
+     * Create S L A
+     * @param sLA
+     */
+    serviceSLAsPost(params: {
+        sLA: SLA;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<SLA>;
+}
 export class SalesProbabilitiesApi {
     protected basePath: string;
     defaultHeaders: any;
@@ -14357,6 +25932,362 @@ export class SalesProbabilitiesApi {
     salesProbabilitiesPost(params: {
         probability: SalesProbability;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<SalesProbability>;
+}
+export class SalesQuotasApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Sales Quota Count
+     * @param conditions
+     */
+    salesQuotasCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Sales Quota
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    salesQuotasGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<SalesQuota>>;
+    /**
+     *
+     * Delete Sales Quota By Id
+     * @param id
+     */
+    salesQuotasIdDelete(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Sales Quota By Id
+     * @param id
+     */
+    salesQuotasIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<SalesQuota>;
+    /**
+     *
+     * Update Sales Quota
+     * @param id
+     * @param operations
+     */
+    salesQuotasIdPatch(params: {
+        id: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<SalesQuota>;
+    /**
+     *
+     * Replace Sales Quota
+     * @param id
+     * @param salesQuota
+     */
+    salesQuotasIdPut(params: {
+        id: number;
+        salesQuota: SalesQuota;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<SalesQuota>;
+    /**
+     *
+     * Create Sales Quota
+     * @param salesQuota
+     */
+    salesQuotasPost(params: {
+        salesQuota: SalesQuota;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<SalesQuota>;
+}
+export class SalesTeamMembersApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Sales Team Members Count
+     * @param id
+     * @param conditions
+     */
+    systemSalesTeamsIdMembersCountGet(params: {
+        id: number;
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Sales Team Members
+     * @param id
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemSalesTeamsIdMembersGet(params: {
+        id: number;
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<SalesTeamMember>>;
+    /**
+     *
+     * Create Sales Team Member
+     * @param id
+     * @param salesTeamMember
+     */
+    systemSalesTeamsIdMembersPost(params: {
+        id: number;
+        salesTeamMember: SalesTeamMember;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<SalesTeamMember>;
+    /**
+     *
+     * Delete Sales Team Member By Id
+     * @param id
+     * @param salesTeamMemberId
+     */
+    systemSalesTeamsIdMembersSalesTeamMemberIdDelete(params: {
+        id: number;
+        salesTeamMemberId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Sales Team Member By Id
+     * @param id
+     * @param salesTeamMemberId
+     */
+    systemSalesTeamsIdMembersSalesTeamMemberIdGet(params: {
+        id: number;
+        salesTeamMemberId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<SalesTeamMember>;
+    /**
+     *
+     * Update Sales Team Member
+     * @param id
+     * @param salesTeamMemberId
+     * @param operations
+     */
+    systemSalesTeamsIdMembersSalesTeamMemberIdPatch(params: {
+        id: number;
+        salesTeamMemberId: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<SalesTeamMember>;
+    /**
+     *
+     * Replace Sales Team Member
+     * @param id
+     * @param salesTeamMemberId
+     * @param salesTeamMember
+     */
+    systemSalesTeamsIdMembersSalesTeamMemberIdPut(params: {
+        id: number;
+        salesTeamMemberId: number;
+        salesTeamMember: SalesTeamMember;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<SalesTeamMember>;
+}
+export class SalesTeamsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Sales Teams Count
+     * @param conditions
+     */
+    systemSalesTeamsCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Sales Teams
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemSalesTeamsGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<SalesTeam>>;
+    /**
+     *
+     * Delete Sales Team By Id
+     * @param id
+     */
+    systemSalesTeamsIdDelete(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Sales Team By Id
+     * @param id
+     */
+    systemSalesTeamsIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<SalesTeam>;
+    /**
+     *
+     * Update Sales Team
+     * @param id
+     * @param operations
+     */
+    systemSalesTeamsIdPatch(params: {
+        id: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<SalesTeam>;
+    /**
+     *
+     * Replace Sales Team
+     * @param id
+     * @param salesTeam
+     */
+    systemSalesTeamsIdPut(params: {
+        id: number;
+        salesTeam: SalesTeam;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<SalesTeam>;
+    /**
+     *
+     * Create Sales Team
+     * @param salesTeam
+     */
+    systemSalesTeamsPost(params: {
+        salesTeam: SalesTeam;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<SalesTeam>;
+}
+export class ScheduleColorsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Schedule Colors Count
+     * @param conditions
+     */
+    scheduleColorsCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Schedule Colors
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    scheduleColorsGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ScheduleColor>>;
+    /**
+     *
+     * Clear Schedule Color
+     * @param id
+     */
+    scheduleColorsIdClearPost(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ScheduleColor>;
+    /**
+     *
+     * Get Schedule Color By Id
+     * @param id
+     */
+    scheduleColorsIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ScheduleColor>;
+    /**
+     *
+     * Update Schedule Color
+     * @param id
+     * @param operations
+     */
+    scheduleColorsIdPatch(params: {
+        id: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ScheduleColor>;
+    /**
+     *
+     * Replace Schedule Color
+     * @param id
+     * @param scheduleColor
+     */
+    scheduleColorsIdPut(params: {
+        id: number;
+        scheduleColor: ScheduleColor;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ScheduleColor>;
+    /**
+     *
+     * Reset Schedule Colors
+     */
+    scheduleColorsResetPost(params: {}, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ScheduleColor>>;
+}
+export class ScheduleDetailsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Schedule Detail Count
+     * @param id
+     * @param conditions
+     */
+    scheduleEntriesIdDetailsCountGet(params: {
+        id: number;
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Schedule Detail By Id
+     * @param id
+     * @param detailId
+     */
+    scheduleEntriesIdDetailsDetailIdGet(params: {
+        id: number;
+        detailId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ScheduleDetail>;
+    /**
+     *
+     * Get Schedule Detail
+     * @param id
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    scheduleEntriesIdDetailsGet(params: {
+        id: number;
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ScheduleDetail>>;
 }
 export class ScheduleEntriesApi {
     protected basePath: string;
@@ -14717,6 +26648,722 @@ export class ScheduleTypesApi {
         scheduleType: ScheduleType;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<ScheduleType>;
 }
+export class SecurityRoleSettingsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Security Role Settings Count
+     * @param id
+     * @param conditions
+     */
+    systemSecurityRolesIdSettingsCountGet(params: {
+        id: number;
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Security Role Settings
+     * @param id
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemSecurityRolesIdSettingsGet(params: {
+        id: number;
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<SecurityRoleSetting>>;
+    /**
+     *
+     * Get Security Role Setting By Id
+     * @param id
+     * @param settingsId
+     */
+    systemSecurityRolesIdSettingsSettingsIdGet(params: {
+        id: number;
+        settingsId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<SecurityRoleSetting>;
+}
+export class SecurityRolesApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Security Role Count
+     * @param conditions
+     */
+    systemSecurityrolesCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Security Role
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemSecurityrolesGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<SecurityRole>>;
+    /**
+     *
+     * Delete Security Role By Id
+     * @param id
+     */
+    systemSecurityrolesIdDelete(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Security Role By Id
+     * @param id
+     */
+    systemSecurityrolesIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<SecurityRole>;
+    /**
+     *
+     * Create Security Role
+     * @param securityRole
+     */
+    systemSecurityrolesPost(params: {
+        securityRole: SecurityRole;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<SecurityRole>;
+}
+export class ServiceEmailTemplatesApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Email Templates Count
+     * @param conditions
+     */
+    serviceEmailTemplatesCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Email Templates
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    serviceEmailTemplatesGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ServiceEmailTemplate>>;
+    /**
+     *
+     * Delete Email Template By Id
+     * @param id
+     */
+    serviceEmailTemplatesIdDelete(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Email Template By Id
+     * @param id
+     */
+    serviceEmailTemplatesIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ServiceEmailTemplate>;
+    /**
+     *
+     * Update Email Template
+     * @param id
+     * @param operations
+     */
+    serviceEmailTemplatesIdPatch(params: {
+        id: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ServiceEmailTemplate>;
+    /**
+     *
+     * Replace Email Template
+     * @param id
+     * @param serviceEmailTemplate
+     */
+    serviceEmailTemplatesIdPut(params: {
+        id: number;
+        serviceEmailTemplate: ServiceEmailTemplate;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ServiceEmailTemplate>;
+    /**
+     *
+     * Create Email Template
+     * @param serviceEmailTemplate
+     */
+    serviceEmailTemplatesPost(params: {
+        serviceEmailTemplate: ServiceEmailTemplate;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ServiceEmailTemplate>;
+}
+export class ServiceLocationsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Create Locations Count
+     * @param conditions
+     */
+    serviceLocationsCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Locations
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    serviceLocationsGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ServiceLocation>>;
+    /**
+     *
+     * Delete Location By Id
+     * @param id
+     */
+    serviceLocationsIdDelete(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Location By Id
+     * @param id
+     */
+    serviceLocationsIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ServiceLocation>;
+    /**
+     *
+     * Update Location
+     * @param id
+     * @param operations
+     */
+    serviceLocationsIdPatch(params: {
+        id: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ServiceLocation>;
+    /**
+     *
+     * Replace Location
+     * @param id
+     * @param location
+     */
+    serviceLocationsIdPut(params: {
+        id: number;
+        location: ServiceLocation;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ServiceLocation>;
+    /**
+     *
+     * Create Location
+     * @param location
+     */
+    serviceLocationsPost(params: {
+        location: ServiceLocation;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ServiceLocation>;
+}
+export class ServiceSignoffsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Service Signoffs Count
+     * @param conditions
+     */
+    serviceServiceSignoffCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Service Signoffs
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    serviceServiceSignoffGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ServiceSignoff>>;
+    /**
+     *
+     * Delete Service Signoff By Id
+     * @param id
+     */
+    serviceServiceSignoffIdDelete(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Service Signoff By Id
+     * @param id
+     */
+    serviceServiceSignoffIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ServiceSignoff>;
+    /**
+     *
+     * Update Service Signoff
+     * @param id
+     * @param operations
+     */
+    serviceServiceSignoffIdPatch(params: {
+        id: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ServiceSignoff>;
+    /**
+     *
+     * Replace Service Signoff
+     * @param id
+     * @param serviceSignoff
+     */
+    serviceServiceSignoffIdPut(params: {
+        id: number;
+        serviceSignoff: ServiceSignoff;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ServiceSignoff>;
+    /**
+     *
+     * Create Service Signoff
+     * @param serviceSignoff
+     */
+    serviceServiceSignoffPost(params: {
+        serviceSignoff: ServiceSignoff;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ServiceSignoff>;
+}
+export class ServiceSurveyQuestionsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Survey Questions Count
+     * @param id
+     * @param conditions
+     */
+    serviceSurveysIdQuestionsCountGet(params: {
+        id: number;
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Survey Questions
+     * @param id
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    serviceSurveysIdQuestionsGet(params: {
+        id: number;
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ServiceSurveyQuestion>>;
+    /**
+     *
+     * Create Survey Question
+     * @param id
+     * @param serviceSurveyQuestion
+     */
+    serviceSurveysIdQuestionsPost(params: {
+        id: number;
+        serviceSurveyQuestion: ServiceSurveyQuestion;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ServiceSurveyQuestion>;
+    /**
+     *
+     * Delete Survey Question By Id
+     * @param id
+     * @param questionId
+     */
+    serviceSurveysIdQuestionsQuestionIdDelete(params: {
+        id: number;
+        questionId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Survey Question By Id
+     * @param id
+     * @param questionId
+     */
+    serviceSurveysIdQuestionsQuestionIdGet(params: {
+        id: number;
+        questionId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ServiceSurveyQuestion>;
+    /**
+     *
+     * Update Survey Question
+     * @param id
+     * @param questionId
+     * @param operations
+     */
+    serviceSurveysIdQuestionsQuestionIdPatch(params: {
+        id: number;
+        questionId: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ServiceSurveyQuestion>;
+    /**
+     *
+     * Replace Survey Question
+     * @param id
+     * @param questionId
+     * @param serviceSurveyQuestion
+     */
+    serviceSurveysIdQuestionsQuestionIdPut(params: {
+        id: number;
+        questionId: number;
+        serviceSurveyQuestion: ServiceSurveyQuestion;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ServiceSurveyQuestion>;
+}
+export class ServiceSurveysApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Surveys Count
+     * @param conditions
+     */
+    serviceSurveysCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Surveys
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    serviceSurveysGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ServiceSurvey>>;
+    /**
+     *
+     * Delete Survey By Id
+     * @param id
+     */
+    serviceSurveysIdDelete(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Survey By Id
+     * @param id
+     */
+    serviceSurveysIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ServiceSurvey>;
+    /**
+     *
+     * Update Survey
+     * @param id
+     * @param operations
+     */
+    serviceSurveysIdPatch(params: {
+        id: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ServiceSurvey>;
+    /**
+     *
+     * Replace Survey
+     * @param id
+     * @param survey
+     */
+    serviceSurveysIdPut(params: {
+        id: number;
+        survey: ServiceSurvey;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ServiceSurvey>;
+    /**
+     *
+     * Create Survey
+     * @param survey
+     */
+    serviceSurveysPost(params: {
+        survey: ServiceSurvey;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ServiceSurvey>;
+}
+export class ServiceTeamsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Service Teams Count
+     * @param conditions
+     */
+    serviceTeamsCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Service Teams
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    serviceTeamsGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ServiceTeam>>;
+    /**
+     *
+     * Get Service Team By Id
+     * @param id
+     */
+    serviceTeamsIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ServiceTeam>;
+}
+export class ServiceTemplatesApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Templates Count
+     * @param conditions
+     */
+    serviceTemplatesCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Templates
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    serviceTemplatesGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ServiceTemplate>>;
+    /**
+     *
+     * Get Template By Id
+     * @param id
+     */
+    serviceTemplatesIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ServiceTemplate>;
+}
+export class ServicesApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Services
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemMycompanyServicesGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Service>>;
+    /**
+     *
+     * Get Service By Id
+     * @param id
+     */
+    systemMycompanyServicesIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Service>;
+    /**
+     *
+     * Update Service
+     * @param id
+     * @param operations
+     */
+    systemMycompanyServicesIdPatch(params: {
+        id: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Service>;
+    /**
+     *
+     * Replace Service
+     * @param id
+     * @param service
+     */
+    systemMycompanyServicesIdPut(params: {
+        id: number;
+        service: Service;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Service>;
+}
+export class SetupScreensApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Setup Screens Count
+     * @param conditions
+     */
+    systemSetupScreensCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Setup Screens
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemSetupScreensGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<SetupScreen>>;
+    /**
+     *
+     * Get Setup Screen By Id
+     * @param id
+     */
+    systemSetupScreensIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<SetupScreen>;
+}
+export class SeveritiesApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Severities Count
+     * @param conditions
+     */
+    serviceSeveritiesCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Severities
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    serviceSeveritiesGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Severity>>;
+    /**
+     *
+     * Get Severity By Id
+     * @param id
+     */
+    serviceSeveritiesIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Severity>;
+    /**
+     *
+     * Update Severity
+     * @param id
+     * @param operations
+     */
+    serviceSeveritiesIdPatch(params: {
+        id: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Severity>;
+    /**
+     *
+     * Replace Severity
+     * @param id
+     * @param severity
+     */
+    serviceSeveritiesIdPut(params: {
+        id: number;
+        severity: Severity;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Severity>;
+}
 export class ShipmentMethodsApi {
     protected basePath: string;
     defaultHeaders: any;
@@ -15017,24 +27664,21 @@ export class SourcesApi {
         source: Source;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<Source>;
 }
-export class SubCategoriesApi {
+export class StatesApi {
     protected basePath: string;
     defaultHeaders: any;
     constructor(basePath?: string);
     /**
      *
-     * Get Sub Categories Count
-     * @param id
+     * Get States Count
      * @param conditions
      */
-    procurementCategoriesIdSubcategoriesCountGet(params: {
-        id: number;
+    systemStatesCountGet(params: {
         conditions?: string;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
     /**
      *
-     * Get Sub Categories
-     * @param id
+     * Get States
      * @param conditions
      * @param orderBy
      * @param childconditions
@@ -15042,8 +27686,93 @@ export class SubCategoriesApi {
      * @param page
      * @param pageSize
      */
-    procurementCategoriesIdSubcategoriesGet(params: {
+    systemStatesGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<State>>;
+    /**
+     *
+     * Get State By Id
+     * @param id
+     */
+    systemStatesIdGet(params: {
         id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<State>;
+    /**
+     *
+     * Create State
+     * @param billingSetup
+     */
+    systemStatesPost(params: {
+        billingSetup: State;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<State>;
+}
+export class StatusExternalIntegrationReferencesApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Status External Integration References Count
+     * @param conditions
+     */
+    serviceStatusExternalIntegrationReferencesCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Status External Integration References
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    serviceStatusExternalIntegrationReferencesGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<StatusExternalIntegrationReference>>;
+    /**
+     *
+     * Get External Integration Status By Id
+     * @param id
+     */
+    serviceStatusExternalIntegrationReferencesIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<StatusExternalIntegrationReference>;
+}
+export class SubCategoriesApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Sub Categories Count
+     * @param conditions
+     */
+    procurementSubcategoriesCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Sub Categories
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    procurementSubcategoriesGet(params: {
         conditions?: string;
         orderBy?: string;
         childconditions?: string;
@@ -15053,58 +27782,246 @@ export class SubCategoriesApi {
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<SubCategory>>;
     /**
      *
-     * Create Sub Category
-     * @param id
-     * @param subCategory
-     */
-    procurementCategoriesIdSubcategoriesPost(params: {
-        id: number;
-        subCategory: SubCategory;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<SubCategory>;
-    /**
-     *
      * Delete Sub Category By Id
      * @param id
-     * @param subcategoryID
      */
-    procurementCategoriesIdSubcategoriesSubcategoryIDDelete(params: {
+    procurementSubcategoriesIdDelete(params: {
         id: number;
-        subcategoryID: number;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
     /**
      *
      * Get Sub Category By Id
      * @param id
-     * @param subcategoryID
      */
-    procurementCategoriesIdSubcategoriesSubcategoryIDGet(params: {
+    procurementSubcategoriesIdGet(params: {
         id: number;
-        subcategoryID: number;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<SubCategory>;
     /**
      *
      * Update Sub Category
      * @param id
-     * @param subcategoryID
      * @param operations
      */
-    procurementCategoriesIdSubcategoriesSubcategoryIDPatch(params: {
+    procurementSubcategoriesIdPatch(params: {
         id: number;
-        subcategoryID: number;
         operations: Array<PatchOperation>;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<SubCategory>;
     /**
      *
      * Replace Sub Category
      * @param id
-     * @param subcategoryID
      * @param subCategory
      */
-    procurementCategoriesIdSubcategoriesSubcategoryIDPut(params: {
+    procurementSubcategoriesIdPut(params: {
         id: number;
-        subcategoryID: number;
         subCategory: SubCategory;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<SubCategory>;
+    /**
+     *
+     * Create Sub Category
+     * @param subCategory
+     */
+    procurementSubcategoriesPost(params: {
+        subCategory: SubCategory;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<SubCategory>;
+}
+export class SurveyOptionsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Survey Options Count
+     * @param surveyID
+     * @param questionID
+     * @param conditions
+     */
+    serviceSurveysSurveyIDQuestionsQuestionIDOptionsCountGet(params: {
+        surveyID: number;
+        questionID: number;
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Survey Options
+     * @param surveyID
+     * @param questionID
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    serviceSurveysSurveyIDQuestionsQuestionIDOptionsGet(params: {
+        surveyID: number;
+        questionID: number;
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<SurveyOption>>;
+    /**
+     *
+     * Delete Survey Option By Id
+     * @param surveyID
+     * @param questionID
+     * @param oid
+     */
+    serviceSurveysSurveyIDQuestionsQuestionIDOptionsOidDelete(params: {
+        surveyID: number;
+        questionID: number;
+        oid: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Survey Option By Id
+     * @param surveyID
+     * @param questionID
+     * @param oid
+     */
+    serviceSurveysSurveyIDQuestionsQuestionIDOptionsOidGet(params: {
+        surveyID: number;
+        questionID: number;
+        oid: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<SurveyOption>;
+    /**
+     *
+     * Update Survey Option
+     * @param surveyID
+     * @param questionID
+     * @param oid
+     * @param operations
+     */
+    serviceSurveysSurveyIDQuestionsQuestionIDOptionsOidPatch(params: {
+        surveyID: number;
+        questionID: number;
+        oid: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<SurveyOption>;
+    /**
+     *
+     * Replace Survey Option
+     * @param surveyID
+     * @param questionID
+     * @param oid
+     * @param surveyOption
+     */
+    serviceSurveysSurveyIDQuestionsQuestionIDOptionsOidPut(params: {
+        surveyID: number;
+        questionID: number;
+        oid: number;
+        surveyOption: SurveyOption;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<SurveyOption>;
+    /**
+     *
+     * Create Survey Option
+     * @param surveyID
+     * @param questionID
+     * @param surveyOption
+     */
+    serviceSurveysSurveyIDQuestionsQuestionIDOptionsPost(params: {
+        surveyID: number;
+        questionID: number;
+        surveyOption: SurveyOption;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<SurveyOption>;
+}
+export class SurveyQuestionValuesApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Survey Question Values Count
+     * @param surveyQuestionId
+     * @param conditions
+     */
+    systemSurveysIdQuestionsSurveyQuestionIdValuesCountGet(params: {
+        surveyQuestionId: number;
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Survey Question Values
+     * @param surveyQuestionId
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemSurveysIdQuestionsSurveyQuestionIdValuesGet(params: {
+        surveyQuestionId: number;
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<SurveyQuestionValue>>;
+    /**
+     *
+     * Create Survey Question Value
+     * @param id
+     * @param surveyQuestionId
+     * @param surveyQuestionValue
+     */
+    systemSurveysIdQuestionsSurveyQuestionIdValuesPost(params: {
+        id: number;
+        surveyQuestionId: number;
+        surveyQuestionValue: SurveyQuestionValue;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<SurveyQuestionValue>;
+    /**
+     *
+     * Delete Survey Question Value By Id
+     * @param surveyQuestionId
+     * @param surveyQuestionValueId
+     */
+    systemSurveysIdQuestionsSurveyQuestionIdValuesSurveyQuestionValueIdDelete(params: {
+        surveyQuestionId: number;
+        surveyQuestionValueId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Survey Question Value By Id
+     * @param surveyQuestionId
+     * @param surveyQuestionValueId
+     */
+    systemSurveysIdQuestionsSurveyQuestionIdValuesSurveyQuestionValueIdGet(params: {
+        surveyQuestionId: number;
+        surveyQuestionValueId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<SurveyQuestionValue>;
+    /**
+     *
+     * Update Survey Question Value
+     * @param id
+     * @param surveyQuestionId
+     * @param surveyQuestionValueId
+     * @param operations
+     */
+    systemSurveysIdQuestionsSurveyQuestionIdValuesSurveyQuestionValueIdPatch(params: {
+        id: number;
+        surveyQuestionId: number;
+        surveyQuestionValueId: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<SurveyQuestionValue>;
+    /**
+     *
+     * Replace Survey Question Value
+     * @param id
+     * @param surveyQuestionId
+     * @param surveyQuestionValueId
+     * @param surveyQuestionValue
+     */
+    systemSurveysIdQuestionsSurveyQuestionIdValuesSurveyQuestionValueIdPut(params: {
+        id: number;
+        surveyQuestionId: number;
+        surveyQuestionValueId: number;
+        surveyQuestionValue: SurveyQuestionValue;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<SurveyQuestionValue>;
 }
 export class SurveyQuestionsApi {
     protected basePath: string;
@@ -15116,37 +28033,17 @@ export class SurveyQuestionsApi {
      * @param id
      * @param conditions
      */
-    serviceSurveysIdQuestionsCountGet(params: {
+    systemSurveysIdQuestionsGet(params: {
         id: number;
         conditions?: string;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
-    /**
-     *
-     * Get Survey Questions
-     * @param id
-     * @param conditions
-     * @param orderBy
-     * @param childconditions
-     * @param customfieldconditions
-     * @param page
-     * @param pageSize
-     */
-    serviceSurveysIdQuestionsGet(params: {
-        id: number;
-        conditions?: string;
-        orderBy?: string;
-        childconditions?: string;
-        customfieldconditions?: string;
-        page?: number;
-        pageSize?: number;
-    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<SurveyQuestion>>;
     /**
      *
      * Create Survey Question
      * @param id
      * @param surveyQuestion
      */
-    serviceSurveysIdQuestionsPost(params: {
+    systemSurveysIdQuestionsPost(params: {
         id: number;
         surveyQuestion: SurveyQuestion;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<SurveyQuestion>;
@@ -15154,44 +28051,44 @@ export class SurveyQuestionsApi {
      *
      * Delete Survey Question By Id
      * @param id
-     * @param questionId
+     * @param surveyQuestionId
      */
-    serviceSurveysIdQuestionsQuestionIdDelete(params: {
+    systemSurveysIdQuestionsSurveyQuestionIdDelete(params: {
         id: number;
-        questionId: number;
+        surveyQuestionId: number;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
     /**
      *
      * Get Survey Question By Id
      * @param id
-     * @param questionId
+     * @param surveyQuestionId
      */
-    serviceSurveysIdQuestionsQuestionIdGet(params: {
+    systemSurveysIdQuestionsSurveyQuestionIdGet(params: {
         id: number;
-        questionId: number;
+        surveyQuestionId: number;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<SurveyQuestion>;
     /**
      *
      * Update Survey Question
      * @param id
-     * @param questionId
+     * @param surveyQuestionId
      * @param operations
      */
-    serviceSurveysIdQuestionsQuestionIdPatch(params: {
+    systemSurveysIdQuestionsSurveyQuestionIdPatch(params: {
         id: number;
-        questionId: number;
+        surveyQuestionId: number;
         operations: Array<PatchOperation>;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<SurveyQuestion>;
     /**
      *
      * Replace Survey Question
      * @param id
-     * @param questionId
+     * @param surveyQuestionId
      * @param surveyQuestion
      */
-    serviceSurveysIdQuestionsQuestionIdPut(params: {
+    systemSurveysIdQuestionsSurveyQuestionIdPut(params: {
         id: number;
-        questionId: number;
+        surveyQuestionId: number;
         surveyQuestion: SurveyQuestion;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<SurveyQuestion>;
 }
@@ -15293,7 +28190,7 @@ export class SurveysApi {
      * Get Surveys Count
      * @param conditions
      */
-    serviceSurveysCountGet(params: {
+    systemSurveysCountGet(params: {
         conditions?: string;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
     /**
@@ -15306,7 +28203,7 @@ export class SurveysApi {
      * @param page
      * @param pageSize
      */
-    serviceSurveysGet(params: {
+    systemSurveysGet(params: {
         conditions?: string;
         orderBy?: string;
         childconditions?: string;
@@ -15319,7 +28216,7 @@ export class SurveysApi {
      * Delete Survey By Id
      * @param id
      */
-    serviceSurveysIdDelete(params: {
+    systemSurveysIdDelete(params: {
         id: number;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
     /**
@@ -15327,7 +28224,7 @@ export class SurveysApi {
      * Get Survey By Id
      * @param id
      */
-    serviceSurveysIdGet(params: {
+    systemSurveysIdGet(params: {
         id: number;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<Survey>;
     /**
@@ -15336,7 +28233,7 @@ export class SurveysApi {
      * @param id
      * @param operations
      */
-    serviceSurveysIdPatch(params: {
+    systemSurveysIdPatch(params: {
         id: number;
         operations: Array<PatchOperation>;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<Survey>;
@@ -15346,7 +28243,7 @@ export class SurveysApi {
      * @param id
      * @param survey
      */
-    serviceSurveysIdPut(params: {
+    systemSurveysIdPut(params: {
         id: number;
         survey: Survey;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<Survey>;
@@ -15355,9 +28252,351 @@ export class SurveysApi {
      * Create Survey
      * @param survey
      */
-    serviceSurveysPost(params: {
+    systemSurveysPost(params: {
         survey: Survey;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<Survey>;
+}
+export class SystemTracksApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Trackses Count
+     * @param conditions
+     */
+    systemTracksCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Trackses
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemTracksGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Track>>;
+    /**
+     *
+     * Delete Tracks By Id
+     * @param id
+     */
+    systemTracksIdDelete(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Tracks By Id
+     * @param id
+     */
+    systemTracksIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Track>;
+    /**
+     *
+     * Update Tracks
+     * @param id
+     * @param operations
+     */
+    systemTracksIdPatch(params: {
+        id: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Track>;
+    /**
+     *
+     * Replace Tracks
+     * @param id
+     * @param track
+     */
+    systemTracksIdPut(params: {
+        id: number;
+        track: Track;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Track>;
+    /**
+     *
+     * Create Tracks
+     * @param track
+     */
+    systemTracksPost(params: {
+        track: Track;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Track>;
+}
+export class TaxCodeExpenseTypeExemptionsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Expense Type Exemption Count
+     * @param id
+     * @param conditions
+     */
+    financeTaxCodesIdExpenseTypeExemptionsCountGet(params: {
+        id: number;
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Delete Expense Type Exemption By Id
+     * @param id
+     * @param expenseTypeExemptionId
+     */
+    financeTaxCodesIdExpenseTypeExemptionsExpenseTypeExemptionIdDelete(params: {
+        id: number;
+        expenseTypeExemptionId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Expense Type Exemption By Id
+     * @param id
+     * @param expenseTypeExemptionId
+     */
+    financeTaxCodesIdExpenseTypeExemptionsExpenseTypeExemptionIdGet(params: {
+        id: number;
+        expenseTypeExemptionId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ExpenseTypeExemption>;
+    /**
+     *
+     * Update Expense Type Exemption
+     * @param id
+     * @param expenseTypeExemptionId
+     * @param operations
+     */
+    financeTaxCodesIdExpenseTypeExemptionsExpenseTypeExemptionIdPatch(params: {
+        id: number;
+        expenseTypeExemptionId: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ExpenseTypeExemption>;
+    /**
+     *
+     * Replace Expense Type Exemption
+     * @param id
+     * @param expenseTypeExemptionId
+     * @param expenseTypeExemption
+     */
+    financeTaxCodesIdExpenseTypeExemptionsExpenseTypeExemptionIdPut(params: {
+        id: number;
+        expenseTypeExemptionId: number;
+        expenseTypeExemption: ExpenseTypeExemption;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ExpenseTypeExemption>;
+    /**
+     *
+     * Get Expense Type Exemption
+     * @param id
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    financeTaxCodesIdExpenseTypeExemptionsGet(params: {
+        id: number;
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ExpenseTypeExemption>>;
+    /**
+     *
+     * Create Expense Type Exemption
+     * @param id
+     * @param expenseTypeExemption
+     */
+    financeTaxCodesIdExpenseTypeExemptionsPost(params: {
+        id: number;
+        expenseTypeExemption: ExpenseTypeExemption;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ExpenseTypeExemption>;
+}
+export class TaxCodeProductTypeExemptionsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Tax Code Product Type Exemption Count
+     * @param id
+     * @param conditions
+     */
+    financeTaxCodesIdProductTypeExemptionsCountGet(params: {
+        id: number;
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Tax Code Product Type Exemption
+     * @param id
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    financeTaxCodesIdProductTypeExemptionsGet(params: {
+        id: number;
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ProductTypeExemption>>;
+    /**
+     *
+     * Create Tax Code Product Type Exemption
+     * @param id
+     * @param productTypeExemption
+     */
+    financeTaxCodesIdProductTypeExemptionsPost(params: {
+        id: number;
+        productTypeExemption: ProductTypeExemption;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ProductTypeExemption>;
+    /**
+     *
+     * Delete Tax Code Product Type Exemption By Id
+     * @param id
+     * @param productTypeExemptionId
+     */
+    financeTaxCodesIdProductTypeExemptionsProductTypeExemptionIdDelete(params: {
+        id: number;
+        productTypeExemptionId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Tax Code Product Type Exemption By Id
+     * @param id
+     * @param productTypeExemptionId
+     */
+    financeTaxCodesIdProductTypeExemptionsProductTypeExemptionIdGet(params: {
+        id: number;
+        productTypeExemptionId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ProductTypeExemption>;
+    /**
+     *
+     * Update Tax Code Product Type Exemption
+     * @param id
+     * @param productTypeExemptionId
+     * @param operations
+     */
+    financeTaxCodesIdProductTypeExemptionsProductTypeExemptionIdPatch(params: {
+        id: number;
+        productTypeExemptionId: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ProductTypeExemption>;
+    /**
+     *
+     * Replace Tax Code Product Type Exemption
+     * @param id
+     * @param productTypeExemptionId
+     * @param productTypeExemption
+     */
+    financeTaxCodesIdProductTypeExemptionsProductTypeExemptionIdPut(params: {
+        id: number;
+        productTypeExemptionId: number;
+        productTypeExemption: ProductTypeExemption;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<ProductTypeExemption>;
+}
+export class TaxCodeWorkRoleExemptionsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Tax Code Work Role Exemption Count
+     * @param id
+     * @param conditions
+     */
+    financeTaxCodesIdWorkRoleExemptionsCountGet(params: {
+        id: number;
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Tax Code Work Role Exemption
+     * @param id
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    financeTaxCodesIdWorkRoleExemptionsGet(params: {
+        id: number;
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<WorkRoleExemption>>;
+    /**
+     *
+     * Create Tax Code Work Role Exemption
+     * @param id
+     * @param workRoleExemption
+     */
+    financeTaxCodesIdWorkRoleExemptionsPost(params: {
+        id: number;
+        workRoleExemption: WorkRoleExemption;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<WorkRoleExemption>;
+    /**
+     *
+     * Delete Tax Code Work Role Exemption By Id
+     * @param id
+     * @param workRoleExemptionId
+     */
+    financeTaxCodesIdWorkRoleExemptionsWorkRoleExemptionIdDelete(params: {
+        id: number;
+        workRoleExemptionId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Tax Code Work Role Exemption By Id
+     * @param id
+     * @param workRoleExemptionId
+     */
+    financeTaxCodesIdWorkRoleExemptionsWorkRoleExemptionIdGet(params: {
+        id: number;
+        workRoleExemptionId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<WorkRoleExemption>;
+    /**
+     *
+     * Update Tax Code Work Role Exemption
+     * @param id
+     * @param workRoleExemptionId
+     * @param operations
+     */
+    financeTaxCodesIdWorkRoleExemptionsWorkRoleExemptionIdPatch(params: {
+        id: number;
+        workRoleExemptionId: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<WorkRoleExemption>;
+    /**
+     *
+     * Replace Tax Code Work Role Exemption
+     * @param id
+     * @param workRoleExemptionId
+     * @param workRoleExemption
+     */
+    financeTaxCodesIdWorkRoleExemptionsWorkRoleExemptionIdPut(params: {
+        id: number;
+        workRoleExemptionId: number;
+        workRoleExemption: WorkRoleExemption;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<WorkRoleExemption>;
 }
 export class TaxCodeXRefsApi {
     protected basePath: string;
@@ -15522,6 +28761,100 @@ export class TaxCodesApi {
     financeTaxCodesPost(params: {
         taxCode: TaxCode;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<TaxCode>;
+}
+export class TaxIntegrationsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Tax Integrations Count
+     * @param conditions
+     */
+    systemTaxIntegrationsCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Tax Integrations
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemTaxIntegrationsGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<TaxIntegration>>;
+    /**
+     *
+     * Get Tax Integration By Id
+     * @param id
+     */
+    systemTaxIntegrationsIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<TaxIntegration>;
+}
+export class TeamMembersApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Team Members Count
+     * @param conditions
+     */
+    serviceTeamMembersCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Team Members
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    serviceTeamMembersGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<TeamMember>>;
+    /**
+     *
+     * Delete Team By Id
+     * @param id
+     */
+    serviceTeamMembersIdDelete(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Team Member By Id
+     * @param id
+     */
+    serviceTeamMembersIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<TeamMember>;
+    /**
+     *
+     * Create Team Member
+     * @param teamMember
+     */
+    serviceTeamMembersPost(params: {
+        teamMember: TeamMember;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<TeamMember>;
 }
 export class TeamRolesApi {
     protected basePath: string;
@@ -15762,6 +29095,81 @@ export class TicketStopwatchesApi {
         ticketStopwatch: TicketStopwatch;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<TicketStopwatch>;
 }
+export class TicketSyncsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Ticket Syncs Count
+     * @param conditions
+     */
+    systemTicketSyncsCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Ticket Syncs
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemTicketSyncsGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<TicketSync>>;
+    /**
+     *
+     * Delete Ticket Sync By Id
+     * @param id
+     */
+    systemTicketSyncsIdDelete(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Ticket Sync By Id
+     * @param id
+     */
+    systemTicketSyncsIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<TicketSync>;
+    /**
+     *
+     * Update Ticket Sync
+     * @param id
+     * @param operations
+     */
+    systemTicketSyncsIdPatch(params: {
+        id: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<TicketSync>;
+    /**
+     *
+     * Replace Ticket Sync
+     * @param id
+     * @param ticketSync
+     */
+    systemTicketSyncsIdPut(params: {
+        id: number;
+        ticketSync: TicketSync;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<TicketSync>;
+    /**
+     *
+     * Create Ticket Sync
+     * @param ticketSync
+     */
+    systemTicketSyncsPost(params: {
+        ticketSync: TicketSync;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<TicketSync>;
+}
 export class TicketTasksApi {
     protected basePath: string;
     defaultHeaders: any;
@@ -15885,7 +29293,7 @@ export class TicketsApi {
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Ticket>>;
     /**
      *
-     * Get Ticket Activities Count
+     * Gets count of activities associated to the ticket          /// Please use the /sales/activities/count?conditions&#x3D;ticket/id&#x3D;{id} endpoint
      * @param id
      */
     serviceTicketsIdActivitiesCountGet(params: {
@@ -15893,7 +29301,7 @@ export class TicketsApi {
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
     /**
      *
-     * Get Ticket Activities
+     * Gets activities associated to the ticket          /// Please use the /sales/activities?conditions&#x3D;ticket/id&#x3D;{id} endpoint
      * @param id
      * @param page
      * @param pageSize
@@ -15971,7 +29379,7 @@ export class TicketsApi {
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
     /**
      *
-     * Get Ticket Documents
+     * Gets the documents associated to the ticket          /// Please use the /system/documents?recordType&#x3D;Ticket&amp;amp;recordId&#x3D;{id} endpoint
      * @param id
      * @param page
      * @param pageSize
@@ -16011,7 +29419,7 @@ export class TicketsApi {
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<Ticket>;
     /**
      *
-     * Get Ticket Products Count
+     * Gets the products associated to the ticket          /// Please use the /procurement/products/count?conditions&#x3D;chargeToType&#x3D;&#39;Ticket&#39; AND chargeToId&#x3D;{id} endpoint
      * @param id
      */
     serviceTicketsIdProductsCountGet(params: {
@@ -16019,7 +29427,7 @@ export class TicketsApi {
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
     /**
      *
-     * Get Ticket Products
+     * Gets the products associated to the ticket          /// Please use the /procurement/products?conditions&#x3D;chargeToType&#x3D;&#39;Ticket&#39; AND chargeToId&#x3D;{id} endpoint
      * @param id
      * @param page
      * @param pageSize
@@ -16041,7 +29449,7 @@ export class TicketsApi {
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<Ticket>;
     /**
      *
-     * Get Ticket Schedule Entries Count
+     * Gets the schedule entries count associated to the ticket          /// Please use the /schedule/entries/count?conditions&#x3D;type/id&#x3D;4 AND objectId&#x3D;{id} endpoint
      * @param id
      */
     serviceTicketsIdScheduleentriesCountGet(params: {
@@ -16049,7 +29457,7 @@ export class TicketsApi {
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
     /**
      *
-     * Get Ticket Schedule Entries
+     * Gets the schedule entries associated to the ticket          /// Please use the /schedule/entries?conditions&#x3D;type/id&#x3D;4 AND objectId&#x3D;{id} endpoint
      * @param id
      * @param page
      * @param pageSize
@@ -16061,7 +29469,7 @@ export class TicketsApi {
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<ScheduleEntryReference>>;
     /**
      *
-     * Get Ticket Time Entries Count
+     * Gets time entries count associated to the ticket          /// Please use the /time/entries/count?conditions&#x3D;(chargeToType&#x3D;&quot;ServiceTicket&quot; OR chargeToType&#x3D;&quot;ProjectTicket&quot;) AND chargeToId&#x3D;{id} endpoint
      * @param id
      */
     serviceTicketsIdTimeentriesCountGet(params: {
@@ -16069,7 +29477,7 @@ export class TicketsApi {
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
     /**
      *
-     * Get Ticket Time Entries
+     * Gets time entries associated to the ticket          /// Please use the /time/entries?conditions&#x3D;(chargeToType&#x3D;&quot;ServiceTicket&quot; OR chargeToType&#x3D;&quot;ProjectTicket&quot;) AND chargeToId&#x3D;{id} endpoint
      * @param id
      * @param page
      * @param pageSize
@@ -16100,6 +29508,170 @@ export class TicketsApi {
         pageSize?: number;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Ticket>>;
 }
+export class TimeAccrualDetailsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Time Accrual Detail Count
+     * @param id
+     * @param conditions
+     */
+    timeAccrualsIdDetailsCountGet(params: {
+        id: number;
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Delete Time Accrual Detail By Id
+     * @param id
+     * @param detailId
+     */
+    timeAccrualsIdDetailsDetailIdDelete(params: {
+        id: number;
+        detailId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Time Accrual Detail By Id
+     * @param id
+     * @param detailId
+     */
+    timeAccrualsIdDetailsDetailIdGet(params: {
+        id: number;
+        detailId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<TimeAccrualDetail>;
+    /**
+     *
+     * Update Time Accrual Detail
+     * @param id
+     * @param detailId
+     * @param operations
+     */
+    timeAccrualsIdDetailsDetailIdPatch(params: {
+        id: number;
+        detailId: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<TimeAccrualDetail>;
+    /**
+     *
+     * Replace Time Accrual Detail
+     * @param id
+     * @param detailId
+     * @param timeAccrualDetail
+     */
+    timeAccrualsIdDetailsDetailIdPut(params: {
+        id: number;
+        detailId: number;
+        timeAccrualDetail: TimeAccrualDetail;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<TimeAccrualDetail>;
+    /**
+     *
+     * Get Time Accrual Detail
+     * @param id
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    timeAccrualsIdDetailsGet(params: {
+        id: number;
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<TimeAccrualDetail>>;
+    /**
+     *
+     * Create Time Accrual Detail
+     * @param id
+     * @param timeAccrualDetail
+     */
+    timeAccrualsIdDetailsPost(params: {
+        id: number;
+        timeAccrualDetail: TimeAccrualDetail;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<TimeAccrualDetail>;
+}
+export class TimeAccrualsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Time Accruals Count
+     * @param conditions
+     */
+    timeAccrualsCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Time Accruals
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    timeAccrualsGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<TimeAccrual>>;
+    /**
+     *
+     * Delete Time Accrual By Id
+     * @param id
+     */
+    timeAccrualsIdDelete(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Time Accrual By Id
+     * @param id
+     */
+    timeAccrualsIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<TimeAccrual>;
+    /**
+     *
+     * Update Time Accrual
+     * @param id
+     * @param operations
+     */
+    timeAccrualsIdPatch(params: {
+        id: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<TimeAccrual>;
+    /**
+     *
+     * Replace Time Accrual
+     * @param id
+     * @param timeAccrual
+     */
+    timeAccrualsIdPut(params: {
+        id: number;
+        timeAccrual: TimeAccrual;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<TimeAccrual>;
+    /**
+     *
+     * Create Time Accrual
+     * @param timeAccrual
+     */
+    timeAccrualsPost(params: {
+        timeAccrual: TimeAccrual;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<TimeAccrual>;
+}
 export class TimeEntriesApi {
     protected basePath: string;
     defaultHeaders: any;
@@ -16114,6 +29686,14 @@ export class TimeEntriesApi {
         conditions?: string;
         customFieldConditions?: string;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Time Entry Defaults
+     * @param timeEntry
+     */
+    timeEntriesDefaultsPost(params: {
+        timeEntry: TimeEntry;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<TimeEntry>;
     /**
      *
      * Get Time Entries
@@ -16176,6 +29756,339 @@ export class TimeEntriesApi {
     timeEntriesPost(params: {
         timeEntry: TimeEntry;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<TimeEntry>;
+}
+export class TimeExpensesApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Time Expenses Count
+     * @param conditions
+     */
+    systemMyCompanyTimeExpenseCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Time Expenses
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemMyCompanyTimeExpenseGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<TimeExpense>>;
+    /**
+     *
+     * Get Time Expense By Id
+     * @param id
+     */
+    systemMyCompanyTimeExpenseIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<TimeExpense>;
+    /**
+     *
+     * Update Time Expense
+     * @param id
+     * @param operations
+     */
+    systemMyCompanyTimeExpenseIdPatch(params: {
+        id: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<TimeExpense>;
+    /**
+     *
+     * Replace Time Expense
+     * @param id
+     * @param timeExpense
+     */
+    systemMyCompanyTimeExpenseIdPut(params: {
+        id: number;
+        timeExpense: TimeExpense;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<TimeExpense>;
+}
+export class TimePeriodSetupsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Time Period Setups Count
+     * @param conditions
+     */
+    timeTimePeriodSetupsCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Time Period Setups Default
+     */
+    timeTimePeriodSetupsDefaultGet(params: {}, extraQueryParams?: any, extraFetchParams?: any): Promise<TimePeriodSetupDefaults>;
+    /**
+     *
+     * Get Time Period Setups
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    timeTimePeriodSetupsGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<TimePeriodSetup>>;
+    /**
+     *
+     * Delete Time Period Setup By Id
+     * @param id
+     */
+    timeTimePeriodSetupsIdDelete(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Time Period Setup By Id
+     * @param id
+     */
+    timeTimePeriodSetupsIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<TimePeriodSetup>;
+    /**
+     *
+     * Create Time Period Setup
+     * @param timePeriodSetup
+     */
+    timeTimePeriodSetupsPost(params: {
+        timePeriodSetup: TimePeriodSetup;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<TimePeriodSetup>;
+}
+export class TimePeriodsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Time Periods Count
+     * @param id
+     * @param conditions
+     */
+    timeTimePeriodSetupsIdPeriodsCountGet(params: {
+        id: number;
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Time Periods
+     * @param id
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    timeTimePeriodSetupsIdPeriodsGet(params: {
+        id: number;
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<TimePeriod>>;
+    /**
+     *
+     * Get Time Period By Id
+     * @param id
+     * @param periodID
+     */
+    timeTimePeriodSetupsIdPeriodsPeriodIDGet(params: {
+        id: number;
+        periodID: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<TimePeriod>;
+}
+export class TimeSheetsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Time Sheet Count
+     * @param conditions
+     */
+    timeSheetsCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Time Sheet
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    timeSheetsGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<TimeSheet>>;
+    /**
+     *
+     * Get Time Sheet By Id
+     * @param id
+     */
+    timeSheetsIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<TimeSheet>;
+    /**
+     *
+     * Reverse Time Sheet
+     * @param id
+     */
+    timeSheetsIdReversePost(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<SuccessResponse>;
+    /**
+     *
+     * Submit Time Sheet
+     * @param id
+     */
+    timeSheetsIdSubmitPost(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<SuccessResponse>;
+}
+export class TimeZoneSetupsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Time Zones Count
+     * @param conditions
+     */
+    systemTimeZoneSetupsCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Time Zones
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemTimeZoneSetupsGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<TimeZoneSetup>>;
+    /**
+     *
+     * Delete Time Zone Setup By Id
+     * @param id
+     */
+    systemTimeZoneSetupsIdDelete(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Time Zone By Id
+     * @param id
+     */
+    systemTimeZoneSetupsIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<TimeZoneSetup>;
+    /**
+     *
+     * Update Time Zone Setup
+     * @param id
+     * @param operations
+     */
+    systemTimeZoneSetupsIdPatch(params: {
+        id: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<TimeZoneSetup>;
+    /**
+     *
+     * Replace Time Zone Setup
+     * @param id
+     * @param timeZoneSetup
+     */
+    systemTimeZoneSetupsIdPut(params: {
+        id: number;
+        timeZoneSetup: TimeZoneSetup;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<TimeZoneSetup>;
+    /**
+     *
+     * Create Time Zone Setup
+     * @param timeZoneSetup
+     */
+    systemTimeZoneSetupsPost(params: {
+        timeZoneSetup: TimeZoneSetup;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<TimeZoneSetup>;
+}
+export class TimeZonesApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Returns a count of system TimeZones
+     * @param conditions
+     */
+    systemTimeZonesCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Returns a list of system TimeZones
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemTimeZonesGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<TimeZone>>;
+    /**
+     *
+     * Returns a system TimeZone that can be used to create a TimeZoneSetup
+     * @param id
+     */
+    systemTimeZonesIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<TimeZone>;
 }
 export class TodayPageCategoriesApi {
     protected basePath: string;
@@ -16251,6 +30164,95 @@ export class TodayPageCategoriesApi {
     systemTodayPageCategoriesPost(params: {
         todayPageCategory: TodayPageCategory;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<TodayPageCategory>;
+}
+export class TrackActionsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Delete Track Action By Id
+     * @param id
+     * @param actionId
+     */
+    systemTracksIdActionsActionIdDelete(params: {
+        id: number;
+        actionId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Track Action By Id
+     * @param id
+     * @param actionId
+     */
+    systemTracksIdActionsActionIdGet(params: {
+        id: number;
+        actionId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<TrackAction>;
+    /**
+     *
+     * Update Track Action
+     * @param id
+     * @param actionId
+     * @param operations
+     */
+    systemTracksIdActionsActionIdPatch(params: {
+        id: number;
+        actionId: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<TrackAction>;
+    /**
+     *
+     * Replace Track Action
+     * @param id
+     * @param actionId
+     * @param trackAction
+     */
+    systemTracksIdActionsActionIdPut(params: {
+        id: number;
+        actionId: number;
+        trackAction: TrackAction;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<TrackAction>;
+    /**
+     *
+     * Get Track Actions Count
+     * @param id
+     * @param conditions
+     */
+    systemTracksIdActionsCountGet(params: {
+        id: number;
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Track Actions
+     * @param id
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemTracksIdActionsGet(params: {
+        id: number;
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<TrackAction>>;
+    /**
+     *
+     * Create Track Action
+     * @param id
+     * @param trackAction
+     */
+    systemTracksIdActionsPost(params: {
+        id: number;
+        trackAction: TrackAction;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<TrackAction>;
 }
 export class UnitOfMeasureConversionsApi {
     protected basePath: string;
@@ -16491,6 +30493,966 @@ export class UserDefinedFieldsApi {
         userDefinedField: UserDefinedField;
     }, extraQueryParams?: any, extraFetchParams?: any): Promise<UserDefinedField>;
 }
+export class WarehouseBinsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Warehouse Bin Count
+     * @param conditions
+     */
+    procurementWarehouseBinsCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Warehouse Bin
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    procurementWarehouseBinsGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<WarehouseBin>>;
+    /**
+     *
+     * Delete Warehouse Bin By Id
+     * @param id
+     */
+    procurementWarehouseBinsIdDelete(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Warehouse Bin By Id
+     * @param id
+     */
+    procurementWarehouseBinsIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<WarehouseBin>;
+    /**
+     *
+     * Update Warehouse Bin
+     * @param id
+     * @param operations
+     */
+    procurementWarehouseBinsIdPatch(params: {
+        id: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<WarehouseBin>;
+    /**
+     *
+     * Replace Warehouse Bin
+     * @param id
+     * @param warehouseBin
+     */
+    procurementWarehouseBinsIdPut(params: {
+        id: number;
+        warehouseBin: WarehouseBin;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<WarehouseBin>;
+    /**
+     *
+     * Create Warehouse Bin
+     * @param warehouseBin
+     */
+    procurementWarehouseBinsPost(params: {
+        warehouseBin: WarehouseBin;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<WarehouseBin>;
+}
+export class WarehousesApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Warehouse Count
+     * @param conditions
+     */
+    procurementWarehousesCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Warehouse
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    procurementWarehousesGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Warehouse>>;
+    /**
+     *
+     * Delete Warehouse By Id
+     * @param id
+     */
+    procurementWarehousesIdDelete(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Warehouse By Id
+     * @param id
+     */
+    procurementWarehousesIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Warehouse>;
+    /**
+     *
+     * Update Warehouse
+     * @param id
+     * @param operations
+     */
+    procurementWarehousesIdPatch(params: {
+        id: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Warehouse>;
+    /**
+     *
+     * Replace Warehouse
+     * @param id
+     * @param warehouse
+     */
+    procurementWarehousesIdPut(params: {
+        id: number;
+        warehouse: Warehouse;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Warehouse>;
+    /**
+     *
+     * Create Warehouse
+     * @param warehouse
+     */
+    procurementWarehousesPost(params: {
+        warehouse: Warehouse;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Warehouse>;
+}
+export class WorkRoleLocationsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Work Role Location Count
+     * @param id
+     * @param conditions
+     */
+    timeWorkRolesIdLocationsCountGet(params: {
+        id: number;
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Work Role Location
+     * @param id
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    timeWorkRolesIdLocationsGet(params: {
+        id: number;
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<WorkRoleLocation>>;
+    /**
+     *
+     * Delete Work Role Location By Id
+     * @param id
+     * @param locationId
+     */
+    timeWorkRolesIdLocationsLocationIdDelete(params: {
+        id: number;
+        locationId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Work Role Location By Id
+     * @param id
+     * @param locationId
+     */
+    timeWorkRolesIdLocationsLocationIdGet(params: {
+        id: number;
+        locationId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<WorkRoleLocation>;
+    /**
+     *
+     * Update Work Role Location
+     * @param id
+     * @param locationId
+     * @param operations
+     */
+    timeWorkRolesIdLocationsLocationIdPatch(params: {
+        id: number;
+        locationId: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<WorkRoleLocation>;
+    /**
+     *
+     * Replace Work Role Location
+     * @param id
+     * @param locationId
+     * @param workRoleLocation
+     */
+    timeWorkRolesIdLocationsLocationIdPut(params: {
+        id: number;
+        locationId: number;
+        workRoleLocation: WorkRoleLocation;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<WorkRoleLocation>;
+    /**
+     *
+     * Create Work Role Location
+     * @param id
+     * @param workRoleLocation
+     */
+    timeWorkRolesIdLocationsPost(params: {
+        id: number;
+        workRoleLocation: WorkRoleLocation;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<WorkRoleLocation>;
+}
+export class WorkRolesApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Work Role Count
+     * @param conditions
+     */
+    timeWorkRolesCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Work Role
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    timeWorkRolesGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<WorkRole>>;
+    /**
+     *
+     * Delete Work Role By Id
+     * @param id
+     */
+    timeWorkRolesIdDelete(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Work Role By Id
+     * @param id
+     */
+    timeWorkRolesIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<WorkRole>;
+    /**
+     *
+     * Update Work Role
+     * @param id
+     * @param operations
+     */
+    timeWorkRolesIdPatch(params: {
+        id: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<WorkRole>;
+    /**
+     *
+     * Replace Work Role
+     * @param id
+     * @param workRole
+     */
+    timeWorkRolesIdPut(params: {
+        id: number;
+        workRole: WorkRole;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<WorkRole>;
+    /**
+     *
+     * Create Work Role
+     * @param workRole
+     */
+    timeWorkRolesPost(params: {
+        workRole: WorkRole;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<WorkRole>;
+}
+export class WorkTypeExternalIntegrationReferencesApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get External Integration Reference Count
+     * @param conditions
+     */
+    timeWorkTypeExternalIntegrationReferencesCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get External Integration Referencet
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    timeWorkTypeExternalIntegrationReferencesGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<WorkTypeExternalIntegrationReference>>;
+    /**
+     *
+     * Get External Integration Reference By Id
+     * @param id
+     */
+    timeWorkTypeExternalIntegrationReferencesIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<WorkTypeExternalIntegrationReference>;
+}
+export class WorkTypesApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Work Type Count
+     * @param conditions
+     */
+    timeWorkTypesCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Work Type
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    timeWorkTypesGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<WorkType>>;
+    /**
+     *
+     * Delete Work Type By Id
+     * @param id
+     */
+    timeWorkTypesIdDelete(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Work Type By Id
+     * @param id
+     */
+    timeWorkTypesIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<WorkType>;
+    /**
+     *
+     * Update Work Type
+     * @param id
+     * @param operations
+     */
+    timeWorkTypesIdPatch(params: {
+        id: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<WorkType>;
+    /**
+     *
+     * Replace Work Type
+     * @param id
+     * @param workType
+     */
+    timeWorkTypesIdPut(params: {
+        id: number;
+        workType: WorkType;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<WorkType>;
+    /**
+     *
+     * Create Work Type
+     * @param workType
+     */
+    timeWorkTypesPost(params: {
+        workType: WorkType;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<WorkType>;
+}
+export class WorkflowActionAutomateParametersApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Workflow Action Automate Parameters Count
+     * @param id
+     * @param conditions
+     */
+    systemWorkflowActionsIdAutomateParametersCountGet(params: {
+        id: number;
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Workflow Action Automate Parameters
+     * @param id
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemWorkflowActionsIdAutomateParametersGet(params: {
+        id: number;
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<WorkflowActionAutomateParameter>>;
+    /**
+     *
+     * Delete Workflow Action Automate Parameter By Id
+     * @param id
+     * @param parameterId
+     */
+    systemWorkflowActionsIdAutomateParametersParameterIdDelete(params: {
+        id: number;
+        parameterId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Workflow Action Automate Parameter By Id
+     * @param id
+     * @param parameterId
+     */
+    systemWorkflowActionsIdAutomateParametersParameterIdGet(params: {
+        id: number;
+        parameterId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<WorkflowActionAutomateParameter>;
+    /**
+     *
+     * Update Workflow Action Automate Parameter
+     * @param id
+     * @param parameterId
+     * @param operations
+     */
+    systemWorkflowActionsIdAutomateParametersParameterIdPatch(params: {
+        id: number;
+        parameterId: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<WorkflowActionAutomateParameter>;
+    /**
+     *
+     * Replace Workflow Action Automate Parameter
+     * @param id
+     * @param parameterId
+     * @param workflowActionAutomateParameter
+     */
+    systemWorkflowActionsIdAutomateParametersParameterIdPut(params: {
+        id: number;
+        parameterId: number;
+        workflowActionAutomateParameter: WorkflowActionAutomateParameter;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<WorkflowActionAutomateParameter>;
+    /**
+     *
+     * Create Workflow Action Automate Parameter
+     * @param id
+     * @param workflowActionAutomateParameter
+     */
+    systemWorkflowActionsIdAutomateParametersPost(params: {
+        id: number;
+        workflowActionAutomateParameter: WorkflowActionAutomateParameter;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<WorkflowActionAutomateParameter>;
+}
+export class WorkflowActionsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Delete Workflow Action By Id
+     * @param workflowId
+     * @param eventId
+     * @param actionId
+     */
+    systemWorkflowsWorkflowIdEventsEventIdActionsActionIdDelete(params: {
+        workflowId: number;
+        eventId: number;
+        actionId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Workflow Action By Id
+     * @param workflowId
+     * @param eventId
+     * @param actionId
+     */
+    systemWorkflowsWorkflowIdEventsEventIdActionsActionIdGet(params: {
+        workflowId: number;
+        eventId: number;
+        actionId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<WorkflowAction>;
+    /**
+     *
+     * Update Workflow Action
+     * @param workflowId
+     * @param eventId
+     * @param actionId
+     * @param operations
+     */
+    systemWorkflowsWorkflowIdEventsEventIdActionsActionIdPatch(params: {
+        workflowId: number;
+        eventId: number;
+        actionId: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<WorkflowAction>;
+    /**
+     *
+     * Replace Workflow Action
+     * @param workflowId
+     * @param eventId
+     * @param actionId
+     * @param workflowAction
+     */
+    systemWorkflowsWorkflowIdEventsEventIdActionsActionIdPut(params: {
+        workflowId: number;
+        eventId: number;
+        actionId: number;
+        workflowAction: WorkflowAction;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<WorkflowAction>;
+    /**
+     *
+     * Get Workflow Actions Count
+     * @param workflowId
+     * @param eventId
+     * @param conditions
+     */
+    systemWorkflowsWorkflowIdEventsEventIdActionsCountGet(params: {
+        workflowId: number;
+        eventId: number;
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Workflow Actions
+     * @param workflowId
+     * @param eventId
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemWorkflowsWorkflowIdEventsEventIdActionsGet(params: {
+        workflowId: number;
+        eventId: number;
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<WorkflowAction>>;
+    /**
+     *
+     * Create Workflow Action
+     * @param workflowId
+     * @param eventId
+     * @param workflowAction
+     */
+    systemWorkflowsWorkflowIdEventsEventIdActionsPost(params: {
+        workflowId: number;
+        eventId: number;
+        workflowAction: WorkflowAction;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<WorkflowAction>;
+}
+export class WorkflowEventsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Workflow Events Count
+     * @param id
+     * @param conditions
+     */
+    systemWorkflowsIdEventsCountGet(params: {
+        id: number;
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Delete Workflow Event By Id
+     * @param id
+     * @param eventId
+     */
+    systemWorkflowsIdEventsEventIdDelete(params: {
+        id: number;
+        eventId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Workflow Event By Id
+     * @param id
+     * @param eventId
+     */
+    systemWorkflowsIdEventsEventIdGet(params: {
+        id: number;
+        eventId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<WorkflowEvent>;
+    /**
+     *
+     * Update Workflow Event
+     * @param id
+     * @param eventId
+     * @param operations
+     */
+    systemWorkflowsIdEventsEventIdPatch(params: {
+        id: number;
+        eventId: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<WorkflowEvent>;
+    /**
+     *
+     * Replace Workflow Event
+     * @param id
+     * @param eventId
+     * @param workflowEvent
+     */
+    systemWorkflowsIdEventsEventIdPut(params: {
+        id: number;
+        eventId: number;
+        workflowEvent: WorkflowEvent;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<WorkflowEvent>;
+    /**
+     *
+     * Test Workflow Evemt
+     * @param id
+     * @param eventId
+     */
+    systemWorkflowsIdEventsEventIdTestGet(params: {
+        id: number;
+        eventId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<JArray>;
+    /**
+     *
+     * Get Workflow Events
+     * @param id
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemWorkflowsIdEventsGet(params: {
+        id: number;
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<WorkflowEvent>>;
+    /**
+     *
+     * Create Workflow Event
+     * @param id
+     * @param workflowEvent
+     */
+    systemWorkflowsIdEventsPost(params: {
+        id: number;
+        workflowEvent: WorkflowEvent;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<WorkflowEvent>;
+}
+export class WorkflowNotifyTypesApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Workflow Notify Types Count
+     * @param id
+     * @param conditions
+     */
+    systemWorkflowsIdNotifyTypesCountGet(params: {
+        id: number;
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Workflow Notify Types
+     * @param id
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemWorkflowsIdNotifyTypesGet(params: {
+        id: number;
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<WorkflowNotifyType>>;
+    /**
+     *
+     * Get Workflow Notify Type By Id
+     * @param id
+     * @param typeId
+     */
+    systemWorkflowsIdNotifyTypesTypeIdGet(params: {
+        id: number;
+        typeId: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<WorkflowNotifyType>;
+}
+export class WorkflowTableTypesApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Workflow Table Types Count
+     * @param conditions
+     */
+    systemWorkflowsTableTypesCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Workflow Table Types
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemWorkflowsTableTypesGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<WorkflowTableType>>;
+    /**
+     *
+     * Get Workflow Table Type By Id
+     * @param id
+     */
+    systemWorkflowsTableTypesIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<WorkflowTableType>;
+}
+export class WorkflowTriggerOptionsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Workflow Triggers Count
+     * @param workflowId
+     * @param triggerId
+     * @param conditions
+     */
+    systemWorkflowsWorkflowIdTriggersTriggerIdOptionsCountGet(params: {
+        workflowId: number;
+        triggerId: number;
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Trigger Options
+     * @param workflowId
+     * @param triggerId
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemWorkflowsWorkflowIdTriggersTriggerIdOptionsGet(params: {
+        workflowId: number;
+        triggerId: number;
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<WorkflowTriggerOption>>;
+}
+export class WorkflowTriggersApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Workflow Triggers Count
+     * @param id
+     * @param conditions
+     */
+    systemWorkflowsIdTriggersCountGet(params: {
+        id: number;
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Workflow Triggers
+     * @param id
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemWorkflowsIdTriggersGet(params: {
+        id: number;
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<WorkflowTrigger>>;
+}
+export class WorkflowsApi {
+    protected basePath: string;
+    defaultHeaders: any;
+    constructor(basePath?: string);
+    /**
+     *
+     * Get Workflows Count
+     * @param conditions
+     */
+    systemWorkflowsCountGet(params: {
+        conditions?: string;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Count>;
+    /**
+     *
+     * Get Workflows
+     * @param conditions
+     * @param orderBy
+     * @param childconditions
+     * @param customfieldconditions
+     * @param page
+     * @param pageSize
+     */
+    systemWorkflowsGet(params: {
+        conditions?: string;
+        orderBy?: string;
+        childconditions?: string;
+        customfieldconditions?: string;
+        page?: number;
+        pageSize?: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Array<Workflow>>;
+    /**
+     *
+     * Copy Workflow
+     * @param id
+     */
+    systemWorkflowsIdCopyPost(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Workflow>;
+    /**
+     *
+     * Delete Workflow By Id
+     * @param id
+     */
+    systemWorkflowsIdDelete(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<{}>;
+    /**
+     *
+     * Get Workflow By Id
+     * @param id
+     */
+    systemWorkflowsIdGet(params: {
+        id: number;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Workflow>;
+    /**
+     *
+     * Update Workflow
+     * @param id
+     * @param operations
+     */
+    systemWorkflowsIdPatch(params: {
+        id: number;
+        operations: Array<PatchOperation>;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Workflow>;
+    /**
+     *
+     * Replace Workflow
+     * @param id
+     * @param workflow
+     */
+    systemWorkflowsIdPut(params: {
+        id: number;
+        workflow: Workflow;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Workflow>;
+    /**
+     *
+     * Create Workflow
+     * @param workflow
+     */
+    systemWorkflowsPost(params: {
+        workflow: Workflow;
+    }, extraQueryParams?: any, extraFetchParams?: any): Promise<Workflow>;
+}
 }
 declare module 'connectwise-rest-api/release/api/api' {
 export * from '~connectwise-rest-api/release/api/api';
@@ -16499,8 +31461,169 @@ export * from '~connectwise-rest-api/release/api/api';
 // Generated by typings
 // Source: release/connectwise.d.ts
 declare module '~connectwise-rest-api/release/connectwise' {
-import { AccountingBatchesApi, AccountingUnpostedExpensesApi, AccountingUnpostedProcurementsApi, AccountingUnpostedinvoicesApi, ActivitiesApi, ActivityStatusesApi, ActivityStopwatchesApi, ActivityTypesApi, AdjustmentDetailsApi, AdjustmentTypesApi, AdjustmentsApi, AgreementSitesApi, AgreementAdditionsApi, AgreementAdjustmentsApi, AgreementBoardDefaultsApi, AgreementTypesApi, AgreementWorkRoleExclusionsApi, AgreementWorkRolesApi, AgreementWorkTypeExclusionsApi, AgreementWorkTypesApi, AgreementsApi, AuditTrailApi, BatchApi, BoardExcludedMembersApi, BoardItemsApi, BoardStatusesApi, BoardSubTypesApi, BoardSubtypeAssociationsApi, BoardTeamsApi, BoardTypesApi, BoardsApi, CallbacksApi, CampaignAuditsApi, CampaignEmailsOpenedApi, CampaignFormsSubmittedApi, CampaignLinksClickedApi, CampaignStatusesApi, CampaignSubTypesApi, CampaignTypesApi, CampaignsApi, CatalogComponentsApi, CatalogsItemApi, CategoriesApi, CertificationsApi, CodesApi, CompaniesApi, CompanyCustomNotesApi, CompanyManagementSummaryReportsApi, CompanyNotesApi, CompanyNoteTypesApi, CompanySitesApi, CompanyStatusesApi, CompanyTeamsApi, CompanyTypesApi, ConfigurationStatusesApi, ConfigurationTypeQuestionsApi, ConfigurationTypesApi, ContactsApi, CurrenciesApi, ConfigurationsApi, ContactNotesApi, ContactTypesApi, ContactTracksApi, ContactDepartmentsApi, ContactRelationshipsApi, ContactCommunicationsApi, ConnectWiseHostedSetupsApi, DocumentsApi, ExpenseEntriesApi, ExpenseTypesApi, GroupCompaniesApi, GroupsApi, GroupContactsApi, InfoApi, InOutBoardsApi, InOutTypesApi, InvoicesApi, InvoicePaymentsApi, KnowledgeBaseArticlesApi, LinksApi, LocationsApi, ManagementBackupsApi, ManagementEmailsApi, MarketDescriptionsApi, ManufacturersApi, MembersApi, MemberTypesApi, MenuEntriesApi, OpportunitiesApi, OrdersApi, OrderStatusesApi, OpportunityNotesApi, OpportunityTeamsApi, OpportunityTypesApi, OpportunityRatingsApi, OpportunityContactsApi, OpportunityStatusesApi, OpportunityStagesApi, OpportunityForecastsApi, OwnershipTypesApi, PricingBreaksApi, ProjectsApi, PrioritiesApi, ProductsItemApi, ProductTypesApi, ProjectNotesApi, ProjectPhasesApi, PricingDetailsApi, PurchaseOrdersApi, ProjectContactsApi, PricingSchedulesApi, ProductComponentsApi, ProjectsTeammembersApi, PurchaseOrderLineItemsApi, ProductPickingShippingDetailsApi, ReportsApi, RMAActionsApi, RMADispositionsApi, RolesApi, SalesProbabilitiesApi, SourcesApi, SurveysApi, ScheduleTypesApi, SubCategoriesApi, SurveyResultsApi, ScheduleEntriesApi, ShipmentMethodsApi, SurveyQuestionsApi, ScheduleStatusesApi, ScheduleStopwatchesApi, ScheduleReminderTimesApi, TaxCodeXRefsApi, TicketsApi, TaxCodesApi, TicketNotesApi, TicketTasksApi, TimeEntriesApi, TeamRolesApi, SkillsApi, SkillCategoriesApi, TodayPageCategoriesApi, TicketStopwatchesApi, UnitOfMeasureConversionsApi, UnitOfMeasuresApi, UserDefinedFieldsApi } from '~connectwise-rest-api/release/api/api';
+import { AccountingPackagesApi, AddressFormatsApi, AgreementBatchSetupsApi, AgreementTypeBoardDefaultsApi, AgreementTypeWorkRoleExclusionsApi, AgreementTypeWorkRolesApi, AgreementTypeWorkTypeExclusionsApi, AgreementTypeWorkTypesApi, AuthAnvilsApi, BillingCyclesApi, BillingSetupRoutingsApi, BillingSetupsApi, BillingStatusesApi, BillingTermsApi, BoardAutoAssignResourcesApi, BoardAutoTemplatesApi, BoardItemAssociationsApi, BoardNotificationsApi, BoardStatusNotificationsApi, BoardTypeSubTypeItemAssociationsApi, CalendarsApi, ChargeCodeExpenseTypesApi, ChargeCodesApi, ClassificationsApi, CommissionsApi, CompanyGroupsApi, CompanyPickerItemsApi, ConfigurationTypeQuestionValuesApi, ContactGroupsApi, CorporateStructureLevelsApi, CorporateStructuresApi, CountriesApi, CrmsApi, CustomReportParametersApi, CustomReportsApi, DeliveryMethodsApi, DepartmentLocationsApi, DepartmentsApi, DocumentsSetupApi, EmailConnectorParsingRulesApi, EmailConnectorParsingStylesApi, EmailConnectorsApi, EmailTokensApi, ExpenseReportsApi, ExpenseTypeExternalIntegrationReferencesApi, HolidayListsApi, HolidaysApi, ImapsApi, ImpactsApi, ImportsMassMaintenanceApi, IntegratorLoginsApi, InvoiceEmailTemplatesApi, InvoiceTemplatesApi, InvoiceTemplateSetupsApi, KPICategoriesApi, KPIsApi, LdapConfigurationsApi, LegacyCampaignSubTypesApi, LegacySubCategoriesApi, LocationDepartmentsApi, LocationWorkRolesApi, ManagedDevicesIntegrationCrossReferencesApi, ManagedDevicesIntegrationLoginsApi, ManagedDevicesIntegrationNotificationsApi, ManagedDevicesIntegrationsApi, ManagementExecuteManagedItSyncsApi, ManagementItSolutionAgreementInterfaceParametersApi, ManagementItSolutionsApi, ManagementLogsApi, ManagementNetworksSecurityApi, ManagementReportNotificationsApi, ManagementsApi, MemberAccrualsApi, MemberCertificationsApi, MemberDelegationsApi, MemberSkillsApi, MenuEntryLocationsApi, MyCompanyPurchasingsApi, NotificationRecipientsApi, OrderStatusesEmailTemplateApi, OrderStatusNotificationsApi, OthersApi, ParsingTypesApi, ParsingVariablesApi, PaymentTypesApi, PortalCalendarsApi, PortalConfigurationInvoiceSetupsApi, PortalConfigurationOpportunitySetupsApi, PortalConfigurationPasswordEmailSetupsApi, PortalConfigurationProjectSetupsApi, PortalConfigurationsApi, PortalConfigurationServiceSetupsApi, PortalReportsApi, PortalSecuritiesApi, PortalSecurityLevelsApi, ProjectSecurityRolesApi, ProjectSecurityRoleSettingsApi, ProjectStatusesApi, ProjectTypesApi, PurchaseOrderStatusEmailTemplatesApi, PurchaseOrderStatusesApi, PurchaseOrderStatusNotificationsApi, ReportCardDetailsApi, ReportCardsApi, ReportingServicesApi, RmaStatusEmailTemplatesApi, RmaStatusesApi, RmaStatusNotificationsApi, SalesQuotasApi, SalesTeamMembersApi, SalesTeamsApi, ScheduleColorsApi, ScheduleDetailsApi, SecurityRolesApi, SecurityRoleSettingsApi, ServiceEmailTemplatesApi, ServiceLocationsApi, ServicesApi, ServiceSignoffsApi, ServiceSurveyQuestionsApi, ServiceSurveysApi, ServiceTeamsApi, ServiceTemplatesApi, SetupScreensApi, SeveritiesApi, SLAPrioritiesApi, SLAsApi, StatesApi, StatusExternalIntegrationReferencesApi, SurveyOptionsApi, SurveyQuestionValuesApi, SystemTracksApi, TaxCodeExpenseTypeExemptionsApi, TaxCodeProductTypeExemptionsApi, TaxCodeWorkRoleExemptionsApi, TaxIntegrationsApi, TeamMembersApi, TicketSyncsApi, TimeAccrualDetailsApi, TimeAccrualsApi, TimeExpensesApi, TimePeriodsApi, TimePeriodSetupsApi, TimeSheetsApi, TimeZonesApi, TimeZoneSetupsApi, TrackActionsApi, WarehouseBinsApi, WarehousesApi, WorkflowActionAutomateParametersApi, WorkflowActionsApi, WorkflowEventsApi, WorkflowNotifyTypesApi, WorkflowsApi, WorkflowTableTypesApi, WorkflowTriggerOptionsApi, WorkflowTriggersApi, WorkRoleLocationsApi, WorkRolesApi, WorkTypeExternalIntegrationReferencesApi, WorkTypesApi, AccountingBatchesApi, AccountingUnpostedExpensesApi, AccountingUnpostedProcurementsApi, AccountingUnpostedinvoicesApi, ActivitiesApi, ActivityStatusesApi, ActivityStopwatchesApi, ActivityTypesApi, AdjustmentDetailsApi, AdjustmentTypesApi, AdjustmentsApi, AgreementSitesApi, AgreementAdditionsApi, AgreementAdjustmentsApi, AgreementBoardDefaultsApi, AgreementTypesApi, AgreementWorkRoleExclusionsApi, AgreementWorkRolesApi, AgreementWorkTypeExclusionsApi, AgreementWorkTypesApi, AgreementsApi, AuditTrailApi, BatchApi, BoardExcludedMembersApi, BoardItemsApi, BoardStatusesApi, BoardSubTypesApi, BoardTeamsApi, BoardTypesApi, BoardsApi, CallbacksApi, CampaignAuditsApi, CampaignEmailsOpenedApi, CampaignFormsSubmittedApi, CampaignLinksClickedApi, CampaignStatusesApi, CampaignSubTypesApi, CampaignTypesApi, CampaignsApi, CatalogComponentsApi, CatalogsItemApi, CategoriesApi, CertificationsApi, CodesApi, CompaniesApi, CompanyCustomNotesApi, CompanyManagementSummaryReportsApi, CompanyNotesApi, CompanyNoteTypesApi, CompanySitesApi, CompanyStatusesApi, CompanyTeamsApi, CompanyTypesApi, ConfigurationStatusesApi, ConfigurationTypeQuestionsApi, ConfigurationTypesApi, ContactsApi, CurrenciesApi, ConfigurationsApi, ContactNotesApi, ContactTypesApi, ContactTracksApi, ContactDepartmentsApi, ContactRelationshipsApi, ContactCommunicationsApi, ConnectWiseHostedSetupsApi, DocumentsApi, ExpenseEntriesApi, ExpenseTypesApi, GroupCompaniesApi, GroupsApi, GroupContactsApi, InfoApi, InOutBoardsApi, InOutTypesApi, InvoicesApi, InvoicePaymentsApi, KnowledgeBaseArticlesApi, LinksApi, LocationsApi, ManagementBackupsApi, ManagementEmailsApi, MarketDescriptionsApi, ManufacturersApi, MembersApi, MemberTypesApi, MenuEntriesApi, OpportunitiesApi, OrdersApi, OrderStatusesApi, OpportunityNotesApi, OpportunityTeamsApi, OpportunityTypesApi, OpportunityRatingsApi, OpportunityContactsApi, OpportunityStatusesApi, OpportunityStagesApi, OpportunityForecastsApi, OwnershipTypesApi, PricingBreaksApi, ProjectsApi, PrioritiesApi, ProductsItemApi, ProductTypesApi, ProjectNotesApi, ProjectPhasesApi, PricingDetailsApi, PurchaseOrdersApi, ProjectContactsApi, PricingSchedulesApi, ProductComponentsApi, ProjectsTeammembersApi, PurchaseOrderLineItemsApi, ProductPickingShippingDetailsApi, ReportsApi, RMAActionsApi, RMADispositionsApi, RolesApi, SalesProbabilitiesApi, SourcesApi, SurveysApi, ScheduleTypesApi, SubCategoriesApi, SurveyResultsApi, ScheduleEntriesApi, ShipmentMethodsApi, SurveyQuestionsApi, ScheduleStatusesApi, ScheduleStopwatchesApi, ScheduleReminderTimesApi, TaxCodeXRefsApi, TicketsApi, TaxCodesApi, TicketNotesApi, TicketTasksApi, TimeEntriesApi, TeamRolesApi, SkillsApi, SkillCategoriesApi, TodayPageCategoriesApi, TicketStopwatchesApi, UnitOfMeasureConversionsApi, UnitOfMeasuresApi, UserDefinedFieldsApi } from '~connectwise-rest-api/release/api/api';
 export class Connectwise {
+    readonly AccountingPackagesApi: AccountingPackagesApi;
+    readonly AddressFormatsApi: AddressFormatsApi;
+    readonly AgreementBatchSetupsApi: AgreementBatchSetupsApi;
+    readonly AgreementTypeBoardDefaultsApi: AgreementTypeBoardDefaultsApi;
+    readonly AgreementTypeWorkRoleExclusionsApi: AgreementTypeWorkRoleExclusionsApi;
+    readonly AgreementTypeWorkRolesApi: AgreementTypeWorkRolesApi;
+    readonly AgreementTypeWorkTypeExclusionsApi: AgreementTypeWorkTypeExclusionsApi;
+    readonly AgreementTypeWorkTypesApi: AgreementTypeWorkTypesApi;
+    readonly AuthAnvilsApi: AuthAnvilsApi;
+    readonly BillingCyclesApi: BillingCyclesApi;
+    readonly BillingSetupRoutingsApi: BillingSetupRoutingsApi;
+    readonly BillingSetupsApi: BillingSetupsApi;
+    readonly BillingStatusesApi: BillingStatusesApi;
+    readonly BillingTermsApi: BillingTermsApi;
+    readonly BoardAutoAssignResourcesApi: BoardAutoAssignResourcesApi;
+    readonly BoardAutoTemplatesApi: BoardAutoTemplatesApi;
+    readonly BoardItemAssociationsApi: BoardItemAssociationsApi;
+    readonly BoardNotificationsApi: BoardNotificationsApi;
+    readonly BoardStatusNotificationsApi: BoardStatusNotificationsApi;
+    readonly BoardTypeSubTypeItemAssociationsApi: BoardTypeSubTypeItemAssociationsApi;
+    readonly CalendarsApi: CalendarsApi;
+    readonly ChargeCodeExpenseTypesApi: ChargeCodeExpenseTypesApi;
+    readonly ChargeCodesApi: ChargeCodesApi;
+    readonly ClassificationsApi: ClassificationsApi;
+    readonly CommissionsApi: CommissionsApi;
+    readonly CompanyGroupsApi: CompanyGroupsApi;
+    readonly CompanyPickerItemsApi: CompanyPickerItemsApi;
+    readonly ConfigurationTypeQuestionValuesApi: ConfigurationTypeQuestionValuesApi;
+    readonly ContactGroupsApi: ContactGroupsApi;
+    readonly CorporateStructureLevelsApi: CorporateStructureLevelsApi;
+    readonly CorporateStructuresApi: CorporateStructuresApi;
+    readonly CountriesApi: CountriesApi;
+    readonly CrmsApi: CrmsApi;
+    readonly CustomReportParametersApi: CustomReportParametersApi;
+    readonly CustomReportsApi: CustomReportsApi;
+    readonly DeliveryMethodsApi: DeliveryMethodsApi;
+    readonly DepartmentLocationsApi: DepartmentLocationsApi;
+    readonly DepartmentsApi: DepartmentsApi;
+    readonly DocumentsSetupApi: DocumentsSetupApi;
+    readonly EmailConnectorParsingRulesApi: EmailConnectorParsingRulesApi;
+    readonly EmailConnectorParsingStylesApi: EmailConnectorParsingStylesApi;
+    readonly EmailConnectorsApi: EmailConnectorsApi;
+    readonly EmailTokensApi: EmailTokensApi;
+    readonly ExpenseReportsApi: ExpenseReportsApi;
+    readonly ExpenseTypeExternalIntegrationReferencesApi: ExpenseTypeExternalIntegrationReferencesApi;
+    readonly HolidayListsApi: HolidayListsApi;
+    readonly HolidaysApi: HolidaysApi;
+    readonly ImapsApi: ImapsApi;
+    readonly ImpactsApi: ImpactsApi;
+    readonly ImportsMassMaintenanceApi: ImportsMassMaintenanceApi;
+    readonly IntegratorLoginsApi: IntegratorLoginsApi;
+    readonly InvoiceEmailTemplatesApi: InvoiceEmailTemplatesApi;
+    readonly InvoiceTemplatesApi: InvoiceTemplatesApi;
+    readonly InvoiceTemplateSetupsApi: InvoiceTemplateSetupsApi;
+    readonly KPICategoriesApi: KPICategoriesApi;
+    readonly KPIsApi: KPIsApi;
+    readonly LdapConfigurationsApi: LdapConfigurationsApi;
+    readonly LegacyCampaignSubTypesApi: LegacyCampaignSubTypesApi;
+    readonly LegacySubCategoriesApi: LegacySubCategoriesApi;
+    readonly LocationDepartmentsApi: LocationDepartmentsApi;
+    readonly LocationWorkRolesApi: LocationWorkRolesApi;
+    readonly ManagedDevicesIntegrationCrossReferencesApi: ManagedDevicesIntegrationCrossReferencesApi;
+    readonly ManagedDevicesIntegrationLoginsApi: ManagedDevicesIntegrationLoginsApi;
+    readonly ManagedDevicesIntegrationNotificationsApi: ManagedDevicesIntegrationNotificationsApi;
+    readonly ManagedDevicesIntegrationsApi: ManagedDevicesIntegrationsApi;
+    readonly ManagementExecuteManagedItSyncsApi: ManagementExecuteManagedItSyncsApi;
+    readonly ManagementItSolutionAgreementInterfaceParametersApi: ManagementItSolutionAgreementInterfaceParametersApi;
+    readonly ManagementItSolutionsApi: ManagementItSolutionsApi;
+    readonly ManagementLogsApi: ManagementLogsApi;
+    readonly ManagementNetworksSecurityApi: ManagementNetworksSecurityApi;
+    readonly ManagementReportNotificationsApi: ManagementReportNotificationsApi;
+    readonly ManagementsApi: ManagementsApi;
+    readonly MemberAccrualsApi: MemberAccrualsApi;
+    readonly MemberCertificationsApi: MemberCertificationsApi;
+    readonly MemberDelegationsApi: MemberDelegationsApi;
+    readonly MemberSkillsApi: MemberSkillsApi;
+    readonly MenuEntryLocationsApi: MenuEntryLocationsApi;
+    readonly MyCompanyPurchasingsApi: MyCompanyPurchasingsApi;
+    readonly NotificationRecipientsApi: NotificationRecipientsApi;
+    readonly OrderStatusesEmailTemplateApi: OrderStatusesEmailTemplateApi;
+    readonly OrderStatusNotificationsApi: OrderStatusNotificationsApi;
+    readonly OthersApi: OthersApi;
+    readonly ParsingTypesApi: ParsingTypesApi;
+    readonly ParsingVariablesApi: ParsingVariablesApi;
+    readonly PaymentTypesApi: PaymentTypesApi;
+    readonly PortalCalendarsApi: PortalCalendarsApi;
+    readonly PortalConfigurationInvoiceSetupsApi: PortalConfigurationInvoiceSetupsApi;
+    readonly PortalConfigurationOpportunitySetupsApi: PortalConfigurationOpportunitySetupsApi;
+    readonly PortalConfigurationPasswordEmailSetupsApi: PortalConfigurationPasswordEmailSetupsApi;
+    readonly PortalConfigurationProjectSetupsApi: PortalConfigurationProjectSetupsApi;
+    readonly PortalConfigurationsApi: PortalConfigurationsApi;
+    readonly PortalConfigurationServiceSetupsApi: PortalConfigurationServiceSetupsApi;
+    readonly PortalReportsApi: PortalReportsApi;
+    readonly PortalSecuritiesApi: PortalSecuritiesApi;
+    readonly PortalSecurityLevelsApi: PortalSecurityLevelsApi;
+    readonly ProjectSecurityRolesApi: ProjectSecurityRolesApi;
+    readonly ProjectSecurityRoleSettingsApi: ProjectSecurityRoleSettingsApi;
+    readonly ProjectStatusesApi: ProjectStatusesApi;
+    readonly ProjectTypesApi: ProjectTypesApi;
+    readonly PurchaseOrderStatusEmailTemplatesApi: PurchaseOrderStatusEmailTemplatesApi;
+    readonly PurchaseOrderStatusesApi: PurchaseOrderStatusesApi;
+    readonly PurchaseOrderStatusNotificationsApi: PurchaseOrderStatusNotificationsApi;
+    readonly ReportCardDetailsApi: ReportCardDetailsApi;
+    readonly ReportCardsApi: ReportCardsApi;
+    readonly ReportingServicesApi: ReportingServicesApi;
+    readonly RmaStatusEmailTemplatesApi: RmaStatusEmailTemplatesApi;
+    readonly RmaStatusesApi: RmaStatusesApi;
+    readonly RmaStatusNotificationsApi: RmaStatusNotificationsApi;
+    readonly SalesQuotasApi: SalesQuotasApi;
+    readonly SalesTeamMembersApi: SalesTeamMembersApi;
+    readonly SalesTeamsApi: SalesTeamsApi;
+    readonly ScheduleColorsApi: ScheduleColorsApi;
+    readonly ScheduleDetailsApi: ScheduleDetailsApi;
+    readonly SecurityRolesApi: SecurityRolesApi;
+    readonly SecurityRoleSettingsApi: SecurityRoleSettingsApi;
+    readonly ServiceEmailTemplatesApi: ServiceEmailTemplatesApi;
+    readonly ServiceLocationsApi: ServiceLocationsApi;
+    readonly ServicesApi: ServicesApi;
+    readonly ServiceSignoffsApi: ServiceSignoffsApi;
+    readonly ServiceSurveyQuestionsApi: ServiceSurveyQuestionsApi;
+    readonly ServiceSurveysApi: ServiceSurveysApi;
+    readonly ServiceTeamsApi: ServiceTeamsApi;
+    readonly ServiceTemplatesApi: ServiceTemplatesApi;
+    readonly SetupScreensApi: SetupScreensApi;
+    readonly SeveritiesApi: SeveritiesApi;
+    readonly SLAPrioritiesApi: SLAPrioritiesApi;
+    readonly SLAsApi: SLAsApi;
+    readonly StatesApi: StatesApi;
+    readonly StatusExternalIntegrationReferencesApi: StatusExternalIntegrationReferencesApi;
+    readonly SurveyOptionsApi: SurveyOptionsApi;
+    readonly SurveyQuestionValuesApi: SurveyQuestionValuesApi;
+    readonly SystemTracksApi: SystemTracksApi;
+    readonly TaxCodeExpenseTypeExemptionsApi: TaxCodeExpenseTypeExemptionsApi;
+    readonly TaxCodeProductTypeExemptionsApi: TaxCodeProductTypeExemptionsApi;
+    readonly TaxCodeWorkRoleExemptionsApi: TaxCodeWorkRoleExemptionsApi;
+    readonly TaxIntegrationsApi: TaxIntegrationsApi;
+    readonly TeamMembersApi: TeamMembersApi;
+    readonly TicketSyncsApi: TicketSyncsApi;
+    readonly TimeAccrualDetailsApi: TimeAccrualDetailsApi;
+    readonly TimeAccrualsApi: TimeAccrualsApi;
+    readonly TimeExpensesApi: TimeExpensesApi;
+    readonly TimePeriodsApi: TimePeriodsApi;
+    readonly TimePeriodSetupsApi: TimePeriodSetupsApi;
+    readonly TimeSheetsApi: TimeSheetsApi;
+    readonly TimeZonesApi: TimeZonesApi;
+    readonly TimeZoneSetupsApi: TimeZoneSetupsApi;
+    readonly TrackActionsApi: TrackActionsApi;
+    readonly WarehouseBinsApi: WarehouseBinsApi;
+    readonly WarehousesApi: WarehousesApi;
+    readonly WorkflowActionAutomateParametersApi: WorkflowActionAutomateParametersApi;
+    readonly WorkflowActionsApi: WorkflowActionsApi;
+    readonly WorkflowEventsApi: WorkflowEventsApi;
+    readonly WorkflowNotifyTypesApi: WorkflowNotifyTypesApi;
+    readonly WorkflowsApi: WorkflowsApi;
+    readonly WorkflowTableTypesApi: WorkflowTableTypesApi;
+    readonly WorkflowTriggerOptionsApi: WorkflowTriggerOptionsApi;
+    readonly WorkflowTriggersApi: WorkflowTriggersApi;
+    readonly WorkRoleLocationsApi: WorkRoleLocationsApi;
+    readonly WorkRolesApi: WorkRolesApi;
+    readonly WorkTypeExternalIntegrationReferencesApi: WorkTypeExternalIntegrationReferencesApi;
+    readonly WorkTypesApi: WorkTypesApi;
     readonly AccountingBatchesApi: AccountingBatchesApi;
     readonly AccountingUnpostedExpensesApi: AccountingUnpostedExpensesApi;
     readonly AccountingUnpostedProcurementsApi: AccountingUnpostedProcurementsApi;
@@ -16528,7 +31651,6 @@ export class Connectwise {
     readonly BoardItemsApi: BoardItemsApi;
     readonly BoardStatusesApi: BoardStatusesApi;
     readonly BoardSubTypesApi: BoardSubTypesApi;
-    readonly BoardSubtypeAssociationsApi: BoardSubtypeAssociationsApi;
     readonly BoardTeamsApi: BoardTeamsApi;
     readonly BoardTypesApi: BoardTypesApi;
     readonly BoardsApi: BoardsApi;
