@@ -875,7 +875,7 @@ export class Connectwise {
 		this.OpportunityRatingsApi = new OpportunityRatingsApi(`https://${host}/v4_6_release/apis/3.0`);
 		this.OpportunityContactsApi = new OpportunityContactsApi(`https://${host}/v4_6_release/apis/3.0`);
 		this.OpportunityStatusesApi = new OpportunityStatusesApi(`https://${host}/v4_6_release/apis/3.0`);
-		this.OpportunityStagesApi = new OpportunityStagesApi(`https://${host}/v4_6_release/3.0`);
+		this.OpportunityStagesApi = new OpportunityStagesApi(`https://${host}/v4_6_release/apis/3.0`);
 		this.OpportunityForecastsApi = new OpportunityForecastsApi(`https://${host}/v4_6_release/apis/3.0`);
 		this.OwnershipTypesApi = new OwnershipTypesApi(`https://${host}/v4_6_release/apis/3.0`);
 		this.PricingBreaksApi = new PricingBreaksApi(`https://${host}/v4_6_release/apis/3.0`);
